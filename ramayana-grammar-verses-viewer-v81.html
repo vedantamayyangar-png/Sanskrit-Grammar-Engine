@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="sa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>रामायणम् — व्याकरणविश्लेषणसहितम् (Shell)</title>
+<style>
+  :root{
+    --bg: #fbf6ec;
+    --panel: #fffdf8;
+    --ink: #2b1d0e;
+    --maroon: #7a1f1f;
+    --maroon-dark: #5a1414;
+    --gold: #b8860b;
+    --gold-soft: #e8c988;
+    --line: #e2d3ad;
+    --muted: #7a6a4d;
+    --accent-bg: #f4e9cf;
+    --shadow: 0 2px 10px rgba(90,20,20,0.08);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;overflow-x:hidden;}
+  body{
+    background: var(--bg);
+    background-image: radial-gradient(circle at 10% 10%, #f6ecd6 0, transparent 40%),
+                       radial-gradient(circle at 90% 90%, #f6ecd6 0, transparent 40%);
+    color: var(--ink);
+    font-family: "Noto Serif Devanagari","Tiro Devanagari Sanskrit","Palatino Linotype",Georgia,serif;
+    overflow-wrap: anywhere;
+    line-height: 1.6;
+  }
+  header{
+    background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
+    color: #fbe9c6;
+    padding: 18px 16px 14px;
+    text-align:center;
+    box-shadow: var(--shadow);
+    position: relative;
+  }
+  header h1{
+    margin:0; font-size: 1.9rem; letter-spacing:0.5px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  }
+  header .sub{
+    font-size:0.95rem; color:var(--gold-soft); margin-top:4px; font-family: Georgia, serif; letter-spacing: 0.5px;
+  }
+  .ornament{ font-size:0.85rem; opacity:0.8; margin-top:6px; color:#e8d3a0;}
+
+  .nav-bar{
+    display:flex; flex-wrap:wrap; gap:10px; justify-content:center; align-items:center;
+    background: var(--accent-bg);
+    padding:10px 12px;
+    border-bottom: 1px solid var(--line);
+    position: sticky; top:0; z-index: 20;
+  }
+  .nav-bar button, .nav-bar select{
+    font-family:inherit;
+    background: var(--panel);
+    border:1px solid var(--gold-soft);
+    color: var(--maroon-dark);
+    padding:6px 12px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:0.95rem;
+  }
+  .nav-bar button:hover{ background: var(--gold-soft); }
+  .nav-bar button:disabled{ opacity:0.4; cursor:not-allowed; }
+  .nav-bar select{min-width:110px;}
+  .nav-bar .counter{ color:var(--muted); font-size:0.85rem; }
+  .lang-toggle-wrap{ display:inline-flex; gap:4px; margin-left:8px; border-left:1px solid var(--gold-soft); padding-left:10px;}
+  .lang-btn{
+    font-family:inherit; font-size:0.85rem; background:var(--panel); border:1px solid var(--gold-soft);
+    color:var(--maroon-dark); padding:5px 10px; border-radius:14px; cursor:pointer;
+  }
+  .lang-btn.active{ background: var(--gold); color:#3a2400; border-color:var(--gold); font-weight:bold; }
+
+  main{ max-width: 960px; margin: 0 auto; padding: 18px 14px 60px; }
+
+  .verse-card{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 20px 18px;
+    margin-bottom: 20px;
+  }
+  .verse-num-badge{
+    display:inline-block; background: var(--maroon); color:#fce8bd;
+    padding:2px 12px; border-radius:20px; font-size:0.85rem; margin-bottom:10px;
+  }
+  .moola{
+    font-size: 1.35rem; text-align:center; color: var(--maroon-dark);
+    margin: 10px 0 4px;
+  }
+  .moola div{ margin:3px 0; }
+  .iast{
+    text-align:center; color: var(--muted); font-style: italic; font-size:0.95rem;
+    font-family: Georgia, serif; margin-bottom:6px;
+  }
+
+  .tabs{
+    display:flex; flex-wrap:wrap; gap:6px; margin-top:18px; border-bottom: 2px solid var(--gold-soft); padding-bottom:8px;
+    overflow-x: auto;
+  }
+  .tab-btn{
+    font-family:inherit; font-size:0.85rem; background:var(--accent-bg); border:1px solid var(--gold-soft);
+    color:var(--maroon-dark); padding:5px 10px; border-radius:16px; cursor:pointer;
+    white-space: nowrap;
+  }
+  .tab-btn.active{ background: var(--maroon); color:#fce8bd; border-color:var(--maroon); }
+  .tab-panel{ display:none; padding-top:14px; animation: fadeIn 0.2s ease-in; }
+  .tab-panel.active{ display:block; }
+  @keyframes fadeIn{ from{opacity:0;} to{opacity:1;} }
+
+  .section-title{ color:var(--maroon-dark); font-size:1.1rem; margin: 4px 0 10px; border-bottom:1px solid var(--line); padding-bottom:4px;}
+  
+  /* COMPONENT 1: पदच्छेदः — hover-term ("underlined-term") gloss pattern */
+  .padaccheda-row{ display:flex; flex-wrap:wrap; gap:10px; }
+  .padaccheda-item{
+    background: var(--accent-bg); padding:4px 10px; border-radius:6px; font-size:1.05rem;
+    border:1px solid var(--line);
+  }
+  .hover-term{
+    border-bottom: 1px dotted var(--gold);
+    cursor: help;
+    position: relative;
+    display: inline-block;
+    color: inherit;
+    text-decoration: none;
+  }
+  .hover-term .tooltip-box{
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--maroon-dark);
+    color: var(--gold-soft);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    line-height: 1.55;
+    white-space: normal;
+    min-width: 190px;
+    max-width: 270px;
+    z-index: 30;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    transition: opacity 0.15s ease;
+    pointer-events: none;
+    text-align: left;
+  }
+  .hover-term .tooltip-box b{ color: var(--gold); }
+  /* keyboard accessibility: :focus fires the same as :hover */
+  .hover-term:hover .tooltip-box,
+  .hover-term:focus .tooltip-box{
+    visibility: visible;
+    opacity: 1;
+  }
+  .hover-hint{ font-size:0.82rem; color:var(--muted); margin-top:10px; }
+
+  /* COMPONENT 2: अन्वयः */
+  .anvaya-box{ background:#fdf9ef; padding:10px 12px; border-radius:6px; font-size:1.05rem; border:1px solid var(--line); }
+  .saralartha-box{
+    margin-top:14px; padding:12px 14px; background: var(--accent-bg);
+    border-left: 4px solid var(--gold);
+    border-radius: 6px; font-size:1rem;
+  }
+  .saralartha-box .label{ font-weight:bold; color:var(--maroon-dark); margin-bottom:4px; display:block;}
+
+  /* COMPONENT 3: पद-विग्रहः */
+  .word-card{
+    border:1px solid var(--line); border-radius:8px; padding:10px 12px; margin-bottom:10px; background:#fffef9;
+  }
+  .word-card .w{ font-size:1.15rem; color:var(--maroon-dark); font-weight:bold; }
+  .word-card .field{ margin-top:4px; font-size:0.92rem; }
+  .word-card .field b{ color:var(--muted); font-weight:600; }
+
+  /* COMPONENT 4: कारकः */
+  .karaka-grid{ display:grid; grid-template-columns: 1fr; gap:8px; }
+  .karaka-grid .k-item{ background:#fdf9ef; border:1px solid var(--line); border-radius:6px; padding:8px 10px; font-size:0.95rem;}
+  .karaka-grid .k-item b{ color:var(--maroon-dark);}
+
+  /* COMPONENTS 5 & 6: शब्दरूपाणि & धातुरूपाणि */
+  table.decl-table{ width:100%; border-collapse:collapse; margin-bottom:6px; font-size:0.95rem; }
+  table.decl-table th, table.decl-table td{ border:1px solid var(--line); padding:6px 8px; text-align:center; }
+  table.decl-table th{ background: var(--accent-bg); color:var(--maroon-dark); }
+  .group-title{ font-weight:bold; margin: 14px 0 4px; color:var(--maroon-dark); }
+  .group-note{ font-size:0.85rem; color:var(--muted); margin-bottom:6px; }
+
+  /* COMPONENT 7: प्रत्ययाः */
+  .pratyaya-item{
+    background:#fdf9ef; border:1px solid var(--line); border-radius:6px; padding:10px 12px; margin-bottom:10px; font-size:0.95rem;
+  }
+  .pratyaya-item .word{ color:var(--maroon-dark); font-weight:bold; margin-bottom:4px; display:block;}
+
+  /* COMPONENT 8: सन्धिः */
+  .sandhi-item{
+    background:#fdf9ef; border:1px solid var(--line); border-radius:6px; padding:10px 12px; margin-bottom:10px; font-size:0.95rem;
+  }
+  .sandhi-item .loc{ color:var(--maroon-dark); font-weight:bold; margin-bottom:4px; display:block;}
+
+  /* COMPONENT 9: समासः */
+  .samasa-item{
+    background:#fdf9ef; border:1px solid var(--line); border-radius:6px; padding:10px 12px; margin-bottom:10px; font-size:0.95rem;
+  }
+  .samasa-item .comp{ color:var(--maroon-dark); font-weight:bold; margin-bottom:4px; display:block;}
+
+  /* COMPONENT 10: छन्दस्/अलङ्कारः */
+  .scansion-row{ display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; padding:6px 0; border-bottom:1px dashed var(--line);}
+  .scansion-row .p{ flex:2; min-width:180px; }
+  .scansion-row .m{ flex:1; min-width:120px; color:var(--maroon); letter-spacing:2px;}
+  .scansion-row .n{ flex:2; min-width:200px; color:var(--muted); font-size:0.85rem;}
+  .alankara-item{ margin-bottom:10px; }
+  .alankara-item .name{ font-weight:bold; color:var(--maroon-dark); }
+
+  /* COMPONENT 11: प्रश्नोत्तरी (Quiz) — auto-generated from the grammar corpus, not hand-authored */
+  .quiz-intro{ text-align:center; padding:20px 10px; }
+  .quiz-intro p{ color:var(--muted); margin:8px 0 18px; font-size:0.95rem; }
+  .quiz-start-btn{
+    font-family:inherit; font-size:1rem; background:var(--maroon); color:#fce8bd;
+    border:none; padding:10px 28px; border-radius:24px; cursor:pointer;
+  }
+  .quiz-start-btn:hover{ background:var(--maroon-dark); }
+  .quiz-progress{
+    display:flex; justify-content:space-between; align-items:center;
+    margin-bottom:14px; font-size:0.85rem; color:var(--muted);
+  }
+  .quiz-progress-bar{
+    flex:1; height:6px; background:var(--accent-bg); border-radius:3px; margin:0 12px;
+    overflow:hidden; border:1px solid var(--line);
+  }
+  .quiz-progress-fill{ height:100%; background:var(--gold); transition:width 0.25s ease; }
+  .quiz-question-box{
+    background:#fffef9; border:1px solid var(--line); border-radius:10px;
+    padding:16px 18px; margin-bottom:16px;
+  }
+  .quiz-question-type{ font-size:0.78rem; color:var(--gold); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:6px; }
+  .quiz-question-text{ font-size:1.15rem; color:var(--maroon-dark); line-height:1.6; }
+  .quiz-options{ display:grid; grid-template-columns:1fr; gap:10px; }
+  .quiz-option{
+    font-family:inherit; text-align:left; font-size:1rem;
+    background:var(--panel); border:1.5px solid var(--gold-soft); border-radius:8px;
+    padding:10px 14px; cursor:pointer; transition:background 0.15s ease, border-color 0.15s ease;
+  }
+  .quiz-option:hover:not(:disabled){ background:var(--accent-bg); }
+  .quiz-option:disabled{ cursor:default; }
+  .quiz-option.correct{ background:#e3f3e1; border-color:#4a8c46; color:#2c5a29; font-weight:bold; }
+  .quiz-option.incorrect{ background:#fbe3e1; border-color:#b84a3f; color:#8a2f26; }
+  .quiz-explanation{
+    margin-top:14px; padding:10px 14px; background:var(--accent-bg);
+    border-left:4px solid var(--gold); border-radius:6px; font-size:0.9rem;
+  }
+  .quiz-next-btn{
+    font-family:inherit; font-size:0.95rem; background:var(--maroon); color:#fce8bd;
+    border:none; padding:8px 20px; border-radius:20px; cursor:pointer; margin-top:14px;
+  }
+  .quiz-next-btn:hover{ background:var(--maroon-dark); }
+  .quiz-score-screen{ text-align:center; padding:24px 10px; }
+  .quiz-score-big{ font-size:2.4rem; color:var(--maroon-dark); font-weight:bold; margin:8px 0; }
+  .quiz-score-note{ color:var(--muted); font-size:0.95rem; margin-bottom:18px; }
+
+  .pending-note{
+    margin-top:16px; padding:14px; text-align:center; color:var(--muted);
+    background: repeating-linear-gradient(45deg, #f4ecd8, #f4ecd8 10px, #f1e6ce 10px, #f1e6ce 20px);
+    border-radius:8px; border:1px dashed var(--gold-soft); font-size:0.95rem;
+  }
+
+  footer{ text-align:center; padding:20px 12px; color:var(--muted); font-size:0.8rem; }
+
+  /* ===== Upload screen (shell-only) ===== */
+  .upload-screen{
+    display:flex; justify-content:center; align-items:flex-start;
+    padding: 30px 14px 60px; min-height: 60vh;
+  }
+  .upload-card{
+    background: var(--panel); border:1px solid var(--line); border-radius:14px;
+    box-shadow: var(--shadow); padding: 26px 24px; max-width: 640px; width:100%;
+  }
+  .upload-title{ font-size:1.3rem; color:var(--maroon-dark); text-align:center; margin-bottom:6px; }
+  .upload-sub{ font-size:0.9rem; color:var(--muted); text-align:center; margin-bottom:18px; font-family:Georgia,serif; }
+  .drop-zone{
+    border:2px dashed var(--gold-soft); border-radius:10px; padding:34px 16px;
+    text-align:center; cursor:pointer; background:var(--accent-bg);
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .drop-zone:hover, .drop-zone.drag-over{ background:#f0e2ba; border-color:var(--gold); }
+  .drop-zone-icon{ font-size:2.2rem; margin-bottom:8px; }
+  .drop-zone-text{ font-size:1rem; color:var(--maroon-dark); line-height:1.6; }
+  .drop-zone-sub{ font-size:0.82rem; color:var(--muted); font-family:Georgia,serif; }
+  .upload-error{
+    margin-top:14px; padding:10px 14px; background:#fbe3e1; border:1px solid #b84a3f;
+    color:#8a2f26; border-radius:8px; font-size:0.88rem;
+  }
+  .format-help{ margin-top:18px; font-size:0.85rem; color:var(--muted); }
+  .format-help summary{ cursor:pointer; color:var(--maroon-dark); font-weight:bold; }
+  .format-pre{
+    margin-top:10px; padding:12px; background:#fdf9ef; border:1px solid var(--line);
+    border-radius:8px; font-size:0.78rem; overflow-x:auto; white-space:pre; line-height:1.5;
+    font-family: Consolas, Menlo, monospace; color:var(--ink);
+  }
+
+  @media (min-width: 640px){
+    .karaka-grid{ grid-template-columns: 1fr 1fr; }
+    .quiz-options{ grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>॥ श्रीरामायणम् ॥</h1>
+  <div class="sub">व्याकरणविश्लेषणसहितम्</div>
+  <div class="ornament">पदच्छेदः · अन्वयः · पद-विग्रहः · कारकः · शब्दरूपाणि · धातुरूपाणि · प्रत्ययाः · सन्धिः · समासः · छन्दस् · प्रश्नोत्तरी</div>
+</header>
+
+<div id="uploadScreen" class="upload-screen">
+  <div class="upload-card">
+    <div class="upload-title">JSON फाइलम् अपलोड कुरुत</div>
+    <div class="upload-sub">व्याकरण-दत्तांश-सञ्चिकां आरोपयत।</div>
+    <div id="dropZone" class="drop-zone">
+      <div class="drop-zone-icon">&#128193;</div>
+      <div class="drop-zone-text">अत्र सञ्चिकां आनयत अथवा नुदत<br><span class="drop-zone-sub">(दत्तांश-सञ्चिकां चिनुत)</span></div>
+      <input type="file" id="jsonFileInput" accept=".json,application/json" style="display:none;">
+    </div>
+    <div id="uploadError" class="upload-error" style="display:none;"></div>
+    <details class="format-help">
+      <summary>अपेक्षित-दत्तांश-संरचना</summary>
+      <pre class="format-pre">{
+  "schema_version": "8.1",
+  "shlokas": [
+    {
+      "shloka_metadata": {
+        "id": "1.1.1", "number": 1, "kanda": "1", "sarga": 1,
+        "devanagari": "...", "iast": "..."
+      },
+      "COMPONENT_1_padaccheda": { "padaccheda": [...] },
+      "COMPONENT_2_anvaya": { "anvaya_sa": "...", "translation_en": "..." },
+      "COMPONENT_3_padavigraha": { "pada_vigraha": [...] },
+      "COMPONENT_4_karaka": { "karaka": {...} },
+      "COMPONENT_5_shabdarupani": { "shabdarupani": {...} },
+      "COMPONENT_6_dhaturupani": { "dhaturupani": {...} },
+      "COMPONENT_7_pratyaya": { "pratyaya": [...] },
+      "COMPONENT_8_sandhi": { "sandhi": [...] },
+      "COMPONENT_9_samasa": { "samasa": [...] },
+      "COMPONENT_10_chandas": { "chandas_name": "...", "scansion": [...], "alankara": [...] }
+    }
+  ]
+}
+
+The viewer also continues to accept the older { "verses": [...] } structure.</pre>
+    </details>
+  </div>
+</div>
+
+<div id="changeFileWrap" style="display:none; text-align:center; padding:8px;">
+  <button id="changeFileBtn" class="quiz-start-btn" style="padding:6px 18px; font-size:0.85rem;">अन्यां सञ्चिकां आरोपयत</button>
+</div>
+
+<div class="nav-bar" id="navBar" style="display:none;">
+  <button id="prevBtn" title="पूर्वश्लोकः">&larr; पूर्वः</button>
+  <select id="verseSelect"></select>
+  <button id="nextBtn" title="अग्रिमश्लोकः">अग्रिमः &rarr;</button>
+  <span class="counter" id="counter"></span>
+  
+</div>
+
+<main id="mainArea" style="display:none;"></main>
+
+<footer>
+  रामायणम् — व्याकरणविश्लेषणसहितम्।
+</footer>
+
+<script type="application/json" id="paradigm-data">{
+  "A-P": {
+    "type": "gen",
+    "name_sa": "अकारान्त-पुंलिङ्गम्",
+    "desc_sa": "नियमितम् — देव/नर/लोक-वर्गीयम्"
+  },
+  "A-N": {
+    "type": "gen",
+    "name_sa": "अकारान्त-नपुंसकलिङ्गम्",
+    "desc_sa": "नियमितम् — फल-वर्गीयम्"
+  },
+  "I-P": {
+    "type": "gen",
+    "name_sa": "इकारान्त-पुंलिङ्गम्",
+    "desc_sa": "मुनि/वाल्मीकि-वर्गीयम्"
+  },
+  "VAT-P": {
+    "type": "gen",
+    "name_sa": "वतुप्-कारान्त-पुंलिङ्गम्",
+    "desc_sa": "भगवत्/श्रीमत्-वर्गीयम्, प्रथमैकवचने -वान्"
+  },
+  "MAT-P": {
+    "type": "gen",
+    "name_sa": "मतुप्-कारान्त-पुंलिङ्गम्",
+    "desc_sa": "द्युतिमत्-वर्गीयम्, प्रथमैकवचने -मान्"
+  },
+  "KIM-P": {
+    "type": "irr",
+    "table": {
+      "headers": [
+        "विभक्तिः",
+        "एकवचनम्",
+        "द्विवचनम्",
+        "बहुवचनम्"
+      ],
+      "rows": [
+        [
+          "प्रथमा",
+          "कः",
+          "कौ",
+          "के"
+        ],
+        [
+          "द्वितीया",
+          "कम्",
+          "कौ",
+          "कान्"
+        ],
+        [
+          "तृतीया",
+          "केन",
+          "काभ्याम्",
+          "कैः"
+        ],
+        [
+          "चतुर्थी",
+          "कस्मै",
+          "काभ्याम्",
+          "केभ्यः"
+        ],
+        [
+          "पञ्चमी",
+          "कस्मात्",
+          "काभ्याम्",
+          "केभ्यः"
+        ],
+        [
+          "षष्ठी",
+          "कस्य",
+          "कयोः",
+          "केषाम्"
+        ],
+        [
+          "सप्तमी",
+          "कस्मिन्",
+          "कयोः",
+          "केषु"
+        ]
+      ]
+    },
+    "name_sa": "किम्-सर्वनाम (पुंलिङ्गरूपाणि)"
+  },
+  "IDAM-P": {
+    "type": "irr",
+    "table": {
+      "headers": [
+        "विभक्तिः",
+        "एकवचनम्",
+        "द्विवचनम्",
+        "बहुवचनम्"
+      ],
+      "rows": [
+        [
+          "प्रथमा",
+          "अयम्",
+          "इमौ",
+          "इमे"
+        ],
+        [
+          "द्वितीया",
+          "इमम्",
+          "इमौ",
+          "इमान्"
+        ],
+        [
+          "तृतीया",
+          "अनेन",
+          "आभ्याम्",
+          "एभिः"
+        ],
+        [
+          "चतुर्थी",
+          "अस्मै",
+          "आभ्याम्",
+          "एभ्यः"
+        ],
+        [
+          "पञ्चमी",
+          "अस्मात्",
+          "आभ्याम्",
+          "एभ्यः"
+        ],
+        [
+          "षष्ठी",
+          "अस्य",
+          "अनयोः",
+          "एषाम्"
+        ],
+        [
+          "सप्तमी",
+          "अस्मिन्",
+          "अनयोः",
+          "एषु"
+        ]
+      ]
+    },
+    "name_sa": "इदम्-सर्वनाम (पुं/नपुं-साधारणरूपाणि)"
+  },
+  "ETAD-N": {
+    "type": "irr",
+    "table": {
+      "headers": [
+        "विभक्तिः",
+        "एकवचनम्",
+        "द्विवचनम्",
+        "बहुवचनम्"
+      ],
+      "rows": [
+        [
+          "प्रथमा",
+          "एतत्",
+          "एते",
+          "एतानि"
+        ],
+        [
+          "द्वितीया",
+          "एतत्",
+          "एते",
+          "एतानि"
+        ],
+        [
+          "तृतीया",
+          "एतेन",
+          "एताभ्याम्",
+          "एतैः"
+        ],
+        [
+          "चतुर्थी",
+          "एतस्मै",
+          "एताभ्याम्",
+          "एतेभ्यः"
+        ],
+        [
+          "पञ्चमी",
+          "एतस्मात्",
+          "एताभ्याम्",
+          "एतेभ्यः"
+        ],
+        [
+          "षष्ठी",
+          "एतस्य",
+          "एतयोः",
+          "एतेषाम्"
+        ],
+        [
+          "सप्तमी",
+          "एतस्मिन्",
+          "एतयोः",
+          "एतेषु"
+        ]
+      ]
+    },
+    "name_sa": "एतद्-सर्वनाम (नपुंसकलिङ्गम्)"
+  },
+  "ASMAD": {
+    "type": "irr",
+    "table": {
+      "headers": [
+        "विभक्तिः",
+        "एकवचनम्",
+        "द्विवचनम्",
+        "बहुवचनम्"
+      ],
+      "rows": [
+        [
+          "प्रथमा",
+          "अहम्",
+          "आवाम्",
+          "वयम्"
+        ],
+        [
+          "द्वितीया",
+          "माम् / मा",
+          "आवाम् / नौ",
+          "अस्मान् / नः"
+        ],
+        [
+          "तृतीया",
+          "मया",
+          "आवाभ्याम्",
+          "अस्माभिः"
+        ],
+        [
+          "चतुर्थी",
+          "मह्यम् / मे",
+          "आवाभ्याम् / नौ",
+          "अस्मभ्यम् / नः"
+        ],
+        [
+          "पञ्चमी",
+          "मत्",
+          "आवाभ्याम्",
+          "अस्मत्"
+        ],
+        [
+          "षष्ठी",
+          "मम / मे",
+          "आवयोः / नौ",
+          "अस्माकम् / नः"
+        ],
+        [
+          "सप्तमी",
+          "मयि",
+          "आवयोः",
+          "अस्मासु"
+        ]
+      ]
+    },
+    "name_sa": "अस्मद्-सर्वनाम (उत्तमपुरुषः)"
+  },
+  "YUSHMAD": {
+    "type": "irr",
+    "table": {
+      "headers": [
+        "विभक्तिः",
+        "एकवचनम्",
+        "द्विवचनम्",
+        "बहुवचनम्"
+      ],
+      "rows": [
+        [
+          "प्रथमा",
+          "त्वम्",
+          "युवाम्",
+          "यूयम्"
+        ],
+        [
+          "द्वितीया",
+          "त्वाम् / त्वा",
+          "युवाम् / वाम्",
+          "युष्मान् / वः"
+        ],
+        [
+          "तृतीया",
+          "त्वया",
+          "युवाभ्याम्",
+          "युष्माभिः"
+        ],
+        [
+          "चतुर्थी",
+          "तुभ्यम् / ते",
+          "युवाभ्याम् / वाम्",
+          "युष्मभ्यम् / वः"
+        ],
+        [
+          "पञ्चमी",
+          "त्वत्",
+          "युवाभ्याम्",
+          "युष्मत्"
+        ],
+        [
+          "षष्ठी",
+          "तव / ते",
+          "युवयोः / वाम्",
+          "युष्माकम् / वः"
+        ],
+        [
+          "सप्तमी",
+          "त्वयि",
+          "युवयोः",
+          "युष्मासु"
+        ]
+      ]
+    },
+    "name_sa": "युष्मद्-सर्वनाम (मध्यमपुरुषः)"
+  },
+  "VIDVAS-P": {
+    "type": "irr",
+    "table": {
+      "headers": [
+        "विभक्तिः",
+        "एकवचनम्",
+        "द्विवचनम्",
+        "बहुवचनम्"
+      ],
+      "rows": [
+        [
+          "प्रथमा",
+          "विद्वान्",
+          "विद्वांसौ",
+          "विद्वांसः"
+        ],
+        [
+          "द्वितीया",
+          "विद्वांसम्",
+          "विद्वांसौ",
+          "विदुषः"
+        ],
+        [
+          "तृतीया",
+          "विदुषा",
+          "विद्वद्भ्याम्",
+          "विद्वद्भिः"
+        ],
+        [
+          "चतुर्थी",
+          "विदुषे",
+          "विद्वद्भ्याम्",
+          "विद्वद्भ्यः"
+        ],
+        [
+          "पञ्चमी",
+          "विदुषः",
+          "विद्वद्भ्याम्",
+          "विद्वद्भ्यः"
+        ],
+        [
+          "षष्ठी",
+          "विदुषः",
+          "विदुषोः",
+          "विदुषाम्"
+        ],
+        [
+          "सप्तमी",
+          "विदुषि",
+          "विदुषोः",
+          "विद्वत्सु"
+        ]
+      ]
+    },
+    "name_sa": "विद्वस्-शब्दः (परोक्षभूतकालवाचकसक्रियाविशेषणम्, पुंलिङ्गम्)"
+  }
+}</script>
+
+<script>
+  var verses = [];
+  var current = 0;
+  var lang = 'sa';
+  
+  var tabs = [
+    {key:'padaccheda', label:'१. पद-छेदः'},
+    {key:'anvaya', label:'२. अन्वयः'},
+    {key:'padavigraha', label:'३. पद-विग्रहः'},
+    {key:'karaka', label:'४. कारकः'},
+    {key:'shabdarupani', label:'५. शब्द-रूपाणि'},
+    {key:'dhaturupani', label:'६. धातु-रूपाणि'},
+    {key:'pratyaya', label:'७. प्रत्ययाः'},
+    {key:'sandhi', label:'८. सन्धिः'},
+    {key:'samasa', label:'९. समासः'},
+    {key:'chandas', label:'१०. छन्दस्'},
+    {key:'quiz', label:'११. प्रश्नोत्तरी ✎'}
+  ];
+  var activeTab = 'padaccheda';
+
+  function escapeHtml(s){
+    if(s === undefined || s === null) return '';
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+  
+  function bi(obj, field){ return obj[field] || ''; }
+
+  /* ============================================================
+     COMPONENT 11: प्रश्नोत्तरी (Quiz)
+     Questions are GENERATED from the same grammar corpus every
+     other tab reads — never hand-authored separately. This avoids
+     the exact "two names for the same fact, drifting out of sync"
+     problem this framework's own master-prompt document warns
+     against (see: the retired grammar.saralartha duplication).
+     If the corpus grows to more verses, the quiz scales with it
+     automatically — no separate quiz-content file to maintain.
+     ============================================================ */
+  var quizQuestions = [];
+  var quizIndex = 0;
+  var quizScore = 0;
+  var quizAnswered = false;
+  var quizSelectedOption = null;
+  var CASE_LABELS = {
+    "प्रथमा": "प्रथमा",
+    "द्वितीया": "द्वितीया",
+    "तृतीया": "तृतीया",
+    "चतुर्थी": "चतुर्थी",
+    "पञ्चमी": "पञ्चमी",
+    "षष्ठी": "षष्ठी",
+    "सप्तमी": "सप्तमी"
+  };
+
+  function shuffle(arr){
+    var a = arr.slice();
+    for(var i = a.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  function sample(arr, n, exclude){
+    var pool = arr.filter(function(x){ return x !== exclude; });
+    return shuffle(pool).slice(0, n);
+  }
+
+  function buildQuestionBank(v){
+    var g = v.grammar;
+    var qs = [];
+
+    /* प्रश्नविकल्पानां क्रमः यादृच्छिकः। */
+    function shuffleOptions(optionObjs, correctObj){
+      var shuffled = shuffle(optionObjs);
+      var correctIndex = shuffled.indexOf(correctObj);
+      return {options: shuffled, correctIndex: correctIndex};
+    }
+
+    /* Type 1: शब्दार्थ — word meaning (from पदच्छेदः hover data, sa+ta both carried) */
+    g.padaccheda.filter(function(p){ return p.meaning_sa; }).forEach(function(p){
+      var correctObj = {sa: p.meaning_sa};
+      var distractorPool = g.padaccheda.filter(function(x){ return x.word !== p.word && x.meaning_sa; })
+        .map(function(x){ return {sa: x.meaning_sa}; });
+      var distractors = shuffle(distractorPool).slice(0, 3);
+      if(distractors.length < 3) return;
+      var r = shuffleOptions([correctObj].concat(distractors), correctObj);
+      qs.push({
+        type: "शब्दार्थः",
+        prompt_sa: "'" + p.word + "' इत्यस्य अर्थः कः?",
+        options: r.options, correctIndex: r.correctIndex,
+        explanation_sa: p.word + " = " + p.meaning_sa,
+      });
+    });
+
+    /* Type 2: विभक्तिः — case identification (from पद-विग्रहः, inflected words only) */
+    g.pada_vigraha.forEach(function(w){
+      if(!w.case || w.case === "—") return;
+      var correctObj = {sa: CASE_LABELS[w.case] || w.case};
+      var casePool = ['प्रथमा','द्वितीया','तृतीया','चतुर्थी','पञ्चमी','षष्ठी','सप्तमी'];
+       var distractorKeys = sample(casePool.indexOf(w.case) >= 0 ? casePool : Object.keys(CASE_LABELS), 3, w.case);
+      var distractors = distractorKeys.map(function(k){ return {sa: CASE_LABELS[k] || k}; });
+      var r = shuffleOptions([correctObj].concat(distractors), correctObj);
+      qs.push({
+        type: "विभक्तिः",
+        prompt_sa: "'" + w.word + "' इति पदं कस्यां विभक्तौ अस्ति?",
+        options: r.options, correctIndex: r.correctIndex,
+        explanation_sa: w.word + " — " + (w.morphology || [w.pos,w.gender,w.number,w.case].filter(Boolean).join(' · ')),
+      });
+    });
+
+    /* Type 3: कारकः — karta/karma identification (uses explicit word-id cross-refs, not text-parsing) */
+    function buildKarakaQuestion(wordId, promptSa){
+      var target = g.pada_vigraha.filter(function(w){ return w.id === wordId; })[0];
+      if(!target) return;
+      var correctObj = {sa: target.word}; /* words themselves don't translate */
+      var otherWords = sample(g.pada_vigraha, 3, target).map(function(w){ return {sa: w.word}; });
+      var r = shuffleOptions([correctObj].concat(otherWords), correctObj);
+      qs.push({
+        type: "कारकः",
+        prompt_sa: promptSa,
+        options: r.options, correctIndex: r.correctIndex,
+        explanation_sa: target.word + " — " + target.role
+      });
+    }
+    if(g.karaka.karta_word_id){
+      buildKarakaQuestion(g.karaka.karta_word_id,
+        "अस्मिन् श्लोके कर्ता (वाक्यस्य कर्तृपदम्) कः?");
+    }
+    if(g.karaka.karma_word_id){
+      buildKarakaQuestion(g.karaka.karma_word_id,
+        "अस्मिन् श्लोके कर्म (वाक्यस्य कर्मपदम्) किम्?");
+    }
+
+    /* प्रकारः ४ — सन्धिः */
+    if(g.sandhi && g.sandhi.length){
+      var allTypes = g.sandhi.map(function(s){ return s.sandhi_type; });
+      g.sandhi.forEach(function(s){
+        var correctObj = {sa: s.sandhi_type};
+        var distractorTexts = sample(allTypes.concat(["गुणसन्धिः","वृद्धिसन्धिः","यणादेशः"]), 3, s.sandhi_type);
+        var distractors = distractorTexts.map(function(t){ return {sa: t}; });
+        var r = shuffleOptions([correctObj].concat(distractors), correctObj);
+        qs.push({
+          type: "सन्धिः",
+          prompt_sa: "'" + s.location + " → " + s.result + "' अत्र का सन्धिः प्रवर्तते?",
+          options: r.options, correctIndex: r.correctIndex,
+          explanation_sa: s.sandhi_rule_sa,
+        });
+      });
+    }
+
+    /* Type 5: समासः — compound type (from समासः entries) */
+    if(g.samasa && g.samasa.length){
+      var allTypes = g.samasa.map(function(s){ return s.compound_type; });
+      g.samasa.forEach(function(s){
+        var correctObj = {sa: s.compound_type};
+        var distractorTexts = sample(allTypes.concat(["द्वन्द्वसमासः","बहुव्रीहिसमासः","अव्ययीभावसमासः"]), 3, s.compound_type);
+        var distractors = distractorTexts.map(function(t){ return {sa: t}; });
+        var r = shuffleOptions([correctObj].concat(distractors), correctObj);
+        qs.push({
+          type: "समासः",
+          prompt_sa: "'" + s.word + "' इति कः समासः?",
+          options: r.options, correctIndex: r.correctIndex,
+          explanation_sa: s.vigraha_sa,
+        });
+      });
+    }
+
+    /* Type 6: छन्दः — meter (one question per verse) */
+    if(g.chandas_name){
+      var correctObj = {sa: g.chandas_name};
+      var meterDistractorTexts = sample(["इन्द्रवज्रा","वसन्ततिलका","शार्दूलविक्रीडितम्","उपजातिः"], 3, g.chandas_name);
+      var meterDistractors = meterDistractorTexts.map(function(t){ return {sa: t}; });
+      var r = shuffleOptions([correctObj].concat(meterDistractors), correctObj);
+      qs.push({
+        type: "छन्दः",
+        prompt_sa: "अस्य श्लोकस्य छन्दः किम्?",
+        options: r.options, correctIndex: r.correctIndex,
+        explanation_sa: g.chandas_definition,
+      });
+    }
+
+    return shuffle(qs);
+  }
+
+  function startQuiz(){
+    quizQuestions = buildQuestionBank(verses[current]).slice(0, 8);
+    quizIndex = 0;
+    quizScore = 0;
+    quizAnswered = false;
+    quizSelectedOption = null;
+    render();
+  }
+
+  function selectQuizOption(optionIndex){
+    if(quizAnswered) return;
+    quizAnswered = true;
+    quizSelectedOption = optionIndex;
+    if(optionIndex === quizQuestions[quizIndex].correctIndex) quizScore++;
+    render();
+  }
+
+  function nextQuizQuestion(){
+    quizIndex++;
+    quizAnswered = false;
+    quizSelectedOption = null;
+    render();
+  }
+
+  function restartQuiz(){
+    quizQuestions = [];
+    quizIndex = 0;
+    quizScore = 0;
+    quizAnswered = false;
+    quizSelectedOption = null;
+    render();
+  }
+
+  function renderQuizTab(){
+    if(quizQuestions.length === 0){
+      return '<div class="quiz-intro">'
+        + '<div class="section-title" style="text-align:center; border:none;">प्रश्नोत्तरी — इदं श्लोकं परीक्षध्वम्</div>'
+        + '<p>प्रश्नाः अस्य श्लोकस्य व्याकरण-दत्तांशेभ्यः स्वयमेव निर्मीयन्ते।</p>'
+        + '<button class="quiz-start-btn" onclick="startQuiz()">प्रश्नोत्तरी आरभत</button>'
+        + '</div>';
+    }
+    if(quizIndex >= quizQuestions.length){
+      var pct = Math.round((quizScore / quizQuestions.length) * 100);
+      return '<div class="quiz-score-screen">'
+        + '<div class="section-title" style="text-align:center; border:none;">परिणामः</div>'
+        + '<div class="quiz-score-big">' + quizScore + ' / ' + quizQuestions.length + '</div>'
+        + '<div class="quiz-score-note">' + pct + '% सम्यक् उत्तराणि</div>'
+        + '<button class="quiz-start-btn" onclick="restartQuiz()">पुनः आरभत</button>'
+        + '</div>';
+    }
+    var q = quizQuestions[quizIndex];
+    var pctDone = Math.round((quizIndex / quizQuestions.length) * 100);
+    var html = '<div class="quiz-progress">'
+      + '<span>प्रश्नः ' + (quizIndex + 1) + ' / ' + quizQuestions.length + '</span>'
+      + '<span class="quiz-progress-bar"><span class="quiz-progress-fill" style="width:' + pctDone + '%;"></span></span>'
+      + '<span>अङ्काः: ' + quizScore + '</span>'
+      + '</div>';
+    html += '<div class="quiz-question-box">'
+      + '<div class="quiz-question-type">' + escapeHtml(q.type) + '</div>'
+      + '<div class="quiz-question-text">' + escapeHtml(q.prompt_sa) + '</div>'
+      + '</div>';
+    html += '<div class="quiz-options">';
+    q.options.forEach(function(opt, optIdx){
+      var cls = 'quiz-option';
+      var disabled = '';
+      if(quizAnswered){
+        disabled = 'disabled';
+        if(optIdx === q.correctIndex) cls += ' correct';
+        else if(optIdx === quizSelectedOption) cls += ' incorrect';
+      }
+      var optText = opt.sa;
+      html += '<button class="' + cls + '" ' + disabled + ' onclick="selectQuizOption(' + optIdx + ')">' + escapeHtml(optText) + '</button>';
+    });
+    html += '</div>';
+    if(quizAnswered){
+      html += '<div class="quiz-explanation">' + escapeHtml(q.explanation_sa) + '</div>';
+      html += '<button class="quiz-next-btn" onclick="nextQuizQuestion()">'
+        + (quizIndex + 1 < quizQuestions.length ? 'अग्रिमः प्रश्नः' : 'परिणामं पश्यत')
+        + '</button>';
+    }
+    return html;
+  }
+
+  function resetQuizState(){
+    quizQuestions = []; quizIndex = 0; quizScore = 0; quizAnswered = false; quizSelectedOption = null;
+  }
+
+  function buildSelect(){
+    var sel = document.getElementById('verseSelect');
+    sel.innerHTML = '';
+    verses.forEach(function(v, i){
+      var opt = document.createElement('option');
+      opt.value = i;
+      opt.textContent = 'श्लोकः ' + v.number + (v.grammar ? ' ✓' : '');
+      sel.appendChild(opt);
+    });
+    sel.addEventListener('change', function(){
+      current = parseInt(sel.value, 10);
+      resetQuizState();
+      render();
+    });
+  }
+
+  function renderTable(tbl, hl){
+    /* hl: optional {row: 0-based row index, col: 1|2|3 (matches array index within each row)} to highlight */
+    var html = '<table class="decl-table"><thead><tr>';
+    tbl.headers.forEach(function(h){ html += '<th>'+escapeHtml(h)+'</th>'; });
+    html += '</tr></thead><tbody>';
+    tbl.rows.forEach(function(r, ri){
+      html += '<tr>';
+      r.forEach(function(c, ci){
+        var isHl = hl && ri === hl.row && ci === hl.col;
+        var style = isHl ? ' style="background:#fff3b0;font-weight:700;border:2px solid #d4a017;"' : '';
+        html += '<td'+style+'>'+escapeHtml(c)+'</td>';
+      });
+      html += '</tr>';
+    });
+    html += '</tbody></table>';
+    return html;
+  }
+
+  /* ===== Paradigm engine: generative declension paradigms + natva sandhi ===== */
+  var PARADIGM_LIB = JSON.parse(document.getElementById('paradigm-data').textContent);
+
+  var NATVA_TRANSPARENT = "अआइईउऊऋॠऌएऐओऔािीुूृॄॢेैोौंकखगघङपफबभम";
+  var NATVA_TRIGGERS = "रऋॠष";
+  function applyNatva(word){
+    var out = '', active = false;
+    for(var i=0;i<word.length;i++){
+      var ch = word[i];
+      if(ch === 'न'){ out += active ? 'ण' : 'न'; active = false; continue; }
+      out += ch;
+      if(NATVA_TRIGGERS.indexOf(ch) !== -1) active = true;
+      else if(NATVA_TRANSPARENT.indexOf(ch) !== -1) { /* stays */ }
+      else active = false;
+    }
+    return out;
+  }
+  function natvaTable(tbl){
+    return { headers: tbl.headers, rows: tbl.rows.map(function(row){
+      return [row[0]].concat(row.slice(1).map(applyNatva));
+    })};
+  }
+  var HEAD4 = ["विभक्तिः","एकवचनम्","द्विवचनम्","बहुवचनम्"];
+  function genAMasc(stem){
+    return { headers: HEAD4, rows: [
+      ["प्रथमा", stem+"ः", stem+"ौ", stem+"ाः"],
+      ["द्वितीया", stem+"म्", stem+"ौ", stem+"ान्"],
+      ["तृतीया", stem+"ेन", stem+"ाभ्याम्", stem+"ैः"],
+      ["चतुर्थी", stem+"ाय", stem+"ाभ्याम्", stem+"ेभ्यः"],
+      ["पञ्चमी", stem+"ात्", stem+"ाभ्याम्", stem+"ेभ्यः"],
+      ["षष्ठी", stem+"स्य", stem+"योः", stem+"ानाम्"],
+      ["सप्तमी", stem+"े", stem+"योः", stem+"ेषु"],
+      ["सम्बोधन", stem, stem+"ौ", stem+"ाः"],
+    ]};
+  }
+  function genANeut(stem){
+    var nomacc = [stem+"म्", stem+"े", stem+"ानि"];
+    return { headers: HEAD4, rows: [
+      ["प्रथमा"].concat(nomacc),
+      ["द्वितीया"].concat(nomacc),
+      ["तृतीया", stem+"ेन", stem+"ाभ्याम्", stem+"ैः"],
+      ["चतुर्थी", stem+"ाय", stem+"ाभ्याम्", stem+"ेभ्यः"],
+      ["पञ्चमी", stem+"ात्", stem+"ाभ्याम्", stem+"ेभ्यः"],
+      ["षष्ठी", stem+"स्य", stem+"योः", stem+"ानाम्"],
+      ["सप्तमी", stem+"े", stem+"योः", stem+"ेषु"],
+      ["सम्बोधन"].concat(nomacc),
+    ]};
+  }
+  function genIMasc(stem){
+    var base = stem.slice(-1) === 'ि' ? stem.slice(0,-1) : stem;
+    return { headers: HEAD4, rows: [
+      ["प्रथमा", base+"िः", base+"ी", base+"यः"],
+      ["द्वितीया", base+"िम्", base+"ी", base+"ीन्"],
+      ["तृतीया", base+"िना", base+"िभ्याम्", base+"िभिः"],
+      ["चतुर्थी", base+"ये", base+"िभ्याम्", base+"िभ्यः"],
+      ["पञ्चमी", base+"ेः", base+"िभ्याम्", base+"िभ्यः"],
+      ["षष्ठी", base+"ेः", base+"्योः", base+"ीनाम्"],
+      ["सप्तमी", base+"ौ", base+"्योः", base+"िषु"],
+      ["सम्बोधन", base+"े", base+"ी", base+"यः"],
+    ]};
+  }
+  function genVatMasc(base){
+    return { headers: HEAD4, rows: [
+      ["प्रथमा", base+"वान्", base+"वन्तौ", base+"वन्तः"],
+      ["द्वितीया", base+"वन्तम्", base+"वन्तौ", base+"वतः"],
+      ["तृतीया", base+"वता", base+"वद्भ्याम्", base+"वद्भिः"],
+      ["चतुर्थी", base+"वते", base+"वद्भ्याम्", base+"वद्भ्यः"],
+      ["पञ्चमी", base+"वतः", base+"वद्भ्याम्", base+"वद्भ्यः"],
+      ["षष्ठी", base+"वतः", base+"वतोः", base+"वताम्"],
+      ["सप्तमी", base+"वति", base+"वतोः", base+"वत्सु"],
+      ["सम्बोधन", base+"वन्", base+"वन्तौ", base+"वन्तः"],
+    ]};
+  }
+  function genMatMasc(base){
+    return { headers: HEAD4, rows: [
+      ["प्रथमा", base+"मान्", base+"मन्तौ", base+"मन्तः"],
+      ["द्वितीया", base+"मन्तम्", base+"मन्तौ", base+"मतः"],
+      ["तृतीया", base+"मता", base+"मद्भ्याम्", base+"मद्भिः"],
+      ["चतुर्थी", base+"मते", base+"मद्भ्याम्", base+"मद्भ्यः"],
+      ["पञ्चमी", base+"मतः", base+"मद्भ्याम्", base+"मद्भ्यः"],
+      ["षष्ठी", base+"मतः", base+"मतोः", base+"मताम्"],
+      ["सप्तमी", base+"मति", base+"मतोः", base+"मत्सु"],
+      ["सम्बोधन", base+"मन्", base+"मन्तौ", base+"मन्तः"],
+    ]};
+  }
+  var GEN_FN = {'A-P':genAMasc, 'A-N':genANeut, 'I-P':genIMasc, 'VAT-P':genVatMasc, 'MAT-P':genMatMasc};
+  function generateDeclension(code, stem){
+    var p = PARADIGM_LIB[code];
+    if(!p) return null;
+    if(p.type === 'irr') return p.table;
+    var fn = GEN_FN[code];
+    return fn ? natvaTable(fn(stem)) : null;
+  }
+  function parseCell(cellStr){
+    /* "V-N" -> {row: V-1, col: N} */
+    if(!cellStr) return null;
+    var parts = cellStr.split('-');
+    return { row: parseInt(parts[0],10)-1, col: parseInt(parts[1],10) };
+  }
+
+  function renderTabContent(key, g){
+    /* ========== COMPONENT 1: पदच्छेदः ========== */
+    if(key === 'padaccheda'){
+      var row = '<div class="section-title">पदच्छेदः — शब्दशः विभाजनम्</div><div class="padaccheda-row">';
+      g.padaccheda.forEach(function(p){
+        row += '<span class="padaccheda-item hover-term" tabindex="0">'+escapeHtml(p.word)
+          + '<span class="tooltip-box">'
+          +   '<b>अर्थः:</b> '+escapeHtml(p.meaning_sa)
+          + '</span></span>';
+      });
+      row += '</div>';
+      row += '<div class="hover-hint">शब्दोपरि सूचकं स्थापयत अथवा कुञ्जिकया गच्छत — संस्कृतार्थः दृश्यते।</div>';
+      return row;
+    }
+
+    /* ========== COMPONENT 2: अन्वयः ========== */
+    if(key === 'anvaya'){
+      var anvaya_shown = g.anvaya_sa || '';
+      var html = '<div class="section-title">अन्वयः — गद्यक्रमः</div><div class="anvaya-box">'+escapeHtml(anvaya_shown || '')+'</div>';
+      if(g.translation_en){
+        html += '<div class="section-title" style="margin-top:14px;">आङ्ग्लानुवादः</div><div class="anvaya-box">'+escapeHtml(g.translation_en)+'</div>';
+      } else if(g.saralartha_sa){
+        var shown = g.saralartha_sa;
+        html += '<div class="section-title" style="margin-top:14px;">सरलार्थः</div><div class="anvaya-box">'+escapeHtml(shown || '')+'</div>';
+      }
+      return html;
+    }
+
+    /* ========== COMPONENT 3: पद-विग्रहः ========== */
+    if(key === 'padavigraha'){
+      var html = '<div class="section-title">पद-विग्रहः एवं व्याकरण-विशेषः</div>';
+      g.pada_vigraha.forEach(function(w){
+        html += '<div class="word-card"><div class="w">'+escapeHtml(w.word)+'</div>';
+        if(w.meaning) html += '<div class="field"><b>अर्थः:</b> '+escapeHtml(bi(w,'meaning'))+'</div>';
+        if(w.etymology) html += '<div class="field"><b>निर्वचनम्:</b> '+escapeHtml(bi(w,'etymology'))+'</div>';
+        if(w.pos) html += '<div class="field"><b>पदप्रकारः:</b> '+escapeHtml(w.pos)+'</div>';
+        if(w.gender && w.gender !== '—') html += '<div class="field"><b>लिङ्गम्:</b> '+escapeHtml(w.gender)+'</div>';
+        if(w.number && w.number !== '—') html += '<div class="field"><b>वचनम्:</b> '+escapeHtml(w.number)+'</div>';
+        if(w.case && w.case !== '—') html += '<div class="field"><b>विभक्तिः:</b> '+escapeHtml(w.case)+'</div>';
+        if(w.role) html += '<div class="field"><b>वाक्ये कार्यम्:</b> '+escapeHtml(bi(w,'role'))+'</div>';
+        html += '</div>';
+      });
+      return html;
+    }
+
+    /* ========== COMPONENT 4: कारकः ========== */
+    if(key === 'karaka'){
+      var k = g.karaka;
+      var html = '<div class="section-title">कारकः एवं क्रिया-सम्बन्धः</div><div class="karaka-grid">';
+      if(k.karta) html += '<div class="k-item"><b>कर्ता:</b> '+escapeHtml(bi(k,'karta'))+'</div>';
+      if(k.karma) html += '<div class="k-item"><b>कर्म:</b> '+escapeHtml(bi(k,'karma'))+'</div>';
+      if(k.karana) html += '<div class="k-item"><b>करणम्:</b> '+escapeHtml(bi(k,'karana'))+'</div>';
+      if(k.adhikarana) html += '<div class="k-item"><b>अधिकरणम्:</b> '+escapeHtml(bi(k,'adhikarana'))+'</div>';
+      if(k.sambandha) html += '<div class="k-item"><b>संबन्धः:</b> '+escapeHtml(bi(k,'sambandha'))+'</div>';
+      html += '</div>';
+      return html;
+    }
+
+    /* ========== COMPONENT 5: शब्दरूपाणि ========== */
+    if(key === 'shabdarupani'){
+      var sr = g.shabdarupani;
+      var html = '<div class="section-title">शब्दरूपाणि — नामपद-रूपाणि</div>';
+      if(sr.coverage_note){
+        html += '<div class="group-note" style="margin-bottom:12px;">'+escapeHtml(sr.coverage_note)+'</div>';
+      }
+      Object.keys(sr).forEach(function(stemKey){
+        if(stemKey === 'coverage_note' || stemKey === 'stem_count') return;
+        var s = sr[stemKey];
+        html += '<div class="group-title" style="margin-top:16px;">'+escapeHtml(s.lemma || stemKey)+(s.gender ? ' — '+escapeHtml(s.gender) : '')+'</div>';
+        if(s.word_in_verse || s.grammar_note){
+          html += '<div class="group-note">श्लोके प्रयुक्तरूपम्: <b>'+escapeHtml(s.word_in_verse || '')+'</b> '+escapeHtml(bi(s,'grammar_note') || '')+'</div>';
+        }
+        if(s.paradigm){
+          /* compact reference form: generate the table from the shared paradigm library */
+          var pinfo = PARADIGM_LIB[s.paradigm];
+          var tbl = generateDeclension(s.paradigm, s.stem);
+          if(pinfo){
+            html += '<div class="group-note" style="font-size:0.9em;opacity:0.8;">प्रकारः: <b>'+escapeHtml(s.paradigm)+'</b> — '+escapeHtml(bi(pinfo,'name'))+'</div>';
+          }
+          if(tbl){
+            var hl = Array.isArray(s.cell) ? s.cell.map(parseCell) : [parseCell(s.cell)];
+            /* renderTable only highlights one cell at a time; if multiple occurrences, highlight the first and note the rest */
+            html += renderTable(tbl, hl[0]);
+            if(hl.length > 1){
+              html += '<div class="group-note" style="font-size:0.85em;">(इस श्लोक में यह शब्द एकाधिक रूपों में प्रयुक्तः — cells: '+escapeHtml(s.cell.join(', '))+')</div>';
+            }
+          }
+        } else if(s.declension_table){
+          /* legacy full-table format (verse 1.1.1) */
+          html += renderTable(s.declension_table);
+        }
+      });
+      return html;
+    }
+
+    /* ========== COMPONENT 6: धातुरूपाणि ========== */
+    if(key === 'dhaturupani'){
+      var d = g.dhaturupani;
+      var html = '<div class="section-title">धातुरूपाणि</div>';
+      if(!d.pracch_root){
+        /* Honest empty case: this verse has no finite verb (elided अस्ति). */
+        html += '<div class="group-note">'+escapeHtml(d.coverage_note || 'अस्मिन् श्लोके क्रियापदं नास्ति।')+'</div>';
+        return html;
+      }
+      if(d.coverage_note){
+        html += '<div class="group-note" style="margin-bottom:12px;">'+escapeHtml(d.coverage_note)+'</div>';
+      }
+      html += '<div class="group-title">धातुः — '+escapeHtml(d.pracch_root)+'</div>';
+      html += '<div class="group-note">अर्थः: '+escapeHtml(bi(d,'pracch_meaning'))+'</div>';
+      html += '<div class="group-note">गणः: '+escapeHtml(bi(d,'pracch_gana'))+'</div>';
+      html += '<div class="group-note">लकारः: '+escapeHtml(bi(d,'pracch_lakara'))+'</div>';
+      html += '<div class="group-note" style="margin-top:8px; margin-bottom:10px;"><b>व्यवहृतरूपम्:</b> '+escapeHtml(bi(d,'pracch_form'))+'</div>';
+      if(d.conjugation_perfect){
+        html += '<div class="group-title">रूपावली (लकारः: '+escapeHtml(bi(d,'pracch_lakara'))+')</div>';
+        html += renderTable(d.conjugation_perfect);
+      }
+      if(d.second_root){
+        var d2 = d.second_root;
+        html += '<div class="group-title" style="margin-top:18px;">'+escapeHtml(d2.root)+'-धातुः</div>';
+        html += '<div class="group-note">अर्थः: '+escapeHtml(bi(d2,'meaning'))+'</div>';
+        html += '<div class="group-note">गणः: '+escapeHtml(bi(d2,'gana'))+'</div>';
+        html += '<div class="group-note">लकारः: '+escapeHtml(bi(d2,'lakara'))+'</div>';
+        html += '<div class="group-note" style="margin-top:8px; margin-bottom:10px;"><b>व्यवहृतरूपम्:</b> '+escapeHtml(bi(d2,'form'))+'</div>';
+        if(d2.conjugation_perfect){
+          html += '<div class="group-title">रूपावली (लकारः: '+escapeHtml(bi(d2,'lakara'))+')</div>';
+          html += renderTable(d2.conjugation_perfect);
+        }
+      }
+      return html;
+    }
+
+    /* ========== COMPONENT 7: प्रत्ययाः ========== */
+    if(key === 'pratyaya'){
+      var html = '<div class="section-title">प्रत्ययाः</div>';
+      g.pratyaya.forEach(function(p){
+        html += '<div class="pratyaya-item"><span class="word">'+escapeHtml(p.word)+'</span>'
+          + '<div style="margin-top:4px;"><b>विश्लेषणम्:</b> '+escapeHtml(bi(p,'breakdown'))+'</div>'
+          + '<div style="margin-top:4px;"><b>प्रत्ययः:</b> '+escapeHtml(bi(p,'pratyaya_name'))+'</div>'
+          + '<div style="margin-top:4px;"><b>कार्यम्:</b> '+escapeHtml(bi(p,'function'))+'</div>'
+          + '</div>';
+      });
+      return html;
+    }
+
+    /* ========== COMPONENT 8: सन्धिः ========== */
+    if(key === 'sandhi'){
+      var html = '<div class="section-title">सन्धिः</div>';
+      g.sandhi.forEach(function(s){
+        var ruleShown = s.sandhi_rule_sa || '';
+        html += '<div class="sandhi-item"><span class="loc">स्थानम्: '+escapeHtml(s.location)+'</span>'
+          + '<div style="margin-top:4px;"><b>परिणामः:</b> '+escapeHtml(s.result)+'</div>'
+          + '<div style="margin-top:4px;"><b>सन्धि-भेदः:</b> '+escapeHtml(bi(s,'sandhi_type'))+'</div>'
+          + '<div style="margin-top:4px;"><b>नियमः:</b> '+escapeHtml(ruleShown)+'</div>'
+          + '</div>';
+      });
+      return html;
+    }
+
+    /* ========== COMPONENT 9: समासः ========== */
+    if(key === 'samasa'){
+      var html = '<div class="section-title">समासः</div>';
+      g.samasa.forEach(function(s){
+        var vigrahaShown = s.vigraha_sa || '';
+        html += '<div class="samasa-item"><span class="comp">'+escapeHtml(s.word)+'</span>'
+          + '<div style="margin-top:4px;"><b>प्रभेदः:</b> '+escapeHtml(bi(s,'compound_type'))+'</div>'
+          + '<div style="margin-top:4px;"><b>विग्रहः:</b> '+escapeHtml(vigrahaShown)+'</div>'
+          + '<div style="margin-top:4px;"><b>अर्थः:</b> '+escapeHtml(bi(s,'meaning'))+'</div>'
+          + '</div>';
+      });
+      return html;
+    }
+
+    /* ========== COMPONENT 10: छन्दस्/अलङ्कारः ========== */
+    if(key === 'chandas'){
+      var html = '<div class="section-title">छन्दस् तथा अलङ्कारः</div>';
+      html += '<div class="group-title">छन्दस्भेदः: '+escapeHtml(verses[current].chandas)+'</div>';
+      html += '<div class="group-note">'+escapeHtml(bi(g,'chandas_definition'))+'</div>';
+      html += '<div style="margin-top:12px;"><div class="group-title">गणनः (Scansion)</div>';
+      g.scansion.forEach(function(s){
+        html += '<div class="scansion-row"><div class="p">'+escapeHtml(s.text)+'</div><div class="m">'+s.matra+' मात्राः</div></div>';
+      });
+      html += '</div>';
+      if(g.alankara && g.alankara.length > 0){
+        html += '<div style="margin-top:12px;"><div class="group-title">अलङ्कारः</div>';
+        g.alankara.forEach(function(a){
+          html += '<div class="alankara-item"><div class="name">'+escapeHtml(a.name)+'</div>'
+            + '<div style="margin-top:4px; font-size:0.9rem;">'+escapeHtml(bi(a,'definition'))+'</div>'
+            + '</div>';
+        });
+        html += '</div>';
+      }
+      return html;
+    }
+
+    /* ========== COMPONENT 11: प्रश्नोत्तरी ========== */
+    if(key === 'quiz'){
+      return renderQuizTab();
+    }
+
+    return '<div class="pending-note">Data for this component not yet loaded.</div>';
+  }
+
+  function render(){
+    var v = verses[current];
+    var g = v.grammar;
+    
+    var html = '<div class="verse-card">'
+      + '<span class="verse-num-badge">श्लोकः '+escapeHtml(v.number)+'</span>'
+      + '<div class="moola"><div>'+escapeHtml(v.devanagari)+'</div></div>'
+      + '<div style="text-align:center; color:var(--muted); font-size:0.9rem; margin-top:6px;">'+escapeHtml(v.chandas)+'</div>'
+      + '<div class="tabs">';
+    
+    tabs.forEach(function(t){
+      html += '<button class="tab-btn'+(t.key===activeTab ? ' active' : '')+'" onclick="switchTab(\''+t.key+'\')">'+escapeHtml(t.label)+'</button>';
+    });
+    
+    html += '</div>';
+    
+    tabs.forEach(function(t){
+      html += '<div class="tab-panel'+(t.key===activeTab ? ' active' : '')+'" id="tab-'+t.key+'">'
+        + renderTabContent(t.key, g)
+        + '</div>';
+    });
+    
+    html += '</div>';
+    
+    document.getElementById('mainArea').innerHTML = html;
+    document.getElementById('verseSelect').value = current;
+    document.getElementById('counter').textContent = (current + 1) + ' / ' + verses.length;
+    document.getElementById('prevBtn').disabled = (current === 0);
+    document.getElementById('nextBtn').disabled = (current === verses.length - 1);
+  }
+
+  function switchTab(key){
+    activeTab = key;
+    render();
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', function(){
+    if(current > 0) { current--; resetQuizState(); render(); }
+  });
+  document.getElementById('nextBtn').addEventListener('click', function(){
+    if(current < verses.length - 1) { current++; resetQuizState(); render(); }
+  });
+
+  /* ===== v8.1 adapter: converts shlokas/COMPONENT_* into the viewer's internal shape ===== */
+  function normalizeV81Corpus(data){
+    if(!data || !Array.isArray(data.shlokas)) return data;
+
+    function firstId(entry){
+      return entry && Array.isArray(entry.word_ids) && entry.word_ids.length ? entry.word_ids[0] : '';
+    }
+    function karakaText(entry){
+      if(!entry) return '';
+      return entry.display_sa || entry.explanation_sa || entry.status_sa || '';
+    }
+    function make(w){
+      if(w.morphology) return w.morphology;
+      return [w.pos, w.gender, w.number, w.case].filter(function(x){ return x && x !== '—'; }).join(' · ');
+    }
+
+    return {
+      schema_version: data.schema_version || '8.1',
+      verses: data.shlokas.map(function(s, idx){
+        var m = s.shloka_metadata || {};
+        var c1 = s.COMPONENT_1_padaccheda || {};
+        var c2 = s.COMPONENT_2_anvaya || {};
+        var c3 = s.COMPONENT_3_padavigraha || {};
+        var c4 = s.COMPONENT_4_karaka || {};
+        var c5 = s.COMPONENT_5_shabdarupani || {};
+        var c6 = s.COMPONENT_6_dhaturupani || {};
+        var c7 = s.COMPONENT_7_pratyaya || {};
+        var c8 = s.COMPONENT_8_sandhi || {};
+        var c9 = s.COMPONENT_9_samasa || {};
+        var c10 = s.COMPONENT_10_chandas || {};
+        var kr = c4.karaka || {};
+        var d = c6.dhaturupani || {};
+
+        var pv = (c3.pada_vigraha || []).map(function(w){
+          var x = Object.assign({}, w);
+          x.morphology = make(x);
+          return x;
+        });
+
+        var sandhi = (c8.sandhi || []).map(function(x){
+          var y = Object.assign({}, x);
+          y.location = y.location || y.before || '';
+          y.result = y.result || y.source_original || y.after || y.source_result || '';
+          return y;
+        });
+
+        var samasa = (c9.samasa || []).map(function(x){
+          var y = Object.assign({}, x);
+          y.vigraha_sa = y.vigraha_sa || y.breakdown || '';
+          return y;
+        });
+
+        return {
+          id: m.id || String(idx + 1),
+          number: m.number || idx + 1,
+          kanda: m.kanda || '',
+          sarga: m.sarga || '',
+          devanagari: m.devanagari || '',
+          chandas: c10.chandas_name || '',
+          grammar: {
+            padaccheda: c1.padaccheda || [],
+            anvaya_sa: c2.anvaya_sa || '',
+            translation_en: c2.translation_en || '',
+            pada_vigraha: pv,
+            karaka: {
+              karta: karakaText(kr.karta),
+              karma: karakaText(kr.karma),
+              karana: karakaText(kr.karana),
+              adhikarana: karakaText(kr.adhikarana),
+              sambandha: karakaText(kr.sambandha),
+              karta_word_id: firstId(kr.karta),
+              karma_word_id: firstId(kr.karma)
+            },
+            shabdarupani: c5.shabdarupani || {},
+            dhaturupani: {
+              pracch_root: d.root || '',
+              pracch_meaning: d.meaning || '',
+              pracch_gana: d.gana || '',
+              pracch_lakara: d.lakara || '',
+              pracch_form: d.form || '',
+              conjugation_perfect: d.conjugation || null,
+              coverage_note: c6.description || ''
+            },
+            pratyaya: c7.pratyaya || [],
+            sandhi: sandhi,
+            samasa: samasa,
+            chandas_name: c10.chandas_name || '',
+            chandas_definition: c10.description || '',
+            scansion: c10.scansion || [],
+            alankara: c10.alankara || []
+          }
+        };
+      })
+    };
+  }
+
+  /* ===== Data loading: shell accepts a JSON file instead of embedded content ===== */
+  function validateCorpus(data){
+    if(!data || typeof data !== 'object') return 'मूल-दत्तांशः वस्तुरूपेण नास्ति।';
+    if(!Array.isArray(data.verses)) return 'श्लोक-सूची नास्ति।';
+    if(data.verses.length === 0) return '"verses" array रिक्तम् अस्ति (the "verses" array is empty).';
+    for(var i=0;i<data.verses.length;i++){
+      var v = data.verses[i];
+      if(!v.devanagari || !v.grammar){
+        return 'श्लोकः #'+(i+1)+' — "devanagari" अथवा "grammar" क्षेत्रं नास्ति (verse #'+(i+1)+' is missing "devanagari" or "grammar").';
+      }
+    }
+    return null;
+  }
+
+  function showUploadError(msg){
+    var el = document.getElementById('uploadError');
+    el.textContent = msg;
+    el.style.display = msg ? 'block' : 'none';
+  }
+
+  function loadCorpus(data){
+    data = normalizeV81Corpus(data);
+    var err = validateCorpus(data);
+    if(err){ showUploadError(err); return; }
+    showUploadError('');
+    verses = data.verses;
+    current = 0;
+    resetQuizState();
+    document.getElementById('uploadScreen').style.display = 'none';
+    document.getElementById('navBar').style.display = 'flex';
+    document.getElementById('mainArea').style.display = 'block';
+    document.getElementById('changeFileWrap').style.display = 'block';
+    buildSelect();
+    render();
+  }
+
+  function handleFile(file){
+    if(!file) return;
+    var reader = new FileReader();
+    reader.onload = function(e){
+      var data;
+      try{
+        data = JSON.parse(e.target.result);
+      }catch(err){
+        showUploadError('दत्तांश-पाठे त्रुटिः: ' + err.message);
+        return;
+      }
+      loadCorpus(data);
+    };
+    reader.onerror = function(){
+      showUploadError('सञ्चिकां पठितुं न शक्तम्।');
+    };
+    reader.readAsText(file);
+  }
+
+  function initUpload(){
+    var fileInput = document.getElementById('jsonFileInput');
+    var dropZone = document.getElementById('dropZone');
+    var changeBtn = document.getElementById('changeFileBtn');
+
+    fileInput.addEventListener('change', function(e){
+      if(e.target.files && e.target.files[0]) handleFile(e.target.files[0]);
+    });
+
+    dropZone.addEventListener('click', function(){ fileInput.click(); });
+    dropZone.addEventListener('dragover', function(e){
+      e.preventDefault();
+      dropZone.classList.add('drag-over');
+    });
+    dropZone.addEventListener('dragleave', function(){
+      dropZone.classList.remove('drag-over');
+    });
+    dropZone.addEventListener('drop', function(e){
+      e.preventDefault();
+      dropZone.classList.remove('drag-over');
+      if(e.dataTransfer.files && e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
+    });
+
+    if(changeBtn){
+      changeBtn.addEventListener('click', function(){
+        document.getElementById('navBar').style.display = 'none';
+        document.getElementById('mainArea').style.display = 'none';
+        document.getElementById('changeFileWrap').style.display = 'none';
+        document.getElementById('uploadScreen').style.display = 'flex';
+        showUploadError('');
+        fileInput.value = '';
+      });
+    }
+  }
+
+  initUpload();
+</script>
+
+</body>
+</html>

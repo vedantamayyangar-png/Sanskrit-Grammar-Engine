@@ -1,0 +1,234 @@
+{
+  "title": "परिभाषाप्रकरणम् — The Explanatory Precepts (Paribhāṣā) Rule Book",
+  "subtitle": "The paribhāṣā-prakaraṇam of Śrīvaradarāja's Laghusiddhāntakaumudī (page 21) -- the short chapter naming the twelve interpretive meta-rules that govern how every other rule in the grammar is to be applied",
+  "source_note": "Verified directly against the source PDF (page 21 of the book, PDF page 33), read visually (OCR text-layer corrupted, same issue as the other files in this project). Unlike the other prakaranas, this chapter is genuinely SHORT -- just one page -- because paribhasha-sutras are, by their nature, meta-rules that only make sense in the context of an actual operative rule; the LSK therefore just NAMES and cites all twelve here, with their full worked-example treatment given later in the text at the point where each is first needed (exactly the same pattern seen in this project's samjna_prakarana_rulebook.json). The page also gives the foundational six-fold classification of ALL sutra-types in the grammar (samjna/paribhasha/vidhi/niyama/atidesa/adhikara) and the formal definition of what makes a rule a paribhasha specifically. Of the twelve cross-referenced paribhasha-sutras, six were also independently and directly page-verified earlier in this project (during the sandhi-rulebook completeness comparison) -- flagged individually below. The remaining six use the book's own citation (taken directly from this page, high confidence) with explanations supplied from standard, well-established Paninian grammar rather than independently re-read on their own page this session -- also flagged individually.",
+  "how_to_read": {
+    "ashtadhyayi_ref": "Chapter.Pada.Sutra number in Pāṇini's Aṣṭādhyāyī",
+    "lsk_prakarana": "the cross-reference aphorism-number where this rule is later given its full worked-example treatment in the LSK",
+    "process": "how this meta-rule governs the interpretation/application of OTHER rules (paribhasha rules do not operate on language directly)"
+  },
+  "taxonomy": [
+    {
+      "id": "paribhasha-0",
+      "sanskrit_name": "षड्विधं सूत्रम् (सूत्रवर्गीकरणम्)",
+      "english_name": "The six-fold classification of every rule-type in the grammar",
+      "rule": "This introductory verse classifies EVERY sutra in the entire Siddhantakaumudi into exactly six types: संज्ञा (a definitional/naming rule), परिभाषा (an explanatory/interpretive meta-rule), विधि (a rule that actively prescribes an operation), नियम (a restricting/regulating rule), अतिदेश (a rule that extends/assigns the properties of one thing to another), and अधिकार (a scope-governing rule whose authority carries forward over several following rules). This taxonomy is the organizing lens for reading the entire grammar, not just this chapter.",
+      "sutra_devanagari": "संज्ञा च परिभाषा च विधिर्नियम एवच। अतिदेशोऽधिकारश्च षड्विधं सूत्रमुच्यते॥",
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "p.21 (chapter-opening verse)",
+      "process": "सम्पूर्ण-व्याकरणस्य सूत्र-वर्गीकरणम्",
+      "examples": []
+    },
+    {
+      "id": "paribhasha-00",
+      "sanskrit_name": "परिभाषासूत्रस्य लक्षणम्",
+      "english_name": "Definition: what specifically makes a rule a paribhāṣā",
+      "rule": "A paribhāṣā sūtra is defined as a rule that acts as a SAFEGUARD -- it demonstrates how/when another rule applies, specifically to prevent that other rule from being misapplied or contravened. Critically, a paribhāṣā never operates independently on language by itself; it only assists in the correct application of some other (operative) rule. The traditional gloss given: परितः सर्वतो भाष्यन्ते नियमा याभिस्ताः परिभाषाः ('that by which rules are explained on all sides').",
+      "sutra_devanagari": "परितः सर्वतो भाष्यन्ते नियमा याभिस्ताः परिभाषाः",
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "p.21 (chapter-opening prose)",
+      "process": "definitional -- describes the FUNCTION of every entry below",
+      "examples": []
+    }
+  ],
+  "paribhasha_sutras": [
+    {
+      "id": "paribhasha-1",
+      "sanskrit_name": "तस्मिन्निति निर्दिष्टे पूर्वस्य",
+      "english_name": "A rule stated in the locative case (7th/सप्तमी) governs the letter immediately PRECEDING that context",
+      "rule": "When a rule specifies its condition using the locative case (सप्तमी विभक्ति), the operation it prescribes is to be executed against the letter that IMMEDIATELY PRECEDES (gaplessly) the specified context -- not against the specified letter itself. This is the interpretive key needed to correctly read a huge number of operative rules throughout the grammar (e.g. इको यणचि, 'अचि' being locative, means the यण्-substitution applies to the इक् vowel immediately BEFORE the following अच्, not to the अच् itself).",
+      "sutra_devanagari": "तस्मिन्निति निर्दिष्टे पूर्वस्य",
+      "ashtadhyayi_ref": "1.1.66",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "aphorism 16",
+      "process": "सप्तमी-निर्दिष्ट-कार्यस्य पूर्ववर्ण-विषयकत्व-नियमः",
+      "flagged_nuance": "Directly page-verified earlier in this project (seen on p.23 of the source, in the working-through of इको यणचि).",
+      "examples": [
+        {
+          "sandhi": "इकोयणचि: अचि (सप्तमी) → कार्यं इकः (पूर्वस्य) भवति",
+          "gloss": "the यण्-substitution targets the इक् vowel BEFORE the following अच्, per this rule"
+        }
+      ]
+    },
+    {
+      "id": "paribhasha-2",
+      "sanskrit_name": "स्थानेऽन्तरतमः",
+      "english_name": "When a substitute is prescribed via genitive case, the substitute chosen should be the one 'closest' (most similar) to the original",
+      "rule": "When a rule uses the genitive case (षष्ठी) to indicate what is being replaced, and multiple possible substitute-letters could satisfy the rule, the one selected should be the letter MOST SIMILAR (अन्तरतम) to the original letter being replaced -- not an arbitrary member of the substitute-set.",
+      "sutra_devanagari": "स्थानेऽन्तरतमः",
+      "ashtadhyayi_ref": "1.1.50",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "aphorism 17",
+      "process": "षष्ठी-निर्दिष्ट-आदेशस्य सादृश्य-आधारेण चयन-नियमः",
+      "flagged_nuance": "Directly page-verified earlier in this project (seen on p.23 of the source, immediately following paribhasha-1 in the same worked example).",
+      "examples": [
+        {
+          "sandhi": "सुधी + उपास्यः → the य् substitute for the final ई of सुधी is chosen as the CLOSEST homogeneous यण्-letter",
+          "gloss": "not an arbitrary one of य्/व्/र्/ल्"
+        }
+      ]
+    },
+    {
+      "id": "paribhasha-3",
+      "sanskrit_name": "अलोऽन्त्यस्य",
+      "english_name": "When a rule specifies its target via genitive case without further qualification, the operation applies to the FINAL letter only",
+      "rule": "When a substitution is directed against a word using the genitive case (षष्ठीनिर्दिष्ट) without any further restriction, the operation is understood to apply specifically to the LAST letter of that word, not to the whole word or an arbitrary internal letter.",
+      "sutra_devanagari": "अलोऽन्त्यस्य",
+      "ashtadhyayi_ref": "1.1.52",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "aphorism 21",
+      "process": "षष्ठीनिर्दिष्ट-अनवधारित-कार्यस्य अन्त्यवर्ण-विषयकत्व-नियमः",
+      "flagged_nuance": "Directly page-verified earlier in this project (seen on p.25 of the source).",
+      "examples": []
+    },
+    {
+      "id": "paribhasha-4",
+      "sanskrit_name": "यथासंख्यमनुदेशः समानाम्",
+      "english_name": "When a rule lists multiple conditions and multiple substitutes of EQUAL count, they are matched up in the same order (first-to-first, second-to-second...)",
+      "rule": "If a rule presents two lists of equal length -- one of conditions/occupants (स्थानी) and one of substitutes (आदेश) -- the correspondence between them is understood to follow strict positional order: the first substitute replaces the first occupant, the second replaces the second, and so on -- NOT any-to-any.",
+      "sutra_devanagari": "यथासंख्यमनुदेशः समानाम्",
+      "ashtadhyayi_ref": "1.3.10",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "aphorism 23",
+      "process": "समसंख्यक-सूचीद्वयस्य क्रमानुसार-सङ्गति-नियमः",
+      "flagged_nuance": "Directly page-verified earlier in this project (seen on p.27 of the source, governing the एचोऽयवायावः vowel-substitution rule already in your sandhi rulebook as svara-5).",
+      "examples": [
+        {
+          "sandhi": "एचोऽयवायावः: ए ओ ऐ औ → अय् अव् आय् आव् (क्रमशः, यथासंख्यम्)",
+          "gloss": "first-to-first correspondence, not any arbitrary pairing"
+        }
+      ]
+    },
+    {
+      "id": "paribhasha-5",
+      "sanskrit_name": "तपरस्तत्कालस्य",
+      "english_name": "A letter marked with a following त् (तकार) as an इत् refers ONLY to that exact prosodial length (not its other length-variants)",
+      "rule": "When a rule cites a vowel with a following त् serving as its इत्-marker (a 'तपर' letter), that citation refers strictly to that vowel's own specific prosodial duration (short/long/prolated) -- excluding its other length-variants that would otherwise be included via the general savarna-extension rule.",
+      "sutra_devanagari": "तपरस्तत्कालस्य",
+      "ashtadhyayi_ref": "1.1.70",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "aphorism 26",
+      "process": "तकारेत्संज्ञक-वर्णस्य स्वकीय-मात्रा-विषयकत्व-नियमः",
+      "flagged_nuance": "Directly page-verified earlier in this project (seen on p.29 of the source).",
+      "examples": []
+    },
+    {
+      "id": "paribhasha-6",
+      "sanskrit_name": "उरण् रपरः",
+      "english_name": "When ऋ (or ॠ) is substituted for another letter, that substitute-ऋ carries an implicit र् immediately after it",
+      "rule": "When a rule prescribes ऋ (or its long form ॠ) as the substitute for some other sound, that substituted ऋ is understood to be followed by a र्-sound as well (रपर) -- ensuring subsequent rules correctly treat it as if it were followed by a consonant for further sandhi purposes.",
+      "sutra_devanagari": "उरण् रपरः",
+      "ashtadhyayi_ref": "1.1.51",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "aphorism 29",
+      "process": "ऋ-आदेशस्य रपरत्व-नियमः",
+      "flagged_nuance": "Directly page-verified earlier in this project (seen on p.31 of the source).",
+      "examples": [
+        {
+          "sandhi": "कृष्णर्द्धिः, तवल्कारः (उर्-आदेशेषु रपरत्वम्)",
+          "gloss": "examples given directly on the source page"
+        }
+      ]
+    },
+    {
+      "id": "paribhasha-7",
+      "sanskrit_name": "अनेकाल् शित्सर्वस्य",
+      "english_name": "When a substitute is designated with a शकार इत्-marker, and the thing being replaced consists of more than one letter, the substitute replaces the WHOLE original, not just its final letter",
+      "rule": "Normally (per paribhasha-3, अलोऽन्त्यस्य), a genitive-case-directed substitution targets only the final letter of a multi-letter form. This rule creates the exception: if the prescribed substitute itself carries a श्-इत् marker, AND the thing being substituted-for (स्थानी) consists of more than one letter (अनेकाल्), the substitution instead replaces the ENTIRE original form, not just its last letter.",
+      "sutra_devanagari": "अनेकाल् शित्सर्वस्य",
+      "ashtadhyayi_ref": "1.1.55",
+      "related_ashtadhyayi": [
+        "1.1.52 (the general rule this creates an exception to)"
+      ],
+      "lsk_prakarana": "aphorism 45",
+      "process": "शकारेत्-आदेशस्य बहुवर्णक-स्थानि-सम्पूर्ण-विषयकत्व-नियमः (अलोऽन्त्यस्य इत्यस्य अपवादः)",
+      "flagged_nuance": "Not independently page-verified against its own worked-example page this session; citation taken directly from the book's own list on p.21 (high confidence), explanation from standard Paninian grammar.",
+      "examples": []
+    },
+    {
+      "id": "paribhasha-8",
+      "sanskrit_name": "ङिच्च",
+      "english_name": "A substitute marked with the इत् ङ् also behaves like a शित्-marked substitute (replaces the whole multi-letter original)",
+      "rule": "Extends the exception created by paribhasha-7 (अनेकाल् शित्सर्वस्य): a substitute carrying a ङ्-इत् marker is ALSO treated the same way as a श्-marked one -- it replaces the entire multi-letter original, not just the final letter.",
+      "sutra_devanagari": "ङिच्च",
+      "ashtadhyayi_ref": "1.1.53",
+      "related_ashtadhyayi": [
+        "1.1.55"
+      ],
+      "lsk_prakarana": "aphorism 46",
+      "process": "ङकारेत्-आदेशस्य शित्-सदृश व्यवहार-विस्तारः",
+      "flagged_nuance": "Not independently page-verified against its own worked-example page this session; citation taken directly from the book's own list on p.21 (high confidence), explanation from standard Paninian grammar.",
+      "examples": []
+    },
+    {
+      "id": "paribhasha-9",
+      "sanskrit_name": "तस्मादित्युत्तरस्य",
+      "english_name": "A rule stated in the ablative case (5th/पञ्चमी) governs the letter/context immediately FOLLOWING that context",
+      "rule": "The ablative-case counterpart to paribhasha-1: when a rule specifies its condition using the ablative case (पञ्चमी विभक्ति), the operation it prescribes applies to whatever comes immediately AFTER (उत्तर) that specified context -- the mirror-image interpretive principle to the locative-case rule.",
+      "sutra_devanagari": "तस्मादित्युत्तरस्य",
+      "ashtadhyayi_ref": "1.1.67",
+      "related_ashtadhyayi": [
+        "1.1.66 (the locative-case counterpart, paribhasha-1)"
+      ],
+      "lsk_prakarana": "aphorism 71",
+      "process": "पञ्चमी-निर्दिष्ट-कार्यस्य उत्तरवर्ण-विषयकत्व-नियमः",
+      "flagged_nuance": "Not independently page-verified against its own worked-example page this session; citation taken directly from the book's own list on p.21 (high confidence), explanation from standard Paninian grammar.",
+      "examples": []
+    },
+    {
+      "id": "paribhasha-10",
+      "sanskrit_name": "आदेः परस्य",
+      "english_name": "When a rule directs an operation against the INITIAL portion of something (आदि), and a substitute is prescribed, that substitute occupies the position right after (पर) whatever the initial portion follows",
+      "rule": "Clarifies how substitution works when a rule's target is specified via आदि (the beginning-portion of a word/form) -- the resulting substitute is positioned as following (पर) the relevant preceding context, completing the positional logic alongside paribhasha-1/9.",
+      "sutra_devanagari": "आदेः परस्य",
+      "ashtadhyayi_ref": "1.1.54",
+      "related_ashtadhyayi": [
+        "1.1.66",
+        "1.1.67"
+      ],
+      "lsk_prakarana": "aphorism 72",
+      "process": "आदि-निर्दिष्ट-कार्यस्य स्थान-नियमः",
+      "flagged_nuance": "Not independently page-verified against its own worked-example page this session; citation taken directly from the book's own list on p.21 (high confidence), explanation from standard Paninian grammar.",
+      "examples": []
+    },
+    {
+      "id": "paribhasha-11",
+      "sanskrit_name": "आद्यन्तौ टकितौ",
+      "english_name": "A substitute marked with ट्-इत् replaces the initial portion; one marked with क्-इत् replaces the final portion",
+      "rule": "A further refinement of the आदि/अन्त positional rules: when the prescribed substitute itself carries a ट्-इत् marker, it is understood to replace the INITIAL part of the original; when it carries a क्-इत् marker instead, it replaces the FINAL part.",
+      "sutra_devanagari": "आद्यन्तौ टकितौ",
+      "ashtadhyayi_ref": "1.1.46",
+      "related_ashtadhyayi": [
+        "1.1.54"
+      ],
+      "lsk_prakarana": "aphorism 85",
+      "process": "टकारेत्/ककारेत्-आदेशयोः आदि/अन्त-विषयकत्व-नियमः",
+      "flagged_nuance": "Not independently page-verified against its own worked-example page this session; citation taken directly from the book's own list on p.21 (high confidence), explanation from standard Paninian grammar.",
+      "examples": []
+    },
+    {
+      "id": "paribhasha-12",
+      "sanskrit_name": "विप्रतिषेधे परं कार्यम्",
+      "english_name": "In the event of a genuine conflict between two equally-applicable rules, the LATER rule (in the Aṣṭādhyāyī's own textual sequence) prevails",
+      "rule": "Arguably the single most important and most-cited paribhāṣā in the entire grammar: when two rules would BOTH apply to the same case simultaneously and prescribe conflicting operations, the rule that appears LATER in Pāṇini's own sequential ordering of the Aṣṭādhyāyī takes precedence and is executed, overriding the earlier one. This is the grammar's own built-in tie-breaking mechanism, invoked constantly across every chapter whenever rules overlap.",
+      "sutra_devanagari": "विप्रतिषेधे परं कार्यम्",
+      "ashtadhyayi_ref": "1.4.2",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "aphorism 113",
+      "process": "द्वयोः समकालप्रसक्तयोः विधिनियमयोः परस्पर-विरोधे, पर-सूत्रस्य (पाणिनि-क्रमेण पश्चाद्वर्ति) प्राबल्य-नियमः",
+      "flagged_nuance": "Not independently page-verified against its own worked-example page this session; citation taken directly from the book's own list on p.21 (high confidence). This is nonetheless an extremely well-known, standard citation -- among the most frequently invoked paribhasha rules in all of Paninian grammar, comparable in importance to lex posterior in legal interpretation.",
+      "examples": []
+    }
+  ],
+  "summary_counts": {
+    "taxonomy_entries": 2,
+    "paribhasha_sutra_rules": 12,
+    "total_rules": 14,
+    "status": "Covers the entire paribhasha-prakaranam chapter (p.21) in full -- both introductory taxonomy statements plus all twelve named paribhasha-sutras the book cross-references. Six of the twelve (paribhasha-1 through paribhasha-6) were independently and directly page-verified earlier in this project during the sandhi-rulebook completeness comparison; the remaining six use the book's own explicit citation (high confidence) with standard-grammar explanations, individually flagged."
+  },
+  "bibliography": [
+    "Varadarāja. Laghusiddhāntakaumudī, परिभाषाप्रकरणम् (page 21). English translation and commentary by Dr. Ghanashyam Dora. Chowkhamba Krishnadas Academy, Varanasi, 3rd edition, 2013. ISBN 978-81-218-0218-0."
+  ]
+}

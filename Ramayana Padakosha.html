@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="sa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>रामायण-पदकोशः · Ramayana Padakosha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Sanskrit&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --parchment:#EBE1C4;
+    --parchment-deep:#E3D6AF;
+    --card-bg:#F6EFDA;
+    --card-bg-open:#FBF6E9;
+    --ink:#2B2013;
+    --ink-soft:#5C4E38;
+    --ink-faint:#8A7A5C;
+    --vermilion:#9C3320;
+    --vermilion-deep:#7A2618;
+    --copper:#3F5C4E;
+    --copper-deep:#2E4438;
+    --gold:#93701F;
+    --rule:#C8B788;
+    --rule-soft:#DACDA1;
+    --shadow:rgba(43,32,19,0.16);
+    --radius:3px;
+  }
+
+  *{box-sizing:border-box;}
+
+  body{
+    margin:0;
+    background:
+      repeating-linear-gradient(180deg, rgba(43,32,19,0.025) 0px, rgba(43,32,19,0.025) 1px, transparent 1px, transparent 26px),
+      radial-gradient(ellipse at 20% -10%, rgba(156,51,32,0.05), transparent 45%),
+      radial-gradient(ellipse at 100% 0%, rgba(63,92,78,0.05), transparent 40%),
+      var(--parchment);
+    color:var(--ink);
+    font-family:'Lora', Georgia, serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  .devanagari{font-family:'Tiro Devanagari Sanskrit', 'Noto Sans Devanagari', serif;}
+  .iast{font-family:'EB Garamond', Georgia, serif; font-style:italic; letter-spacing:0.01em;}
+
+  /* ============ HEADER ============ */
+  header{
+    position:relative;
+    padding:3.2rem 1.5rem 2rem;
+    text-align:center;
+    border-bottom:1px solid var(--rule);
+  }
+  header::before, header::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    width:1px;
+    background:var(--rule);
+  }
+  .kicker{
+    font-family:'EB Garamond', serif;
+    font-style:italic;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--vermilion-deep);
+    font-size:0.72rem;
+    margin-bottom:0.9rem;
+  }
+  .kicker span{margin:0 0.6em; color:var(--gold);}
+  h1{
+    font-family:'Tiro Devanagari Sanskrit', serif;
+    font-size:clamp(2.1rem, 6vw, 3.1rem);
+    margin:0 0 0.35rem;
+    font-weight:400;
+    color:var(--ink);
+    line-height:1.25;
+  }
+  h1 .verse-range{
+    color:var(--vermilion);
+  }
+  .subtitle{
+    font-family:'EB Garamond', serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:1.02rem;
+    margin-bottom:1.4rem;
+  }
+  .rule-flourish{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:0.7rem;
+    color:var(--gold);
+    margin:1.1rem auto 1.3rem;
+    max-width:420px;
+  }
+  .rule-flourish .line{flex:1; height:1px; background:linear-gradient(90deg, transparent, var(--rule), transparent);}
+  .rule-flourish .glyph{font-family:'Tiro Devanagari Sanskrit', serif; font-size:1.1rem;}
+
+  .disclaimer{
+    max-width:640px;
+    margin:0 auto;
+    font-size:0.82rem;
+    color:var(--ink-faint);
+    line-height:1.65;
+    font-family:'EB Garamond', serif;
+    padding:0.9rem 1.2rem;
+    border-left:2px solid var(--rule);
+    text-align:left;
+  }
+  .disclaimer b{color:var(--ink-soft); font-weight:600;}
+
+  .loader-bar{
+    max-width:640px;
+    margin:1.3rem auto 0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:1rem;
+    flex-wrap:wrap;
+    font-family:'EB Garamond', serif;
+    font-size:0.85rem;
+  }
+  .loader-status{
+    color:var(--ink-faint);
+    font-style:italic;
+  }
+  .loader-status.error{color:var(--vermilion-deep); font-style:normal;}
+  .loader-status.ok{color:var(--copper-deep); font-style:normal;}
+  .loader-btn{
+    display:inline-block;
+    padding:0.4rem 0.85rem;
+    border:1px solid var(--copper);
+    border-radius:20px;
+    color:var(--copper-deep);
+    cursor:pointer;
+    transition:background 0.15s, color 0.15s;
+    white-space:nowrap;
+  }
+  .loader-btn:hover{background:var(--copper); color:#F6EFDA;}
+
+  .empty-state code{
+    background:rgba(63,92,78,0.1);
+    border:1px solid rgba(63,92,78,0.22);
+    border-radius:3px;
+    padding:0.1rem 0.4rem;
+    font-family:'EB Garamond', serif;
+    color:var(--copper-deep);
+  }
+
+  /* ============ CONTROLS ============ */
+  .controls{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:rgba(235,225,196,0.94);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--rule);
+    padding:0.9rem 1.5rem;
+  }
+  .controls-inner{
+    max-width:980px;
+    margin:0 auto;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.7rem 0.9rem;
+    align-items:center;
+  }
+  .search-wrap{
+    position:relative;
+    flex:1 1 220px;
+  }
+  .search-wrap input{
+    width:100%;
+    padding:0.55rem 0.9rem 0.55rem 2.1rem;
+    border:1px solid var(--rule);
+    border-radius:var(--radius);
+    background:var(--card-bg);
+    color:var(--ink);
+    font-family:'EB Garamond', serif;
+    font-size:0.98rem;
+  }
+  .search-wrap input:focus{outline:2px solid var(--copper); outline-offset:1px;}
+  .search-wrap::before{
+    content:"श";
+    font-family:'Tiro Devanagari Sanskrit', serif;
+    position:absolute;
+    left:0.65rem;
+    top:50%;
+    transform:translateY(-50%);
+    color:var(--ink-faint);
+    font-size:0.95rem;
+  }
+  .chip-row{display:flex; flex-wrap:wrap; gap:0.4rem;}
+  .chip{
+    font-family:'EB Garamond', serif;
+    font-size:0.85rem;
+    padding:0.4rem 0.75rem;
+    border:1px solid var(--rule);
+    border-radius:20px;
+    background:transparent;
+    color:var(--ink-soft);
+    cursor:pointer;
+    transition:background 0.15s, color 0.15s, border-color 0.15s;
+    white-space:nowrap;
+  }
+  .chip:hover{border-color:var(--copper);}
+  .chip.active{
+    background:var(--copper);
+    border-color:var(--copper);
+    color:#F6EFDA;
+  }
+  .chip .n{opacity:0.7; font-size:0.8em; margin-left:0.25em;}
+  .type-select{
+    font-family:'EB Garamond', serif;
+    font-size:0.85rem;
+    padding:0.42rem 0.6rem;
+    border:1px solid var(--rule);
+    border-radius:var(--radius);
+    background:var(--card-bg);
+    color:var(--ink-soft);
+  }
+  .result-count{
+    font-family:'EB Garamond', serif;
+    font-style:italic;
+    font-size:0.8rem;
+    color:var(--ink-faint);
+    margin-left:auto;
+    white-space:nowrap;
+  }
+
+  /* ============ MAIN ============ */
+  main{max-width:980px; margin:0 auto; padding:2rem 1.5rem 5rem;}
+
+  .verse-section{margin-bottom:2.6rem;}
+  .verse-section-head{
+    display:flex;
+    align-items:baseline;
+    gap:0.9rem;
+    margin-bottom:1.1rem;
+  }
+  .verse-num-badge{
+    font-family:'Tiro Devanagari Sanskrit', serif;
+    font-size:1.55rem;
+    color:var(--vermilion);
+    min-width:2.4rem;
+    text-align:center;
+  }
+  .verse-section-head h2{
+    font-family:'EB Garamond', serif;
+    font-weight:600;
+    font-style:italic;
+    font-size:1.0rem;
+    color:var(--ink-soft);
+    margin:0;
+    letter-spacing:0.02em;
+  }
+  .verse-section-head .count{
+    color:var(--ink-faint);
+    font-size:0.82rem;
+    font-family:'EB Garamond', serif;
+  }
+  .verse-section-head .line{
+    flex:1;
+    height:1px;
+    background:var(--rule-soft);
+    align-self:center;
+  }
+
+  .word-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(270px, 1fr));
+    gap:0.85rem;
+  }
+
+  /* ============ CARD ============ */
+  .word-card{
+    background:var(--card-bg);
+    border:1px solid var(--rule-soft);
+    border-radius:var(--radius);
+    box-shadow:0 1px 2px var(--shadow);
+    cursor:pointer;
+    transition:box-shadow 0.18s, border-color 0.18s, background 0.18s;
+    position:relative;
+  }
+  .word-card:hover{border-color:var(--gold); box-shadow:0 3px 10px var(--shadow);}
+  .word-card:focus-visible{outline:2px solid var(--copper); outline-offset:2px;}
+  .word-card.open{background:var(--card-bg-open); border-color:var(--copper); box-shadow:0 4px 14px var(--shadow);}
+
+  .card-front{
+    padding:0.95rem 1.05rem 0.85rem;
+  }
+  .card-front-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:0.6rem;
+  }
+  .word-devanagari{
+    font-family:'Tiro Devanagari Sanskrit', serif;
+    font-size:1.5rem;
+    color:var(--ink);
+    line-height:1.25;
+    overflow-wrap:anywhere;
+  }
+  .toggle-mark{
+    font-family:'EB Garamond', serif;
+    color:var(--gold);
+    font-size:1rem;
+    flex-shrink:0;
+    transition:transform 0.2s;
+    margin-top:0.2rem;
+  }
+  .word-card.open .toggle-mark{transform:rotate(45deg);}
+  .word-iast{
+    font-family:'EB Garamond', serif;
+    font-style:italic;
+    color:var(--ink-faint);
+    font-size:0.88rem;
+    margin-top:0.15rem;
+    overflow-wrap:anywhere;
+  }
+  .word-meaning{
+    font-family:'Lora', serif;
+    font-size:0.9rem;
+    color:var(--ink-soft);
+    margin-top:0.5rem;
+    line-height:1.45;
+  }
+  .tag-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.35rem;
+    margin-top:0.65rem;
+  }
+  .tag{
+    font-family:'EB Garamond', serif;
+    font-size:0.72rem;
+    padding:0.15rem 0.5rem;
+    border-radius:12px;
+    letter-spacing:0.02em;
+  }
+  .tag.type{background:rgba(156,51,32,0.1); color:var(--vermilion-deep); border:1px solid rgba(156,51,32,0.22);}
+  .tag.gram{background:rgba(63,92,78,0.1); color:var(--copper-deep); border:1px solid rgba(63,92,78,0.22);}
+  .tag.verse{background:rgba(147,112,31,0.12); color:var(--gold); border:1px solid rgba(147,112,31,0.28); font-family:'Tiro Devanagari Sanskrit',serif;}
+
+  /* ============ EXPANDED DETAIL ============ */
+  .card-detail{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.28s ease;
+  }
+  .word-card.open .card-detail{max-height:1400px;}
+  .detail-inner{
+    padding:0 1.05rem 1.1rem;
+    border-top:1px dashed var(--rule);
+    margin-top:0.2rem;
+  }
+  .detail-grid{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:0.45rem 0.9rem;
+    padding-top:0.85rem;
+    font-size:0.86rem;
+  }
+  .detail-grid dt{
+    font-family:'Tiro Devanagari Sanskrit', serif;
+    color:var(--ink-faint);
+    font-size:0.82rem;
+    white-space:nowrap;
+    padding-top:0.05rem;
+  }
+  .detail-grid dd{
+    margin:0;
+    color:var(--ink);
+    line-height:1.55;
+    overflow-wrap:anywhere;
+  }
+  .detail-grid dd.sa{font-family:'Tiro Devanagari Sanskrit', serif; font-size:0.98rem;}
+  .samasa-parts{
+    list-style:none;
+    margin:0.25rem 0 0;
+    padding:0;
+  }
+  .samasa-parts li{
+    padding:0.15rem 0 0.15rem 0.7rem;
+    border-left:2px solid var(--rule-soft);
+    margin-bottom:0.2rem;
+    font-size:0.85rem;
+  }
+  .samasa-parts li b{
+    font-family:'Tiro Devanagari Sanskrit', serif;
+    font-weight:400;
+    color:var(--copper-deep);
+    font-size:0.98rem;
+  }
+  .ashtadhyayi-link{
+    color:var(--vermilion);
+    text-decoration:none;
+    border-bottom:1px solid rgba(156,51,32,0.4);
+  }
+  .ashtadhyayi-link:hover{border-bottom-color:var(--vermilion);}
+  .note-block{
+    margin-top:0.7rem;
+    padding:0.55rem 0.7rem;
+    background:rgba(147,112,31,0.07);
+    border-left:2px solid var(--gold);
+    font-family:'EB Garamond', serif;
+    font-style:italic;
+    font-size:0.82rem;
+    color:var(--ink-soft);
+    line-height:1.55;
+  }
+
+  .empty-state{
+    text-align:center;
+    padding:3.5rem 1rem;
+    color:var(--ink-faint);
+    font-family:'EB Garamond', serif;
+    font-style:italic;
+  }
+
+  footer{
+    text-align:center;
+    padding:2.2rem 1.5rem 3rem;
+    border-top:1px solid var(--rule);
+    color:var(--ink-faint);
+    font-family:'EB Garamond', serif;
+    font-size:0.78rem;
+    line-height:1.7;
+  }
+  footer a{color:var(--gold);}
+
+  @media (max-width:520px){
+    header{padding:2.4rem 1rem 1.6rem;}
+    .controls{padding:0.75rem 1rem;}
+    .result-count{width:100%; margin-left:0; order:5; text-align:right;}
+    main{padding:1.5rem 0.9rem 3.5rem;}
+    .word-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kicker">श्रीमद्वाल्मीकिरामायणम्<span>·</span><span id="kicker-scope">पदकोशः</span></div>
+  <h1 id="page-title">रामायण-पदकोशः</h1>
+  <div class="subtitle" id="page-subtitle">A Pāṇinian word-by-word grammatical lexicon — nāma, dhātu, samāsa &amp; sūtra references</div>
+  <div class="rule-flourish"><span class="line"></span><span class="glyph">॥ श्री ॥</span><span class="line"></span></div>
+  <div class="disclaimer" id="disclaimer-block">
+    <b>Note on the analysis.</b> This is a scholarly best-effort draft prepared at siddhānta-kaumudī level from standard Pāṇinian grammatical tradition. Ashṭādhyāyī references point to the governing rule category (samāsa-type, kṛt/taddhita affix, etc.); for several derivationally complex words — especially upapada-tatpuruṣa kṛdantas and some taddhita formations — the exact sūtra number should be cross-verified at ashtadhyayi.com, as a live lookup was not performed for every entry.
+  </div>
+
+  <div class="loader-bar" id="loader-bar">
+    <span class="loader-status" id="loader-status">पदकोशं भारयति… loading Ramayana Padakosha.json…</span>
+    <label class="loader-btn" for="file-input">JSON भारय · Load JSON file</label>
+    <input type="file" id="file-input" accept="application/json,.json" hidden>
+  </div>
+</header>
+
+<div class="controls" id="controls" hidden>
+  <div class="controls-inner">
+    <div class="search-wrap">
+      <input id="search" type="text" placeholder="पदं गवेषय… (search word, iast, or meaning)" autocomplete="off">
+    </div>
+    <div class="chip-row" id="verse-chips"></div>
+    <select id="type-select" class="type-select">
+      <option value="">सर्वे प्रकाराः · all types</option>
+    </select>
+    <div class="result-count" id="result-count"></div>
+  </div>
+</div>
+
+<main id="main">
+  <div class="empty-state" id="initial-empty-state">
+    दत्तांशं भारयतु — awaiting a lexicon JSON file. Place <code>Ramayana Padakosha.json</code> next to this HTML file and reload, or use “Load JSON file” above.
+  </div>
+</main>
+
+<footer id="page-footer">
+  सूत्रसन्दर्भाः from <a href="https://ashtadhyayi.com" target="_blank" rel="noopener">ashtadhyayi.com</a>
+</footer>
+
+<script>
+(function(){
+
+function initLexicon(raw){
+  const words = raw.words || [];
+
+  // Determine short type label (before any parenthesis) for filter chips
+  function shortType(t){ return (t || '').split('(')[0].trim(); }
+
+  // Build verse list present in data
+  const verseSet = new Set();
+  words.forEach(w => (w.verses || []).forEach(v => verseSet.add(v)));
+  const verses = Array.from(verseSet).sort((a,b) => a-b);
+
+  const devanumMap = {0:'०',1:'१',2:'२',3:'३',4:'४',5:'५',6:'६',7:'७',8:'८',9:'९'};
+  function toDevanagariNum(n){
+    return String(n).split('').map(d => devanumMap[d] !== undefined ? devanumMap[d] : d).join('');
+  }
+
+  // ---- state ----
+  let state = { verse: 'all', type: '', q: '' };
+
+  // ---- build verse chips ----
+  const chipRow = document.getElementById('verse-chips');
+  function verseCount(v){
+    return words.filter(w => (w.verses||[]).includes(v)).length;
+  }
+  function renderChips(){
+    let html = `<button class="chip ${state.verse==='all'?'active':''}" data-v="all">सर्वे<span class="n">${words.length}</span></button>`;
+    verses.forEach(v => {
+      html += `<button class="chip ${state.verse===v?'active':''}" data-v="${v}">श्लोक ${toDevanagariNum(v)}<span class="n">${verseCount(v)}</span></button>`;
+    });
+    chipRow.innerHTML = html;
+    chipRow.querySelectorAll('.chip').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const v = btn.getAttribute('data-v');
+        state.verse = (v === 'all') ? 'all' : parseInt(v, 10);
+        renderChips();
+        renderMain();
+      });
+    });
+  }
+  renderChips();
+
+  // ---- build type select ----
+  const typeSelect = document.getElementById('type-select');
+  const typeCounts = {};
+  words.forEach(w => {
+    const t = shortType(w.word_type);
+    typeCounts[t] = (typeCounts[t] || 0) + 1;
+  });
+  Object.keys(typeCounts).sort((a,b) => typeCounts[b]-typeCounts[a]).forEach(t => {
+    const opt = document.createElement('option');
+    opt.value = t;
+    opt.textContent = `${t} (${typeCounts[t]})`;
+    typeSelect.appendChild(opt);
+  });
+  typeSelect.addEventListener('change', () => {
+    state.type = typeSelect.value;
+    renderMain();
+  });
+
+  // ---- search ----
+  const searchInput = document.getElementById('search');
+  searchInput.addEventListener('input', () => {
+    state.q = searchInput.value.trim().toLowerCase();
+    renderMain();
+  });
+
+  // ---- filtering ----
+  function matches(w){
+    if (state.verse !== 'all' && !(w.verses||[]).includes(state.verse)) return false;
+    if (state.type && shortType(w.word_type) !== state.type) return false;
+    if (state.q){
+      const hay = [w.word, w.iast, w.meaning_en, w.pratipadika, w.dhatu].join(' ').toLowerCase();
+      if (!hay.includes(state.q)) return false;
+    }
+    return true;
+  }
+
+  // ---- detail field rendering helpers ----
+  function row(label, value, sa){
+    if (!value) return '';
+    return `<dt>${label}</dt><dd class="${sa?'sa':''}">${value}</dd>`;
+  }
+
+  function renderDetail(w){
+    let html = '<dl class="detail-grid">';
+    html += row('शब्दजातिः', w.word_type, true);
+    if (w.pratipadika) html += row('प्रातिपदिकम्', w.pratipadika, true);
+    if (w.dhatu) html += row('धातुः', w.dhatu + (w.dhatu_gana ? ` (${w.dhatu_gana})` : ''), true);
+    const gnc = [w.gender, w.number, w.case].filter(Boolean).join(' · ');
+    if (gnc) html += row('लिङ्ग-वचन-विभक्तिः', gnc, true);
+    if (w.paradigm) html += row('प्रक्रिया', w.paradigm, true);
+    if (w.samasa_type) html += row('समासप्रकारः', w.samasa_type, true);
+    if (w.samasa_split) html += row('विग्रहः', w.samasa_split, true);
+    if (w.pratyaya) html += row('प्रत्ययः', w.pratyaya, true);
+    html += '</dl>';
+
+    if (w.samasa_component_meanings && Object.keys(w.samasa_component_meanings).length){
+      html += '<ul class="samasa-parts">';
+      Object.entries(w.samasa_component_meanings).forEach(([k,v]) => {
+        html += `<li><b>${k}</b> — ${v}</li>`;
+      });
+      html += '</ul>';
+    }
+
+    if (w.ashtadhyayi_ref){
+      const link = w.ashtadhyayi_url
+        ? `<a class="ashtadhyayi-link" href="${w.ashtadhyayi_url}" target="_blank" rel="noopener">${w.ashtadhyayi_ref}</a>`
+        : w.ashtadhyayi_ref;
+      html += `<dl class="detail-grid" style="margin-top:0.3rem;"><dt>सूत्रम्</dt><dd>${link}</dd></dl>`;
+    }
+
+    if (w.notes){
+      html += `<div class="note-block">${w.notes}</div>`;
+    }
+
+    return html;
+  }
+
+  function renderCard(w, idx){
+    const t = shortType(w.word_type);
+    const gnc = [w.gender, w.number, w.case].filter(Boolean).join(' · ');
+    const verseTags = (w.verses||[]).map(v => `<span class="tag verse">श्लो. ${toDevanagariNum(v)}</span>`).join('');
+    return `
+      <div class="word-card" tabindex="0" data-idx="${idx}" role="button" aria-expanded="false">
+        <div class="card-front">
+          <div class="card-front-top">
+            <div class="word-devanagari">${w.word}</div>
+            <div class="toggle-mark">+</div>
+          </div>
+          <div class="word-iast">${w.iast || ''}</div>
+          <div class="word-meaning">${w.meaning_en || ''}</div>
+          <div class="tag-row">
+            ${t ? `<span class="tag type">${t}</span>` : ''}
+            ${gnc ? `<span class="tag gram">${gnc}</span>` : ''}
+            ${verseTags}
+          </div>
+        </div>
+        <div class="card-detail"><div class="detail-inner">${renderDetail(w)}</div></div>
+      </div>`;
+  }
+
+  function renderMain(){
+    const main = document.getElementById('main');
+    const filtered = words.filter(matches);
+    document.getElementById('result-count').textContent = `${filtered.length} / ${words.length} पदानि`;
+
+    if (!filtered.length){
+      main.innerHTML = `<div class="empty-state">कोऽपि शब्दो न लब्धः — no matching words found.</div>`;
+      return;
+    }
+
+    // group by verse for display (a word can appear in multiple verse groups)
+    const groups = {};
+    const verseScope = (state.verse === 'all') ? verses : [state.verse];
+    verseScope.forEach(v => { groups[v] = []; });
+
+    filtered.forEach((w) => {
+      const originalIdx = words.indexOf(w);
+      (w.verses||[]).forEach(v => {
+        if (groups.hasOwnProperty(v)) groups[v].push({w, originalIdx});
+      });
+    });
+
+    let html = '';
+    verseScope.forEach(v => {
+      const items = groups[v];
+      if (!items || !items.length) return;
+      html += `<section class="verse-section">
+        <div class="verse-section-head">
+          <div class="verse-num-badge">${toDevanagariNum(v)}</div>
+          <h2>श्लोकः ${toDevanagariNum(v)}</h2>
+          <div class="count">${items.length} पदानि</div>
+          <div class="line"></div>
+        </div>
+        <div class="word-grid">
+          ${items.map(({w, originalIdx}) => renderCard(w, originalIdx)).join('')}
+        </div>
+      </section>`;
+    });
+
+    main.innerHTML = html;
+
+    main.querySelectorAll('.word-card').forEach(card => {
+      const toggle = () => {
+        const isOpen = card.classList.toggle('open');
+        card.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        card.querySelector('.toggle-mark').textContent = isOpen ? '×' : '+';
+      };
+      card.addEventListener('click', toggle);
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          toggle();
+        }
+      });
+    });
+  }
+
+  renderMain();
+  updateHeaderFromMeta(raw.corpus_meta || {}, words.length);
+} // end initLexicon
+
+// ---------------------------------------------------------------
+// Loader: dynamic-scope word count in header/footer/title, plus
+// a plain file input so any lexicon JSON can be tested locally
+// before it's merged into the master "Ramayana Padakosha.json".
+// ---------------------------------------------------------------
+
+function setStatus(msg, cls){
+  const el = document.getElementById('loader-status');
+  el.textContent = msg;
+  el.className = 'loader-status' + (cls ? ' ' + cls : '');
+}
+
+function showControls(){
+  document.getElementById('controls').hidden = false;
+}
+
+function updateHeaderFromMeta(meta, wordCount){
+  const kanda = meta.kanda || '';
+  const sarga = meta.sarga !== undefined ? meta.sarga : '';
+  const versesCovered = meta.verses_covered || '';
+
+  const scopeBits = [];
+  if (kanda) scopeBits.push(kanda);
+  if (sarga !== '') scopeBits.push('सर्गः ' + sarga);
+  document.getElementById('kicker-scope').textContent = scopeBits.length ? scopeBits.join(' · ') : 'पदकोशः';
+
+  let titleText = 'रामायण-पदकोशः';
+  if (versesCovered) titleText += '  ·  श्लोक ' + versesCovered;
+  document.getElementById('page-title').textContent = titleText;
+  document.title = titleText + ' · Ramayana Padakosha';
+
+  const subtitleBase = 'A Pāṇinian word-by-word grammatical lexicon — nāma, dhātu, samāsa & sūtra references';
+  document.getElementById('page-subtitle').textContent = subtitleBase;
+
+  if (meta.important_disclaimer){
+    document.getElementById('disclaimer-block').innerHTML =
+      '<b>Note on the analysis.</b> ' + meta.important_disclaimer;
+  }
+
+  document.getElementById('page-footer').innerHTML =
+    'सूत्रसन्दर्भाः from <a href="https://ashtadhyayi.com" target="_blank" rel="noopener">ashtadhyayi.com</a>' +
+    (wordCount ? ' &nbsp;·&nbsp; पदसंख्या ' + wordCount + (versesCovered ? ' (श्लोक ' + versesCovered + ')' : '') : '');
+
+  showControls();
+}
+
+function tryLoad(json, sourceLabel){
+  try {
+    if (!json || !Array.isArray(json.words)) throw new Error('JSON has no "words" array');
+    initLexicon(json);
+    setStatus('भारितम् · loaded ' + json.words.length + ' words' + (sourceLabel ? ' from ' + sourceLabel : ''), 'ok');
+  } catch (e){
+    console.error(e);
+    setStatus('त्रुटिः · could not load this file — ' + e.message, 'error');
+  }
+}
+
+// Attempt to auto-load "Ramayana Padakosha.json" if it sits next to this HTML file.
+// (Works when served over http(s); many browsers block fetch() of local files
+// opened via file://, in which case this simply falls through to the file picker.)
+fetch('Ramayana Padakosha.json')
+  .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+  .then(json => tryLoad(json, 'Ramayana Padakosha.json'))
+  .catch(() => {
+    setStatus('स्वयं-भारणम् असफलम् — कृपया अधो JSON फाइलं चिनोतु। (auto-load failed — use "Load JSON file" below)', 'error');
+  });
+
+document.getElementById('file-input').addEventListener('change', (e) => {
+  const file = e.target.files && e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      const json = JSON.parse(reader.result);
+      tryLoad(json, file.name);
+    } catch (err){
+      setStatus('त्रुटिः · invalid JSON — ' + err.message, 'error');
+    }
+  };
+  reader.onerror = () => setStatus('त्रुटिः · could not read the file', 'error');
+  reader.readAsText(file);
+});
+
+})();
+</script>
+
+</body>
+</html>

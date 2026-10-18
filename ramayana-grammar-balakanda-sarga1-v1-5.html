@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="sa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>रामायणम् — व्याकरणविश्लेषणसहितम्</title>
+<style>
+  :root{
+    --bg: #fbf6ec;
+    --panel: #fffdf8;
+    --ink: #2b1d0e;
+    --maroon: #7a1f1f;
+    --maroon-dark: #5a1414;
+    --gold: #b8860b;
+    --gold-soft: #e8c988;
+    --line: #e2d3ad;
+    --muted: #7a6a4d;
+    --accent-bg: #f4e9cf;
+    --shadow: 0 2px 10px rgba(90,20,20,0.08);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;overflow-x:hidden;}
+  body{
+    background: var(--bg);
+    background-image: radial-gradient(circle at 10% 10%, #f6ecd6 0, transparent 40%),
+                       radial-gradient(circle at 90% 90%, #f6ecd6 0, transparent 40%);
+    color: var(--ink);
+    font-family: "Noto Serif Devanagari","Tiro Devanagari Sanskrit","Palatino Linotype",Georgia,serif;
+    overflow-wrap: anywhere;
+    line-height: 1.6;
+  }
+  header{
+    background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
+    color: #fbe9c6;
+    padding: 18px 16px 14px;
+    text-align:center;
+    box-shadow: var(--shadow);
+    position: relative;
+  }
+  header h1{
+    margin:0; font-size: 1.9rem; letter-spacing:0.5px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  }
+  header .sub{
+    font-size:0.95rem; color:var(--gold-soft); margin-top:4px; font-family: Georgia, serif; letter-spacing: 0.5px;
+  }
+  .ornament{ font-size:0.85rem; opacity:0.8; margin-top:6px; color:#e8d3a0;}
+
+  .nav-bar{
+    display:flex; flex-wrap:wrap; gap:10px; justify-content:center; align-items:center;
+    background: var(--accent-bg);
+    padding:10px 12px;
+    border-bottom: 1px solid var(--line);
+    position: sticky; top:0; z-index: 20;
+  }
+  .nav-bar button, .nav-bar select{
+    font-family:inherit;
+    background: var(--panel);
+    border:1px solid var(--gold-soft);
+    color: var(--maroon-dark);
+    padding:6px 12px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:0.95rem;
+  }
+  .nav-bar button:hover{ background: var(--gold-soft); }
+  .nav-bar button:disabled{ opacity:0.4; cursor:not-allowed; }
+  .nav-bar select{min-width:110px;}
+  .nav-bar .counter{ color:var(--muted); font-size:0.85rem; }
+  .lang-toggle-wrap{ display:inline-flex; gap:4px; margin-left:8px; border-left:1px solid var(--gold-soft); padding-left:10px;}
+  .lang-btn{
+    font-family:inherit; font-size:0.85rem; background:var(--panel); border:1px solid var(--gold-soft);
+    color:var(--maroon-dark); padding:5px 10px; border-radius:14px; cursor:pointer;
+  }
+  .lang-btn.active{ background: var(--gold); color:#3a2400; border-color:var(--gold); font-weight:bold; }
+
+  main{ max-width: 960px; margin: 0 auto; padding: 18px 14px 60px; }
+
+  .verse-card{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 20px 18px;
+    margin-bottom: 20px;
+  }
+  .verse-num-badge{
+    display:inline-block; background: var(--maroon); color:#fce8bd;
+    padding:2px 12px; border-radius:20px; font-size:0.85rem; margin-bottom:10px;
+  }
+  .moola{
+    font-size: 1.35rem; text-align:center; color: var(--maroon-dark);
+    margin: 10px 0 4px;
+  }
+  .moola div{ margin:3px 0; }
+  .iast{
+    text-align:center; color: var(--muted); font-style: italic; font-size:0.95rem;
+    font-family: Georgia, serif; margin-bottom:6px;
+  }
+
+  .tabs{
+    display:flex; flex-wrap:wrap; gap:6px; margin-top:18px; border-bottom: 2px solid var(--gold-soft); padding-bottom:8px;
+    overflow-x: auto;
+  }
+  .tab-btn{
+    font-family:inherit; font-size:0.85rem; background:var(--accent-bg); border:1px solid var(--gold-soft);
+    color:var(--maroon-dark); padding:5px 10px; border-radius:16px; cursor:pointer;
+    white-space: nowrap;
+  }
+  .tab-btn.active{ background: var(--maroon); color:#fce8bd; border-color:var(--maroon); }
+  .tab-panel{ display:none; padding-top:14px; animation: fadeIn 0.2s ease-in; }
+  .tab-panel.active{ display:block; }
+  @keyframes fadeIn{ from{opacity:0;} to{opacity:1;} }
+
+  .section-title{ color:var(--maroon-dark); font-size:1.1rem; margin: 4px 0 10px; border-bottom:1px solid var(--line); padding-bottom:4px;}
+  
+  /* COMPONENT 1: पदच्छेदः — hover-term ("underlined-term") gloss pattern */
+  .padaccheda-row{ display:flex; flex-wrap:wrap; gap:10px; }
+  .padaccheda-item{
+    background: var(--accent-bg); padding:4px 10px; border-radius:6px; font-size:1.05rem;
+    border:1px solid var(--line);
+  }
+  .hover-term{
+    border-bottom: 1px dotted var(--gold);
+    cursor: help;
+    position: relative;
+    display: inline-block;
+    color: inherit;
+    text-decoration: none;
+  }
+  .hover-term .tooltip-box{
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--maroon-dark);
+    color: var(--gold-soft);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    line-height: 1.55;
+    white-space: normal;
+    min-width: 190px;
+    max-width: 270px;
+    z-index: 30;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    transition: opacity 0.15s ease;
+    pointer-events: none;
+    text-align: left;
+  }
+  .hover-term .tooltip-box b{ color: var(--gold); }
+  /* keyboard accessibility: :focus fires the same as :hover */
+  .hover-term:hover .tooltip-box,
+  .hover-term:focus .tooltip-box{
+    visibility: visible;
+    opacity: 1;
+  }
+  .hover-hint{ font-size:0.82rem; color:var(--muted); margin-top:10px; }
+
+  /* COMPONENT 2: अन्वयः */
+  .anvaya-box{ background:#fdf9ef; padding:10px 12px; border-radius:6px; font-size:1.05rem; border:1px solid var(--line); }
+  .saralartha-box{
+    margin-top:14px; padding:12px 14px; background: var(--accent-bg);
+    border-left: 4px solid var(--gold);
+    border-radius: 6px; font-size:1rem;
+  }
+  .saralartha-box .label{ font-weight:bold; color:var(--maroon-dark); margin-bottom:4px; display:block;}
+
+  /* COMPONENT 3: पद-विग्रहः */
+  .word-card{
+    border:1px solid var(--line); border-radius:8px; padding:10px 12px; margin-bottom:10px; background:#fffef9;
+  }
+  .word-card .w{ font-size:1.15rem; color:var(--maroon-dark); font-weight:bold; }
+  .word-card .field{ margin-top:4px; font-size:0.92rem; }
+  .word-card .field b{ color:var(--muted); font-weight:600; }
+
+  /* COMPONENT 4: कारकः */
+  .karaka-grid{ display:grid; grid-template-columns: 1fr; gap:8px; }
+  .karaka-grid .k-item{ background:#fdf9ef; border:1px solid var(--line); border-radius:6px; padding:8px 10px; font-size:0.95rem;}
+  .karaka-grid .k-item b{ color:var(--maroon-dark);}
+
+  /* COMPONENTS 5 & 6: शब्दरूपाणि & धातुरूपाणि */
+  table.decl-table{ width:100%; border-collapse:collapse; margin-bottom:6px; font-size:0.95rem; }
+  table.decl-table th, table.decl-table td{ border:1px solid var(--line); padding:6px 8px; text-align:center; }
+  table.decl-table th{ background: var(--accent-bg); color:var(--maroon-dark); }
+  .group-title{ font-weight:bold; margin: 14px 0 4px; color:var(--maroon-dark); }
+  .group-note{ font-size:0.85rem; color:var(--muted); margin-bottom:6px; }
+
+  /* COMPONENT 7: प्रत्ययाः */
+  .pratyaya-item{
+    background:#fdf9ef; border:1px solid var(--line); border-radius:6px; padding:10px 12px; margin-bottom:10px; font-size:0.95rem;
+  }
+  .pratyaya-item .word{ color:var(--maroon-dark); font-weight:bold; margin-bottom:4px; display:block;}
+
+  /* COMPONENT 8: सन्धिः */
+  .sandhi-item{
+    background:#fdf9ef; border:1px solid var(--line); border-radius:6px; padding:10px 12px; margin-bottom:10px; font-size:0.95rem;
+  }
+  .sandhi-item .loc{ color:var(--maroon-dark); font-weight:bold; margin-bottom:4px; display:block;}
+
+  /* COMPONENT 9: समासः */
+  .samasa-item{
+    background:#fdf9ef; border:1px solid var(--line); border-radius:6px; padding:10px 12px; margin-bottom:10px; font-size:0.95rem;
+  }
+  .samasa-item .comp{ color:var(--maroon-dark); font-weight:bold; margin-bottom:4px; display:block;}
+
+  /* COMPONENT 10: छन्दस्/अलङ्कारः */
+  .scansion-row{ display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; padding:6px 0; border-bottom:1px dashed var(--line);}
+  .scansion-row .p{ flex:2; min-width:180px; }
+  .scansion-row .m{ flex:1; min-width:120px; color:var(--maroon); letter-spacing:2px;}
+  .scansion-row .n{ flex:2; min-width:200px; color:var(--muted); font-size:0.85rem;}
+  .alankara-item{ margin-bottom:10px; }
+  .alankara-item .name{ font-weight:bold; color:var(--maroon-dark); }
+
+  /* COMPONENT 11: प्रश्नोत्तरी (Quiz) — auto-generated from the grammar corpus, not hand-authored */
+  .quiz-intro{ text-align:center; padding:20px 10px; }
+  .quiz-intro p{ color:var(--muted); margin:8px 0 18px; font-size:0.95rem; }
+  .quiz-start-btn{
+    font-family:inherit; font-size:1rem; background:var(--maroon); color:#fce8bd;
+    border:none; padding:10px 28px; border-radius:24px; cursor:pointer;
+  }
+  .quiz-start-btn:hover{ background:var(--maroon-dark); }
+  .quiz-progress{
+    display:flex; justify-content:space-between; align-items:center;
+    margin-bottom:14px; font-size:0.85rem; color:var(--muted);
+  }
+  .quiz-progress-bar{
+    flex:1; height:6px; background:var(--accent-bg); border-radius:3px; margin:0 12px;
+    overflow:hidden; border:1px solid var(--line);
+  }
+  .quiz-progress-fill{ height:100%; background:var(--gold); transition:width 0.25s ease; }
+  .quiz-question-box{
+    background:#fffef9; border:1px solid var(--line); border-radius:10px;
+    padding:16px 18px; margin-bottom:16px;
+  }
+  .quiz-question-type{ font-size:0.78rem; color:var(--gold); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:6px; }
+  .quiz-question-text{ font-size:1.15rem; color:var(--maroon-dark); line-height:1.6; }
+  .quiz-options{ display:grid; grid-template-columns:1fr; gap:10px; }
+  .quiz-option{
+    font-family:inherit; text-align:left; font-size:1rem;
+    background:var(--panel); border:1.5px solid var(--gold-soft); border-radius:8px;
+    padding:10px 14px; cursor:pointer; transition:background 0.15s ease, border-color 0.15s ease;
+  }
+  .quiz-option:hover:not(:disabled){ background:var(--accent-bg); }
+  .quiz-option:disabled{ cursor:default; }
+  .quiz-option.correct{ background:#e3f3e1; border-color:#4a8c46; color:#2c5a29; font-weight:bold; }
+  .quiz-option.incorrect{ background:#fbe3e1; border-color:#b84a3f; color:#8a2f26; }
+  .quiz-explanation{
+    margin-top:14px; padding:10px 14px; background:var(--accent-bg);
+    border-left:4px solid var(--gold); border-radius:6px; font-size:0.9rem;
+  }
+  .quiz-next-btn{
+    font-family:inherit; font-size:0.95rem; background:var(--maroon); color:#fce8bd;
+    border:none; padding:8px 20px; border-radius:20px; cursor:pointer; margin-top:14px;
+  }
+  .quiz-next-btn:hover{ background:var(--maroon-dark); }
+  .quiz-score-screen{ text-align:center; padding:24px 10px; }
+  .quiz-score-big{ font-size:2.4rem; color:var(--maroon-dark); font-weight:bold; margin:8px 0; }
+  .quiz-score-note{ color:var(--muted); font-size:0.95rem; margin-bottom:18px; }
+
+  .pending-note{
+    margin-top:16px; padding:14px; text-align:center; color:var(--muted);
+    background: repeating-linear-gradient(45deg, #f4ecd8, #f4ecd8 10px, #f1e6ce 10px, #f1e6ce 20px);
+    border-radius:8px; border:1px dashed var(--gold-soft); font-size:0.95rem;
+  }
+
+  footer{ text-align:center; padding:20px 12px; color:var(--muted); font-size:0.8rem; }
+
+  @media (min-width: 640px){
+    .karaka-grid{ grid-template-columns: 1fr 1fr; }
+    .quiz-options{ grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>॥ श्रीरामायणम् ॥</h1>
+  <div class="sub">व्याकरणविश्लेषणसहितम् — बाल-काण्डः, सर्गः १ (आदिश्लोकः)</div>
+  <div class="ornament">तपः स्वाध्यायनिरतं तपस्वी वाग्विदां वरम्</div>
+</header>
+
+<div class="nav-bar">
+  <button id="prevBtn" title="पूर्वश्लोकः">&larr; पूर्वः</button>
+  <select id="verseSelect"></select>
+  <button id="nextBtn" title="अग्रिमश्लोकः">अग्रिमः &rarr;</button>
+  <span class="counter" id="counter"></span>
+  <span id="langToggleWrap" class="lang-toggle-wrap"></span>
+</div>
+
+<main id="mainArea"></main>
+
+<footer>
+  रामायणम् — व्याकरणविश्लेषणसहितम्। संपूर्णं व्याकरण-दशाङ्गम्। मूलपाठः सत्यापितः: valmikiramayan.net, gyaandweep.com, srivalmikiramayana.com।
+</footer>
+
+<script type="application/json" id="paradigm-data">{
+  "A-P": {
+    "type": "gen",
+    "name_sa": "अकारान्त-पुंलिङ्गम्",
+    "name_en": "a-stem masculine",
+    "name_ta": "அ-ஈற்று ஆண்பால்",
+    "desc_sa": "नियमितम् — देव/नर/लोक-वर्गीयम्",
+    "desc_en": "Regular a-stem masc. (deva/nara pattern)",
+    "desc_ta": "साधारण அ-ஈற்று ஆண்பால் பெயர்ச்சொல்"
+  },
+  "A-N": {
+    "type": "gen",
+    "name_sa": "अकारान्त-नपुंसकलिङ्गम्",
+    "name_en": "a-stem neuter",
+    "name_ta": "அ-ஈற்று அலிங்கம்",
+    "desc_sa": "नियमितम् — फल-वर्गीयम्",
+    "desc_en": "Regular a-stem neuter (phala pattern)",
+    "desc_ta": "साधारण அ-ஈற்று அலிங்கப் பெயர்ச்சொல்"
+  },
+  "I-P": {
+    "type": "gen",
+    "name_sa": "इकारान्त-पुंलिङ्गम्",
+    "name_en": "i-stem masculine",
+    "name_ta": "இ-ஈற்று ஆண்பால்",
+    "desc_sa": "मुनि/वाल्मीकि-वर्गीयम्",
+    "desc_en": "i-stem masc. (muni pattern)",
+    "desc_ta": "முனி வகைப் பெயர்ச்சொல்"
+  },
+  "VAT-P": {
+    "type": "gen",
+    "name_sa": "वतुप्-कारान्त-पुंलिङ्गम्",
+    "name_en": "-vat possessive adj. masc.",
+    "name_ta": "वतुप் ஈற்றுப் பெயரடை",
+    "desc_sa": "भगवत्/श्रीमत्-वर्गीयम्, प्रथमैकवचने -वान्",
+    "desc_en": "matup-suffix adjective, -vat allomorph",
+    "desc_ta": "भगवत் வகுப்பு"
+  },
+  "MAT-P": {
+    "type": "gen",
+    "name_sa": "मतुप्-कारान्त-पुंलिङ्गम्",
+    "name_en": "-mat possessive adj. masc.",
+    "name_ta": "मतुप் ஈற்றுப் பெயரடை",
+    "desc_sa": "द्युतिमत्-वर्गीयम्, प्रथमैकवचने -मान्",
+    "desc_en": "matup-suffix adjective, -mat allomorph",
+    "desc_ta": "द्युतिमत் வகுப்பு"
+  },
+  "KIM-P": {
+    "type": "irr",
+    "table": {
+      "headers": [
+        "विभक्तिः",
+        "एकवचनम्",
+        "द्विवचनम्",
+        "बहुवचनम्"
+      ],
+      "rows": [
+        [
+          "प्रथमा",
+          "कः",
+          "कौ",
+          "के"
+        ],
+        [
+          "द्वितीया",
+          "कम्",
+          "कौ",
+          "कान्"
+        ],
+        [
+          "तृतीया",
+          "केन",
+          "काभ्याम्",
+          "कैः"
+        ],
+        [
+          "चतुर्थी",
+          "कस्मै",
+          "काभ्याम्",
+          "केभ्यः"
+        ],
+        [
+          "पञ्चमी",
+          "कस्मात्",
+          "काभ्याम्",
+          "केभ्यः"
+        ],
+        [
+          "षष्ठी",
+          "कस्य",
+          "कयोः",
+          "केषाम्"
+        ],
+        [
+          "सप्तमी",
+          "कस्मिन्",
+          "कयोः",
+          "केषु"
+        ]
+      ]
+    },
+    "name_sa": "किम्-सर्वनाम (पुंलिङ्गरूपाणि)",
+    "name_en": "किम् interrogative pronoun (masc. forms)",
+    "name_ta": "किம் வினாப் பெயர்ச்சொல்"
+  },
+  "IDAM-P": {
+    "type": "irr",
+    "table": {
+      "headers": [
+        "विभक्तिः",
+        "एकवचनम्",
+        "द्विवचनम्",
+        "बहुवचनम्"
+      ],
+      "rows": [
+        [
+          "प्रथमा",
+          "अयम्",
+          "इमौ",
+          "इमे"
+        ],
+        [
+          "द्वितीया",
+          "इमम्",
+          "इमौ",
+          "इमान्"
+        ],
+        [
+          "तृतीया",
+          "अनेन",
+          "आभ्याम्",
+          "एभिः"
+        ],
+        [
+          "चतुर्थी",
+          "अस्मै",
+          "आभ्याम्",
+          "एभ्यः"
+        ],
+        [
+          "पञ्चमी",
+          "अस्मात्",
+          "आभ्याम्",
+          "एभ्यः"
+        ],
+        [
+          "षष्ठी",
+          "अस्य",
+          "अनयोः",
+          "एषाम्"
+        ],
+        [
+          "सप्तमी",
+          "अस्मिन्",
+          "अनयोः",
+          "एषु"
+        ]
+      ]
+    },
+    "name_sa": "इदम्-सर्वनाम (पुं/नपुं-साधारणरूपाणि)",
+    "name_en": "इदम् demonstrative pronoun",
+    "name_ta": "इदம் சுட்டுப்பெயர்ச்சொல்"
+  },
+  "ETAD-N": {
+    "type": "irr",
+    "table": {
+      "headers": [
+        "विभक्तिः",
+        "एकवचनम्",
+        "द्विवचनम्",
+        "बहुवचनम्"
+      ],
+      "rows": [
+        [
+          "प्रथमा",
+          "एतत्",
+          "एते",
+          "एतानि"
+        ],
+        [
+          "द्वितीया",
+          "एतत्",
+          "एते",
+          "एतानि"
+        ],
+        [
+          "तृतीया",
+          "एतेन",
+          "एताभ्याम्",
+          "एतैः"
+        ],
+        [
+          "चतुर्थी",
+          "एतस्मै",
+          "एताभ्याम्",
+          "एतेभ्यः"
+        ],
+        [
+          "पञ्चमी",
+          "एतस्मात्",
+          "एताभ्याम्",
+          "एतेभ्यः"
+        ],
+        [
+          "षष्ठी",
+          "एतस्य",
+          "एतयोः",
+          "एतेषाम्"
+        ],
+        [
+          "सप्तमी",
+          "एतस्मिन्",
+          "एतयोः",
+          "एतेषु"
+        ]
+      ]
+    },
+    "name_sa": "एतद्-सर्वनाम (नपुंसकलिङ्गम्)",
+    "name_en": "एतद् demonstrative pronoun, neuter",
+    "name_ta": "एतद் சுட்டுப்பெயர்ச்சொல் (அலிங்கம்)"
+  },
+  "ASMAD": {
+    "type": "irr",
+    "table": {
+      "headers": [
+        "विभक्तिः",
+        "एकवचनम्",
+        "द्विवचनम्",
+        "बहुवचनम्"
+      ],
+      "rows": [
+        [
+          "प्रथमा",
+          "अहम्",
+          "आवाम्",
+          "वयम्"
+        ],
+        [
+          "द्वितीया",
+          "माम् / मा",
+          "आवाम् / नौ",
+          "अस्मान् / नः"
+        ],
+        [
+          "तृतीया",
+          "मया",
+          "आवाभ्याम्",
+          "अस्माभिः"
+        ],
+        [
+          "चतुर्थी",
+          "मह्यम् / मे",
+          "आवाभ्याम् / नौ",
+          "अस्मभ्यम् / नः"
+        ],
+        [
+          "पञ्चमी",
+          "मत्",
+          "आवाभ्याम्",
+          "अस्मत्"
+        ],
+        [
+          "षष्ठी",
+          "मम / मे",
+          "आवयोः / नौ",
+          "अस्माकम् / नः"
+        ],
+        [
+          "सप्तमी",
+          "मयि",
+          "आवयोः",
+          "अस्मासु"
+        ]
+      ]
+    },
+    "name_sa": "अस्मद्-सर्वनाम (उत्तमपुरुषः)",
+    "name_en": "अस्मद् 1st person pronoun",
+    "name_ta": "अस्मद் தன்மைப் பெயர்ச்சொல்"
+  },
+  "YUSHMAD": {
+    "type": "irr",
+    "table": {
+      "headers": [
+        "विभक्तिः",
+        "एकवचनम्",
+        "द्विवचनम्",
+        "बहुवचनम्"
+      ],
+      "rows": [
+        [
+          "प्रथमा",
+          "त्वम्",
+          "युवाम्",
+          "यूयम्"
+        ],
+        [
+          "द्वितीया",
+          "त्वाम् / त्वा",
+          "युवाम् / वाम्",
+          "युष्मान् / वः"
+        ],
+        [
+          "तृतीया",
+          "त्वया",
+          "युवाभ्याम्",
+          "युष्माभिः"
+        ],
+        [
+          "चतुर्थी",
+          "तुभ्यम् / ते",
+          "युवाभ्याम् / वाम्",
+          "युष्मभ्यम् / वः"
+        ],
+        [
+          "पञ्चमी",
+          "त्वत्",
+          "युवाभ्याम्",
+          "युष्मत्"
+        ],
+        [
+          "षष्ठी",
+          "तव / ते",
+          "युवयोः / वाम्",
+          "युष्माकम् / वः"
+        ],
+        [
+          "सप्तमी",
+          "त्वयि",
+          "युवयोः",
+          "युष्मासु"
+        ]
+      ]
+    },
+    "name_sa": "युष्मद्-सर्वनाम (मध्यमपुरुषः)",
+    "name_en": "युष्मद् 2nd person pronoun",
+    "name_ta": "युष्मद் முன்னிலைப் பெயர்ச்சொல்"
+  },
+  "VIDVAS-P": {
+    "type": "irr",
+    "table": {
+      "headers": [
+        "विभक्तिः",
+        "एकवचनम्",
+        "द्विवचनम्",
+        "बहुवचनम्"
+      ],
+      "rows": [
+        [
+          "प्रथमा",
+          "विद्वान्",
+          "विद्वांसौ",
+          "विद्वांसः"
+        ],
+        [
+          "द्वितीया",
+          "विद्वांसम्",
+          "विद्वांसौ",
+          "विदुषः"
+        ],
+        [
+          "तृतीया",
+          "विदुषा",
+          "विद्वद्भ्याम्",
+          "विद्वद्भिः"
+        ],
+        [
+          "चतुर्थी",
+          "विदुषे",
+          "विद्वद्भ्याम्",
+          "विद्वद्भ्यः"
+        ],
+        [
+          "पञ्चमी",
+          "विदुषः",
+          "विद्वद्भ्याम्",
+          "विद्वद्भ्यः"
+        ],
+        [
+          "षष्ठी",
+          "विदुषः",
+          "विदुषोः",
+          "विदुषाम्"
+        ],
+        [
+          "सप्तमी",
+          "विदुषि",
+          "विदुषोः",
+          "विद्वत्सु"
+        ]
+      ]
+    },
+    "name_sa": "विद्वस्-शब्दः (परोक्षभूतकालवाचकसक्रियाविशेषणम्, पुंलिङ्गम्)",
+    "name_en": "विद्वस् perfect participle 'learned', masc.",
+    "name_ta": "विद्वस் பூரண இறந்தகால வினையெச்சப் பெயர்ச்சொல்"
+  }
+}</script>
+<script type="application/json" id="corpus-data">{"verses": [{"id": "1.1.1", "number": 1, "kanda": "बाल-काण्डः", "sarga": 1, "devanagari": "तपः स्वाध्यायनिरतं तपस्वी वाग्विदां वरम् । नारदं परिपप्रच्छ वाल्मीकिर्मुनिपुङ्गवम् ॥ १-१-१ ॥", "iast": "tapaḥ-svādhyāya-nirataṃ tapasvī vāg-vidāṃ varam | nāradaṃ paripapraccha vālmīkir-munipuṅgavam || 1-1-1 ||", "chandas": "अनुष्टुप्", "verified_sources": "valmikiramayan.net, gyaandweep.com, srivalmikiramayana.com, stotranidhi.com, ramcharit.in", "grammar": {"padaccheda": [{"word": "तपः-स्वाध्याय-निरतम्", "meaning_sa": "तपसि स्वाध्याये च निरतः (मग्नः)", "meaning_en": "absorbed/engaged in penance and Vedic self-study", "meaning_ta": "தவத்திலும் சுவாத்யாயத்திலும் ஈடுபட்டவர்"}, {"word": "तपस्वी", "meaning_sa": "तपः कुर्वन्, तपोयुक्तः", "meaning_en": "the ascetic; one who practices penance", "meaning_ta": "தவசி, தவம் செய்பவர்"}, {"word": "वाग्-विदाम्", "meaning_sa": "वाचः वेत्तारः (षष्ठी-बहुवचनम्)", "meaning_en": "of those who know/master speech (genitive plural)", "meaning_ta": "பேச்சு வல்லுநர்களில், சொல் வல்லோரில்"}, {"word": "वरम्", "meaning_sa": "श्रेष्ठम्, उत्तमम्", "meaning_en": "the best, foremost", "meaning_ta": "சிறந்தவர், மேலானவர்"}, {"word": "नारदम्", "meaning_sa": "नारदमुनिम् (द्वितीया विभक्तिः)", "meaning_en": "Nārada (accusative — the sage being asked)", "meaning_ta": "நாரதரை (செயப்படுபொருள் — கேட்கப்படும் முனிவர்)"}, {"word": "परिपप्रच्छ", "meaning_sa": "प्रष्टवान् (प्रच्छ् धातोः परोक्षभूतकालः)", "meaning_en": "asked, inquired (perfect tense of √prach)", "meaning_ta": "கேட்டார், வினவினார்"}, {"word": "वाल्मीकिः", "meaning_sa": "वाल्मीकिमुनिः (प्रथमा विभक्तिः — कर्ता)", "meaning_en": "Vālmīki (nominative — the subject/asker)", "meaning_ta": "வால்மீகி முனிவர் (எழுவாய்)"}, {"word": "मुनि-पुङ्गवम्", "meaning_sa": "मुनिषु पुङ्गवः इव श्रेष्ठः", "meaning_en": "foremost among sages (lit. 'bull among sages')", "meaning_ta": "முனிவர்களில் காளை போன்ற சிறந்தவர்"}], "anvaya_sa": "वाल्मीकिः तपस्वी तपःस्वाध्यायनिरतं वाग्विदां वरं मुनिपुङ्गवं नारदं परिपप्रच्छ।", "anvaya_ta": "தவசியான வால்மீகி, தவத்திலும் சுவாத்யாயத்திலும் ஈடுபட்டு, பேச்சு வல்லுநரில் சிறந்தவரும் முனிவர்களில் தலைசிறந்தவருமான நாரதரிடம் கேட்டார்.", "saralartha_sa": "तपसि स्वाध्याये च निरतं, वाग्विदां वरं, मुनिषु पुङ्गवं नारदं तपस्वी वाल्मीकिः परिपप्रच्छ।", "saralartha_ta": "தவத்திலும் வேதத்தை ஓதுவதிலும் ஈடுபட்டவரும், பேச்சு வல்லுநரில் சிறந்தவரும், முனிவர்களில் தலைசிறந்தவருமான நாரதரிடம் தவசியான வால்மீகி (பின்வருமாறு) கேட்டார்.", "translation_en": "The ascetic Valmiki asked Narada — who was absorbed in austerity and Vedic study, the best among the eloquent, and the foremost among sages — the following question.", "translation_ta": "தவத்திலும் வேதத்தை ஓதுவதிலும் ஈடுபட்டவரும், பேச்சு வல்லுநரில் சிறந்தவரும், முனிவர்களில் தலைசிறந்தவருமான நாரதரிடம் தவசியான வால்மீகி (பின்வருமாறு) கேட்டார்.", "pada_vigraha": [{"id": "1.1.1.w1", "word": "तपः-स्वाध्याय-निरतम्", "surface": "tapaḥ-svādhyāya-niratam", "lemma_sa": "तपःस्वाध्यायनिरत", "pos": "adjective (compound)", "gender": "masculine", "number": "singular", "case": "accusative", "meaning": "तपसि स्वाध्याये च निरतः (मग्नः)", "meaning_ta": "தவத்திலும் சுவாத்யாயத்திலும் ஈடுபட்டவர்", "etymology": "तपस् + स्वाध्याय (द्वन्द्वः) + निरत (नि+रम् धातोः क्तप्रत्ययः) — सप्तमीतत्पुरुषसमासः", "etymology_ta": "தபஸ் + சுவாத்யாய (இரட்டைத் தொகை) + நிரத (நி+ரம் தாதுவின் க்த-ஈறு) — ஏழாம் வேற்றுமைத் தொகை", "morphology": "विशेषणम्, समासपदम्, पुल्लिङ्गम्, द्वितीया विभक्तिः, एकवचनम्", "morphology_ta": "பெயரடை, தொகைச்சொல், ஆண்பால், செயப்படுபொருள் வேற்றுமை, ஒருமை", "role": "विशेषणम् — नारदम् इत्यस्य गुणं निर्दिशति", "role_ta": "பெயரடை — 'நாரதம்' என்பதன் பண்பைக் குறிக்கிறது"}, {"id": "1.1.1.w2", "word": "तपस्वी", "surface": "tapasvī", "lemma_sa": "तपस्विन्", "pos": "noun/adjective", "gender": "masculine", "number": "singular", "case": "nominative", "meaning": "तपः कुर्वन्, तपोयुक्तः", "meaning_ta": "தவசி, தவம் செய்பவர்", "etymology": "तपस् + विन् (मतुबर्थीयप्रत्ययः) — 'तपोयुक्तः' इत्यर्थे", "etymology_ta": "தபஸ் + विன் (உடைமைப் பிரத்யயம்) — 'தவம் உடையவர்' எனும் பொருளில்", "morphology": "नामपदम्/विशेषणम्, इन्-कारान्तम्, पुल्लिङ्गम्, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "பெயர்ச்சொல்/பெயரடை, इன்-ஈறு, ஆண்பால், எழுவாய் வேற்றுமை, ஒருமை", "role": "कर्तृविशेषणम् — वाल्मीकिः इत्यस्य गुणं निर्दिशति", "role_ta": "எழுவாய்ப் பெயரடை — 'வால்மீகி' என்பதன் பண்பைக் குறிக்கிறது"}, {"id": "1.1.1.w3", "word": "वाग्-विदाम्", "surface": "vāg-vidām", "lemma_sa": "वाग्विद्", "pos": "noun (compound)", "gender": "masculine", "number": "plural", "case": "genitive", "meaning": "वाचः वेत्तारः (शब्दवेत्तारः)", "meaning_ta": "பேச்சு வல்லுநர்கள்", "etymology": "वाच् + विद् (क्विप्प्रत्ययान्तः, ज्ञानार्थकधातुः) — उपपदतत्पुरुषसमासः; चकारस्य गकारः (जश्त्वसन्धिः)", "etymology_ta": "வாச் + विद் (க்விப்-ஈறு அறிதல் தாது) — உபபத தொகைச்சொல்; ச் என்பது க் ஆக மாறியது (ஜஷ்த்வ சந்தி)", "morphology": "नामपदम्, व्यञ्जनान्तम् (द्-कारान्तम्), पुल्लिङ्गम्, षष्ठी विभक्तिः, बहुवचनम्", "morphology_ta": "பெயர்ச்சொல், மெய்யீறு (द்-ஈறு), ஆண்பால், ஆறாம் வேற்றுமை, பன்மை", "role": "सम्बन्धकारकः — वरम् इत्यस्य सम्बन्धं निर्दिशति ('वाग्विदां मध्ये वरः')", "role_ta": "உடைமை உறவு — 'வரம்' என்பதன் தொடர்பைக் குறிக்கிறது"}, {"id": "1.1.1.w4", "word": "वरम्", "surface": "varam", "lemma_sa": "वर", "pos": "adjective", "gender": "masculine", "number": "singular", "case": "accusative", "meaning": "श्रेष्ठम्, उत्तमम्", "meaning_ta": "சிறந்தவர், மேலானவர்", "etymology": "वृ (वरणे) धातोः अप्प्रत्ययः — 'वरणीयतमः' इत्यर्थे", "etymology_ta": "வ்ரு (தேர்ந்தெடு) தாதுவின் அப்-பிரத்யயம் — 'தேர்ந்தெடுக்கத் தக்கவர்' எனும் பொருளில்", "morphology": "विशेषणम्, अकारान्तम्, पुल्लिङ्गम्, द्वितीया विभक्तिः, एकवचनम्", "morphology_ta": "பெயரடை, अ-ஈறு, ஆண்பால், செயப்படுபொருள் வேற்றுமை, ஒருமை", "role": "विशेषणम् — नारदम् इत्यस्य गुणं निर्दिशति (वाग्विदां मध्ये श्रेष्ठः)", "role_ta": "பெயரடை — 'நாரதம்' என்பதன் பண்பைக் குறிக்கிறது"}, {"id": "1.1.1.w5", "word": "नारदम्", "surface": "nāradam", "lemma_sa": "नारद", "pos": "noun (proper)", "gender": "masculine", "number": "singular", "case": "accusative", "meaning": "नारदमुनिम्", "meaning_ta": "நாரத முனிவரை", "etymology": "नारद (रूढं देवर्षिनाम) + अम् (द्वितीया-एकवचन-प्रत्ययः)", "etymology_ta": "நாரத (ரூடப் பெயர்) + अம் (செயப்படுபொருள் ஒருமை விகுதி)", "morphology": "नामपदम् (व्यक्तिवाचकम्), अकारान्तम्, पुल्लिङ्गम्, द्वितीया विभक्तिः, एकवचनम्", "morphology_ta": "பெயர்ச்சொல் (சிறப்புப் பெயர்), अ-ஈறு, ஆண்பால், செயப்படுபொருள் வேற்றுமை, ஒருமை", "role": "कर्म — वाल्मीकिना पृष्टः (परिपप्रच्छ इत्यस्य कर्म)", "role_ta": "செயப்படுபொருள் — வால்மீகியால் கேட்கப்பட்டவர்"}, {"id": "1.1.1.w6", "word": "परिपप्रच्छ", "surface": "paripapraccha", "lemma_sa": "प्रच्छ्", "pos": "verb", "gender": "—", "number": "singular", "case": "—", "verb_info": {"lakara": "परोक्षभूतकालः (perfect)", "person": "3", "pada": "parasmaipada", "root": "prach", "root_sa": "प्रच्छ्", "gana": "6"}, "meaning": "प्रष्टवान्, पृष्टवान्", "meaning_ta": "கேட்டார், வினவினார்", "etymology": "परि (उपसर्गः) + प्रच्छ् (धातुः, तुदादिगणः) + द्वित्वम् (पप्रच्छ) + तृतीयपुरुषैकवचन-परोक्षभूत-प्रत्ययः", "etymology_ta": "பரி (முன்னொட்டு) + ப்ரச்ச் (தாது) + இரட்டிப்பு (பப்ரச்ச) + மூன்றாம் புருஷன் ஒருமை பரோக்ஷ பூத விகுதி", "morphology": "क्रियापदम्, परोक्षभूतकालः, प्रथमपुरुषः, एकवचनम्, परस्मैपदम्", "morphology_ta": "வினைச்சொல், பரோக்ஷ-பூத காலம், முதல் புருஷன், ஒருமை, பரஸ்மைபதம்", "role": "मुख्यक्रिया — कर्ता वाल्मीकिः, कर्म नारदम्", "role_ta": "பிரதான வினை — எழுவாய் வால்மீகி, செயப்படுபொருள் நாரதம்"}, {"id": "1.1.1.w7", "word": "वाल्मीकिः", "surface": "vālmīkiḥ", "lemma_sa": "वाल्मीकि", "pos": "noun (proper)", "gender": "masculine", "number": "singular", "case": "nominative", "meaning": "वाल्मीकिमुनिः", "meaning_ta": "வால்மீகி முனிவர்", "etymology": "वल्मीक (पुट्टु) + इञ्-प्रत्ययः — 'वल्मीकात् जातः/सम्बद्धः' इति रूढा व्युत्पत्तिः", "etymology_ta": "வல்மீக (புற்று) + இஞ்-பிரத்யயம் — 'புற்றிலிருந்து தோன்றியவர்' எனும் பாரம்பரிய விளக்கம்", "morphology": "नामपदम् (व्यक्तिवाचकम्), इकारान्तम्, पुल्लिङ्गम्, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "பெயர்ச்சொல் (சிறப்புப் பெயர்), இ-ஈறு, ஆண்பால், எழுவாய் வேற்றுமை, ஒருமை", "role": "कर्ता — वाक्यस्य मुख्यकर्ता (परिपप्रच्छ इत्यस्य कर्ता)", "role_ta": "எழுவாய் — வாக்கியத்தின் முதன்மைப் பொருள்"}, {"id": "1.1.1.w8", "word": "मुनि-पुङ्गवम्", "surface": "muni-puṅgavam", "lemma_sa": "मुनिपुङ्गव", "pos": "noun (compound)", "gender": "masculine", "number": "singular", "case": "accusative", "meaning": "मुनिषु पुङ्गवः इव श्रेष्ठः", "meaning_ta": "முனிவர்களில் காளை போன்ற சிறந்தவர்", "etymology": "मुनि + पुङ्गव (वृषभः, श्रेष्ठार्थे रूढः) — षष्ठीतत्पुरुषसमासः (उपमानगर्भितः)", "etymology_ta": "முனி + புங்கவ (காளை, சிறந்தவர் எனும் பொருளில்) — ஆறாம் வேற்றுமைத் தொகை (உவமை உட்பொதிந்தது)", "morphology": "नामपदम्, समासपदम्, पुल्लिङ्गम्, द्वितीया विभक्तिः, एकवचनम्", "morphology_ta": "பெயர்ச்சொல், தொகைச்சொல், ஆண்பால், செயப்படுபொருள் வேற்றுமை, ஒருமை", "role": "विशेषणम् — नारदम् इत्यस्य गुणं निर्दिशति (मुनिषु श्रेष्ठः)", "role_ta": "பெயரடை — 'நாரதம்' என்பதன் பண்பைக் குறிக்கிறது"}], "karaka": {"karta": "वाल्मीकिः (कर्ता — तपस्वी इति विशेषितः)", "karta_ta": "வால்மீகி (எழுவாய் — தவசி எனப் பண்புரைக்கப்பட்டவர்)", "karma": "नारदम् (कर्म — तपःस्वाध्यायनिरतं वाग्विदां वरं मुनिपुङ्गवम् इति त्रिभिः विशेषणैः विशेषितः)", "karma_ta": "நாரதம் (செயப்படுபொருள் — மூன்று பெயரடைகளால் விவரிக்கப்பட்டவர்)", "karana": "वाचा एव (मौखिकप्रश्नरूपेण) — निहितम्, श्लोके स्पष्टतया अनुक्तम्", "karana_ta": "வாக்கால் (வாய்மொழி வினாவாக) — மறைமுகமாகக் கொள்ளப்பட்டது, வெளிப்படையாகக் கூறப்படவில்லை", "adhikarana": "इदं श्लोके प्रत्यक्षम् अधिकरणपदं नास्ति", "adhikarana_ta": "இந்த ஶ்லோகத்தில் நேரடியான இடப்பொருள் (அதிகரணம்) இல்லை", "sambandha": "वाग्विदाम् (षष्ठी) — 'वाग्विदां मध्ये वरः' इति वरम् इत्यस्य सम्बन्धः", "sambandha_ta": "வாக்விதாம் (ஆறாம் வேற்றுமை) — 'பேச்சு வல்லுநரில் சிறந்தவர்' என வரம் என்பதன் தொடர்பு", "karta_word_id": "1.1.1.w7", "karma_word_id": "1.1.1.w5"}, "shabdarupani": {"coverage_note": "7 distinct declinable stems occur in 1.1.1 (तपःस्वाध्यायनिरत, तपस्विन्, वाग्विद्, वर, नारद, वाल्मीकि, मुनिपुङ्गव). परिपप्रच्छ is a verb (Component 6); this verse has no indeclinables.", "stem_count": 7, "tapahsvadhyayanirata": {"lemma": "तपःस्वाध्यायनिरत", "word_in_verse": "तपःस्वाध्यायनिरतम्", "meaning": "engaged in penance and Vedic study", "meaning_ta": "தவத்திலும் ஓதலிலும் ஈடுபட்டவர்", "grammar_note": "समासपदम् — नियमित अकारान्त-पुल्लिङ्ग-विशेषणवत् विभज्यते (declines like वीर)", "grammar_note_ta": "தொகைச்சொல் — साधारण अ-ஈற்று ஆண்பால் பெயரடை போல் அமையும் (वीर போல்)", "declension_table": {"headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"], "rows": [["प्रथमा", "तपःस्वाध्यायनिरतः", "तपःस्वाध्यायनिरतौ", "तपःस्वाध्यायनिरताः"], ["द्वितीया", "तपःस्वाध्यायनिरतम्", "तपःस्वाध्यायनिरतौ", "तपःस्वाध्यायनिरतान्"], ["तृतीया", "तपःस्वाध्यायनिरतेन", "तपःस्वाध्यायनिरताभ्याम्", "तपःस्वाध्यायनिरतैः"], ["चतुर्थी", "तपःस्वाध्यायनिरताय", "तपःस्वाध्यायनिरताभ्याम्", "तपःस्वाध्यायनिरतेभ्यः"], ["पञ्चमी", "तपःस्वाध्यायनिरतात्", "तपःस्वाध्यायनिरताभ्याम्", "तपःस्वाध्यायनिरतेभ्यः"], ["षष्ठी", "तपःस्वाध्यायनिरतस्य", "तपःस्वाध्यायनिरतयोः", "तपःस्वाध्यायनिरतानाम्"], ["सप्तमी", "तपःस्वाध्यायनिरते", "तपःस्वाध्यायनिरतयोः", "तपःस्वाध्यायनिरतेषु"]]}}, "tapasvin": {"lemma": "तपस्विन्", "word_in_verse": "तपस्वी", "meaning": "ascetic; one devoted to penance", "meaning_ta": "தவசி", "grammar_note": "इन्-कारान्त-विशेषणम् — नामपदं प्रथमा-एकवचने ई-कारेण अन्तं याति (declines like यशस्विन्)", "grammar_note_ta": "इன்-ஈற்றுப் பெயரடை — எழுவாய் ஒருமை ई-ல் முடியும் (यशस्विन் போல்)", "declension_table": {"headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"], "rows": [["प्रथमा", "तपस्वी", "तपस्विनौ", "तपस्विनः"], ["द्वितीया", "तपस्विनम्", "तपस्विनौ", "तपस्विनः"], ["तृतीया", "तपस्विना", "तपस्विभ्याम्", "तपस्विभिः"], ["चतुर्थी", "तपस्विने", "तपस्विभ्याम्", "तपस्विभ्यः"], ["पञ्चमी", "तपस्विनः", "तपस्विभ्याम्", "तपस्विभ्यः"], ["षष्ठी", "तपस्विनः", "तपस्विनोः", "तपस्विनाम्"], ["सप्तमी", "तपस्विनि", "तपस्विनोः", "तपस्विषु"]]}}, "vagvid": {"lemma": "वाग्विद्", "word_in_verse": "वाग्विदाम्", "meaning": "one who knows/masters speech", "meaning_ta": "பேச்சு வல்லுநர்", "grammar_note": "व्यञ्जनान्त-द्-कारान्त-नामपदम् (क्विबन्तं कृदन्तम्) — सुहृद्-वर्गवत् विभज्यते; प्रथमैकवचने चर्त्वेन 'वाग्वित्' भवति", "grammar_note_ta": "மெய்யீறு द்-ஈற்றுச் சொல் (क्विप் ஈறு) — सुहृद் வகுப்பு போல் அமையும்; எழுவாய் ஒருமையில் चर्त्व விதியால் 'वाग्वित्' ஆகும்", "declension_table": {"headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"], "rows": [["प्रथमा", "वाग्वित्", "वाग्विदौ", "वाग्विदः"], ["द्वितीया", "वाग्विदम्", "वाग्विदौ", "वाग्विदः"], ["तृतीया", "वाग्विदा", "वाग्विद्भ्याम्", "वाग्विद्भिः"], ["चतुर्थी", "वाग्विदे", "वाग्विद्भ्याम्", "वाग्विद्भ्यः"], ["पञ्चमी", "वाग्विदः", "वाग्विद्भ्याम्", "वाग्विद्भ्यः"], ["षष्ठी", "वाग्विदः", "वाग्विदोः", "वाग्विदाम्"], ["सप्तमी", "वाग्विदि", "वाग्विदोः", "वाग्वित्सु"]]}}, "vara": {"lemma": "वर", "word_in_verse": "वरम्", "meaning": "best, foremost", "meaning_ta": "சிறந்தவர்", "grammar_note": "नियमित अकारान्त-पुल्लिङ्ग-विशेषणम् (declines like वीर)", "grammar_note_ta": "साधारण अ-ஈற்று ஆண்பால் பெயரடை (वीर போல்)", "declension_table": {"headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"], "rows": [["प्रथमा", "वरः", "वरौ", "वराः"], ["द्वितीया", "वरम्", "वरौ", "वरान्"], ["तृतीया", "वरेण", "वराभ्याम्", "वरैः"], ["चतुर्थी", "वराय", "वराभ्याम्", "वरेभ्यः"], ["पञ्चमी", "वरात्", "वराभ्याम्", "वरेभ्यः"], ["षष्ठी", "वरस्य", "वरयोः", "वराणाम्"], ["सप्तमी", "वरे", "वरयोः", "वरेषु"]]}}, "narada": {"lemma": "नारद", "word_in_verse": "नारदम्", "meaning": "Nārada (proper noun)", "meaning_ta": "நாரதர்", "grammar_note": "नियमित अकारान्त-पुल्लिङ्ग-व्यक्तिवाचकनाम (declines like वीर)", "grammar_note_ta": "साधारण अ-ஈற்று ஆண்பால் சிறப்புப் பெயர் (वीर போல்)", "declension_table": {"headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"], "rows": [["प्रथमा", "नारदः", "नारदौ", "नारदाः"], ["द्वितीया", "नारदम्", "नारदौ", "नारदान्"], ["तृतीया", "नारदेन", "नारदाभ्याम्", "नारदैः"], ["चतुर्थी", "नारदाय", "नारदाभ्याम्", "नारदेभ्यः"], ["पञ्चमी", "नारदात्", "नारदाभ्याम्", "नारदेभ्यः"], ["षष्ठी", "नारदस्य", "नारदयोः", "नारदानाम्"], ["सप्तमी", "नारदे", "नारदयोः", "नारदेषु"]]}}, "valmiki": {"lemma": "वाल्मीकि", "word_in_verse": "वाल्मीकिः", "meaning": "Vālmīki (proper noun)", "meaning_ta": "வால்மீகி", "grammar_note": "इ-कारान्त-पुल्लिङ्ग-व्यक्तिवाचकनाम (declines like शुचि)", "grammar_note_ta": "इ-ஈற்று ஆண்பால் சிறப்புப் பெயர் (शुचि போல்)", "declension_table": {"headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"], "rows": [["प्रथमा", "वाल्मीकिः", "वाल्मीकी", "वाल्मीकयः"], ["द्वितीया", "वाल्मीकिम्", "वाल्मीकी", "वाल्मीकीन्"], ["तृतीया", "वाल्मीकिना", "वाल्मीकिभ्याम्", "वाल्मीकिभिः"], ["चतुर्थी", "वाल्मीकये", "वाल्मीकिभ्याम्", "वाल्मीकिभ्यः"], ["पञ्चमी", "वाल्मीकेः", "वाल्मीकिभ्याम्", "वाल्मीकिभ्यः"], ["षष्ठी", "वाल्मीकेः", "वाल्मीक्योः", "वाल्मीकीनाम्"], ["सप्तमी", "वाल्मीकौ", "वाल्मीक्योः", "वाल्मीकिषु"]]}}, "munipungava": {"lemma": "मुनिपुङ्गव", "word_in_verse": "मुनिपुङ्गवम्", "meaning": "foremost among sages (lit. 'bull among sages')", "meaning_ta": "முனிவர்களில் தலைசிறந்தவர்", "grammar_note": "समासपदम् — नियमित अकारान्त-पुल्लिङ्गवत् विभज्यते (declines like वीर)", "grammar_note_ta": "தொகைச்சொல் — साधारण अ-ஈற்று ஆண்பால் போல் அமையும் (वीर போல்)", "declension_table": {"headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"], "rows": [["प्रथमा", "मुनिपुङ्गवः", "मुनिपुङ्गवौ", "मुनिपुङ्गवाः"], ["द्वितीया", "मुनिपुङ्गवम्", "मुनिपुङ्गवौ", "मुनिपुङ्गवान्"], ["तृतीया", "मुनिपुङ्गवेन", "मुनिपुङ्गवाभ्याम्", "मुनिपुङ्गवैः"], ["चतुर्थी", "मुनिपुङ्गवाय", "मुनिपुङ्गवाभ्याम्", "मुनिपुङ्गवेभ्यः"], ["पञ्चमी", "मुनिपुङ्गवात्", "मुनिपुङ्गवाभ्याम्", "मुनिपुङ्गवेभ्यः"], ["षष्ठी", "मुनिपुङ्गवस्य", "मुनिपुङ्गवयोः", "मुनिपुङ्गवानाम्"], ["सप्तमी", "मुनिपुङ्गवे", "मुनिपुङ्गवयोः", "मुनिपुङ्गवेषु"]]}}}, "dhaturupani": {"pracch_root": "प्रच्छ् (prach)", "pracch_meaning": "पृच्छति, प्रष्टुम् इच्छति (प्रश्नं करोति)", "pracch_meaning_ta": "கேட்கிறார், வினவுகிறார்", "pracch_gana": "६ (तुदादिगणः)", "pracch_gana_ta": "6 (துதாதி கணம்)", "pracch_lakara": "परोक्षभूतकालः (perfect)", "pracch_lakara_ta": "பரோக்ஷ-பூதகாலம் (இறந்த காலம்)", "pracch_form": "परिपप्रच्छ = परि (उपसर्गः) + पप्रच्छ, तृतीयपुरुष-एकवचन-परस्मैपदम्", "pracch_form_ta": "परिपप्रच्छ = பரி (முன்னொட்டு) + பப்ரச்ச, மூன்றாம் புருஷன் ஒருமை பரஸ்மைபதம்", "conjugation_perfect": {"headers": ["पुरुषः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"], "rows": [["प्रथमपुरुषः", "पप्रच्छ", "पप्रच्छतुः", "पप्रच्छुः"], ["मध्यमपुरुषः", "पप्रच्छिथ / पप्रष्ठ", "पप्रच्छथुः", "पप्रच्छ"], ["उत्तमपुरुषः", "पप्रच्छ", "पप्रच्छिव", "पप्रच्छिम"]]}}, "pratyaya": [{"word": "तपः-स्वाध्याय-निरतम्", "breakdown": "तपस् + स्वाध्याय + निरत + अम्", "breakdown_ta": "தபஸ் + சுவாத்யாய + நிரத + अம்", "pratyaya_name": "अम्-विभक्तिः", "pratyaya_name_ta": "अம்-விபக்தி", "function": "द्वितीया-एकवचन-प्रत्ययः (नारदम् इत्यस्य विशेषणत्वेन)", "function_ta": "செயப்படுபொருள் ஒருமை விகுதி (நாரதத்தை விசேடிக்கும் பெயரடை)"}, {"word": "तपस्वी", "breakdown": "तपस् + विन् + सुँ (ई-आदेशः)", "breakdown_ta": "தபஸ் + विन் + सुँ (ई-ஆக மாற்றம்)", "pratyaya_name": "मतुबर्थीयः विन्-प्रत्ययः", "pratyaya_name_ta": "मतुप्-அர்த்த विन्-பிரத்யயம்", "function": "'तपोयुक्तः' इत्यर्थे विशेषणनिर्माणम्", "function_ta": "'தவம் உடையவர்' எனும் பொருளில் பெயரடை உருவாக்கம்"}, {"word": "वाग्-विदाम्", "breakdown": "वाच् + विद् (क्विप्) + आम्", "breakdown_ta": "வாச் + विद் (க்விப்) + आம்", "pratyaya_name": "क्विप्-प्रत्ययः + आम्-विभक्तिः", "pratyaya_name_ta": "க்விப்-பிரத்யயம் + आம்-விபக்தி", "function": "कृदन्तनिर्माणम् (ज्ञातृवाचकम्) + षष्ठी-बहुवचनम्", "function_ta": "கிருதந்த உருவாக்கம் (அறிபவர் பொருள்) + ஆறாம் வேற்றுமை பன்மை"}, {"word": "वरम्", "breakdown": "वृ + अप् + अम्", "breakdown_ta": "வ்ரு + अப் + अம்", "pratyaya_name": "अप्-प्रत्ययः", "pratyaya_name_ta": "अப்-பிரத்யயம்", "function": "गुणवाचकविशेषणनिर्माणम्", "function_ta": "பண்புப் பெயரடை உருவாக்கம்"}, {"word": "नारदम्", "breakdown": "नारद + अम्", "breakdown_ta": "நாரத + अம்", "pratyaya_name": "अम्-विभक्तिः", "pratyaya_name_ta": "अம்-விபக்தி", "function": "द्वितीया-एकवचन-प्रत्ययः", "function_ta": "செயப்படுபொருள் ஒருமை விகுதி"}, {"word": "परिपप्रच्छ", "breakdown": "परि + प्रच्छ् + द्वित्वम् (पप्रच्छ) + तिप्", "breakdown_ta": "பரி + ப்ரச்ச் + இரட்டிப்பு (பப்ரச்ச) + तिप्", "pratyaya_name": "परोक्षभूतकालप्रत्ययः", "pratyaya_name_ta": "பரோக்ஷ-பூதகால விகுதி", "function": "तृतीयपुरुष-एकवचन-परस्मैपद-निर्माणम्", "function_ta": "மூன்றாம் புருஷன் ஒருமை பரஸ்மைபத வடிவ உருவாக்கம்"}, {"word": "वाल्मीकिः", "breakdown": "वाल्मीकि + सुँ", "breakdown_ta": "வால்மீகி + सुँ", "pratyaya_name": "सुँ-विभक्तिः", "pratyaya_name_ta": "सुँ-விபக்தி", "function": "प्रथमा-एकवचन-प्रत्ययः", "function_ta": "எழுவாய் ஒருமை விகுதி"}, {"word": "मुनि-पुङ्गवम्", "breakdown": "मुनि + पुङ्गव + अम्", "breakdown_ta": "முனி + புங்கவ + अம்", "pratyaya_name": "अम्-विभक्तिः", "pratyaya_name_ta": "अம்-விபக்தி", "function": "द्वितीया-एकवचन-प्रत्ययः (समासस्य)", "function_ta": "செயப்படுபொருள் ஒருமை விகுதி (தொகைச்சொல்லுக்கு)"}], "sandhi": [{"location": "वाल्मीकिः + मुनिपुङ्गवम्", "original": "वाल्मीकिः + मुनिपुङ्गवम्", "result": "वाल्मीकिर्मुनिपुङ्गवम्", "sandhi_type": "विसर्गसन्धिः (रेफादेशः)", "sandhi_type_ta": "விசர்க்க சந்தி (ர-ஆக மாற்றம்)", "sandhi_rule_sa": "इकारात्/ईकारात् परस्य विसर्गस्य घोषवति परे रेफादेशः (इ/ई + विसर्गः + घोषवर्णः → र्)", "sandhi_rule_ta": "इ/ई-க்குப் பின் வரும் விசர்க்கம், தொடர்ந்து ஒலிக்கும் மெய் வரும்போது 'र्' ஆக மாறும்"}, {"location": "वाच् + विद् (समासान्तर्गतम्)", "original": "वाच् + विद्", "result": "वाग्विद्", "sandhi_type": "जश्त्वसन्धिः (व्यञ्जनसन्धिः)", "sandhi_type_ta": "ஜஷ்த்வ சந்தி (மெய் இணைப்பு)", "sandhi_rule_sa": "झलां जशोऽन्ते (चकारस्य घोषवति परे गकारादेशः) — पदान्तर्गतसन्धिः, समासनिर्माणकाले", "sandhi_rule_ta": "ச் என்பது ஒலிக்கும் மெய் தொடரும்போது 'க்' ஆக மாறும் — தொகைச்சொல் அமையும்போது நிகழும் உள்-சந்தி"}], "samasa": [{"word": "तपःस्वाध्यायनिरतम्", "compound_type": "सप्तमीतत्पुरुषसमासः (द्वन्द्वगर्भितपूर्वपदः)", "compound_type_ta": "ஏழாம் வேற்றுமைத் தொகை (இரட்டைத் தொகை உட்பொதிந்தது)", "breakdown": "तपसि स्वाध्याये च निरतः", "vigraha_sa": "तपसि स्वाध्याये च निरतः", "vigraha_ta": "தவத்திலும் சுவாத்யாயத்திலும் ஈடுபட்டவர்", "meaning": "engaged in penance and Vedic study", "meaning_ta": "தவத்திலும் ஓதலிலும் ஈடுபட்டவர்"}, {"word": "वाग्विदाम्", "compound_type": "उपपदतत्पुरुषसमासः (क्विबन्तः)", "compound_type_ta": "உபபத தொகைச்சொல் (க்விப் ஈறு)", "breakdown": "वाचः वेत्ति इति वाग्विद्", "vigraha_sa": "वाचः वेत्ति इति वाग्विद्, तेषां वाग्विदाम्", "vigraha_ta": "பேச்சை அறிபவர் என்பது 'வாக்வித்', அவர்களது (பன்மை)", "meaning": "of those who know/master speech", "meaning_ta": "பேச்சு வல்லுநர்களில்"}, {"word": "मुनिपुङ्गवम्", "compound_type": "षष्ठीतत्पुरुषसमासः (उपमानगर्भितः)", "compound_type_ta": "ஆறாம் வேற்றுமைத் தொகை (உவமை உட்பொதிந்தது)", "breakdown": "मुनीनां पुङ्गवः इव", "vigraha_sa": "मुनीनां मध्ये पुङ्गवः इव श्रेष्ठः", "vigraha_ta": "முனிவர்களில் காளை போன்ற சிறந்தவர்", "meaning": "the foremost/best among sages (lit. 'bull among sages')", "meaning_ta": "முனிவர்களில் தலைசிறந்தவர்"}], "chandas_name": "अनुष्टुप्", "chandas_definition": "षोडश-मात्र-वृत्तम् (16-mātrā meter per half-verse) — रामायणस्य आदिश्लोकः, वाल्मीकिना नारदं प्रति प्रश्नरूपेण महाकाव्यारम्भः", "chandas_definition_ta": "பதினாறு மாத்திரை வృத்தம் — ராமாயணத்தின் முதல் ஶ்லோகம், வால்மீகி நாரதரிடம் கேட்கும் வினாவாக காவியம் தொடங்குகிறது", "scansion": [{"quarter": 1, "text": "तपः स्वाध्यायनिरतं", "matra": 8}, {"quarter": 2, "text": "तपस्वी वाग्विदां वरम्", "matra": 8}, {"quarter": 3, "text": "नारदं परिपप्रच्छ", "matra": 8}, {"quarter": 4, "text": "वाल्मीकिर्मुनिपुङ्गवम्", "matra": 8}], "alankara": [{"name": "स्वभावोक्तिः", "definition": "स्वाभाविक-गुण-वर्णनम्, अलङ्कार-रहितम् — श्लोकस्य प्रधानशैली", "definition_ta": "இயற்கையான குணவர்ணனை, அலங்காரமற்றது — ஶ்லோகத்தின் முதன்மை நடை"}, {"name": "रूपकालङ्कारः (गौणः, समासान्तर्गतः)", "definition": "'मुनिपुङ्गवम्' इत्यत्र मुनिः पुङ्गवरूपेण (वृषभरूपेण) रूपितः — समासान्तर्गतं गौणरूपकम्", "definition_ta": "'முனிபுங்கவம்' என்பதில் முனிவர் காளையாக உருவகிக்கப்பட்டுள்ளார் — தொகைச்சொல்லுக்குள் அமைந்த சிறு உருவகம்"}]}}, {"id": "1.1.2", "number": 2, "kanda": "बाल-काण्डः", "sarga": 1, "devanagari": "को न्वस्मिन् साम्प्रतं लोके गुणवान् कश्च वीर्यवान् । धर्मज्ञश्च कृतज्ञश्च सत्यवाक्यो दृढव्रतः ॥ १-१-२ ॥", "iast": "ko nv-asmin sāmprataṃ loke guṇavān kaś ca vīryavān | dharmajñaś ca kṛtajñaś ca satyavākyo dṛḍhavrataḥ || 1-1-2 ||", "chandas": "अनुष्टुप्", "verified_sources": "valmikiramayan.net, gyaandweep.com, srivalmikiramayana.com, stotranidhi.com, ramcharit.in", "grammar": {"padaccheda": [{"word": "कः", "meaning_sa": "कः (प्रश्नवाचकसर्वनाम, प्रथमा-एकवचनम्)", "meaning_en": "who? (interrogative pronoun, nominative singular)", "meaning_ta": "யார்? (வினாப் பெயர்ச்சொல், எழுவாய் ஒருமை)"}, {"word": "नु", "meaning_sa": "निपातः — प्रश्नस्य आदरार्थकः / आग्रहसूचकः", "meaning_en": "indeed, pray (emphatic particle reinforcing the question)", "meaning_ta": "நிச்சயமாக, வேண்டுகிறேன் (வினாவை வலியுறுத்தும் இடைச்சொல்)"}, {"word": "अस्मिन्", "meaning_sa": "अस्मिन् (इदम्-शब्दस्य सप्तमी-एकवचनम्) — इदानीन्तने काले", "meaning_en": "in this (locative singular of idam — 'at this present time')", "meaning_ta": "இதில் (இதம் என்பதன் ஏழாம் வேற்றுமை ஒருமை — 'இப்போது')"}, {"word": "साम्प्रतम्", "meaning_sa": "साम्प्रतम् (क्रियाविशेषणम्) — इदानीम्, वर्तमानकाले", "meaning_en": "at present, now (adverb)", "meaning_ta": "இப்பொழுது, தற்போது (வினையடை)"}, {"word": "लोके", "meaning_sa": "लोके (लोक-शब्दस्य सप्तमी-एकवचनम्) — जगति", "meaning_en": "in the world (locative singular of loka)", "meaning_ta": "உலகில் (லோக என்பதன் ஏழாம் வேற்றுமை ஒருமை)"}, {"word": "गुणवान्", "meaning_sa": "गुणैः युक्तः, सद्गुणसम्पन्नः", "meaning_en": "virtuous, possessed of good qualities", "meaning_ta": "நற்குணங்கள் உடையவர்"}, {"word": "कः", "meaning_sa": "कः (द्वितीयवारम्) — प्रश्नवाचकसर्वनाम", "meaning_en": "who? (2nd occurrence of the interrogative pronoun)", "meaning_ta": "யார்? (இரண்டாம் முறை வரும் வினாப் பெயர்ச்சொல்)"}, {"word": "च", "meaning_sa": "समुच्चयार्थे निपातः — 'तथा च'", "meaning_en": "and (connective particle)", "meaning_ta": "மற்றும் (இணைப்புச் சொல்)"}, {"word": "वीर्यवान्", "meaning_sa": "वीर्येण (पराक्रमेण) युक्तः", "meaning_en": "valorous, possessed of strength/prowess", "meaning_ta": "வீரம்/வலிமை உடையவர்"}, {"word": "धर्मज्ञः", "meaning_sa": "धर्मं जानाति इति — धर्मस्य ज्ञाता", "meaning_en": "knower of dharma, righteous", "meaning_ta": "தர்மத்தை அறிந்தவர்"}, {"word": "च", "meaning_sa": "समुच्चयार्थे निपातः", "meaning_en": "and", "meaning_ta": "மற்றும்"}, {"word": "कृतज्ञः", "meaning_sa": "कृतम् (उपकारं) जानाति/स्मरति इति — उपकारस्मरणशीलः", "meaning_en": "grateful — one who remembers/acknowledges what has been done for him", "meaning_ta": "நன்றியுணர்வு உடையவர்"}, {"word": "च", "meaning_sa": "समुच्चयार्थे निपातः", "meaning_en": "and", "meaning_ta": "மற்றும்"}, {"word": "सत्यवाक्यः", "meaning_sa": "सत्यं वाक्यं यस्य सः — सत्यवचनः", "meaning_en": "truthful in speech (one whose words are true)", "meaning_ta": "சத்தியமான சொல் உடையவர்"}, {"word": "दृढव्रतः", "meaning_sa": "दृढं व्रतं यस्य सः — स्थिरप्रतिज्ञः", "meaning_en": "firm in vows, of unwavering resolve", "meaning_ta": "உறுதியான விரதம்/சபதம் உடையவர்"}], "anvaya_sa": "अस्मिन् लोके साम्प्रतं कः नु गुणवान्? कः च वीर्यवान्? कः धर्मज्ञः च कृतज्ञः च सत्यवाक्यः च दृढव्रतः च?", "anvaya_ta": "இந்த உலகில் இப்போது யார் நிச்சயமாக நற்குணமுடையவர்? யார் வீரமுடையவர்? யார் தர்மம் அறிந்தவரும் நன்றியுணர்வுடையவரும் சத்தியவாக்கும் உறுதிவிரதமும் உடையவர்?", "saralartha_sa": "अस्मिन् साम्प्रतकाले लोके कः नु गुणवान्, कः च वीर्यवान्, कः च धर्मज्ञः, कृतज्ञः, सत्यवाक्यः, दृढव्रतः च भवति?", "saralartha_ta": "இப்போது இந்த உலகில் யார்தான் நற்குணமும் வீரமும் உடையவர்? யார் தர்மம் அறிந்தவரும், நன்றியுணர்வும், சத்தியவாக்கும், உறுதியான விரதமும் உடையவர்?", "translation_en": "Who indeed, in this world at present, is virtuous, and who is valorous? Who is a knower of dharma, grateful, truthful in speech, and firm in his vows?", "translation_ta": "இப்போது இந்த உலகில் யார்தான் நற்குணமும் வீரமும் உடையவர்? யார் தர்மம் அறிந்தவரும், நன்றியுணர்வும், சத்தியவாக்கும், உறுதியான விரதமும் உடையவர்?", "pada_vigraha": [{"id": "1.1.2.w1", "word": "कः", "surface": "kaḥ", "lemma_sa": "किम्", "pos": "pronoun (interrogative)", "gender": "masculine", "number": "singular", "case": "nominative", "meaning": "कः — प्रश्नवाचकसर्वनाम", "meaning_ta": "யார்? — வினாப் பெயர்ச்சொல்", "etymology": "किम्-शब्दस्य पुँल्लिङ्ग-प्रथमा-एकवचनरूपम्", "etymology_ta": "किம் என்பதன் ஆண்பால் எழுவாய் ஒருமை வடிவம்", "morphology": "सर्वनाम, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "பெயர்ச்சொல் (பொதுப்பெயர்), எழுவாய் வேற்றுமை, ஒருமை", "role": "प्रश्नकर्तृपदम् — गुणवान् इत्यस्य कर्ता (कः [अस्ति])", "role_ta": "வினாவின் எழுவாய் — 'குணவான்' என்பதன் கர்த்தா"}, {"id": "1.1.2.w2", "word": "नु", "surface": "nu", "lemma_sa": "नु", "pos": "indeclinable (particle)", "gender": "—", "number": "—", "case": "—", "meaning": "निपातः — आग्रहसूचकः/आदरार्थकः", "meaning_ta": "இடைச்சொல் — வலியுறுத்தல்", "etymology": "अव्ययम्, न विभज्यते", "etymology_ta": "அவ்யயம், வேற்றுமை மாறாதது", "morphology": "अव्ययम् (निपातः)", "morphology_ta": "அவ்யயம் (இடைச்சொல்)", "role": "प्रश्नस्य आग्रहं दृढयति", "role_ta": "வினாவை வலியுறுத்துகிறது"}, {"id": "1.1.2.w3", "word": "अस्मिन्", "surface": "asmin", "lemma_sa": "इदम्", "pos": "pronoun (demonstrative)", "gender": "masculine/neuter", "number": "singular", "case": "locative", "meaning": "अस्मिन् (काले) — इदानीम्", "meaning_ta": "இதில் (இக்காலத்தில்)", "etymology": "इदम्-शब्दस्य सप्तमी-एकवचनरूपम्", "etymology_ta": "इदம் என்பதன் ஏழாம் வேற்றுமை ஒருமை வடிவம்", "morphology": "सर्वनाम, सप्तमी विभक्तिः, एकवचनम्", "morphology_ta": "பெயர்ச்சொல், ஏழாம் வேற்றுமை, ஒருமை", "role": "कालाधिकरणम् — साम्प्रतम् इत्यनेन सह 'इदानीन्तनकाले' इत्यर्थं ददाति", "role_ta": "கால இடப்பொருள் — 'இப்போது' எனும் பொருளைத் தரும்"}, {"id": "1.1.2.w4", "word": "साम्प्रतम्", "surface": "sāmpratam", "lemma_sa": "साम्प्रत", "pos": "adverb", "gender": "neuter", "number": "singular", "case": "accusative (adverbial)", "meaning": "इदानीम्, वर्तमानकाले", "meaning_ta": "இப்பொழுது", "etymology": "सम्प्रति (अव्ययम्) इत्यस्मात् साधितं विशेषणम्, द्वितीया-नपुंसकरूपेण क्रियाविशेषणत्वेन प्रयुक्तम्", "etymology_ta": "सम्प्रति என்பதிலிருந்து பெறப்பட்ட பெயரடை, நடுநிலைப்பால் இரண்டாம் வேற்றுமை வினையடையாகப் பயன்படுத்தப்பட்டது", "morphology": "क्रियाविशेषणम् (द्वितीया-एकवचन-रूपस्य अव्ययवत् प्रयोगः)", "morphology_ta": "வினையடை (இரண்டாம் வேற்றுமை ஒருமை வடிவின் அவ்யயம் போன்ற பயன்பாடு)", "role": "कालवाचकः क्रियाविशेषणः", "role_ta": "காலம் குறிக்கும் வினையடை"}, {"id": "1.1.2.w5", "word": "लोके", "surface": "loke", "lemma_sa": "लोक", "pos": "noun", "gender": "masculine", "number": "singular", "case": "locative", "meaning": "जगति, भुवने", "meaning_ta": "உலகில்", "etymology": "लोक् (दर्शने) धातोः घञ्प्रत्ययः", "etymology_ta": "லோக் (பார்த்தல்) தாதுவின் घञ்-ஈறு", "morphology": "नामपदम्, अकारान्तम्, पुल्लिङ्गम्, सप्तमी विभक्तिः, एकवचनम्", "morphology_ta": "பெயர்ச்சொல், अ-ஈறு, ஆண்பால், ஏழாம் வேற்றுமை, ஒருமை", "role": "अधिकरणम् — यत्र गुणवान् अन्विष्यते", "role_ta": "இடப்பொருள் — எங்கு தேடப்படுகிறதோ அது"}, {"id": "1.1.2.w6", "word": "गुणवान्", "surface": "guṇavān", "lemma_sa": "गुणवत्", "pos": "adjective", "gender": "masculine", "number": "singular", "case": "nominative", "meaning": "सद्गुणसम्पन्नः", "meaning_ta": "நற்குணம் உடையவர்", "etymology": "गुण + मतुप् (वत्वम्) — 'गुणैः युक्तः' इत्यर्थे", "etymology_ta": "குண + मतुप் (वத்வம்) — 'குணங்களுடன் கூடியவர்' எனும் பொருளில்", "morphology": "विशेषणम्, वत्-प्रत्ययान्तम्, पुल्लिङ्गम्, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "பெயரடை, वத்-ஈறு, ஆண்பால், எழுவாய் வேற்றுமை, ஒருமை", "role": "विधेय-विशेषणम् — कः इत्यस्य गुणं पृच्छति", "role_ta": "பயனிலைப் பெயரடை — 'யார்' எனும் வினாவின் குணத்தைக் கேட்கிறது"}, {"id": "1.1.2.w7", "word": "कः", "surface": "kaḥ", "lemma_sa": "किम्", "pos": "pronoun (interrogative)", "gender": "masculine", "number": "singular", "case": "nominative", "meaning": "कः — प्रश्नवाचकसर्वनाम (द्वितीयवारम्)", "meaning_ta": "யார்? (இரண்டாம் முறை)", "etymology": "किम्-शब्दस्य पुँल्लिङ्ग-प्रथमा-एकवचनरूपम्", "etymology_ta": "किம் என்பதன் ஆண்பால் எழுவாய் ஒருமை வடிவம்", "morphology": "सर्वनाम, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "பெயர்ச்சொல், எழுவாய் வேற்றுமை, ஒருமை", "role": "द्वितीयप्रश्नस्य कर्तृपदम् — वीर्यवान् इत्यस्य कर्ता", "role_ta": "இரண்டாம் வினாவின் எழுவாய்"}, {"id": "1.1.2.w8", "word": "च", "surface": "ca", "lemma_sa": "च", "pos": "indeclinable (conjunction)", "gender": "—", "number": "—", "case": "—", "meaning": "तथा, अपि च", "meaning_ta": "மற்றும்", "etymology": "अव्ययम्", "etymology_ta": "அவ்யயம்", "morphology": "अव्ययम् (समुच्चयद्योतकः)", "morphology_ta": "அவ்யயம் (இணைப்புச் சொல்)", "role": "प्रश्नद्वयस्य समुच्चयं करोति", "role_ta": "இரு வினாக்களை இணைக்கிறது"}, {"id": "1.1.2.w9", "word": "वीर्यवान्", "surface": "vīryavān", "lemma_sa": "वीर्यवत्", "pos": "adjective", "gender": "masculine", "number": "singular", "case": "nominative", "meaning": "पराक्रमयुक्तः, बलवान्", "meaning_ta": "வீரம்/வலிமை உடையவர்", "etymology": "वीर्य + मतुप् (वत्वम्) — 'वीर्येण युक्तः' इत्यर्थे", "etymology_ta": "வீர்ய + मतुप் (वத்வம்) — 'வீர்யத்துடன் கூடியவர்' எனும் பொருளில்", "morphology": "विशेषणम्, वत्-प्रत्ययान्तम्, पुल्लिङ्गम्, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "பெயரடை, वத்-ஈறு, ஆண்பால், எழுவாய் வேற்றுமை, ஒருமை", "role": "विधेय-विशेषणम् — द्वितीयप्रश्नस्य विषयः", "role_ta": "பயனிலைப் பெயரடை — இரண்டாம் வினாவின் பொருள்"}, {"id": "1.1.2.w10", "word": "धर्मज्ञः", "surface": "dharmajñaḥ", "lemma_sa": "धर्मज्ञ", "pos": "noun/adjective (compound)", "gender": "masculine", "number": "singular", "case": "nominative", "meaning": "धर्मस्य ज्ञाता", "meaning_ta": "தர்மத்தை அறிந்தவர்", "etymology": "धर्म + ज्ञा (जानाति) + क्विप् — उपपदतत्पुरुषसमासः", "etymology_ta": "தர்ம + ஜ்ஞா (அறிதல்) + க்விப் — உபபத தொகைச்சொல்", "morphology": "समासपदम्, अकारान्तम्, पुल्लिङ्गम्, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "தொகைச்சொல், अ-ஈறு, ஆண்பால், எழுவாய் வேற்றுமை, ஒருமை", "role": "विधेय-विशेषणम् — तृतीयप्रश्नस्य प्रथमगुणः", "role_ta": "பயனிலைப் பெயரடை — மூன்றாம் வினாவின் முதல் குணம்"}, {"id": "1.1.2.w11", "word": "च", "surface": "ca", "lemma_sa": "च", "pos": "indeclinable (conjunction)", "gender": "—", "number": "—", "case": "—", "meaning": "तथा", "meaning_ta": "மற்றும்", "etymology": "अव्ययम्", "etymology_ta": "அவ்யயம்", "morphology": "अव्ययम्", "morphology_ta": "அவ்யயம்", "role": "गुणसमुच्चयद्योतकः", "role_ta": "குணங்களை இணைக்கும் சொல்"}, {"id": "1.1.2.w12", "word": "कृतज्ञः", "surface": "kṛtajñaḥ", "lemma_sa": "कृतज्ञ", "pos": "noun/adjective (compound)", "gender": "masculine", "number": "singular", "case": "nominative", "meaning": "कृतम् उपकारं जानाति स्मरति वा", "meaning_ta": "செய்த உதவியை நினைவில் கொள்பவர்", "etymology": "कृत + ज्ञा + क्विप् — उपपदतत्पुरुषसमासः", "etymology_ta": "க்ருத + ஜ்ஞா + க்விப் — உபபத தொகைச்சொல்", "morphology": "समासपदम्, अकारान्तम्, पुल्लिङ्गम्, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "தொகைச்சொல், अ-ஈறு, ஆண்பால், எழுவாய் வேற்றுமை, ஒருமை", "role": "विधेय-विशेषणम्", "role_ta": "பயனிலைப் பெயரடை"}, {"id": "1.1.2.w13", "word": "च", "surface": "ca", "lemma_sa": "च", "pos": "indeclinable (conjunction)", "gender": "—", "number": "—", "case": "—", "meaning": "तथा", "meaning_ta": "மற்றும்", "etymology": "अव्ययम्", "etymology_ta": "அவ்யயம்", "morphology": "अव्ययम्", "morphology_ta": "அவ்யயம்", "role": "गुणसमुच्चयद्योतकः", "role_ta": "குணங்களை இணைக்கும் சொல்"}, {"id": "1.1.2.w14", "word": "सत्यवाक्यः", "surface": "satyavākyaḥ", "lemma_sa": "सत्यवाक्य", "pos": "adjective (compound, bahuvrihi)", "gender": "masculine", "number": "singular", "case": "nominative", "meaning": "सत्यं वाक्यं यस्य सः", "meaning_ta": "சத்தியமான சொல் உடையவர்", "etymology": "सत्य + वाक्य — बहुव्रीहिसमासः", "etymology_ta": "சத்ய + வாக்ய — பஹுவ்ரீஹி தொகைச்சொல்", "morphology": "समासपदम्, अकारान्तम्, पुल्लिङ्गम्, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "தொகைச்சொல், अ-ஈறு, ஆண்பால், எழுவாய் வேற்றுமை, ஒருமை", "role": "विधेय-विशेषणम्", "role_ta": "பயனிலைப் பெயரடை"}, {"id": "1.1.2.w15", "word": "दृढव्रतः", "surface": "dṛḍhavrataḥ", "lemma_sa": "दृढव्रत", "pos": "adjective (compound, bahuvrihi)", "gender": "masculine", "number": "singular", "case": "nominative", "meaning": "दृढं व्रतं यस्य सः", "meaning_ta": "உறுதியான விரதம் உடையவர்", "etymology": "दृढ + व्रत — बहुव्रीहिसमासः", "etymology_ta": "த்ருட + வ்ரத — பஹுவ்ரீஹி தொகைச்சொல்", "morphology": "समासपदम्, अकारान्तम्, पुल्लिङ्गम्, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "தொகைச்சொல், अ-ஈறு, ஆண்பால், எழுவாய் வேற்றுமை, ஒருமை", "role": "विधेय-विशेषणम् — प्रश्नावलेः अन्तिमगुणः", "role_ta": "பயனிலைப் பெயரடை — வினாக்களின் இறுதிக் குணம்"}], "karaka": {"karta": "कः (अव्यक्तः, प्रश्नरूपेण) — गुणवान्, वीर्यवान्, धर्मज्ञः, कृतज्ञः, सत्यवाक्यः, दृढव्रतः इति षड्भिः विशेषणैः अन्विष्यमाणः", "karta_ta": "கః (குறிப்பிடப்படாதவர், வினாவாக) — ஆறு பெயரடைகளால் தேடப்படுபவர்", "karma": "इदं वाक्यं कर्मरहितम् — क्रिया एव (अस्ति) निहिता, प्रत्यक्षं कर्मपदं नास्ति", "karma_ta": "இந்த வாக்கியத்தில் செயப்படுபொருள் இல்லை — வினை (अस्ति) மறைமுகமாக உள்ளது", "karana": "इदं श्लोके प्रत्यक्षं करणपदं नास्ति", "karana_ta": "இந்த ஶ்லோகத்தில் நேரடியான கருவிப் பொருள் இல்லை", "adhikarana": "लोके (सप्तमी) — साम्प्रतम् अस्मिन् लोके इति कालाधिकरणसहितं देशाधिकरणम्", "adhikarana_ta": "லோகே (ஏழாம் வேற்றுமை) — காலம் மற்றும் இட இடப்பொருள் இணைந்தது", "sambandha": "इदं श्लोके प्रत्यक्षं संबन्धपदं (षष्ठी) नास्ति", "sambandha_ta": "இந்த ஶ்லோகத்தில் நேரடியான உடைமை உறவு (ஆறாம் வேற்றுமை) இல்லை", "karta_word_id": "1.1.2.w1", "karma_word_id": ""}, "shabdarupani": {"coverage_note": "9 distinct declinable stems occur in 1.1.2 (किम्, इदम्, लोक, गुणवत्, वीर्यवत्, धर्मज्ञ, कृतज्ञ, सत्यवाक्य, दृढव्रत). साम्प्रतम् is used adverbially (an adjective frozen into adverbial accusative use, comparable to सत्यम्/कामम्) and is treated as an adverb here rather than a separate declined participant. This verse has no finite verb (an elided अस्ति is understood, as is common in Sanskrit nominal questions) — see Component 6.", "stem_count": 9, "kim": {"lemma": "किम्", "word_in_verse": "कः", "paradigm": "KIM-P", "cell": "1-1", "meaning": "who? (interrogative pronoun)", "meaning_ta": "யார்? (வினாப் பெயர்ச்சொல்)", "grammar_note": "सर्वनाम — किम्-शब्दः, पुँल्लिङ्गरूपाणि अत्र दर्शितानि (प्रश्नवाचकसर्वनाम, इदम्-शब्दवत् साधारणतया विभज्यते)", "grammar_note_ta": "பெயர்ச்சொல் (பொதுப்பெயர்) — किம்-சொல், ஆண்பால் வடிவங்கள் இங்கு காட்டப்பட்டுள்ளன"}, "idam": {"lemma": "इदम्", "word_in_verse": "अस्मिन्", "paradigm": "IDAM-P", "cell": "7-1", "meaning": "this (demonstrative pronoun, locative 'in this')", "meaning_ta": "இது (சுட்டுப்பெயர்ச்சொல், ஏழாம் வேற்றுமை 'இதில்')", "grammar_note": "सर्वनाम — इदम्-शब्दस्य पुँल्लिङ्ग/नपुंसकसाधारणरूपाणि (सप्तम्येकवचनम् उभयत्र समानम्: अस्मिन्)", "grammar_note_ta": "பெயர்ச்சொல் — इदம் என்பதன் ஆண்பால்/அலிங்க பொது வடிவங்கள்"}, "loka": {"lemma": "लोक", "word_in_verse": "लोके", "paradigm": "A-P", "cell": "7-1", "stem": "लोक", "meaning": "world", "meaning_ta": "உலகம்", "grammar_note": "नियमित अकारान्त-पुल्लिङ्गनाम (declines like वीर)", "grammar_note_ta": "साधारण अ-ஈற்று ஆண்பால் பெயர்ச்சொல்"}, "gunavat": {"lemma": "गुणवत्", "word_in_verse": "गुणवान्", "paradigm": "VAT-P", "cell": "1-1", "stem": "गुण", "meaning": "virtuous, possessed of good qualities", "meaning_ta": "நற்குணம் உடையவர்", "grammar_note": "मतुबर्थीयः वत्-प्रत्ययान्तः — भगवत्/श्रीमत्-वर्गवत् विभज्यते; प्रथमैकवचने -वान्", "grammar_note_ta": "मतुप்-அர்த்த वத்-ஈற்றுச் சொல் — भगवत் வகுப்பு போல் அமையும்"}, "viryavat": {"lemma": "वीर्यवत्", "word_in_verse": "वीर्यवान्", "paradigm": "VAT-P", "cell": "1-1", "stem": "वीर्य", "meaning": "valorous, mighty", "meaning_ta": "வீரம்/வலிமை உடையவர்", "grammar_note": "मतुबर्थीयः वत्-प्रत्ययान्तः, गुणवत्-वत् विभज्यते", "grammar_note_ta": "मतुप்-அர்த்த वத்-ஈற்றுச் சொல்"}, "dharmajna": {"lemma": "धर्मज्ञ", "word_in_verse": "धर्मज्ञः", "paradigm": "A-P", "cell": "1-1", "stem": "धर्मज्ञ", "meaning": "knower of dharma", "meaning_ta": "தர்மம் அறிந்தவர்", "grammar_note": "समासपदम् — नियमित अकारान्त-पुल्लिङ्गवत् विभज्यते", "grammar_note_ta": "தொகைச்சொல் — साधारण अ-ஈற்று ஆண்பால் போல் அமையும்"}, "kritajna": {"lemma": "कृतज्ञ", "word_in_verse": "कृतज्ञः", "paradigm": "A-P", "cell": "1-1", "stem": "कृतज्ञ", "meaning": "grateful", "meaning_ta": "நன்றியுணர்வு உடையவர்", "grammar_note": "समासपदम् — नियमित अकारान्त-पुल्लिङ्गवत् विभज्यते", "grammar_note_ta": "தொகைச்சொல் — साधारण अ-ஈற்று ஆண்பால் போல் அமையும்"}, "satyavakya": {"lemma": "सत्यवाक्य", "word_in_verse": "सत्यवाक्यः", "paradigm": "A-P", "cell": "1-1", "stem": "सत्यवाक्य", "meaning": "truthful in speech", "meaning_ta": "சத்தியவாக்கு உடையவர்", "grammar_note": "बहुव्रीहिसमासपदम् — नियमित अकारान्त-पुल्लिङ्गवत् विभज्यते", "grammar_note_ta": "பஹுவ்ரீஹி தொகைச்சொல் — साधारण अ-ஈற்று ஆண்பால் போல் அமையும்"}, "dridhavrata": {"lemma": "दृढव्रत", "word_in_verse": "दृढव्रतः", "paradigm": "A-P", "cell": "1-1", "stem": "दृढव्रत", "meaning": "firm in vows", "meaning_ta": "உறுதியான விரதம் உடையவர்", "grammar_note": "बहुव्रीहिसमासपदम् — नियमित अकारान्त-पुल्लिङ्गवत् विभज्यते", "grammar_note_ta": "பஹுவ்ரீஹி தொகைச்சொல் — साधारण अ-ஈற்று ஆண்பால் போல் அமையும்"}}, "dhaturupani": {"coverage_note": "1.1.2 has NO finite verb — this is a nominal/elliptical sentence in which the existential अस्ति ('is') is understood but not stated, a very common construction in Sanskrit interrogatives (compare English 'Who [is] virtuous?'). Per the coverage rule, this absence is stated plainly rather than a table being forced or invented.", "pracch_root": "", "pracch_meaning": "", "pracch_meaning_ta": "", "pracch_gana": "", "pracch_gana_ta": "", "pracch_lakara": "", "pracch_lakara_ta": "", "pracch_form": "", "pracch_form_ta": "", "conjugation_perfect": null}, "pratyaya": [{"word": "कः", "breakdown": "किम् + सुँ (क-आदेशः)", "breakdown_ta": "किம் + सुँ (क-ஆதேசம்)", "pratyaya_name": "सुँ-विभक्तिः", "pratyaya_name_ta": "सुँ-விபக்தி", "function": "प्रथमा-एकवचन-प्रत्ययः", "function_ta": "எழுவாய் ஒருமை விகுதி"}, {"word": "अस्मिन्", "breakdown": "इदम् + ङि (अ-आदेशः)", "breakdown_ta": "இதம் + ङि (अ-ஆதேசம்)", "pratyaya_name": "ङि-विभक्तिः", "pratyaya_name_ta": "ङि-விபக்தி", "function": "सप्तमी-एकवचन-प्रत्ययः", "function_ta": "ஏழாம் வேற்றுமை ஒருமை விகுதி"}, {"word": "साम्प्रतम्", "breakdown": "सम्प्रति + अम् (वृद्धिः, क्रियाविशेषणभावे)", "breakdown_ta": "सम்प்ரதி + अம் (வ்ருத்தி)", "pratyaya_name": "अम्-विभक्तिः (अव्ययीभाव-सदृशप्रयोगः)", "pratyaya_name_ta": "अம்-விபக்தி", "function": "द्वितीया-नपुंसक-एकवचन-प्रत्ययः, क्रियाविशेषणत्वेन", "function_ta": "நடுநிலைப்பால் இரண்டாம் வேற்றுமை ஒருமை, வினையடையாக"}, {"word": "लोके", "breakdown": "लोक + ङि", "breakdown_ta": "லோக + ङि", "pratyaya_name": "ङि-विभक्तिः", "pratyaya_name_ta": "ङि-விபக்தி", "function": "सप्तमी-एकवचन-प्रत्ययः", "function_ta": "ஏழாம் வேற்றுமை ஒருமை விகுதி"}, {"word": "गुणवान्", "breakdown": "गुण + मतुप् (वत्वम्) + सुँ", "breakdown_ta": "குண + मतुप் (वத்வம்) + सुँ", "pratyaya_name": "मतुप्-प्रत्ययः", "pratyaya_name_ta": "मतुप்-பிரத்யயம்", "function": "स्वाम्यर्थे विशेषणनिर्माणम्", "function_ta": "உடைமைப் பொருளில் பெயரடை உருவாக்கம்"}, {"word": "कः", "breakdown": "किम् + सुँ (द्वितीयवारम्)", "breakdown_ta": "किம் + सुँ (இரண்டாம் முறை)", "pratyaya_name": "सुँ-विभक्तिः", "pratyaya_name_ta": "सुँ-விபக்தி", "function": "प्रथमा-एकवचन-प्रत्ययः", "function_ta": "எழுவாய் ஒருமை விகுதி"}, {"word": "वीर्यवान्", "breakdown": "वीर्य + मतुप् (वत्वम्) + सुँ", "breakdown_ta": "வீர்ய + मतुप் (वத்வம்) + सुँ", "pratyaya_name": "मतुप्-प्रत्ययः", "pratyaya_name_ta": "मतुप்-பிரத்யயம்", "function": "स्वाम्यर्थे विशेषणनिर्माणम्", "function_ta": "உடைமைப் பொருளில் பெயரடை உருவாக்கம்"}, {"word": "धर्मज्ञः", "breakdown": "धर्म + ज्ञा + क्विप् + सुँ", "breakdown_ta": "தர்ம + ஜ்ஞா + க்விப் + सुँ", "pratyaya_name": "क्विप्-प्रत्ययः", "pratyaya_name_ta": "க்விப்-பிரத்யயம்", "function": "कृदन्तनिर्माणम् (ज्ञातृवाचकम्)", "function_ta": "கிருதந்த உருவாக்கம் (அறிபவர் பொருள்)"}, {"word": "कृतज्ञः", "breakdown": "कृत + ज्ञा + क्विप् + सुँ", "breakdown_ta": "க்ருத + ஜ்ஞா + க்விப் + सुँ", "pratyaya_name": "क्विप्-प्रत्ययः", "pratyaya_name_ta": "க்விப்-பிரத்யயம்", "function": "कृदन्तनिर्माणम् (ज्ञातृवाचकम्)", "function_ta": "கிருதந்த உருவாக்கம் (அறிபவர் பொருள்)"}, {"word": "सत्यवाक्यः", "breakdown": "सत्य + वाक्य + सुँ", "breakdown_ta": "सத்ய + வாக்ய + सुँ", "pratyaya_name": "सुँ-विभक्तिः (बहुव्रीहौ)", "pratyaya_name_ta": "सुँ-விபக்தி (பஹுவ்ரீஹியில்)", "function": "प्रथमा-एकवचन-प्रत्ययः, समासान्ते", "function_ta": "எழுவாய் ஒருமை விகுதி, தொகைச்சொல் இறுதியில்"}, {"word": "दृढव्रतः", "breakdown": "दृढ + व्रत + सुँ", "breakdown_ta": "த்ருட + வ்ரத + सुँ", "pratyaya_name": "सुँ-विभक्तिः (बहुव्रीहौ)", "pratyaya_name_ta": "सुँ-விபக்தி (பஹுவ்ரீஹியில்)", "function": "प्रथमा-एकवचन-प्रत्ययः, समासान्ते", "function_ta": "எழுவாய் ஒருமை விகுதி, தொகைச்சொல் இறுதியில்"}], "sandhi": [{"location": "नु + अस्मिन्", "original": "नु + अस्मिन्", "result": "न्वस्मिन्", "sandhi_type": "यणादेशः (स्वरसन्धिः)", "sandhi_type_ta": "யணாதேசம் (உயிர் சந்தி)", "sandhi_rule_sa": "इको यणचि — उकारस्य असवर्णे स्वरे परे वकारादेशः (नु + अ → न्व)", "sandhi_rule_ta": "உ-கரம் வேறு உயிர் தொடரும்போது 'வ்' ஆக மாறும்"}, {"location": "साम्प्रतम् + लोके", "original": "साम्प्रतम् + लोके", "result": "साम्प्रतं लोके", "sandhi_type": "अनुस्वारसन्धिः", "sandhi_type_ta": "அனுஸ்வார சந்தி", "sandhi_rule_sa": "मोऽनुस्वारः — पदान्तस्य मकारस्य व्यञ्जने परे अनुस्वारादेशः", "sandhi_rule_ta": "சொல் இறுதி म் மெய் தொடரும்போது அனுஸ்வாரமாக (ं) மாறும்"}, {"location": "कः + च", "original": "कः + च", "result": "कश्च", "sandhi_type": "विसर्गसन्धिः (श्चुत्वम्)", "sandhi_type_ta": "விசர்க்க சந்தி (ஶ்சுத்வம்)", "sandhi_rule_sa": "विसर्जनीयस्य सः — च/छ परे विसर्गस्य शकारादेशः", "sandhi_rule_ta": "விசர்க்கத்திற்குப் பின் ச்/ச் தொடர்ந்தால் 'श்' ஆக மாறும்"}, {"location": "धर्मज्ञः + च", "original": "धर्मज्ञः + च", "result": "धर्मज्ञश्च", "sandhi_type": "विसर्गसन्धिः (श्चुत्वम्)", "sandhi_type_ta": "விசர்க்க சந்தி (ஶ்சுத்வம்)", "sandhi_rule_sa": "विसर्जनीयस्य सः — च परे विसर्गस्य शकारादेशः", "sandhi_rule_ta": "விசர்க்கத்திற்குப் பின் ச் தொடர்ந்தால் 'श்' ஆக மாறும்"}, {"location": "कृतज्ञः + च", "original": "कृतज्ञः + च", "result": "कृतज्ञश्च", "sandhi_type": "विसर्गसन्धिः (श्चुत्वम्)", "sandhi_type_ta": "விசர்க்க சந்தி (ஶ்சுத்வம்)", "sandhi_rule_sa": "विसर्जनीयस्य सः — च परे विसर्गस्य शकारादेशः", "sandhi_rule_ta": "விசர்க்கத்திற்குப் பின் ச் தொடர்ந்தால் 'श்' ஆக மாறும்"}, {"location": "सत्यवाक्यः + दृढव्रतः", "original": "सत्यवाक्यः + दृढव्रतः", "result": "सत्यवाक्यो दृढव्रतः", "sandhi_type": "विसर्गसन्धिः (ओकारादेशः)", "sandhi_type_ta": "விசர்க்க சந்தி (ஓகார ஆதேசம்)", "sandhi_rule_sa": "अतो रोरप्लुतादप्लुते — अकारात् परस्य विसर्गस्य घोषवति (द्-कारे) परे ओकारादेशः", "sandhi_rule_ta": "अ-க்குப் பின் வரும் விசர்க்கம், ஒலிக்கும் மெய் (द்) தொடரும்போது 'ओ' ஆக மாறும்"}], "samasa": [{"word": "धर्मज्ञः", "compound_type": "उपपदतत्पुरुषसमासः (क्विबन्तः)", "compound_type_ta": "உபபத தொகைச்சொல் (க்விப் ஈறு)", "breakdown": "धर्मं जानाति इति धर्मज्ञः", "vigraha_sa": "धर्मं जानाति इति धर्मज्ञः", "vigraha_ta": "தர்மத்தை அறிபவர் என்பது 'தர்மஜ்ஞ'", "meaning": "knower of dharma", "meaning_ta": "தர்மம் அறிந்தவர்"}, {"word": "कृतज्ञः", "compound_type": "उपपदतत्पुरुषसमासः (क्विबन्तः)", "compound_type_ta": "உபபத தொகைச்சொல் (க்விப் ஈறு)", "breakdown": "कृतम् (उपकारं) जानाति इति कृतज्ञः", "vigraha_sa": "कृतम् जानाति इति कृतज्ञः", "vigraha_ta": "செய்யப்பட்டதை (உதவியை) அறிபவர்", "meaning": "grateful", "meaning_ta": "நன்றியுணர்வு உடையவர்"}, {"word": "सत्यवाक्यः", "compound_type": "बहुव्रीहिसमासः", "compound_type_ta": "பஹுவ்ரீஹி தொகைச்சொல்", "breakdown": "सत्यं वाक्यं यस्य सः", "vigraha_sa": "सत्यं वाक्यं यस्य सः सत्यवाक्यः", "vigraha_ta": "யாருடைய சொல் சத்தியமோ அவர்", "meaning": "truthful in speech", "meaning_ta": "சத்தியவாக்கு உடையவர்"}, {"word": "दृढव्रतः", "compound_type": "बहुव्रीहिसमासः", "compound_type_ta": "பஹுவ்ரீஹி தொகைச்சொல்", "breakdown": "दृढं व्रतं यस्य सः", "vigraha_sa": "दृढं व्रतं यस्य सः दृढव्रतः", "vigraha_ta": "யாருடைய விரதம் உறுதியோ அவர்", "meaning": "firm in vows", "meaning_ta": "உறுதியான விரதம் உடையவர்"}], "chandas_name": "अनुष्टुप्", "chandas_definition": "षोडश-मात्र-वृत्तम् (16-mātrā meter per half-verse) — वाल्मीकिना उपस्थापितानां प्रश्नानां प्रथमः समुच्चयः, षड्गुणान् एकस्मिन् प्रश्ने संगृह्णाति", "chandas_definition_ta": "பதினாறு மாத்திரை வృத்தம் — வால்மீகி எழுப்பும் வினாக்களின் முதல் தொகுப்பு, ஆறு குணங்களை ஒரே வினாவில் தொகுக்கிறது", "scansion": [{"quarter": 1, "text": "को न्वस्मिन्साम्प्रतं लोके", "matra": 8}, {"quarter": 2, "text": "गुणवान्कश्च वीर्यवान्", "matra": 8}, {"quarter": 3, "text": "धर्मज्ञश्च कृतज्ञश्च", "matra": 8}, {"quarter": 4, "text": "सत्यवाक्यो दृढव्रतः", "matra": 8}], "alankara": [{"name": "काकु-प्रश्नालङ्कारः (वाक्यार्थालङ्कारः)", "definition": "षड्भिः गुणैः एकं पुरुषम् अन्वेष्टुं लगातार-प्रश्नमाला — जिज्ञासाभावस्य काव्यात्मकः आरम्भः", "definition_ta": "ஆறு குணங்களால் ஒரு மனிதரைத் தேடும் தொடர் வினாக்களின் தொகுப்பு — ஆர்வத்தின் கவிதை வெளிப்பாடு"}]}}, {"id": "1.1.3", "number": 3, "kanda": "बाल-काण्डः", "sarga": 1, "devanagari": "चारित्रेण च को युक्तः सर्वभूतेषु को हितः । विद्वान् कः कः समर्थश्च कश्चैकप्रियदर्शनः ॥ १-१-३ ॥", "iast": "cāritreṇa ca ko yuktaḥ sarvabhūteṣu ko hitaḥ | vidvān kaḥ kaḥ samarthaś ca kaś caika-priyadarśanaḥ || 1-1-3 ||", "chandas": "अनुष्टुप्", "verified_sources": "valmikiramayan.net, gyaandweep.com, srivalmikiramayana.com, stotranidhi.com, ramcharit.in, sanskritdocuments.org", "grammar": {"padaccheda": [{"word": "चारित्रेण", "meaning_sa": "चारित्रेण (चारित्र-शब्दस्य तृतीया-एकवचनम्) — सदाचारेण", "meaning_en": "by (good) conduct/character (instrumental)", "meaning_ta": "நல்லொழுக்கத்தால் (சாரித்திரம் என்பதன் மூன்றாம் வேற்றுமை ஒருமை)"}, {"word": "च", "meaning_sa": "समुच्चयार्थे निपातः", "meaning_en": "and", "meaning_ta": "மற்றும்"}, {"word": "कः", "meaning_sa": "कः — प्रश्नवाचकसर्वनाम (प्रथमवारम्)", "meaning_en": "who? (1st occurrence)", "meaning_ta": "யார்? (முதல் முறை)"}, {"word": "युक्तः", "meaning_sa": "युक्तः — संयुक्तः, सम्पन्नः", "meaning_en": "endowed with, possessed of", "meaning_ta": "பொருந்தியவர், கூடியவர்"}, {"word": "सर्वभूतेषु", "meaning_sa": "सर्वभूतेषु (सर्वभूत-शब्दस्य सप्तमी-बहुवचनम्) — सर्वेषु प्राणिषु", "meaning_en": "among all beings (locative plural)", "meaning_ta": "எல்லா உயிர்களிடத்திலும் (ஏழாம் வேற்றுமை பன்மை)"}, {"word": "कः", "meaning_sa": "कः — प्रश्नवाचकसर्वनाम (द्वितीयवारम्)", "meaning_en": "who? (2nd occurrence)", "meaning_ta": "யார்? (இரண்டாம் முறை)"}, {"word": "हितः", "meaning_sa": "हितः — हितकारकः, कल्याणकारी", "meaning_en": "beneficial, a well-wisher", "meaning_ta": "நன்மை செய்பவர்"}, {"word": "विद्वान्", "meaning_sa": "विद्वान् — ज्ञानसम्पन्नः, पण्डितः", "meaning_en": "learned, wise", "meaning_ta": "கல்வி/அறிவு உடையவர்"}, {"word": "कः", "meaning_sa": "कः — प्रश्नवाचकसर्वनाम (तृतीयवारम्)", "meaning_en": "who? (3rd occurrence)", "meaning_ta": "யார்? (மூன்றாம் முறை)"}, {"word": "कः", "meaning_sa": "कः — प्रश्नवाचकसर्वनाम (चतुर्थवारम्)", "meaning_en": "who? (4th occurrence)", "meaning_ta": "யார்? (நான்காம் முறை)"}, {"word": "समर्थः", "meaning_sa": "समर्थः — शक्तः, सामर्थ्ययुक्तः", "meaning_en": "capable, able", "meaning_ta": "திறமை/சாமர்த்தியம் உடையவர்"}, {"word": "च", "meaning_sa": "समुच्चयार्थे निपातः", "meaning_en": "and", "meaning_ta": "மற்றும்"}, {"word": "कः", "meaning_sa": "कः — प्रश्नवाचकसर्वनाम (पञ्चमवारम्)", "meaning_en": "who? (5th occurrence)", "meaning_ta": "யார்? (ஐந்தாம் முறை)"}, {"word": "च", "meaning_sa": "समुच्चयार्थे निपातः", "meaning_en": "and", "meaning_ta": "மற்றும்"}, {"word": "एकप्रियदर्शनः", "meaning_sa": "एकः प्रियदर्शनः — एकाकी एव सर्वेषां प्रियं दर्शनं यस्य सः", "meaning_en": "uniquely pleasant to look at (of matchlessly pleasing appearance)", "meaning_ta": "தனிச்சிறப்பாக அழகான தோற்றம் உடையவர்"}], "anvaya_sa": "चारित्रेण कः युक्तः? सर्वभूतेषु कः हितः? कः विद्वान्? कः च समर्थः? कः च एकप्रियदर्शनः?", "anvaya_ta": "நல்லொழுக்கத்தால் யார் கூடியவர்? எல்லா உயிர்களிடத்திலும் யார் நன்மை செய்பவர்? யார் கல்வியுடையவர்? யார் திறமையுடையவர்? யார் தனிச்சிறப்பான அழகுடையவர்?", "saralartha_sa": "चारित्रेण कः युक्तः, सर्वभूतेषु कः हितः, कः विद्वान्, कः समर्थः, कः च एकः प्रियदर्शनः भवति?", "saralartha_ta": "நல்லொழுக்கத்தால் கூடியவரும், எல்லா உயிர்களுக்கும் நன்மை செய்பவரும், கல்வியுடையவரும், திறமையுடையவரும், தனித்த அழகுடையவரும் யார்?", "translation_en": "Who is endowed with (good) conduct? Who is a well-wisher to all beings? Who is learned, and who is capable, and who alone has a truly pleasing appearance?", "translation_ta": "நல்லொழுக்கத்தால் கூடியவரும், எல்லா உயிர்களுக்கும் நன்மை செய்பவரும், கல்வியுடையவரும், திறமையுடையவரும், தனித்த அழகுடையவரும் யார்?", "pada_vigraha": [{"id": "1.1.3.w1", "word": "चारित्रेण", "surface": "cāritreṇa", "lemma_sa": "चारित्र", "pos": "noun", "gender": "neuter", "number": "singular", "case": "instrumental", "meaning": "सदाचारेण, सद्वृत्तेन", "meaning_ta": "நல்லொழுக்கத்தால்", "etymology": "चरित्र + अण् (स्वार्थे) अथवा चर् (गतौ) धातोः — 'आचरणम्' इत्यर्थे", "etymology_ta": "சரித்ர + अண் (स्वार्த்தில்) — 'நடத்தை' எனும் பொருளில்", "morphology": "नामपदम्, अकारान्तम्, नपुंसकलिङ्गम्, तृतीया विभक्तिः, एकवचनम्", "morphology_ta": "பெயர்ச்சொல், अ-ஈறு, அலிங்கம், மூன்றாம் வேற்றுமை, ஒருமை", "role": "करणम् — युक्तः इत्यस्य साधनम्", "role_ta": "கருவிப்பொருள் — 'युक्तः' என்பதன் சாதனம்"}, {"id": "1.1.3.w2", "word": "च", "surface": "ca", "lemma_sa": "च", "pos": "indeclinable (conjunction)", "gender": "—", "number": "—", "case": "—", "meaning": "तथा", "meaning_ta": "மற்றும்", "etymology": "अव्ययम्", "etymology_ta": "அவ்யயம்", "morphology": "अव्ययम्", "morphology_ta": "அவ்யயம்", "role": "पूर्वश्लोकस्य प्रश्नैः सह अस्य प्रश्नस्य समुच्चयं करोति", "role_ta": "முந்தைய வினாக்களுடன் இணைக்கிறது"}, {"id": "1.1.3.w3", "word": "कः", "surface": "kaḥ", "lemma_sa": "किम्", "pos": "pronoun (interrogative)", "gender": "masculine", "number": "singular", "case": "nominative", "meaning": "कः (प्रथमवारम्)", "meaning_ta": "யார்? (முதல் முறை)", "etymology": "किम्-शब्दस्य पुँल्लिङ्ग-प्रथमा-एकवचनरूपम्", "etymology_ta": "किம் என்பதன் ஆண்பால் எழுவாய் ஒருமை வடிவம்", "morphology": "सर्वनाम, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "பெயர்ச்சொல், எழுவாய் வேற்றுமை, ஒருமை", "role": "प्रश्नकर्तृपदम् — युक्तः इत्यस्य कर्ता", "role_ta": "வினாவின் எழுவாய்"}, {"id": "1.1.3.w4", "word": "युक्तः", "surface": "yuktaḥ", "lemma_sa": "युक्त", "pos": "adjective (past participle)", "gender": "masculine", "number": "singular", "case": "nominative", "meaning": "संयुक्तः, सम्पन्नः", "meaning_ta": "கூடியவர், பொருந்தியவர்", "etymology": "युज् (योगे) धातोः क्तप्रत्ययः", "etymology_ta": "யுஜ் (இணைத்தல்) தாதுவின் क्त-ஈறு", "morphology": "विशेषणम्, कर्मणि-भूतकृदन्तम्, पुल्लिङ्गम्, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "பெயரடை, செய்யப்பட்ட வினையெச்சம், ஆண்பால், எழுவாய் வேற்றுமை, ஒருமை", "role": "विधेय-विशेषणम् — कः इत्यस्य गुणं निर्दिशति", "role_ta": "பயனிலைப் பெயரடை"}, {"id": "1.1.3.w5", "word": "सर्वभूतेषु", "surface": "sarvabhūteṣu", "lemma_sa": "सर्वभूत", "pos": "noun (compound)", "gender": "neuter", "number": "plural", "case": "locative", "meaning": "सर्वेषु प्राणिषु", "meaning_ta": "எல்லா உயிர்களிடத்திலும்", "etymology": "सर्व + भूत (भू धातोः क्तप्रत्ययः, 'उत्पन्नः/प्राणी') — कर्मधारयसमासः", "etymology_ta": "सर்வ + பூத (பூ தாதுவின் क्त-ஈறு) — கர்மதாரய தொகைச்சொல்", "morphology": "समासपदम्, अकारान्तम्, नपुंसकलिङ्गम्, सप्तमी विभक्तिः, बहुवचनम्", "morphology_ta": "தொகைச்சொல், अ-ஈறு, அலிங்கம், ஏழாம் வேற்றுமை, பன்மை", "role": "अधिकरणम् — हितः इत्यस्य विषयक्षेत्रम्", "role_ta": "இடப்பொருள் — 'हितः' என்பதன் எல்லை"}, {"id": "1.1.3.w6", "word": "कः", "surface": "kaḥ", "lemma_sa": "किम्", "pos": "pronoun (interrogative)", "gender": "masculine", "number": "singular", "case": "nominative", "meaning": "कः (द्वितीयवारम्)", "meaning_ta": "யார்? (இரண்டாம் முறை)", "etymology": "किम्-शब्दस्य पुँल्लिङ्ग-प्रथमा-एकवचनरूपम्", "etymology_ta": "किம் என்பதன் ஆண்பால் எழுவாய் ஒருமை வடிவம்", "morphology": "सर्वनाम, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "பெயர்ச்சொல், எழுவாய் வேற்றுமை, ஒருமை", "role": "प्रश्नकर्तृपदम् — हितः इत्यस्य कर्ता", "role_ta": "வினாவின் எழுவாய்"}, {"id": "1.1.3.w7", "word": "हितः", "surface": "hitaḥ", "lemma_sa": "हित", "pos": "adjective (past participle)", "gender": "masculine", "number": "singular", "case": "nominative", "meaning": "हितकारकः, कल्याणकारी", "meaning_ta": "நன்மை செய்பவர்", "etymology": "धा (धारणपोषणयोः) धातोः क्तप्रत्ययः (हि-आदेशेन)", "etymology_ta": "தா (தாங்குதல்) தாதுவின் क्त-ஈறு", "morphology": "विशेषणम्, भूतकृदन्तम्, पुल्लिङ्गम्, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "பெயரடை, இறந்தகால வினையெச்சம், ஆண்பால், எழுவாய் வேற்றுமை, ஒருமை", "role": "विधेय-विशेषणम्", "role_ta": "பயனிலைப் பெயரடை"}, {"id": "1.1.3.w8", "word": "विद्वान्", "surface": "vidvān", "lemma_sa": "विद्वस्", "pos": "adjective (perfect active participle)", "gender": "masculine", "number": "singular", "case": "nominative", "meaning": "ज्ञानसम्पन्नः, पण्डितः", "meaning_ta": "கல்வி/அறிவு உடையவர்", "etymology": "विद् (ज्ञाने) धातोः क्वसुप्रत्ययः (लिट्-कालीनं कृदन्तम्)", "etymology_ta": "வித் (அறிதல்) தாதுவின் क्वसु-ஈறு (பரோக்ஷ பூத வினையெச்சம்)", "morphology": "विशेषणम्, वस्-प्रत्ययान्तं (उष्/वस्-प्रातिपदिकम्), पुल्लिङ्गम्, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "பெயரடை, वस்-ஈறு, ஆண்பால், எழுவாய் வேற்றுமை, ஒருமை", "role": "विधेय-विशेषणम् (स्वतन्त्रकर्तृपदेन सहितः)", "role_ta": "பயனிலைப் பெயரடை"}, {"id": "1.1.3.w9", "word": "कः", "surface": "kaḥ", "lemma_sa": "किम्", "pos": "pronoun (interrogative)", "gender": "masculine", "number": "singular", "case": "nominative", "meaning": "कः (तृतीयवारम्) — विद्वान् इत्यनेन सह", "meaning_ta": "யார்? (மூன்றாம் முறை) — 'विद्वान्' உடன்", "etymology": "किम्-शब्दस्य पुँल्लिङ्ग-प्रथमा-एकवचनरूपम्", "etymology_ta": "किம் என்பதன் ஆண்பால் எழுவாய் ஒருமை வடிவம்", "morphology": "सर्वनाम, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "பெயர்ச்சொல், எழுவாய் வேற்றுமை, ஒருமை", "role": "प्रश्नकर्तृपदम् — 'विद्वान् कः [अस्ति]' इति प्रश्नस्य कर्ता", "role_ta": "'யார் கல்வியுடையவர்?' எனும் வினாவின் எழுவாய்"}, {"id": "1.1.3.w10", "word": "कः", "surface": "kaḥ", "lemma_sa": "किम्", "pos": "pronoun (interrogative)", "gender": "masculine", "number": "singular", "case": "nominative", "meaning": "कः (चतुर्थवारम्) — समर्थः इत्यनेन सह", "meaning_ta": "யார்? (நான்காம் முறை) — 'समर्थः' உடன்", "etymology": "किम्-शब्दस्य पुँल्लिङ्ग-प्रथमा-एकवचनरूपम्", "etymology_ta": "किம் என்பதன் ஆண்பால் எழுவாய் ஒருமை வடிவம்", "morphology": "सर्वनाम, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "பெயர்ச்சொல், எழுவாய் வேற்றுமை, ஒருமை", "role": "प्रश्नकर्तृपदम् — समर्थः इत्यस्य कर्ता", "role_ta": "'समर्थः' என்பதன் எழுவாய்"}, {"id": "1.1.3.w11", "word": "समर्थः", "surface": "samarthaḥ", "lemma_sa": "समर्थ", "pos": "adjective", "gender": "masculine", "number": "singular", "case": "nominative", "meaning": "शक्तः, सामर्थ्ययुक्तः", "meaning_ta": "திறமை/சாமர்த்தியம் உடையவர்", "etymology": "सम् + अर्थ (उपसर्गपूर्वकं नामपदम्) — 'सम्यक् अर्थं साधयितुं क्षमः' इत्यर्थे", "etymology_ta": "सம் + अர்த்த — 'சரியாகச் செயலாக்கும் திறன் உடையவர்' எனும் பொருளில்", "morphology": "विशेषणम्, अकारान्तम्, पुल्लिङ्गम्, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "பெயரடை, अ-ஈறு, ஆண்பால், எழுவாய் வேற்றுமை, ஒருமை", "role": "विधेय-विशेषणम्", "role_ta": "பயனிலைப் பெயரடை"}, {"id": "1.1.3.w12", "word": "च", "surface": "ca", "lemma_sa": "च", "pos": "indeclinable (conjunction)", "gender": "—", "number": "—", "case": "—", "meaning": "तथा", "meaning_ta": "மற்றும்", "etymology": "अव्ययम्", "etymology_ta": "அவ்யயம்", "morphology": "अव्ययम्", "morphology_ta": "அவ்யயம்", "role": "प्रश्नसमुच्चयद्योतकः", "role_ta": "வினாக்களை இணைக்கும் சொல்"}, {"id": "1.1.3.w13", "word": "कः", "surface": "kaḥ", "lemma_sa": "किम्", "pos": "pronoun (interrogative)", "gender": "masculine", "number": "singular", "case": "nominative", "meaning": "कः (पञ्चमवारम्) — एकप्रियदर्शनः इत्यनेन सह", "meaning_ta": "யார்? (ஐந்தாம் முறை) — 'एकप्रियदर्शनः' உடன்", "etymology": "किम्-शब्दस्य पुँल्लिङ्ग-प्रथमा-एकवचनरूपम्", "etymology_ta": "किம் என்பதன் ஆண்பால் எழுவாய் ஒருமை வடிவம்", "morphology": "सर्वनाम, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "பெயர்ச்சொல், எழுவாய் வேற்றுமை, ஒருமை", "role": "प्रश्नकर्तृपदम् — एकप्रियदर्शनः इत्यस्य कर्ता", "role_ta": "'एकप्रियदर्शनः' என்பதன் எழுவாய்"}, {"id": "1.1.3.w14", "word": "च", "surface": "ca", "lemma_sa": "च", "pos": "indeclinable (conjunction)", "gender": "—", "number": "—", "case": "—", "meaning": "तथा", "meaning_ta": "மற்றும்", "etymology": "अव्ययम्", "etymology_ta": "அவ்யயம்", "morphology": "अव्ययम्", "morphology_ta": "அவ்யயம்", "role": "प्रश्नसमुच्चयद्योतकः", "role_ta": "வினாக்களை இணைக்கும் சொல்"}, {"id": "1.1.3.w15", "word": "एकप्रियदर्शनः", "surface": "eka-priyadarśanaḥ", "lemma_sa": "एकप्रियदर्शन", "pos": "adjective (compound, bahuvrihi)", "gender": "masculine", "number": "singular", "case": "nominative", "meaning": "एकाकी एव सर्वेषां प्रियं दर्शनं यस्य सः", "meaning_ta": "தனிச்சிறப்பாக அழகான தோற்றம் உடையவர்", "etymology": "एक + प्रिय + दर्शन — प्रियं दर्शनं यस्य सः प्रियदर्शनः (बहुव्रीहिः), ततः एक इत्यनेन विशेषितः", "etymology_ta": "ஏக + ப்ரிய + தர்சன — யாருடைய தோற்றம் விருப்பமானதோ அவர் 'ப்ரியதர்சன' (பஹுவ்ரீஹி), பின் 'ஏக' என்பதால் விசேடிக்கப்பட்டது", "morphology": "समासपदम् (बहुव्रीहौ बहुव्रीहिः), अकारान्तम्, पुल्लिङ्गम्, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "தொகைச்சொல், अ-ஈறு, ஆண்பால், எழுவாய் வேற்றுமை, ஒருமை", "role": "विधेय-विशेषणम् — प्रश्नावलेः अन्तिमगुणः", "role_ta": "பயனிலைப் பெயரடை — வினாக்களின் இறுதிக் குணம்"}], "karaka": {"karta": "कः (अव्यक्तः, पञ्चवारं प्रश्नरूपेण आवृत्तः) — युक्तः, हितः, विद्वान्, समर्थः, एकप्रियदर्शनः इति पञ्चभिः विशेषणैः अन्विष्यमाणः", "karta_ta": "கః (குறிப்பிடப்படாதவர், ஐந்து முறை வினாவாக மீண்டும் வருபவர்) — ஐந்து பெயரடைகளால் தேடப்படுபவர்", "karma": "इदं वाक्यं कर्मरहितम् — क्रिया एव (अस्ति) निहिता", "karma_ta": "இந்த வாக்கியத்தில் செயப்படுபொருள் இல்லை — வினை மறைமுகமாக உள்ளது", "karana": "चारित्रेण (तृतीया) — युक्तः इत्यस्य साधनम्", "karana_ta": "சாரித்ரேண (மூன்றாம் வேற்றுமை) — 'युक्तः' என்பதன் சாதனம்", "adhikarana": "सर्वभूतेषु (सप्तमी) — हितः इत्यस्य विषयक्षेत्रम्", "adhikarana_ta": "सர்வபூதேஷு (ஏழாம் வேற்றுமை) — 'हितः' என்பதன் எல்லை", "sambandha": "इदं श्लोके प्रत्यक्षं संबन्धपदं (षष्ठी) नास्ति", "sambandha_ta": "இந்த ஶ்லோகத்தில் நேரடியான உடைமை உறவு இல்லை", "karta_word_id": "1.1.3.w3", "karma_word_id": ""}, "shabdarupani": {"coverage_note": "8 distinct declinable stems occur in 1.1.3 (किम्, चारित्र, युक्त, सर्वभूत, हित, विद्वस्, समर्थ, एकप्रियदर्शन). किम् (कः) recurs five times as one stem. This verse, like 1.1.2, has no finite verb — the existential अस्ति is understood; see Component 6.", "stem_count": 8, "kim": {"lemma": "किम्", "word_in_verse": "कः", "paradigm": "KIM-P", "cell": "1-1", "meaning": "who? (interrogative pronoun)", "meaning_ta": "யார்? (வினாப் பெயர்ச்சொல்)", "grammar_note": "सर्वनाम — किम्-शब्दस्य पुँल्लिङ्गरूपाणि; अस्मिन् श्लोके पञ्चवारम् आवृत्तम्", "grammar_note_ta": "பெயர்ச்சொல் — ஆண்பால் வடிவங்கள்; இந்த ஶ்லோகத்தில் ஐந்து முறை மீண்டும் வருகிறது"}, "caritra": {"lemma": "चारित्र", "word_in_verse": "चारित्रेण", "paradigm": "A-N", "cell": "3-1", "stem": "चारित्र", "meaning": "conduct, character", "meaning_ta": "ஒழுக்கம், சரித்திரம்", "grammar_note": "नियमित अकारान्त-नपुंसकनाम (declines like फल)", "grammar_note_ta": "साधारण अ-ஈற்று அலிங்கப் பெயர்ச்சொல்"}, "yukta": {"lemma": "युक्त", "word_in_verse": "युक्तः", "paradigm": "A-P", "cell": "1-1", "stem": "युक्त", "meaning": "endowed, possessed of", "meaning_ta": "கூடியவர்", "grammar_note": "क्तप्रत्ययान्तं भूतकृदन्तम् — नियमित अकारान्त-पुल्लिङ्गवत् विभज्यते", "grammar_note_ta": "क्त-ஈற்று வினையெச்சம் — साधारण अ-ஈற்று ஆண்பால் போல் அமையும்"}, "sarvabhuta": {"lemma": "सर्वभूत", "word_in_verse": "सर्वभूतेषु", "paradigm": "A-N", "cell": "7-3", "stem": "सर्वभूत", "meaning": "all beings", "meaning_ta": "எல்லா உயிர்களும்", "grammar_note": "समासपदम्, नपुंसकलिङ्गे — नियमित अकारान्त-नपुंसकवत् विभज्यते (declines like फल)", "grammar_note_ta": "தொகைச்சொல், அலிங்கம் — साधारண अ-ஈற்று அலிங்கம் போல் அமையும்"}, "hita": {"lemma": "हित", "word_in_verse": "हितः", "paradigm": "A-P", "cell": "1-1", "stem": "हित", "meaning": "beneficial, well-wisher", "meaning_ta": "நன்மை செய்பவர்", "grammar_note": "क्तप्रत्ययान्तं भूतकृदन्तम् — नियमित अकारान्त-पुल्लिङ्गवत् विभज्यते", "grammar_note_ta": "क्त-ஈற்று வினையெச்சம் — साधारण अ-ஈற்று ஆண்பால் போல் அமையும்"}, "vidvas": {"lemma": "विद्वस्", "word_in_verse": "विद्वान्", "paradigm": "VIDVAS-P", "cell": "1-1", "meaning": "learned, wise (lit. 'having known')", "meaning_ta": "கல்வி/அறிவு உடையவர்", "grammar_note": "लिट्-कालीनं क्वसु-प्रत्ययान्तं कृदन्तम् — अनियमितम्, उष्/वस्-आदेशयुक्तम् (जग्मिवस्/भवत् वर्गसदृशम्, स्वतन्त्रपाठ्यरूपम्)", "grammar_note_ta": "பரோக்ஷ பூத वस்-ஈற்று வினையெச்சம் — ஒழுங்கற்றது, प्रत्யேக பாடம்"}, "samartha": {"lemma": "समर्थ", "word_in_verse": "समर्थः", "paradigm": "A-P", "cell": "1-1", "stem": "समर्थ", "meaning": "capable, able", "meaning_ta": "திறமை உடையவர்", "grammar_note": "नियमित अकारान्त-पुल्लिङ्गविशेषणम्", "grammar_note_ta": "साधारण अ-ஈற்று ஆண்பால் பெயரடை"}, "ekapriyadarshana": {"lemma": "एकप्रियदर्शन", "word_in_verse": "एकप्रियदर्शनः", "paradigm": "A-P", "cell": "1-1", "stem": "एकप्रियदर्शन", "meaning": "uniquely pleasant to look at", "meaning_ta": "தனிச்சிறப்பான அழகுடையவர்", "grammar_note": "बहुव्रीहिसमासपदम् — नियमित अकारान्त-पुल्लिङ्गवत् विभज्यते", "grammar_note_ta": "பஹுவ்ரீஹி தொகைச்சொல் — साधारण अ-ஈற்று ஆண்பால் போல் அமையும்"}}, "dhaturupani": {"coverage_note": "1.1.3, like 1.1.2, has NO finite verb — the existential अस्ति is understood but not stated. विद्वान्, though historically derived from the root विद् (Component 7 shows its क्वसु-formation), functions here purely as a nominal predicate adjective, not as a finite verb form — so it does not supply a Component 6 entry either.", "pracch_root": "", "pracch_meaning": "", "pracch_meaning_ta": "", "pracch_gana": "", "pracch_gana_ta": "", "pracch_lakara": "", "pracch_lakara_ta": "", "pracch_form": "", "pracch_form_ta": "", "conjugation_perfect": null}, "pratyaya": [{"word": "चारित्रेण", "breakdown": "चरित्र + अण् (स्वार्थे) + टा", "breakdown_ta": "சரித்ர + अण் + டா", "pratyaya_name": "टा-विभक्तिः", "pratyaya_name_ta": "டா-விபக்தி", "function": "तृतीया-एकवचन-प्रत्ययः", "function_ta": "மூன்றாம் வேற்றுமை ஒருமை விகுதி"}, {"word": "कः", "breakdown": "किम् + सुँ", "breakdown_ta": "किம் + सुँ", "pratyaya_name": "सुँ-विभक्तिः", "pratyaya_name_ta": "सुँ-விபக்தி", "function": "प्रथमा-एकवचन-प्रत्ययः", "function_ta": "எழுவாய் ஒருமை விகுதி"}, {"word": "युक्तः", "breakdown": "युज् + क्त + सुँ", "breakdown_ta": "யுஜ் + क्त + सुँ", "pratyaya_name": "क्त-प्रत्ययः", "pratyaya_name_ta": "क्त-பிரத்யயம்", "function": "कर्मणि-भूतकृदन्तनिर्माणम्", "function_ta": "செய்யப்பட்ட வினையெச்ச உருவாக்கம்"}, {"word": "सर्वभूतेषु", "breakdown": "सर्व + भू + क्त + सुप् (षष्ठी-बहुवचन → सप्तमी-बहुवचन)", "breakdown_ta": "सர்வ + பூ + क्त + सुप्", "pratyaya_name": "सुप्-विभक्तिः", "pratyaya_name_ta": "सुप्-விபக்தி", "function": "सप्तमी-बहुवचन-प्रत्ययः", "function_ta": "ஏழாம் வேற்றுமை பன்மை விகுதி"}, {"word": "कः", "breakdown": "किम् + सुँ (द्वितीयवारम्)", "breakdown_ta": "किம் + सुँ (இரண்டாம் முறை)", "pratyaya_name": "सुँ-विभक्तिः", "pratyaya_name_ta": "सुँ-விபக்தி", "function": "प्रथमा-एकवचन-प्रत्ययः", "function_ta": "எழுவாய் ஒருமை விகுதி"}, {"word": "हितः", "breakdown": "धा (हि-आदेशः) + क्त + सुँ", "breakdown_ta": "தா (हि-ஆதேசம்) + क्त + सुँ", "pratyaya_name": "क्त-प्रत्ययः", "pratyaya_name_ta": "क्त-பிரத்யயம்", "function": "भूतकृदन्तनिर्माणम्", "function_ta": "இறந்தகால வினையெச்ச உருவாக்கம்"}, {"word": "विद्वान्", "breakdown": "विद् + क्वसु + सुँ", "breakdown_ta": "வித் + क्वसु + सुँ", "pratyaya_name": "क्वसु-प्रत्ययः", "pratyaya_name_ta": "क्वसु-பிரத்யயம்", "function": "लिट्कालीन-कर्तृवाचक-कृदन्तनिर्माणम्", "function_ta": "பரோக்ஷ பூத எழுவாய்ப் பொருள் வினையெச்ச உருவாக்கம்"}, {"word": "कः", "breakdown": "किम् + सुँ (तृतीयवारम्)", "breakdown_ta": "किம் + सुँ (மூன்றாம் முறை)", "pratyaya_name": "सुँ-विभक्तिः", "pratyaya_name_ta": "सुँ-விபக்தி", "function": "प्रथमा-एकवचन-प्रत्ययः", "function_ta": "எழுவாய் ஒருமை விகுதி"}, {"word": "कः", "breakdown": "किम् + सुँ (चतुर्थवारम्)", "breakdown_ta": "किம் + सुँ (நான்காம் முறை)", "pratyaya_name": "सुँ-विभक्तिः", "pratyaya_name_ta": "सुँ-விபக்தி", "function": "प्रथमा-एकवचन-प्रत्ययः", "function_ta": "எழுவாய் ஒருமை விகுதி"}, {"word": "समर्थः", "breakdown": "सम् + अर्थ + सुँ", "breakdown_ta": "सம் + अர்த்த + सुँ", "pratyaya_name": "सुँ-विभक्तिः", "pratyaya_name_ta": "सुँ-விபக்தி", "function": "प्रथमा-एकवचन-प्रत्ययः", "function_ta": "எழுவாய் ஒருமை விகுதி"}, {"word": "कः", "breakdown": "किम् + सुँ (पञ्चमवारम्)", "breakdown_ta": "किம் + सुँ (ஐந்தாம் முறை)", "pratyaya_name": "सुँ-विभक्तिः", "pratyaya_name_ta": "सुँ-விபக்தி", "function": "प्रथमा-एकवचन-प्रत्ययः", "function_ta": "எழுவாய் ஒருமை விகுதி"}, {"word": "एकप्रियदर्शनः", "breakdown": "एक + प्रिय + दृश् + अन (ल्युट्) + सुँ", "breakdown_ta": "ஏக + ப்ரிய + த்ருஷ் + अன (ल्युट்) + सुँ", "pratyaya_name": "ल्युट्-प्रत्ययः (भावे) + सुँ (बहुव्रीहौ)", "pratyaya_name_ta": "ल्युट்-பிரத்யயம் + सुँ", "function": "भाववाचकनिर्माणम् (दर्शनम्) → बहुव्रीहौ विशेषणत्वम्", "function_ta": "பாவப் பொருள் உருவாக்கம் → பஹுவ்ரீஹியில் பெயரடையாதல்"}], "sandhi": [{"location": "कः + युक्तः", "original": "कः + युक्तः", "result": "को युक्तः", "sandhi_type": "विसर्गसन्धिः (ओकारादेशः)", "sandhi_type_ta": "விசர்க்க சந்தி (ஓகார ஆதேசம்)", "sandhi_rule_sa": "अतो रोरप्लुतादप्लुते — अकारात् परस्य विसर्गस्य घोषवति (य्-कारे) परे ओकारादेशः", "sandhi_rule_ta": "अ-க்குப் பின் விசர்க்கம் ஒலிக்கும் மெய் (ய்) தொடரும்போது 'ओ' ஆகும்"}, {"location": "कः + हितः", "original": "कः + हितः", "result": "को हितः", "sandhi_type": "विसर्गसन्धिः (ओकारादेशः)", "sandhi_type_ta": "விசர்க்க சந்தி (ஓகார ஆதேசம்)", "sandhi_rule_sa": "अतो रोरप्लुतादप्लुते — अकारात् परस्य विसर्गस्य घोषवति (ह्-कारे) परे ओकारादेशः", "sandhi_rule_ta": "अ-க்குப் பின் விசர்க்கம் ஒலிக்கும் மெய் (ஹ்) தொடரும்போது 'ओ' ஆகும்"}, {"location": "समर्थः + च", "original": "समर्थः + च", "result": "समर्थश्च", "sandhi_type": "विसर्गसन्धिः (श्चुत्वम्)", "sandhi_type_ta": "விசர்க்க சந்தி (ஶ்சுத்வம்)", "sandhi_rule_sa": "विसर्जनीयस्य सः — च परे विसर्गस्य शकारादेशः", "sandhi_rule_ta": "விசர்க்கத்திற்குப் பின் ச் தொடர்ந்தால் 'श்' ஆகும்"}, {"location": "कः + च", "original": "कः + च", "result": "कश्च", "sandhi_type": "विसर्गसन्धिः (श्चुत्वम्)", "sandhi_type_ta": "விசர்க்க சந்தி (ஶ்சுத்வம்)", "sandhi_rule_sa": "विसर्जनीयस्य सः — च परे विसर्गस्य शकारादेशः", "sandhi_rule_ta": "விசர்க்கத்திற்குப் பின் ச் தொடர்ந்தால் 'श்' ஆகும்"}, {"location": "च + एकप्रियदर्शनः", "original": "च + एकप्रियदर्शनः", "result": "चैकप्रियदर्शनः", "sandhi_type": "वृद्धिसन्धिः (स्वरसन्धिः)", "sandhi_type_ta": "வ்ருத்தி சந்தி (உயிர் சந்தி)", "sandhi_rule_sa": "वृद्धिरेचि — अकारात् परस्य एकारस्य वृद्ध्येकादेशः (अ+ए→ऐ)", "sandhi_rule_ta": "अ-க்குப் பின் ए தொடர்ந்தால் இரண்டும் இணைந்து 'ऐ' ஆகும்"}], "samasa": [{"word": "सर्वभूतेषु", "compound_type": "कर्मधारयसमासः", "compound_type_ta": "கர்மதாரய தொகைச்சொல்", "breakdown": "सर्वाणि च तानि भूतानि च — सर्वभूतानि", "vigraha_sa": "सर्वाणि भूतानि", "vigraha_ta": "எல்லா உயிர்களும்", "meaning": "all beings", "meaning_ta": "எல்லா உயிர்களும்"}, {"word": "एकप्रियदर्शनः", "compound_type": "बहुव्रीहिसमासः (द्विपदगर्भितः)", "compound_type_ta": "பஹுவ்ரீஹி தொகைச்சொல்", "breakdown": "प्रियं दर्शनं यस्य सः प्रियदर्शनः, तेषु एकः", "vigraha_sa": "एकः च असौ प्रियदर्शनः च — यस्य दर्शनं प्रियम्, स च अद्वितीयः", "vigraha_ta": "யாருடைய தோற்றம் விருப்பமானதோ, மேலும் தனிச்சிறப்பானதோ அவர்", "meaning": "uniquely pleasant to look at", "meaning_ta": "தனிச்சிறப்பான அழகுடையவர்"}], "chandas_name": "अनुष्टुप्", "chandas_definition": "षोडश-मात्र-वृत्तम् — प्रश्नमालायाः द्वितीयः समुच्चयः, चारित्र्यं, परहितं, विद्वत्तां, सामर्थ्यं, रूपं च पञ्चभिः प्रश्नैः संगृह्णाति", "chandas_definition_ta": "பதினாறு மாத்திரை வృత்தம் — வினாத் தொகுப்பின் இரண்டாம் பகுதி, ஒழுக்கம், பிறர் நலம், கல்வி, திறமை, தோற்றம் ஆகியவற்றை ஐந்து வினாக்களில் தொகுக்கிறது", "scansion": [{"quarter": 1, "text": "चारित्रेण च को युक्तः", "matra": 8}, {"quarter": 2, "text": "सर्वभूतेषु को हितः", "matra": 8}, {"quarter": 3, "text": "विद्वान्कः कः समर्थश्च", "matra": 8}, {"quarter": 4, "text": "कश्चैकप्रियदर्शनः", "matra": 8}], "alankara": [{"name": "काकु-प्रश्नालङ्कारः (वाक्यार्थालङ्कारः)", "definition": "पूर्वश्लोकस्य प्रश्नमाला अत्रापि निरन्तरं प्रवर्तते — पञ्च कः-पदानि एकस्मिन् एव श्लोके, जिज्ञासायाः तीव्रतां द्योतयन्ति", "definition_ta": "முந்தைய ஶ்லோகத்தின் வினாத் தொடர் இங்கும் தொடர்கிறது — ஒரே ஶ்லோகத்தில் ஐந்து 'கః' சொற்கள், ஆர்வத்தின் தீவிரத்தைக் காட்டுகின்றன"}]}}, {"id": "1.1.4", "number": 4, "kanda": "बाल-काण्डः", "sarga": 1, "devanagari": "आत्मवान् को जितक्रोधो द्युतिमान् कोऽनसूयकः । कस्य बिभ्यति देवाश्च जातरोषस्य संयुगे ॥ १-१-४ ॥", "iast": "ātmavān ko jitakrodho dyutimān ko 'nasūyakaḥ | kasya bibhyati devāś ca jātaroṣasya saṃyuge || 1-1-4 ||", "chandas": "अनुष्टुप्", "verified_sources": "valmikiramayan.net, gyaandweep.com, srivalmikiramayana.com, stotranidhi.com, ramcharit.in, sanskritdocuments.org", "grammar": {"padaccheda": [{"word": "आत्मवान्", "meaning_sa": "आत्मवान् — आत्मनि (मनसि) स्वाधीनः, जितेन्द्रियः", "meaning_en": "self-possessed, master of one's own mind", "meaning_ta": "தன்னடக்கம் உடையவர்"}, {"word": "कः", "meaning_sa": "कः — प्रश्नवाचकसर्वनाम (प्रथमवारम्)", "meaning_en": "who? (1st occurrence)", "meaning_ta": "யார்? (முதல் முறை)"}, {"word": "जितक्रोधः", "meaning_sa": "जितः क्रोधः येन सः — क्रोधं जितवान्", "meaning_en": "one who has conquered anger", "meaning_ta": "கோபத்தை வென்றவர்"}, {"word": "द्युतिमान्", "meaning_sa": "द्युतिमान् — कान्तियुक्तः, तेजस्वी", "meaning_en": "glorious, radiant", "meaning_ta": "ஒளி/புகழ் உடையவர்"}, {"word": "कः", "meaning_sa": "कः — प्रश्नवाचकसर्वनाम (द्वितीयवारम्)", "meaning_en": "who? (2nd occurrence)", "meaning_ta": "யார்? (இரண்டாம் முறை)"}, {"word": "अनसूयकः", "meaning_sa": "न असूयकः — असूयारहितः, परदोषान्वेषणरहितः", "meaning_en": "free of envy/malice, not fault-finding", "meaning_ta": "பொறாமை/குறைகாணல் இல்லாதவர்"}, {"word": "कस्य", "meaning_sa": "कस्य (किम्-शब्दस्य षष्ठी-एकवचनम्) — यस्य", "meaning_en": "of whom, whose (genitive)", "meaning_ta": "யாருடைய (ஆறாம் வேற்றுமை)"}, {"word": "बिभ्यति", "meaning_sa": "बिभ्यति — भयं कुर्वन्ति, भीताः भवन्ति", "meaning_en": "they fear (3rd person plural, present tense)", "meaning_ta": "அவர்கள் அஞ்சுகிறார்கள்"}, {"word": "देवाः", "meaning_sa": "देवाः (देव-शब्दस्य प्रथमा-बहुवचनम्) — सुराः", "meaning_en": "the gods (nominative plural)", "meaning_ta": "தேவர்கள்"}, {"word": "च", "meaning_sa": "समुच्चयार्थे निपातः — 'अपि' इत्यर्थे अत्र", "meaning_en": "and, even (here emphatic, 'even the gods')", "meaning_ta": "மேலும், கூட"}, {"word": "जातरोषस्य", "meaning_sa": "जातः रोषः यस्य सः, तस्य — उत्पन्नक्रोधस्य", "meaning_en": "of him whose wrath has arisen (genitive)", "meaning_ta": "கோபம் எழுந்தவருடைய"}, {"word": "संयुगे", "meaning_sa": "संयुगे (संयुग-शब्दस्य सप्तमी-एकवचनम्) — युद्धे, संग्रामे", "meaning_en": "in battle (locative)", "meaning_ta": "போரில் (ஏழாம் வேற்றுமை)"}], "anvaya_sa": "आत्मवान् जितक्रोधः कः? द्युतिमान् अनसूयकः कः? संयुगे जातरोषस्य कस्य देवाः च बिभ्यति?", "anvaya_ta": "தன்னடக்கமும் கோபவெற்றியும் உடையவர் யார்? புகழும் பொறாமையின்மையும் உடையவர் யார்? போரில் கோபம் எழுந்தால் யாருக்கு தேவர்களும் அஞ்சுவார்கள்?", "saralartha_sa": "आत्मवान् कः, जितक्रोधः च, द्युतिमान् कः, अनसूयकः च? संयुगे यस्य रोषे जाते देवाः अपि बिभ्यति, सः कः?", "saralartha_ta": "தன்னடக்கமும் கோபவெற்றியும், புகழும் பொறாமையின்மையும் உடையவர் யார்? போரில் யாருடைய கோபம் எழும்போது தேவர்களும் அஞ்சுவார்களோ, அவர் யார்?", "translation_en": "Who is self-possessed and has conquered anger? Who is glorious and free from envy? Of whom, when his wrath is roused in battle, do even the gods feel afraid?", "translation_ta": "தன்னடக்கமும் கோபவெற்றியும், புகழும் பொறாமையின்மையும் உடையவர் யார்? போரில் யாருடைய கோபம் எழும்போது தேவர்களும் அஞ்சுவார்களோ, அவர் யார்?", "pada_vigraha": [{"id": "1.1.4.w1", "word": "आत्मवान्", "surface": "ātmavān", "lemma_sa": "आत्मवत्", "pos": "adjective", "gender": "masculine", "number": "singular", "case": "nominative", "meaning": "आत्मनि स्वाधीनः, जितेन्द्रियः", "meaning_ta": "தன்னடக்கம் உடையவர்", "etymology": "आत्मन् + मतुप् (वत्वम्) — 'आत्मनि (मनसि) प्रभुत्वयुक्तः' इत्यर्थे", "etymology_ta": "आத்மந் + मतुप் (वத்வம்) — 'மனதின் மீது ஆதிக்கமுடையவர்' எனும் பொருளில்", "morphology": "विशेषणम्, वत्-प्रत्ययान्तम्, पुल्लिङ्गम्, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "பெயரடை, वத்-ஈறு, ஆண்பால், எழுவாய் வேற்றுமை, ஒருமை", "role": "विधेय-विशेषणम्", "role_ta": "பயனிலைப் பெயரடை"}, {"id": "1.1.4.w2", "word": "कः", "surface": "kaḥ", "lemma_sa": "किम्", "pos": "pronoun (interrogative)", "gender": "masculine", "number": "singular", "case": "nominative", "meaning": "कः (प्रथमवारम्)", "meaning_ta": "யார்? (முதல் முறை)", "etymology": "किम्-शब्दस्य पुँल्लिङ्ग-प्रथमा-एकवचनरूपम्", "etymology_ta": "किம் என்பதன் ஆண்பால் எழுவாய் ஒருமை வடிவம்", "morphology": "सर्वनाम, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "பெயர்ச்சொல், எழுவாய் வேற்றுமை, ஒருமை", "role": "प्रश्नकर्तृपदम्", "role_ta": "வினாவின் எழுவாய்"}, {"id": "1.1.4.w3", "word": "जितक्रोधः", "surface": "jitakrodhaḥ", "lemma_sa": "जितक्रोध", "pos": "adjective (compound, bahuvrihi)", "gender": "masculine", "number": "singular", "case": "nominative", "meaning": "जितः क्रोधः येन सः", "meaning_ta": "கோபத்தை வென்றவர்", "etymology": "जि (जये) धातोः क्तप्रत्ययेन जित + क्रोध — बहुव्रीहिसमासः", "etymology_ta": "ஜி (வெல்லுதல்) தாதுவின் क्त-ஈறுடன் जित + क्रोध — பஹுவ்ரீஹி தொகைச்சொல்", "morphology": "समासपदम्, अकारान्तम्, पुल्लिङ्गम्, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "தொகைச்சொல், अ-ஈறு, ஆண்பால், எழுவாய் வேற்றுமை, ஒருமை", "role": "विधेय-विशेषणम् — कः इत्यनेन सह", "role_ta": "'कः' உடன் இணைந்த பயனிலைப் பெயரடை"}, {"id": "1.1.4.w4", "word": "द्युतिमान्", "surface": "dyutimān", "lemma_sa": "द्युतिमत्", "pos": "adjective", "gender": "masculine", "number": "singular", "case": "nominative", "meaning": "कान्तियुक्तः, तेजस्वी", "meaning_ta": "ஒளி/புகழ் உடையவர்", "etymology": "द्युति + मतुप् (मत्वम्, इकारान्तत्वात् वत्वं न भवति) — 'द्युत्या युक्तः' इत्यर्थे", "etymology_ta": "த்யுதி + मतुप் (मத்வம், इ-ஈறு என்பதால் वத்வம் ஏற்படாது) — 'ஒளியுடையவர்' எனும் பொருளில்", "morphology": "विशेषणम्, मत्-प्रत्ययान्तम्, पुल्लिङ्गम्, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "பெயரடை, मத்-ஈறு, ஆண்பால், எழுவாய் வேற்றுமை, ஒருமை", "role": "विधेय-विशेषणम्", "role_ta": "பயனிலைப் பெயரடை"}, {"id": "1.1.4.w5", "word": "कः", "surface": "kaḥ", "lemma_sa": "किम्", "pos": "pronoun (interrogative)", "gender": "masculine", "number": "singular", "case": "nominative", "meaning": "कः (द्वितीयवारम्)", "meaning_ta": "யார்? (இரண்டாம் முறை)", "etymology": "किम्-शब्दस्य पुँल्लिङ्ग-प्रथमा-एकवचनरूपम्", "etymology_ta": "किம் என்பதன் ஆண்பால் எழுவாய் ஒருமை வடிவம்", "morphology": "सर्वनाम, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "பெயர்ச்சொல், எழுவாய் வேற்றுமை, ஒருமை", "role": "प्रश्नकर्तृपदम्", "role_ta": "வினாவின் எழுவாய்"}, {"id": "1.1.4.w6", "word": "अनसूयकः", "surface": "anasūyakaḥ", "lemma_sa": "अनसूयक", "pos": "adjective (compound, negative)", "gender": "masculine", "number": "singular", "case": "nominative", "meaning": "असूयारहितः, परदोषान्वेषणरहितः", "meaning_ta": "பொறாமை/குறைகாணல் இல்லாதவர்", "etymology": "न + असूयक (असूया 'ईर्ष्या/दोषदर्शनम्' इत्यस्मात् ण्वुल्-निष्पन्नम्) — नञ्तत्पुरुषसमासः", "etymology_ta": "न + असூயக (असூயா 'பொறாமை/குறை காணல்' இலிருந்து ण்वुल்-ஈறு) — நஞ் தொகைச்சொல்", "morphology": "समासपदम्, अकारान्तम्, पुल्लिङ्गम्, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "தொகைச்சொல், अ-ஈறு, ஆண்பால், எழுவாய் வேற்றுமை, ஒருமை", "role": "विधेय-विशेषणम् — कः इत्यनेन सह", "role_ta": "'कः' உடன் இணைந்த பயனிலைப் பெயரடை"}, {"id": "1.1.4.w7", "word": "कस्य", "surface": "kasya", "lemma_sa": "किम्", "pos": "pronoun (interrogative)", "gender": "masculine", "number": "singular", "case": "genitive", "meaning": "यस्य, कस्य पुरुषस्य", "meaning_ta": "யாருடைய", "etymology": "किम्-शब्दस्य षष्ठी-एकवचनरूपम्", "etymology_ta": "किம் என்பதன் ஆறாம் வேற்றுமை ஒருமை வடிவம்", "morphology": "सर्वनाम, षष्ठी विभक्तिः, एकवचनम्", "morphology_ta": "பெயர்ச்சொல், ஆறாம் வேற்றுமை, ஒருமை", "role": "बिभ्यति इत्यस्य भीतिविषयः (भी-धातोः षष्ठ्यन्तं कर्म)", "role_ta": "'बिभ्यति' என்பதன் அச்சப் பொருள் (ஆறாம் வேற்றுமையில்)"}, {"id": "1.1.4.w8", "word": "बिभ्यति", "surface": "bibhyati", "lemma_sa": "भी", "pos": "verb", "gender": "—", "number": "plural", "case": "—", "verb_info": {"lakara": "लट् (वर्तमानकालः)", "person": "3", "pada": "parasmaipada", "root": "bhī", "root_sa": "भी", "gana": "3"}, "meaning": "भयं कुर्वन्ति, बिभ्यन्ति", "meaning_ta": "அஞ்சுகிறார்கள்", "etymology": "भी (भये) धातोः, जुहोत्यादिगणीयद्वित्वेन (बि-भी) + झि-प्रत्ययः → बिभ्यति", "etymology_ta": "பீ (அச்சம்) தாதுவின் இரட்டிப்புடன் (बि-भी) + झि-ஈறு", "morphology": "क्रियापदम्, लट्लकारः, प्रथमपुरुषः, बहुवचनम्, परस्मैपदम्", "morphology_ta": "வினைச்சொல், நிகழ்கால, முதல் புருஷன், பன்மை, பரஸ்மைபதம்", "role": "मुख्यक्रिया — कर्ता देवाः, विषयः कस्य (जातरोषस्य)", "role_ta": "பிரதான வினை — எழுவாய் தேவர்கள்"}, {"id": "1.1.4.w9", "word": "देवाः", "surface": "devāḥ", "lemma_sa": "देव", "pos": "noun", "gender": "masculine", "number": "plural", "case": "nominative", "meaning": "सुराः", "meaning_ta": "தேவர்கள்", "etymology": "दिव् (क्रीडाविजिगीषादिषु) धातोः अप्प्रत्ययः", "etymology_ta": "திவ் (விளையாட்டு/வெற்றி) தாதுவின் अप்-ஈறு", "morphology": "नामपदम्, अकारान्तम्, पुल्लिङ्गम्, प्रथमा विभक्तिः, बहुवचनम्", "morphology_ta": "பெயர்ச்சொல், अ-ஈறு, ஆண்பால், எழுவாய் வேற்றுமை, பன்மை", "role": "कर्ता — बिभ्यति इत्यस्य कर्तृपदम्", "role_ta": "'बिभ्यति' என்பதன் எழுவாய்"}, {"id": "1.1.4.w10", "word": "च", "surface": "ca", "lemma_sa": "च", "pos": "indeclinable (conjunction/emphatic)", "gender": "—", "number": "—", "case": "—", "meaning": "अपि (एतत्रार्थे)", "meaning_ta": "கூட (இங்கு)", "etymology": "अव्ययम्", "etymology_ta": "அவ்யயம்", "morphology": "अव्ययम्", "morphology_ta": "அவ்யயம்", "role": "बलाघातद्योतकः — 'देवाः अपि' इत्यर्थे", "role_ta": "வலியுறுத்தல் — 'தேவர்களும் கூட' எனும் பொருளில்"}, {"id": "1.1.4.w11", "word": "जातरोषस्य", "surface": "jātaroṣasya", "lemma_sa": "जातरोष", "pos": "adjective (compound, bahuvrihi)", "gender": "masculine", "number": "singular", "case": "genitive", "meaning": "उत्पन्नक्रोधस्य", "meaning_ta": "கோபம் எழுந்தவருடைய", "etymology": "जन् (प्रादुर्भावे) धातोः क्तप्रत्ययेन जात + रोष — बहुव्रीहिसमासः", "etymology_ta": "ஜந் (தோன்றுதல்) தாதுவின் क्त-ஈறுடன் जात + रोष — பஹுவ்ரீஹி தொகைச்சொல்", "morphology": "समासपदम्, अकारान्तम्, पुल्लिङ्गम्, षष्ठी विभक्तिः, एकवचनम्", "morphology_ta": "தொகைச்சொல், अ-ஈறு, ஆண்பால், ஆறாம் வேற்றுமை, ஒருமை", "role": "कस्य इत्यस्य विशेषणम् — 'यस्य रोषः जातः, तस्य'", "role_ta": "'कस्य' என்பதன் பெயரடை"}, {"id": "1.1.4.w12", "word": "संयुगे", "surface": "saṃyuge", "lemma_sa": "संयुग", "pos": "noun", "gender": "masculine", "number": "singular", "case": "locative", "meaning": "युद्धे, संग्रामे", "meaning_ta": "போரில்", "etymology": "सम् + युज् (योगे) धातोः घञ्प्रत्ययः", "etymology_ta": "सம் + யுஜ் (இணைத்தல்) தாதுவின் घञ்-ஈறு", "morphology": "नामपदम्, अकारान्तम्, पुल्लिङ्गम्, सप्तमी विभक्तिः, एकवचनम्", "morphology_ta": "பெயர்ச்சொல், अ-ஈறு, ஆண்பால், ஏழாம் வேற்றுமை, ஒருமை", "role": "कालाधिकरणम्/देशाधिकरणम् — बिभ्यति इत्यस्य प्रसङ्गः", "role_ta": "இட/கால இடப்பொருள் — 'बिभ्यति' நிகழும் சூழல்"}], "karaka": {"karta": "देवाः (प्रथमा-बहुवचनम्) — बिभ्यति इत्यस्य कर्तारः", "karta_ta": "தேவாஃ (எழுவாய் பன்மை) — 'बिभ्यति' என்பதன் கர்த்தாக்கள்", "karma": "इदं वाक्यं प्रत्यक्षकर्मरहितम् — बिभ्यति (भी-धातुः) षष्ठ्यन्तं विषयं गृह्णाति, द्वितीयान्तं कर्म नास्ति", "karma_ta": "இந்த வாக்கியத்தில் நேரடியான செயப்படுபொருள் இல்லை — भी-தாது ஆறாம் வேற்றுமைப் பொருளை எடுக்கும்", "karana": "इदं श्लोके प्रत्यक्षं करणपदं नास्ति", "karana_ta": "இந்த ஶ்லோகத்தில் நேரடியான கருவிப் பொருள் இல்லை", "adhikarana": "संयुगे (सप्तमी) — बिभ्यति इत्यस्य प्रसङ्गाधिकरणम्", "adhikarana_ta": "संयुगே (ஏழாம் வேற்றுமை) — 'बिभ्यति' நிகழும் சூழல்", "sambandha": "कस्य जातरोषस्य (षष्ठी) — यस्य रोषात् देवाः बिभ्यति, तस्य सम्बन्धः", "sambandha_ta": "कस्य जातरोषस्य (ஆறாம் வேற்றுமை) — யாருடைய கோபத்திற்கு தேவர்கள் அஞ்சுகிறார்களோ அவருடைய தொடர்பு", "karta_word_id": "1.1.4.w9", "karma_word_id": ""}, "shabdarupani": {"coverage_note": "8 distinct declinable stems occur in 1.1.4 (आत्मवत्, किम्, जितक्रोध, द्युतिमत्, अनसूयक, देव, जातरोष, संयुग). किम् recurs three times (कः, कः, कस्य) as one stem.", "stem_count": 8, "atmavat": {"lemma": "आत्मवत्", "word_in_verse": "आत्मवान्", "paradigm": "VAT-P", "cell": "1-1", "stem": "आत्म", "meaning": "self-possessed", "meaning_ta": "தன்னடக்கம் உடையவர்", "grammar_note": "मतुबर्थीयः वत्-प्रत्ययान्तः — गुणवत्-वर्गवत् विभज्यते", "grammar_note_ta": "मतुप்-அர்த்த वத்-ஈற்றுச் சொல்"}, "kim": {"lemma": "किम्", "word_in_verse": "कः / कस्य", "paradigm": "KIM-P", "cell": ["1-1", "6-1"], "meaning": "who? whose? (interrogative pronoun)", "meaning_ta": "யார்? யாருடைய?", "grammar_note": "सर्वनाम — इस श्लोक में नामवाचक (कः) एवं संबन्धवाचक (कस्य) दोनों रूप प्रयुक्ताः", "grammar_note_ta": "பெயர்ச்சொல் — எழுவாய் மற்றும் ஆறாம் வேற்றுமை வடிவங்கள் இரண்டும் பயன்படுத்தப்பட்டுள்ளன"}, "jitakrodha": {"lemma": "जितक्रोध", "word_in_verse": "जितक्रोधः", "paradigm": "A-P", "cell": "1-1", "stem": "जितक्रोध", "meaning": "one who has conquered anger", "meaning_ta": "கோபத்தை வென்றவர்", "grammar_note": "बहुव्रीहिसमासपदम् — नियमित अकारान्त-पुल्लिङ्गवत् विभज्यते", "grammar_note_ta": "பஹுவ்ரீஹி தொகைச்சொல் — साधारण अ-ஈற்று ஆண்பால் போல் அமையும்"}, "dyutimat": {"lemma": "द्युतिमत्", "word_in_verse": "द्युतिमान्", "paradigm": "MAT-P", "cell": "1-1", "stem": "द्युति", "meaning": "glorious, radiant", "meaning_ta": "ஒளி/புகழ் உடையவர்", "grammar_note": "मतुबर्थीयः मत्-प्रत्ययान्तः (इकारान्तात्, वत्वं न भवति) — बुद्धिमत्/श्रीमत्-वर्गवत् विभज्यते", "grammar_note_ta": "मतुप்-அர்த்த मத்-ஈற்றுச் சொல் (इ-ஈற்றுத் தாதுவிலிருந்து)"}, "anasuyaka": {"lemma": "अनसूयक", "word_in_verse": "अनसूयकः", "paradigm": "A-P", "cell": "1-1", "stem": "अनसूयक", "meaning": "free of envy/malice", "meaning_ta": "பொறாமை இல்லாதவர்", "grammar_note": "नञ्तत्पुरुषसमासपदम् — नियमित अकारान्त-पुल्लिङ्गवत् विभज्यते", "grammar_note_ta": "நஞ் தொகைச்சொல் — साधारण अ-ஈற்று ஆண்பால் போல் அமையும்"}, "deva": {"lemma": "देव", "word_in_verse": "देवाः", "paradigm": "A-P", "cell": "1-3", "stem": "देव", "meaning": "god, deity", "meaning_ta": "தேவன்", "grammar_note": "नियमित अकारान्त-पुल्लिङ्गनाम (declines like वीर)", "grammar_note_ta": "साधारण अ-ஈற்று ஆண்பால் பெயர்ச்சொல்"}, "jataroSa": {"lemma": "जातरोष", "word_in_verse": "जातरोषस्य", "paradigm": "A-P", "cell": "6-1", "stem": "जातरोष", "meaning": "one whose wrath has arisen", "meaning_ta": "கோபம் எழுந்தவர்", "grammar_note": "बहुव्रीहिसमासपदम् — नियमित अकारान्त-पुल्लिङ्गवत् विभज्यते", "grammar_note_ta": "பஹுவ்ரீஹி தொகைச்சொல் — साधारण अ-ஈற்று ஆண்பால் போல் அமையும்"}, "samyuga": {"lemma": "संयुग", "word_in_verse": "संयुगे", "paradigm": "A-N", "cell": "1-2", "stem": "संयुग", "meaning": "battle, conflict", "meaning_ta": "போர்", "grammar_note": "नियमित अकारान्त-पुल्लिङ्गनाम (declines like वीर)", "grammar_note_ta": "साधारण अ-ஈற்று ஆண்பால் பெயர்ச்சொல்"}}, "dhaturupani": {"pracch_root": "भी (bhī)", "pracch_meaning": "भयं करोति, बिभेति (Class 3, जुहोत्यादिगणः, reduplicating)", "pracch_meaning_ta": "அஞ்சுகிறார், பயப்படுகிறார்", "pracch_gana": "३ (जुहोत्यादिगणः)", "pracch_gana_ta": "3 (ஜுஹோத்யாதி கணம்)", "pracch_lakara": "लट् (वर्तमानकालः)", "pracch_lakara_ta": "லட் (நிகழ்காலம்)", "pracch_form": "बिभ्यति = भी + द्वित्वम् (बि) + झि-प्रत्ययः, तृतीयपुरुष-बहुवचन-परस्मैपदम्", "pracch_form_ta": "बिभ्यति = பீ + இரட்டிப்பு (बि) + झि-ஈறு, மூன்றாம் புருஷன் பன்மை பரஸ்மைபதம்", "conjugation_perfect": {"headers": ["पुरुषः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"], "rows": [["प्रथमपुरुषः", "बिभेति", "बिभीतः", "बिभ्यति"], ["मध्यमपुरुषः", "बिभेषि", "बिभीथः", "बिभीथ"], ["उत्तमपुरुषः", "बिभेमि", "बिभीवः", "बिभीमः"]]}}, "pratyaya": [{"word": "आत्मवान्", "breakdown": "आत्मन् + मतुप् (वत्वम्) + सुँ", "breakdown_ta": "आத்மந் + मतुप் + सुँ", "pratyaya_name": "मतुप्-प्रत्ययः", "pratyaya_name_ta": "मतुप்-பிரத்யயம்", "function": "स्वाम्यर्थे विशेषणनिर्माणम्", "function_ta": "உடைமைப் பொருளில் பெயரடை உருவாக்கம்"}, {"word": "कः", "breakdown": "किम् + सुँ", "breakdown_ta": "किம் + सुँ", "pratyaya_name": "सुँ-विभक्तिः", "pratyaya_name_ta": "सुँ-விபக்தி", "function": "प्रथमा-एकवचन-प्रत्ययः", "function_ta": "எழுவாய் ஒருமை விகுதி"}, {"word": "जितक्रोधः", "breakdown": "जि + क्त + क्रोध + सुँ", "breakdown_ta": "ஜி + क्त + क्रोध + सुँ", "pratyaya_name": "क्त-प्रत्ययः (बहुव्रीहौ)", "pratyaya_name_ta": "क्त-பிரத்யயம்", "function": "भूतकृदन्तनिर्माणम्, समासान्ते प्रथमा-एकवचनम्", "function_ta": "இறந்தகால வினையெச்ச உருவாக்கம்"}, {"word": "द्युतिमान्", "breakdown": "द्युति + मतुप् (मत्वम्) + सुँ", "breakdown_ta": "த்யுதி + मतुप் + सुँ", "pratyaya_name": "मतुप्-प्रत्ययः", "pratyaya_name_ta": "मतुप்-பிரத்யயம்", "function": "स्वाम्यर्थे विशेषणनिर्माणम्", "function_ta": "உடைமைப் பொருளில் பெயரடை உருவாக்கம்"}, {"word": "कः", "breakdown": "किम् + सुँ (द्वितीयवारम्)", "breakdown_ta": "किம் + सुँ (இரண்டாம் முறை)", "pratyaya_name": "सुँ-विभक्तिः", "pratyaya_name_ta": "सुँ-விபக்தி", "function": "प्रथमा-एकवचन-प्रत्ययः", "function_ta": "எழுவாய் ஒருமை விகுதி"}, {"word": "अनसूयकः", "breakdown": "न + असूया + ण्वुल् (क) + सुँ", "breakdown_ta": "न + असூயா + ण्वुल் + सुँ", "pratyaya_name": "ण्वुल्-प्रत्ययः (नञ्समासे)", "pratyaya_name_ta": "ण्वुल்-பிரத்யயம்", "function": "कर्तृवाचककृदन्तनिर्माणम्, नकारेण निषेधः", "function_ta": "எழுவாய்ப் பொருள் வினையெச்ச உருவாக்கம், न-வால் மறுப்பு"}, {"word": "कस्य", "breakdown": "किम् + ङस्", "breakdown_ta": "किம் + ङस्", "pratyaya_name": "ङस्-विभक्तिः", "pratyaya_name_ta": "ङस्-விபக்தி", "function": "षष्ठी-एकवचन-प्रत्ययः", "function_ta": "ஆறாம் வேற்றுமை ஒருமை விகுதி"}, {"word": "बिभ्यति", "breakdown": "भी + द्वित्वम् (बि) + झि", "breakdown_ta": "பீ + இரட்டிப்பு + झि", "pratyaya_name": "लट्-तिङ्प्रत्ययः (झि)", "pratyaya_name_ta": "लट்-तिङ்-பிரத்யயம்", "function": "वर्तमानकाल-तृतीयपुरुष-बहुवचन-निर्माणम्", "function_ta": "நிகழ்கால மூன்றாம் புருஷன் பன்மை உருவாக்கம்"}, {"word": "देवाः", "breakdown": "दिव् + अप् + जस्", "breakdown_ta": "திவ் + अप் + जस्", "pratyaya_name": "जस्-विभक्तिः", "pratyaya_name_ta": "जस்-விபக்தி", "function": "प्रथमा-बहुवचन-प्रत्ययः", "function_ta": "எழுவாய் பன்மை விகுதி"}, {"word": "जातरोषस्य", "breakdown": "जन् + क्त (जात) + रोष + ङस् (बहुव्रीहौ)", "breakdown_ta": "ஜந் + क्त + रोष + ङस्", "pratyaya_name": "क्त-प्रत्ययः + ङस्-विभक्तिः", "pratyaya_name_ta": "क्त-பிரத்யயம் + ङस्-விபக்தி", "function": "भूतकृदन्तनिर्माणम्, षष्ठी-एकवचनम्", "function_ta": "இறந்தகால வினையெச்ச உருவாக்கம், ஆறாம் வேற்றுமை"}, {"word": "संयुगे", "breakdown": "सम् + युज् + घञ् + ङि", "breakdown_ta": "सம் + யுஜ் + घञ் + ङि", "pratyaya_name": "घञ्-प्रत्ययः + ङि-विभक्तिः", "pratyaya_name_ta": "घञ்-பிரத்யயம் + ङि-விபக்தி", "function": "भाववाचकनिर्माणम्, सप्तमी-एकवचनम्", "function_ta": "பாவப் பொருள் உருவாக்கம், ஏழாம் வேற்றுமை"}], "sandhi": [{"location": "कः + जितक्रोधः", "original": "कः + जितक्रोधः", "result": "को जितक्रोधः", "sandhi_type": "विसर्गसन्धिः (ओकारादेशः)", "sandhi_type_ta": "விசர்க்க சந்தி (ஓகார ஆதேசம்)", "sandhi_rule_sa": "अतो रोरप्लुतादप्लुते — अकारात् परस्य विसर्गस्य घोषवति (ज्-कारे) परे ओकारादेशः", "sandhi_rule_ta": "अ-க்குப் பின் விசர்க்கம் ஒலிக்கும் மெய் (ஜ்) தொடரும்போது 'ओ' ஆகும்"}, {"location": "जितक्रोधः + द्युतिमान्", "original": "जितक्रोधः + द्युतिमान्", "result": "जितक्रोधो द्युतिमान्", "sandhi_type": "विसर्गसन्धिः (ओकारादेशः)", "sandhi_type_ta": "விசர்க்க சந்தி (ஓகார ஆதேசம்)", "sandhi_rule_sa": "अतो रोरप्लुतादप्लुते — अकारात् परस्य विसर्गस्य घोषवति (द्-कारे) परे ओकारादेशः", "sandhi_rule_ta": "अ-க்குப் பின் விசர்க்கம் ஒலிக்கும் மெய் (द்) தொடரும்போது 'ओ' ஆகும்"}, {"location": "कः + अनसूयकः", "original": "कः + अनसूयकः", "result": "कोऽनसूयकः", "sandhi_type": "विसर्गसन्धिः (ओकारादेशः + अकारलोपः)", "sandhi_type_ta": "விசர்க்க சந்தி (ஓகார ஆதேசம் + अ-லோபம்)", "sandhi_rule_sa": "अतो रोरप्लुतादप्लुते — विसर्गस्य ओकारादेशः; ततः 'ततोऽश्च' इति परवर्ति ह्रस्व-अकारस्य लोपः, अवग्रहचिह्नेन (ऽ) सूचितः", "sandhi_rule_ta": "விசர்க்கம் 'ओ' ஆகும்; தொடர்ந்து அடுத்த குறில் अ-கரம் மறையும், அவக்ரஹம் (ऽ) அதைக் குறிக்கும்"}, {"location": "देवाः + च", "original": "देवाः + च", "result": "देवाश्च", "sandhi_type": "विसर्गसन्धिः (श्चुत्वम्)", "sandhi_type_ta": "விசர்க்க சந்தி (ஶ்சுத்வம்)", "sandhi_rule_sa": "विसर्जनीयस्य सः — च परे विसर्गस्य शकारादेशः", "sandhi_rule_ta": "விசர்க்கத்திற்குப் பின் ச் தொடர்ந்தால் 'श்' ஆகும்"}], "samasa": [{"word": "जितक्रोधः", "compound_type": "बहुव्रीहिसमासः", "compound_type_ta": "பஹுவ்ரீஹி தொகைச்சொல்", "breakdown": "जितः क्रोधः येन सः", "vigraha_sa": "जितः क्रोधः येन सः जितक्रोधः", "vigraha_ta": "யாரால் கோபம் வெல்லப்பட்டதோ அவர்", "meaning": "one who has conquered anger", "meaning_ta": "கோபத்தை வென்றவர்"}, {"word": "अनसूयकः", "compound_type": "नञ्तत्पुरुषसमासः", "compound_type_ta": "நஞ் தொகைச்சொல்", "breakdown": "न असूयकः", "vigraha_sa": "न असूयकः अनसूयकः", "vigraha_ta": "பொறாமையற்றவர்", "meaning": "free of envy/malice", "meaning_ta": "பொறாமை இல்லாதவர்"}, {"word": "जातरोषस्य", "compound_type": "बहुव्रीहिसमासः", "compound_type_ta": "பஹுவ்ரீஹி தொகைச்சொல்", "breakdown": "जातः रोषः यस्य सः", "vigraha_sa": "जातः रोषः यस्य सः जातरोषः, तस्य", "vigraha_ta": "யாருடைய கோபம் எழுந்ததோ அவருடைய", "meaning": "one whose wrath has arisen", "meaning_ta": "கோபம் எழுந்தவர்"}], "chandas_name": "अनुष्टुप्", "chandas_definition": "षोडश-मात्र-वृत्तम् — प्रश्नमालायाः तृतीयः समुच्चयः, अन्ते च प्रश्नशैलीं परित्यज्य 'देवाः अपि यस्मात् बिभ्यति' इति अतिशयोक्त्या नायकस्य प्रभावं सूचयति", "chandas_definition_ta": "பதினாறு மாத்திரை வృத்தம் — வினாத் தொகுப்பின் மூன்றாம் பகுதி; இறுதியில் 'தேவர்களும் அஞ்சுவார்கள்' என்ற மிகைப்படுத்தலால் நாயகனின் வலிமையைக் குறிக்கிறது", "scansion": [{"quarter": 1, "text": "आत्मवान्को जितक्रोधो", "matra": 8}, {"quarter": 2, "text": "द्युतिमान्कोऽनसूयकः", "matra": 8}, {"quarter": 3, "text": "कस्य बिभ्यति देवाश्च", "matra": 8}, {"quarter": 4, "text": "जातरोषस्य संयुगे", "matra": 8}], "alankara": [{"name": "अतिशयोक्तिः", "definition": "'कस्य बिभ्यति देवाश्च जातरोषस्य संयुगे' इत्यत्र देवानाम् अपि भयं वर्ण्यते — नायकस्य अलौकिकप्रभावस्य अतिशयोक्तिपूर्णं चित्रणम्", "definition_ta": "'தேவர்களும் அஞ்சுவார்கள்' என்பதில் நாயகனின் அசாதாரண வலிமையை மிகைப்படுத்திக் காட்டும் அணி"}]}}, {"id": "1.1.5", "number": 5, "kanda": "बाल-काण्डः", "sarga": 1, "devanagari": "एतदिच्छाम्यहं श्रोतुं परं कौतूहलं हि मे । महर्षे त्वं समर्थोऽसि ज्ञातुमेवंविधं नरम् ॥ १-१-५ ॥", "iast": "etad icchāmy ahaṃ śrotuṃ paraṃ kautūhalaṃ hi me | maharṣe tvaṃ samartho 'si jñātum evaṃvidhaṃ naram || 1-1-5 ||", "chandas": "अनुष्टुप्", "verified_sources": "valmikiramayan.net, gyaandweep.com, srivalmikiramayana.com, stotranidhi.com, ramcharit.in, sanskritdocuments.org, ambuda.org", "grammar": {"padaccheda": [{"word": "एतत्", "meaning_sa": "एतत् (एतद्-शब्दस्य द्वितीया-एकवचनम्) — इदम्", "meaning_en": "this (accusative singular, object of 'I wish')", "meaning_ta": "இதை (எதத் என்பதன் இரண்டாம் வேற்றுமை ஒருமை)"}, {"word": "इच्छामि", "meaning_sa": "इच्छामि — कामये, वाञ्छामि", "meaning_en": "I wish, I desire (1st person singular, present tense)", "meaning_ta": "நான் விரும்புகிறேன்"}, {"word": "अहम्", "meaning_sa": "अहम् (अस्मद्-शब्दस्य प्रथमा-एकवचनम्) — स्वयम्", "meaning_en": "I (nominative singular)", "meaning_ta": "நான் (எழுவாய் ஒருமை)"}, {"word": "श्रोतुम्", "meaning_sa": "श्रोतुम् — श्रवणाय, आकर्णनार्थम्", "meaning_en": "to hear (infinitive)", "meaning_ta": "கேட்பதற்கு (துமுன் வினையெச்சம்)"}, {"word": "परम्", "meaning_sa": "परम् — अत्यधिकम्, उत्कृष्टम्", "meaning_en": "great, extreme (adjective modifying कौतूहलम्)", "meaning_ta": "மிகுந்த, உன்னதமான"}, {"word": "कौतूहलम्", "meaning_sa": "कौतूहलम् — जिज्ञासा, कुतूहलम्", "meaning_en": "curiosity, eagerness (to know)", "meaning_ta": "ஆர்வம், ஆவல்"}, {"word": "हि", "meaning_sa": "हि — यतः, निश्चयेन (हेत्वर्थे निपातः)", "meaning_en": "indeed, for (causal/emphatic particle)", "meaning_ta": "ஏனெனில், நிச்சயமாக"}, {"word": "मे", "meaning_sa": "मे (अस्मद्-शब्दस्य षष्ठी-एकवचनम्, अनुक्तरूपम्) — मम", "meaning_en": "my (enclitic genitive)", "meaning_ta": "எனது (சாய்ந்த ஆறாம் வேற்றுமை)"}, {"word": "महर्षे", "meaning_sa": "महर्षे (महर्षि-शब्दस्य संबोधन-एकवचनम्) — हे महामुने", "meaning_en": "O great sage (vocative)", "meaning_ta": "ஓ மகரிஷியே (விளிவேற்றுமை)"}, {"word": "त्वम्", "meaning_sa": "त्वम् (युष्मद्-शब्दस्य प्रथमा-एकवचनम्) — भवान्", "meaning_en": "you (nominative singular)", "meaning_ta": "நீ (எழுவாய் ஒருமை)"}, {"word": "समर्थः", "meaning_sa": "समर्थः — शक्तः, क्षमः", "meaning_en": "capable, able", "meaning_ta": "திறமை உடையவர்"}, {"word": "असि", "meaning_sa": "असि — भवसि, वर्तसे (अस्-धातोः वर्तमानकालः)", "meaning_en": "you are (2nd person singular, present tense)", "meaning_ta": "நீ இருக்கிறாய்"}, {"word": "ज्ञातुम्", "meaning_sa": "ज्ञातुम् — ज्ञानार्थम्, बोद्धुम्", "meaning_en": "to know (infinitive)", "meaning_ta": "அறிவதற்கு (துமுன் வினையெச்சம்)"}, {"word": "एवंविधम्", "meaning_sa": "एवंविधम् — ईदृशम्, एतादृशम्", "meaning_en": "of such a kind, such a one", "meaning_ta": "இத்தகைய"}, {"word": "नरम्", "meaning_sa": "नरम् (नर-शब्दस्य द्वितीया-एकवचनम्) — पुरुषम्", "meaning_en": "man, person (accusative)", "meaning_ta": "மனிதனை (இரண்டாம் வேற்றுமை)"}], "anvaya_sa": "अहं एतत् श्रोतुम् इच्छामि, मे परं कौतूहलं हि (अस्ति)। हे महर्षे, त्वं एवंविधं नरं ज्ञातुं समर्थः असि।", "anvaya_ta": "நான் இதைக் கேட்க விரும்புகிறேன், எனக்கு பெரிய ஆர்வம் உள்ளது. ஓ மகரிஷியே, நீ இத்தகைய மனிதனை அறிய வல்லவன்.", "saralartha_sa": "अहम् एतत् श्रोतुम् इच्छामि, यतः मे अत्यधिकं कौतूहलम् अस्ति। हे महर्षे! त्वं एवंविधं नरं ज्ञातुं समर्थः असि", "saralartha_ta": "நான் இதைக் கேட்க விரும்புகிறேன், ஏனெனில் எனக்கு பெரும் ஆர்வம் உள்ளது. மகரிஷியே! இத்தகைய மனிதனை அறிய நீர் வல்லவர்", "translation_en": "I wish to hear this, for my curiosity is great. O great sage, you are able to know of such a person.", "translation_ta": "நான் இதைக் கேட்க விரும்புகிறேன், ஏனெனில் எனக்கு பெரும் ஆர்வம் உள்ளது. மகரிஷியே! இத்தகைய மனிதனை அறிய நீர் வல்லவர்.", "pada_vigraha": [{"id": "1.1.5.w1", "word": "एतत्", "surface": "etat", "lemma_sa": "एतद्", "pos": "pronoun (demonstrative)", "gender": "neuter", "number": "singular", "case": "accusative", "meaning": "इदम् (सर्वं पूर्वोक्तं वृत्तान्तम्)", "meaning_ta": "இது (முன்னர் கேட்கப்பட்ட அனைத்தும்)", "etymology": "एतद्-शब्दस्य नपुंसक-द्वितीया-एकवचनरूपम्", "etymology_ta": "எதத் என்பதன் அலிங்க இரண்டாம் வேற்றுமை ஒருமை வடிவம்", "morphology": "सर्वनाम, द्वितीया विभक्तिः, एकवचनम्, नपुंसकलिङ्गम्", "morphology_ta": "பெயர்ச்சொல், இரண்டாம் வேற்றுமை, ஒருமை, அலிங்கம்", "role": "कर्म — इच्छामि इत्यस्य विषयः", "role_ta": "செயப்படுபொருள் — 'इच्छामि' என்பதன் பொருள்"}, {"id": "1.1.5.w2", "word": "इच्छामि", "surface": "icchāmi", "lemma_sa": "इष्", "pos": "verb", "gender": "—", "number": "singular", "case": "—", "verb_info": {"lakara": "लट् (वर्तमानकालः)", "person": "1", "pada": "parasmaipada", "root": "iṣ", "root_sa": "इष्", "gana": "6"}, "meaning": "कामये, वाञ्छामि", "meaning_ta": "நான் விரும்புகிறேன்", "etymology": "इष् (इच्छायाम्) धातोः, तुदादिगणीयशप्-प्रत्ययेन (इष्→इच्छ्) + मिप्", "etymology_ta": "இஷ் (விரும்புதல்) தாதுவின் शप்-ஈறுடன் (इष்→इच्छ்) + मिप्", "morphology": "क्रियापदम्, लट्लकारः, उत्तमपुरुषः, एकवचनम्, परस्मैपदम्", "morphology_ta": "வினைச்சொல், நிகழ்கால, முதல் புருஷன், ஒருமை, பரஸ்மைபதம்", "role": "मुख्यक्रिया — कर्ता अहम्, कर्म एतत्", "role_ta": "பிரதான வினை — எழுவாய் அஹம்"}, {"id": "1.1.5.w3", "word": "अहम्", "surface": "aham", "lemma_sa": "अस्मद्", "pos": "pronoun (personal)", "gender": "—", "number": "singular", "case": "nominative", "meaning": "स्वयम्, वाल्मीकिः", "meaning_ta": "நான் (வால்மீகி)", "etymology": "अस्मद्-शब्दस्य प्रथमा-एकवचनरूपम्", "etymology_ta": "अஸ்மத் என்பதன் எழுவாய் ஒருமை வடிவம்", "morphology": "सर्वनाम (उत्तमपुरुषवाचकम्), प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "பெயர்ச்சொல் (முதல் புருஷன்), எழுவாய் வேற்றுமை, ஒருமை", "role": "कर्ता — इच्छामि इत्यस्य कर्तृपदम्", "role_ta": "'इच्छामि' என்பதன் எழுவாய்"}, {"id": "1.1.5.w4", "word": "श्रोतुम्", "surface": "śrotum", "lemma_sa": "श्रु", "pos": "infinitive (avyaya)", "gender": "—", "number": "—", "case": "—", "meaning": "श्रवणाय", "meaning_ta": "கேட்பதற்கு", "etymology": "श्रु (श्रवणे) धातोः तुमुन्प्रत्ययः", "etymology_ta": "ஶ்ரு (கேட்டல்) தாதுவின் तुमुन்-ஈறு", "morphology": "अव्ययम् (हेत्वर्थकं तुमुन्नन्तम्)", "morphology_ta": "அவ்யயம் (துமுன் வினையெச்சம்)", "role": "इच्छामि इत्यस्य प्रयोजनं द्योतयति", "role_ta": "'इच्छामि' என்பதன் நோக்கத்தைக் காட்டுகிறது"}, {"id": "1.1.5.w5", "word": "परम्", "surface": "param", "lemma_sa": "पर", "pos": "adjective", "gender": "neuter", "number": "singular", "case": "nominative", "meaning": "अत्यधिकम्, उत्कृष्टम्", "meaning_ta": "மிகுந்த, உன்னதமான", "etymology": "पॄ (पालनपूरणयोः) धातोः अप्प्रत्ययः, अथवा 'दूरतरम्' इति मूलार्थात्", "etymology_ta": "पॄ (காத்தல்/நிரப்புதல்) தாதுவின் अप்-ஈறு", "morphology": "विशेषणम्, अकारान्तम्, नपुंसकलिङ्गम्, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "பெயரடை, अ-ஈறு, அலிங்கம், எழுவாய் வேற்றுமை, ஒருமை", "role": "कौतूहलम् इत्यस्य विशेषणम्", "role_ta": "'कौतूहलம்' என்பதன் பெயரடை"}, {"id": "1.1.5.w6", "word": "कौतूहलम्", "surface": "kautūhalam", "lemma_sa": "कौतूहल", "pos": "noun", "gender": "neuter", "number": "singular", "case": "nominative", "meaning": "जिज्ञासा, कुतूहलम्", "meaning_ta": "ஆர்வம், ஆவல்", "etymology": "कुतूहल + अण् (स्वार्थे वृद्धिः) — 'ज्ञातुम् इच्छा' इत्यर्थे", "etymology_ta": "குதூஹல + अண் — 'அறியும் ஆசை' எனும் பொருளில்", "morphology": "नामपदम्, अकारान्तम्, नपुंसकलिङ्गम्, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "பெயர்ச்சொல், अ-ஈறு, அலிங்கம், எழுவாய் வேற்றுமை, ஒருமை", "role": "कर्ता (नाम-वाक्ये) — 'मे परं कौतूहलम् (अस्ति)' इत्यत्र", "role_ta": "பெயர்ச்சொல் வாக்கியத்தின் எழுவாய்"}, {"id": "1.1.5.w7", "word": "हि", "surface": "hi", "lemma_sa": "हि", "pos": "indeclinable (particle)", "gender": "—", "number": "—", "case": "—", "meaning": "यतः, निश्चयेन", "meaning_ta": "ஏனெனில், நிச்சயமாக", "etymology": "अव्ययम्", "etymology_ta": "அவ்யயம்", "morphology": "अव्ययम् (हेत्वर्थकः/निश्चयार्थकः निपातः)", "morphology_ta": "அவ்யயம் (காரண/உறுதிச் சொல்)", "role": "पूर्ववाक्यस्य हेतुं द्योतयति", "role_ta": "முந்தைய வாக்கியத்தின் காரணத்தைக் காட்டுகிறது"}, {"id": "1.1.5.w8", "word": "मे", "surface": "me", "lemma_sa": "अस्मद्", "pos": "pronoun (personal, enclitic)", "gender": "—", "number": "singular", "case": "genitive", "meaning": "मम", "meaning_ta": "எனது", "etymology": "अस्मद्-शब्दस्य षष्ठी-एकवचन-अनुक्तरूपम्", "etymology_ta": "अஸ்மத் என்பதன் ஆறாம் வேற்றுமை ஒருமை சாய்ந்த வடிவம்", "morphology": "सर्वनाम, षष्ठी विभक्तिः, एकवचनम्", "morphology_ta": "பெயர்ச்சொல், ஆறாம் வேற்றுமை, ஒருமை", "role": "संबन्धः — कौतूहलम् इत्यस्य स्वामी", "role_ta": "உடைமை உறவு — 'कौतूहलம்' என்பதன் உரிமையாளர்"}, {"id": "1.1.5.w9", "word": "महर्षे", "surface": "maharṣe", "lemma_sa": "महर्षि", "pos": "noun", "gender": "masculine", "number": "singular", "case": "vocative", "meaning": "हे महामुने", "meaning_ta": "ஓ மகரிஷியே", "etymology": "महत् + ऋषि (वृद्धिसन्धिना महर्षि) — कर्मधारयसमासः", "etymology_ta": "महத் + ऋषि (வ்ருத்தி சந்தியால் महर्षि) — கர்மதாரய தொகைச்சொல்", "morphology": "नामपदम्, इकारान्तम्, पुल्लिङ्गम्, संबोधन-एकवचनम्", "morphology_ta": "பெயர்ச்சொல், இ-ஈறு, ஆண்பால், விளிவேற்றுமை ஒருமை", "role": "संबोधनम् — नारदः सम्बोध्यते", "role_ta": "விளி — நாரதரை அழைத்தல்"}, {"id": "1.1.5.w10", "word": "त्वम्", "surface": "tvam", "lemma_sa": "युष्मद्", "pos": "pronoun (personal)", "gender": "—", "number": "singular", "case": "nominative", "meaning": "भवान्, नारदः", "meaning_ta": "நீ (நாரதர்)", "etymology": "युष्मद्-शब्दस्य प्रथमा-एकवचनरूपम्", "etymology_ta": "யுஷ்மத் என்பதன் எழுவாய் ஒருமை வடிவம்", "morphology": "सर्वनाम (मध्यमपुरुषवाचकम्), प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "பெயர்ச்சொல் (இரண்டாம் புருஷன்), எழுவாய் வேற்றுமை, ஒருமை", "role": "कर्ता — असि इत्यस्य कर्तृपदम्", "role_ta": "'असि' என்பதன் எழுவாய்"}, {"id": "1.1.5.w11", "word": "समर्थः", "surface": "samarthaḥ", "lemma_sa": "समर्थ", "pos": "adjective", "gender": "masculine", "number": "singular", "case": "nominative", "meaning": "शक्तः, क्षमः", "meaning_ta": "திறமை உடையவர்", "etymology": "सम् + अर्थ — 'यथार्थं साधयितुं क्षमः' इत्यर्थे", "etymology_ta": "सம் + अர்த்த — 'சரியாகச் செய்யும் திறன் உடையவர்'", "morphology": "विशेषणम्, अकारान्तम्, पुल्लिङ्गम्, प्रथमा विभक्तिः, एकवचनम्", "morphology_ta": "பெயரடை, अ-ஈறு, ஆண்பால், எழுவாய் வேற்றுமை, ஒருமை", "role": "विधेय-विशेषणम् — त्वम् इत्यस्य", "role_ta": "'त्वம்' என்பதன் பயனிலைப் பெயரடை"}, {"id": "1.1.5.w12", "word": "असि", "surface": "asi", "lemma_sa": "अस्", "pos": "verb", "gender": "—", "number": "singular", "case": "—", "verb_info": {"lakara": "लट् (वर्तमानकालः)", "person": "2", "pada": "parasmaipada", "root": "as", "root_sa": "अस्", "gana": "2"}, "meaning": "भवसि, वर्तसे", "meaning_ta": "இருக்கிறாய்", "etymology": "अस् (भुवि) धातोः, अदादिगणीयसिप्-प्रत्ययः", "etymology_ta": "अஸ் (இருத்தல்) தாதுவின் अதாதி सिप்-ஈறு", "morphology": "क्रियापदम्, लट्लकारः, मध्यमपुरुषः, एकवचनम्, परस्मैपदम्", "morphology_ta": "வினைச்சொல், நிகழ்கால, இரண்டாம் புருஷன், ஒருமை, பரஸ்மைபதம்", "role": "मुख्यक्रिया (सत्तार्थे) — कर्ता त्वम्, विधेय समर्थः", "role_ta": "பிரதான வினை — எழுவாய் த்வம்"}, {"id": "1.1.5.w13", "word": "ज्ञातुम्", "surface": "jñātum", "lemma_sa": "ज्ञा", "pos": "infinitive (avyaya)", "gender": "—", "number": "—", "case": "—", "meaning": "बोद्धुम्, अवगन्तुम्", "meaning_ta": "அறிவதற்கு", "etymology": "ज्ञा (अवबोधने) धातोः तुमुन्प्रत्ययः", "etymology_ta": "ஜ்ஞா (அறிதல்) தாதுவின் तुमुन்-ஈறு", "morphology": "अव्ययम् (हेत्वर्थकं तुमुन्नन्तम्)", "morphology_ta": "அவ்யயம் (துமுன் வினையெச்சம்)", "role": "समर्थः इत्यस्य विषयं द्योतयति", "role_ta": "'समर्थः' என்பதன் பொருளைக் காட்டுகிறது"}, {"id": "1.1.5.w14", "word": "एवंविधम्", "surface": "evaṃvidham", "lemma_sa": "एवंविध", "pos": "adjective (compound)", "gender": "masculine", "number": "singular", "case": "accusative", "meaning": "ईदृशम्, एतादृशम्", "meaning_ta": "இத்தகைய", "etymology": "एवम् (अव्ययम्, 'इत्थम्') + विध ('प्रकारः') — बहुव्रीहिसमासः/अव्ययीभावगर्भितः", "etymology_ta": "ஏவம் ('இவ்வாறு') + विध ('வகை') — பஹுவ்ரீஹி தொகைச்சொல்", "morphology": "समासपदम्, अकारान्तम्, पुल्लिङ्गम्, द्वितीया विभक्तिः, एकवचनम्", "morphology_ta": "தொகைச்சொல், अ-ஈறு, ஆண்பால், இரண்டாம் வேற்றுமை, ஒருமை", "role": "नरम् इत्यस्य विशेषणम् — रामस्य गुणान् उद्दिश्य", "role_ta": "'नரம்' என்பதன் பெயரடை"}, {"id": "1.1.5.w15", "word": "नरम्", "surface": "naram", "lemma_sa": "नर", "pos": "noun", "gender": "masculine", "number": "singular", "case": "accusative", "meaning": "पुरुषम्", "meaning_ta": "மனிதனை", "etymology": "नृ (नये) धातोः अप्प्रत्ययः", "etymology_ta": "நృ (வழிநடத்துதல்) தாதுவின் अप்-ஈறு", "morphology": "नामपदम्, अकारान्तम्, पुल्लिङ्गम्, द्वितीया विभक्तिः, एकवचनम्", "morphology_ta": "பெயர்ச்சொல், अ-ஈறு, ஆண்பால், இரண்டாம் வேற்றுமை, ஒருமை", "role": "कर्म — ज्ञातुम् इत्यस्य विषयः", "role_ta": "செயப்படுபொருள் — 'ज्ञातुम்' என்பதன் பொருள்"}], "karaka": {"karta": "अहम् (प्रथमा-एकवचनम्) — इच्छामि इत्यस्य कर्ता; त्वम् (द्वितीयवाक्ये) — असि इत्यस्य कर्ता", "karta_ta": "अஹம் — 'इच्छामि' என்பதன் எழுவாய்; த்வம் — 'असि' என்பதன் எழுவாய்", "karma": "एतत् (द्वितीया) — इच्छामि इत्यस्य कर्म; नरम् (द्वितीया) — ज्ञातुम् इत्यस्य कर्म", "karma_ta": "एतத் — 'इच्छामि' என்பதன் செயப்படுபொருள்; नரம் — 'ज्ञातुम்' என்பதன் செயப்படுபொருள்", "karana": "इदं श्लोके प्रत्यक्षं करणपदं नास्ति", "karana_ta": "இந்த ஶ்லோகத்தில் நேரடியான கருவிப் பொருள் இல்லை", "adhikarana": "इदं श्लोके प्रत्यक्षम् अधिकरणपदं नास्ति", "adhikarana_ta": "இந்த ஶ்லோகத்தில் நேரடியான இடப்பொருள் இல்லை", "sambandha": "मे (षष्ठी) — कौतूहलम् इत्यस्य स्वामित्वसम्बन्धः", "sambandha_ta": "मே (ஆறாம் வேற்றுமை) — 'कौतूहलம்' என்பதன் உடைமை உறவு", "karta_word_id": "1.1.5.w3", "karma_word_id": "1.1.5.w1"}, "shabdarupani": {"coverage_note": "9 distinct declinable stems occur in 1.1.5 (एतद्, अस्मद्, पर, कौतूहल, महर्षि, युष्मद्, समर्थ, एवंविध, नर). श्रोतुम् and ज्ञातुम् are तुमुन्-अन्त infinitives — avyaya (indeclinable) forms — and so, like हि, do not get their own declension tables.", "stem_count": 9, "etad": {"lemma": "एतद्", "word_in_verse": "एतत्", "paradigm": "ETAD-N", "cell": "1-1", "meaning": "this", "meaning_ta": "இது", "grammar_note": "सर्वनाम — नपुंसकलिङ्गरूपाणि अत्र दर्शितानि (एतत् श्लोके नपुंसकद्वितीयारूपेण प्रयुक्तम्)", "grammar_note_ta": "பெயர்ச்சொல் — அலிங்க வடிவங்கள் இங்கு காட்டப்பட்டுள்ளன"}, "asmad": {"lemma": "अस्मद्", "word_in_verse": "अहम् / मे", "paradigm": "ASMAD", "cell": ["1-1", "4-1"], "meaning": "I, my (personal pronoun, 1st person)", "meaning_ta": "நான், எனது (முதல் புருஷன் பெயர்ச்சொல்)", "grammar_note": "सर्वनाम — लिङ्गनिरपेक्षम् (सर्वलिङ्गसाधारणम्); मे इति संक्षिप्तं षष्ठ्येकवचनरूपम्, वाक्यादौ न प्रयुज्यते", "grammar_note_ta": "பெயர்ச்சொல் — பாலினம் இல்லாதது; मே என்பது சாய்ந்த ஆறாம் வேற்றுமை வடிவம்"}, "para": {"lemma": "पर", "word_in_verse": "परम्", "paradigm": "A-N", "cell": "1-1", "stem": "पर", "meaning": "great, supreme, extreme", "meaning_ta": "மிகுந்த, உன்னதமான", "grammar_note": "नियमित अकारान्त-नपुंसकविशेषणम् (declines like फल)", "grammar_note_ta": "साधारण अ-ஈற்று அலிங்க பெயரடை"}, "kautuhala": {"lemma": "कौतूहल", "word_in_verse": "कौतूहलम्", "paradigm": "A-N", "cell": "1-1", "stem": "कौतूहल", "meaning": "curiosity", "meaning_ta": "ஆர்வம்", "grammar_note": "नियमित अकारान्त-नपुंसकनाम (declines like फल)", "grammar_note_ta": "साधारण अ-ஈற்று அலிங்கப் பெயர்ச்சொல்"}, "maharsi": {"lemma": "महर्षि", "word_in_verse": "महर्षे", "paradigm": "I-P", "cell": "8-1", "stem": "महर्षि", "meaning": "great sage", "meaning_ta": "மகரிஷி", "grammar_note": "इकारान्त-पुल्लिङ्गनाम — वाल्मीकि-वर्गवत् विभज्यते (declines like मुनि); श्लोके संबोधन-एकवचनं (महर्षे) प्रयुक्तम्, यत् सप्तम्येकवचनसदृशरूपम्", "grammar_note_ta": "इ-ஈற்று ஆண்பால் — वाल्मीकि வகுப்பு போல் அமையும்; இங்கு விளிவேற்றுமை (महर्षे) பயன்படுத்தப்பட்டுள்ளது"}, "yushmad": {"lemma": "युष्मद्", "word_in_verse": "त्वम्", "paradigm": "YUSHMAD", "cell": "1-1", "meaning": "you (personal pronoun, 2nd person)", "meaning_ta": "நீ (இரண்டாம் புருஷன் பெயர்ச்சொல்)", "grammar_note": "सर्वनाम — लिङ्गनिरपेक्षम्, अस्मद्-सदृशरूपेण विभज्यते", "grammar_note_ta": "பெயர்ச்சொல் — पालिनम் இல்லாதது, अस्मद் போல் அமையும்"}, "samartha": {"lemma": "समर्थ", "word_in_verse": "समर्थः", "paradigm": "A-P", "cell": "1-1", "stem": "समर्थ", "meaning": "capable, able", "meaning_ta": "திறமை உடையவர்", "grammar_note": "नियमित अकारान्त-पुल्लिङ्गविशेषणम्", "grammar_note_ta": "साधारण अ-ஈற்று ஆண்பால் பெயரடை"}, "evamvidha": {"lemma": "एवंविध", "word_in_verse": "एवंविधम्", "paradigm": "A-P", "cell": "2-1", "stem": "एवंविध", "meaning": "of such a kind", "meaning_ta": "இத்தகைய", "grammar_note": "बहुव्रीहिसमासपदम् — नियमित अकारान्त-पुल्लिङ्गवत् विभज्यते", "grammar_note_ta": "பஹுவ்ரீஹி தொகைச்சொல் — साधारण अ-ஈற்று ஆண்பால் போல் அமையும்"}, "nara": {"lemma": "नर", "word_in_verse": "नरम्", "paradigm": "A-P", "cell": "2-1", "stem": "नर", "meaning": "man, person", "meaning_ta": "மனிதன்", "grammar_note": "नियमित अकारान्त-पुल्लिङ्गनाम (declines like वीर)", "grammar_note_ta": "साधारण अ-ஈற்று ஆண்பால் பெயர்ச்சொல்"}}, "dhaturupani": {"coverage_note": "1.1.5 has TWO finite verb roots — इष् (इच्छामि, 'I wish') and अस् (असि, 'you are'). Both are given below (Component 6 lists a table for every finite root; this verse honestly has two, unlike 1.1.4 which had one and 1.1.2/1.1.3 which had none).", "pracch_root": "इष् (iṣ)", "pracch_meaning": "कामयते, वाञ्छति (Class 6, तुदादिगणः)", "pracch_meaning_ta": "விரும்புகிறார்", "pracch_gana": "६ (तुदादिगणः)", "pracch_gana_ta": "6 (துதாதி கணம்)", "pracch_lakara": "लट् (वर्तमानकालः)", "pracch_lakara_ta": "லட் (நிகழ்காலம்)", "pracch_form": "इच्छामि = इष् + शप् (इष्→इच्छ्) + मिप्, उत्तमपुरुष-एकवचन-परस्मैपदम्", "pracch_form_ta": "इच्छामि = இஷ் + शப் (इष்→इच्छ்) + मिप், முதல் புருஷன் ஒருமை பரஸ்மைபதம்", "conjugation_perfect": {"headers": ["पुरुषः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"], "rows": [["प्रथमपुरुषः", "इच्छति", "इच्छतः", "इच्छन्ति"], ["मध्यमपुरुषः", "इच्छसि", "इच्छथः", "इच्छथ"], ["उत्तमपुरुषः", "इच्छामि", "इच्छावः", "इच्छामः"]]}, "second_root": {"root": "अस् (as)", "meaning": "भवति, वर्तते (Class 2, अदादिगणः — अनियमितम्)", "meaning_ta": "இருக்கிறார்", "gana": "२ (अदादिगणः)", "gana_ta": "2 (அதாதி கணம்)", "lakara": "लट् (वर्तमानकालः)", "lakara_ta": "லட் (நிகழ்காலம்)", "form": "असि = अस् + सिप्, मध्यमपुरुष-एकवचन-परस्मैपदम्", "form_ta": "असि = अஸ் + सिप், இரண்டாம் புருஷன் ஒருமை பரஸ்மைபதம்", "conjugation_perfect": {"headers": ["पुरुषः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"], "rows": [["प्रथमपुरुषः", "अस्ति", "स्तः", "सन्ति"], ["मध्यमपुरुषः", "असि", "स्थः", "स्थ"], ["उत्तमपुरुषः", "अस्मि", "स्वः", "स्मः"]]}}}, "pratyaya": [{"word": "एतत्", "breakdown": "एतद् + अम्", "breakdown_ta": "எதத் + अம்", "pratyaya_name": "अम्-विभक्तिः", "pratyaya_name_ta": "अம்-விபக்தி", "function": "द्वितीया-नपुंसक-एकवचन-प्रत्ययः", "function_ta": "அலிங்க இரண்டாம் வேற்றுமை ஒருமை விகுதி"}, {"word": "इच्छामि", "breakdown": "इष् + शप् (इच्छ) + मिप्", "breakdown_ta": "இஷ் + शप் + मिप்", "pratyaya_name": "लट्-तिङ्प्रत्ययः (मिप्)", "pratyaya_name_ta": "लट்-तिङ்-பிரத்யயம்", "function": "वर्तमानकाल-उत्तमपुरुष-एकवचन-निर्माणम्", "function_ta": "நிகழ்கால முதல் புருஷன் ஒருமை உருவாக்கம்"}, {"word": "अहम्", "breakdown": "अस्मद् + सुँ (अहम्-आदेशः)", "breakdown_ta": "अஸ்மத் + सुँ", "pratyaya_name": "सुँ-विभक्तिः", "pratyaya_name_ta": "सुँ-விபக்தி", "function": "प्रथमा-एकवचन-प्रत्ययः", "function_ta": "எழுவாய் ஒருமை விகுதி"}, {"word": "परम्", "breakdown": "पर + अम्", "breakdown_ta": "पर + अம்", "pratyaya_name": "अम्-विभक्तिः", "pratyaya_name_ta": "अம்-விபக்தி", "function": "प्रथमा/द्वितीया-नपुंसक-एकवचन-प्रत्ययः", "function_ta": "அலிங்க எழுவாய்/இரண்டாம் வேற்றுமை ஒருமை விகுதி"}, {"word": "कौतूहलम्", "breakdown": "कुतूहल + अण् + सुँ", "breakdown_ta": "குதூஹல + अण் + सुँ", "pratyaya_name": "अण्-प्रत्ययः", "pratyaya_name_ta": "अण்-பிரத்யயம்", "function": "स्वार्थिकवृद्धिनिर्माणम्", "function_ta": "स्वार्थ वृद்தி உருவாக்கம்"}, {"word": "मे", "breakdown": "अस्मद् + ङस् (मे-आदेशः)", "breakdown_ta": "अஸ்மத் + ङस्", "pratyaya_name": "ङस्-विभक्तिः (अनुक्तरूपम्)", "pratyaya_name_ta": "ङस्-விபக்தி (சாய்ந்த வடிவம்)", "function": "षष्ठी-एकवचन-प्रत्ययः", "function_ta": "ஆறாம் வேற்றுமை ஒருமை விகுதி"}, {"word": "महर्षे", "breakdown": "महत् + ऋषि + सुँ (संबोधने)", "breakdown_ta": "महத் + ऋषि + सुँ", "pratyaya_name": "सुँ-विभक्तिः (संबोधनम्)", "pratyaya_name_ta": "सुँ-விபக்தி (விளி)", "function": "संबोधन-एकवचन-प्रत्ययः", "function_ta": "விளிவேற்றுமை ஒருமை விகுதி"}, {"word": "त्वम्", "breakdown": "युष्मद् + सुँ (त्वम्-आदेशः)", "breakdown_ta": "யுஷ்மத் + सुँ", "pratyaya_name": "सुँ-विभक्तिः", "pratyaya_name_ta": "सुँ-விபக்தி", "function": "प्रथमा-एकवचन-प्रत्ययः", "function_ta": "எழுவாய் ஒருமை விகுதி"}, {"word": "समर्थः", "breakdown": "सम् + अर्थ + सुँ", "breakdown_ta": "सம் + अர்த்த + सुँ", "pratyaya_name": "सुँ-विभक्तिः", "pratyaya_name_ta": "सुँ-விபக்தி", "function": "प्रथमा-एकवचन-प्रत्ययः", "function_ta": "எழுவாய் ஒருமை விகுதி"}, {"word": "असि", "breakdown": "अस् + सिप्", "breakdown_ta": "अஸ் + सिप்", "pratyaya_name": "लट्-तिङ्प्रत्ययः (सिप्)", "pratyaya_name_ta": "लट்-तिங்-பிரத்யயம்", "function": "वर्तमानकाल-मध्यमपुरुष-एकवचन-निर्माणम्", "function_ta": "நிகழ்கால இரண்டாம் புருஷன் ஒருமை உருவாக்கம்"}, {"word": "एवंविधम्", "breakdown": "एवम् + विध + अम्", "breakdown_ta": "ஏவம் + विध + अம்", "pratyaya_name": "अम्-विभक्तिः (बहुव्रीहौ)", "pratyaya_name_ta": "अம்-விபக்தி", "function": "द्वितीया-एकवचन-प्रत्ययः, समासान्ते", "function_ta": "இரண்டாம் வேற்றுமை ஒருமை விகுதி, தொகைச்சொல் இறுதியில்"}, {"word": "नरम्", "breakdown": "नर + अम्", "breakdown_ta": "नर + अம்", "pratyaya_name": "अम्-विभक्तिः", "pratyaya_name_ta": "अம்-விபக்தி", "function": "द्वितीया-एकवचन-प्रत्ययः", "function_ta": "இரண்டாம் வேற்றுமை ஒருமை விகுதி"}], "sandhi": [{"location": "एतत् + इच्छामि", "original": "एतत् + इच्छामि", "result": "एतदिच्छामि", "sandhi_type": "जश्त्वसन्धिः (व्यञ्जनसन्धिः)", "sandhi_type_ta": "ஜஷ்த்வ சந்தி (மெய் சந்தி)", "sandhi_rule_sa": "झलां जशोऽन्ते — पदान्तस्य तकारस्य घोषवति (स्वरे) परे दकारादेशः", "sandhi_rule_ta": "சொல் இறுதி त் மெய், ஒலிக்கும் (உயிர்) தொடரும்போது 'द்' ஆகும்"}, {"location": "इच्छामि + अहम्", "original": "इच्छामि + अहम्", "result": "इच्छाम्यहम्", "sandhi_type": "यणादेशः (स्वरसन्धिः)", "sandhi_type_ta": "யணாதேசம் (உயிர் சந்தி)", "sandhi_rule_sa": "इको यणचि — इकारस्य असवर्णे स्वरे परे यकारादेशः", "sandhi_rule_ta": "इ-கரம் வேறு உயிர் தொடரும்போது 'ய்' ஆக மாறும்"}, {"location": "अहम् + श्रोतुम्", "original": "अहम् + श्रोतुम्", "result": "अहं श्रोतुम्", "sandhi_type": "अनुस्वारसन्धिः", "sandhi_type_ta": "அனுஸ்வார சந்தி", "sandhi_rule_sa": "मोऽनुस्वारः — पदान्तमकारस्य व्यञ्जने परे अनुस्वारादेशः", "sandhi_rule_ta": "சொல் இறுதி म் மெய் தொடரும்போது அனுஸ்வாரமாகும்"}, {"location": "श्रोतुम् + परम्", "original": "श्रोतुम् + परम्", "result": "श्रोतुं परम्", "sandhi_type": "अनुस्वारसन्धिः", "sandhi_type_ta": "அனுஸ்வார சந்தி", "sandhi_rule_sa": "मोऽनुस्वारः", "sandhi_rule_ta": "म் மெய் அனுஸ்வாரமாகும்"}, {"location": "परम् + कौतूहलम्", "original": "परम् + कौतूहलम्", "result": "परं कौतूहलम्", "sandhi_type": "अनुस्वारसन्धिः", "sandhi_type_ta": "அனுஸ்வார சந்தி", "sandhi_rule_sa": "मोऽनुस्वारः", "sandhi_rule_ta": "म் மெய் அனுஸ்வாரமாகும்"}, {"location": "कौतूहलम् + हि", "original": "कौतूहलम् + हि", "result": "कौतूहलं हि", "sandhi_type": "अनुस्वारसन्धिः", "sandhi_type_ta": "அனுஸ்வார சந்தி", "sandhi_rule_sa": "मोऽनुस्वारः", "sandhi_rule_ta": "म் மெய் அனுஸ்வாரமாகும்"}, {"location": "त्वम् + समर्थः", "original": "त्वम् + समर्थः", "result": "त्वं समर्थः", "sandhi_type": "अनुस्वारसन्धिः", "sandhi_type_ta": "அனுஸ்வார சந்தி", "sandhi_rule_sa": "मोऽनुस्वारः", "sandhi_rule_ta": "म் மெய் அனுஸ்வாரமாகும்"}, {"location": "समर्थः + असि", "original": "समर्थः + असि", "result": "समर्थोऽसि", "sandhi_type": "विसर्गसन्धिः (ओकारादेशः + अकारलोपः)", "sandhi_type_ta": "விசர்க்க சந்தி (ஓகார ஆதேசம் + अ-லோபம்)", "sandhi_rule_sa": "अतो रोरप्लुतादप्लुते — विसर्गस्य ओकारादेशः; ततः परवर्ति ह्रस्व-अकारस्य लोपः, अवग्रहेण (ऽ) सूचितः", "sandhi_rule_ta": "விசர்க்கம் 'ओ' ஆகும்; அடுத்த குறில் अ மறையும், அவக்ரஹம் அதைக் குறிக்கும்"}, {"location": "एवंविधम् + नरम्", "original": "एवंविधम् + नरम्", "result": "एवंविधं नरम्", "sandhi_type": "अनुस्वारसन्धिः", "sandhi_type_ta": "அனுஸ்வார சந்தி", "sandhi_rule_sa": "मोऽनुस्वारः", "sandhi_rule_ta": "म் மெய் அனுஸ்வாரமாகும்"}], "samasa": [{"word": "महर्षे", "compound_type": "कर्मधारयसमासः", "compound_type_ta": "கர்மதாரய தொகைச்சொல்", "breakdown": "महान् ऋषिः इति महर्षिः, तस्य संबोधनम्", "vigraha_sa": "महान् च असौ ऋषिः च", "vigraha_ta": "பெரியவரான ரிஷி", "meaning": "great sage", "meaning_ta": "மகரிஷி"}, {"word": "एवंविधम्", "compound_type": "बहुव्रीहिसमासः", "compound_type_ta": "பஹுவ்ரீஹி தொகைச்சொல்", "breakdown": "एवम् (इत्थम्) विधा (प्रकारः) यस्य सः", "vigraha_sa": "एवम् विधा यस्य सः एवंविधः, तम्", "vigraha_ta": "யாருடைய வகை இப்படியோ அவர்", "meaning": "of such a kind", "meaning_ta": "இத்தகைய"}], "chandas_name": "अनुष्टुप्", "chandas_definition": "षोडश-मात्र-वृत्तम् — प्रश्नमालायाः उपसंहारः; वाल्मीकिः स्वजिज्ञासां (कौतूहलम्) प्रकटयित्वा नारदस्य सामर्थ्ये विश्वासं व्यनक्ति, एतेन आगामिसर्गाणां कथावस्तु आरभ्यते", "chandas_definition_ta": "பதினாறு மாத்திரை வృத்தம் — வினாத் தொகுப்பின் முடிவு; வால்மீகி தன் ஆர்வத்தை வெளிப்படுத்தி நாரதரின் திறமையில் நம்பிக்கை தெரிவிக்கிறார், இதிலிருந்து அடுத்த கதை தொடங்குகிறது", "scansion": [{"quarter": 1, "text": "एतदिच्छाम्यहं श्रोतुं", "matra": 8}, {"quarter": 2, "text": "परं कौतूहलं हि मे", "matra": 8}, {"quarter": 3, "text": "महर्षे त्वं समर्थोऽसि", "matra": 8}, {"quarter": 4, "text": "ज्ञातुमेवंविधं नरम्", "matra": 8}], "alankara": [{"name": "स्वभावोक्तिः", "definition": "वाल्मीकेः जिज्ञासाभावस्य सरलं, अनलङ्कृतं कथनम् — 'परं कौतूहलं हि मे' इत्यनेन भावः प्रत्यक्षतया व्यज्यते, न तु उपमादिभिः", "definition_ta": "வால்மீகியின் ஆர்வத்தை எளிமையாக, அலங்காரமின்றி வெளிப்படுத்தும் நடை — உவமை போன்றவை இல்லாமல் நேரடியாகக் கூறுதல்"}]}}]}</script>
+
+<script>
+  var corpus = JSON.parse(document.getElementById('corpus-data').textContent);
+  var verses = corpus.verses;
+  var current = 0;
+  var lang = 'sa';
+  
+  var tabs = [
+    {key:'padaccheda', label:'१. पद-छेदः'},
+    {key:'anvaya', label:'२. अन्वयः'},
+    {key:'padavigraha', label:'३. पद-विग्रहः'},
+    {key:'karaka', label:'४. कारकः'},
+    {key:'shabdarupani', label:'५. शब्द-रूपाणि'},
+    {key:'dhaturupani', label:'६. धातु-रूपाणि'},
+    {key:'pratyaya', label:'७. प्रत्ययाः'},
+    {key:'sandhi', label:'८. सन्धिः'},
+    {key:'samasa', label:'९. समासः'},
+    {key:'chandas', label:'१०. छन्दस्'},
+    {key:'quiz', label:'११. प्रश्नोत्तरी ✎'}
+  ];
+  var activeTab = 'padaccheda';
+
+  function escapeHtml(s){
+    if(s === undefined || s === null) return '';
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+  
+  function bi(obj, field){
+    if(lang === 'ta' && obj[field+'_ta']) return obj[field+'_ta'];
+    return obj[field];
+  }
+
+  /* ============================================================
+     COMPONENT 11: प्रश्नोत्तरी (Quiz)
+     Questions are GENERATED from the same grammar corpus every
+     other tab reads — never hand-authored separately. This avoids
+     the exact "two names for the same fact, drifting out of sync"
+     problem this framework's own master-prompt document warns
+     against (see: the retired grammar.saralartha duplication).
+     If the corpus grows to more verses, the quiz scales with it
+     automatically — no separate quiz-content file to maintain.
+     ============================================================ */
+  var quizQuestions = [];
+  var quizIndex = 0;
+  var quizScore = 0;
+  var quizAnswered = false;
+  var quizSelectedOption = null;
+  var CASE_LABELS = {
+    "nominative":  {sa: "प्रथमा (nominative)",   ta: "பிரதமா (எழுவாய் வேற்றுமை)"},
+    "accusative":  {sa: "द्वितीया (accusative)",  ta: "த்விதீயா (செயப்படுபொருள் வேற்றுமை)"},
+    "instrumental":{sa: "तृतीया (instrumental)",  ta: "த்ரிதீயா (கருவி வேற்றுமை)"},
+    "dative":      {sa: "चतुर्थी (dative)",       ta: "சதுர்த்தி (கொடை வேற்றுமை)"},
+    "ablative":    {sa: "पञ्चमी (ablative)",      ta: "பஞ்சமி (நீங்கல் வேற்றுமை)"},
+    "genitive":    {sa: "षष्ठी (genitive)",       ta: "ஷஷ்டி (உடைமை வேற்றுமை)"},
+    "locative":    {sa: "सप्तमी (locative)",      ta: "ஸப்தமி (இட வேற்றுமை)"}
+  };
+
+  function shuffle(arr){
+    var a = arr.slice();
+    for(var i = a.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  function sample(arr, n, exclude){
+    var pool = arr.filter(function(x){ return x !== exclude; });
+    return shuffle(pool).slice(0, n);
+  }
+
+  function buildQuestionBank(v){
+    var g = v.grammar;
+    var qs = [];
+
+    /* helper: shuffle an array of {sa,ta} option objects together with which
+       index is correct, so correctness is tracked by INDEX, never by text —
+       text-matching across two languages is exactly the kind of thing that
+       silently breaks when only one language's data is checked (see the
+       Bilingual-Coverage Rule elsewhere in this framework). */
+    function shuffleOptions(optionObjs, correctObj){
+      var shuffled = shuffle(optionObjs);
+      var correctIndex = shuffled.indexOf(correctObj);
+      return {options: shuffled, correctIndex: correctIndex};
+    }
+
+    /* Type 1: शब्दार्थ — word meaning (from पदच्छेदः hover data, sa+ta both carried) */
+    g.padaccheda.forEach(function(p){
+      var correctObj = {sa: p.meaning_sa, ta: p.meaning_ta};
+      var distractorPool = g.padaccheda.filter(function(x){ return x.word !== p.word; })
+        .map(function(x){ return {sa: x.meaning_sa, ta: x.meaning_ta}; });
+      var distractors = shuffle(distractorPool).slice(0, 3);
+      if(distractors.length < 3) return;
+      var r = shuffleOptions([correctObj].concat(distractors), correctObj);
+      qs.push({
+        type: "शब्दार्थः / Word Meaning",
+        prompt_sa: "'" + p.word + "' इत्यस्य अर्थः कः?",
+        prompt_ta: "'" + p.word + "' என்பதன் பொருள் என்ன?",
+        options: r.options, correctIndex: r.correctIndex,
+        explanation_sa: p.word + " = " + p.meaning_sa,
+        explanation_ta: p.word + " = " + p.meaning_ta
+      });
+    });
+
+    /* Type 2: विभक्तिः — case identification (from पद-विग्रहः, inflected words only) */
+    g.pada_vigraha.forEach(function(w){
+      if(!w.case || w.case === "—") return;
+      var correctObj = CASE_LABELS[w.case] || {sa: w.case, ta: w.case};
+      var distractorKeys = sample(Object.keys(CASE_LABELS), 3, w.case);
+      var distractors = distractorKeys.map(function(k){ return CASE_LABELS[k]; });
+      var r = shuffleOptions([correctObj].concat(distractors), correctObj);
+      qs.push({
+        type: "विभक्तिः / Case",
+        prompt_sa: "'" + w.word + "' इति पदं कस्यां विभक्तौ अस्ति?",
+        prompt_ta: "'" + w.word + "' எந்த வேற்றுமையில் உள்ளது?",
+        options: r.options, correctIndex: r.correctIndex,
+        explanation_sa: w.word + " — " + w.morphology,
+        explanation_ta: w.word + " — " + w.morphology_ta
+      });
+    });
+
+    /* Type 3: कारकः — karta/karma identification (uses explicit word-id cross-refs, not text-parsing) */
+    function buildKarakaQuestion(wordId, promptSa, promptTa){
+      var target = g.pada_vigraha.filter(function(w){ return w.id === wordId; })[0];
+      if(!target) return;
+      var correctObj = {sa: target.word, ta: target.word}; /* words themselves don't translate */
+      var otherWords = sample(g.pada_vigraha, 3, target).map(function(w){ return {sa: w.word, ta: w.word}; });
+      var r = shuffleOptions([correctObj].concat(otherWords), correctObj);
+      qs.push({
+        type: "कारकः / Kāraka",
+        prompt_sa: promptSa, prompt_ta: promptTa,
+        options: r.options, correctIndex: r.correctIndex,
+        explanation_sa: target.word + " — " + target.role,
+        explanation_ta: target.word + " — " + target.role_ta
+      });
+    }
+    if(g.karaka.karta_word_id){
+      buildKarakaQuestion(g.karaka.karta_word_id,
+        "अस्मिन् श्लोके कर्ता (वाक्यस्य कर्तृपदम्) कः?",
+        "இந்த ஶ்லோகத்தில் எழுவாய் (கர்த்தா) எது?");
+    }
+    if(g.karaka.karma_word_id){
+      buildKarakaQuestion(g.karaka.karma_word_id,
+        "अस्मिन् श्लोके कर्म (वाक्यस्य कर्मपदम्) किम्?",
+        "இந்த ஶ்லோகத்தில் செயப்படுபொருள் எது?");
+    }
+
+    /* Type 4: सन्धिः — sandhi type (from सन्धिः entries; type names are Sanskrit
+       grammatical terms with no separate Tamil form, so sa===ta here, matching
+       how bi() itself falls back to the Sanskrit field when no _ta exists) */
+    if(g.sandhi && g.sandhi.length){
+      var allSandhiTypes = g.sandhi.map(function(s){ return s.sandhi_type; });
+      g.sandhi.forEach(function(s){
+        var correctObj = {sa: s.sandhi_type, ta: s.sandhi_type};
+        var distractorTexts = sample(allSandhiTypes.concat(["गुणसन्धिः","वृद्धिसन्धिः","यणादेशः"]), 3, s.sandhi_type);
+        var distractors = distractorTexts.map(function(t){ return {sa: t, ta: t}; });
+        var r = shuffleOptions([correctObj].concat(distractors), correctObj);
+        qs.push({
+          type: "सन्धिः / Sandhi",
+          prompt_sa: "'" + s.location + " → " + s.result + "' अत्र का सन्धिः प्रवर्तते?",
+          prompt_ta: "'" + s.location + " → " + s.result + "' இதில் எந்த சந்தி நடக்கிறது?",
+          options: r.options, correctIndex: r.correctIndex,
+          explanation_sa: s.sandhi_rule_sa,
+          explanation_ta: s.sandhi_rule_ta || s.sandhi_rule_sa
+        });
+      });
+    }
+
+    /* Type 5: समासः — compound type (from समासः entries) */
+    if(g.samasa && g.samasa.length){
+      var allCompoundTypes = g.samasa.map(function(s){ return s.compound_type; });
+      g.samasa.forEach(function(s){
+        var correctObj = {sa: s.compound_type, ta: s.compound_type_ta || s.compound_type};
+        var distractorTexts = sample(allCompoundTypes.concat(["द्वन्द्वसमासः","बहुव्रीहिसमासः","अव्ययीभावसमासः"]), 3, s.compound_type);
+        var distractors = distractorTexts.map(function(t){ return {sa: t, ta: t}; });
+        var r = shuffleOptions([correctObj].concat(distractors), correctObj);
+        qs.push({
+          type: "समासः / Compound",
+          prompt_sa: "'" + s.word + "' इति कः समासः?",
+          prompt_ta: "'" + s.word + "' எந்த வகைத் தொகை?",
+          options: r.options, correctIndex: r.correctIndex,
+          explanation_sa: s.vigraha_sa,
+          explanation_ta: s.vigraha_ta
+        });
+      });
+    }
+
+    /* Type 6: छन्दः — meter (one question per verse) */
+    if(g.chandas_name){
+      var correctMeterObj = {sa: g.chandas_name, ta: g.chandas_name};
+      var meterDistractorTexts = sample(["इन्द्रवज्रा","वसन्ततिलका","शार्दूलविक्रीडितम्","उपजातिः"], 3, g.chandas_name);
+      var meterDistractors = meterDistractorTexts.map(function(t){ return {sa: t, ta: t}; });
+      var r = shuffleOptions([correctMeterObj].concat(meterDistractors), correctMeterObj);
+      qs.push({
+        type: "छन्दः / Meter",
+        prompt_sa: "अस्य श्लोकस्य छन्दः किम्?",
+        prompt_ta: "இந்த ஶ்லோகத்தின் யாப்பு (சந்தஸ்) என்ன?",
+        options: r.options, correctIndex: r.correctIndex,
+        explanation_sa: g.chandas_definition,
+        explanation_ta: g.chandas_definition_ta || g.chandas_definition
+      });
+    }
+
+    return shuffle(qs);
+  }
+
+  function startQuiz(){
+    quizQuestions = buildQuestionBank(verses[current]).slice(0, 8);
+    quizIndex = 0;
+    quizScore = 0;
+    quizAnswered = false;
+    quizSelectedOption = null;
+    render();
+  }
+
+  function selectQuizOption(optionIndex){
+    if(quizAnswered) return;
+    quizAnswered = true;
+    quizSelectedOption = optionIndex;
+    if(optionIndex === quizQuestions[quizIndex].correctIndex) quizScore++;
+    render();
+  }
+
+  function nextQuizQuestion(){
+    quizIndex++;
+    quizAnswered = false;
+    quizSelectedOption = null;
+    render();
+  }
+
+  function restartQuiz(){
+    quizQuestions = [];
+    quizIndex = 0;
+    quizScore = 0;
+    quizAnswered = false;
+    quizSelectedOption = null;
+    render();
+  }
+
+  function renderQuizTab(){
+    if(quizQuestions.length === 0){
+      return '<div class="quiz-intro">'
+        + '<div class="section-title" style="text-align:center; border:none;">प्रश्नोत्तरी — इदं श्लोकं परीक्षध्वम्</div>'
+        + '<p>प्रश्नाः पूर्वोक्त-व्याकरण-दत्तांशेभ्यः स्वयमेव जनिताः भवन्ति (शब्दार्थ, विभक्ति, कारक, सन्धि, समास, छन्दः) — पृथक् नहि लिखिताः। '
+        + 'Questions are generated live from this verse&#39;s own grammar data — not written separately — so they always match what the tabs above show.</p>'
+        + '<button class="quiz-start-btn" onclick="startQuiz()">प्रश्नोत्तरी आरभत (Start Quiz)</button>'
+        + '</div>';
+    }
+    if(quizIndex >= quizQuestions.length){
+      var pct = Math.round((quizScore / quizQuestions.length) * 100);
+      return '<div class="quiz-score-screen">'
+        + '<div class="section-title" style="text-align:center; border:none;">परिणामः (Result)</div>'
+        + '<div class="quiz-score-big">' + quizScore + ' / ' + quizQuestions.length + '</div>'
+        + '<div class="quiz-score-note">' + pct + '% सम्यक् उत्तराणि (correct)</div>'
+        + '<button class="quiz-start-btn" onclick="restartQuiz()">पुनः आरभत (Try Again)</button>'
+        + '</div>';
+    }
+    var q = quizQuestions[quizIndex];
+    var pctDone = Math.round((quizIndex / quizQuestions.length) * 100);
+    var html = '<div class="quiz-progress">'
+      + '<span>प्रश्नः ' + (quizIndex + 1) + ' / ' + quizQuestions.length + '</span>'
+      + '<span class="quiz-progress-bar"><span class="quiz-progress-fill" style="width:' + pctDone + '%;"></span></span>'
+      + '<span>अङ्काः: ' + quizScore + '</span>'
+      + '</div>';
+    html += '<div class="quiz-question-box">'
+      + '<div class="quiz-question-type">' + escapeHtml(q.type) + '</div>'
+      + '<div class="quiz-question-text">' + escapeHtml(lang==='ta' ? q.prompt_ta : q.prompt_sa) + '</div>'
+      + '</div>';
+    html += '<div class="quiz-options">';
+    q.options.forEach(function(opt, optIdx){
+      var cls = 'quiz-option';
+      var disabled = '';
+      if(quizAnswered){
+        disabled = 'disabled';
+        if(optIdx === q.correctIndex) cls += ' correct';
+        else if(optIdx === quizSelectedOption) cls += ' incorrect';
+      }
+      var optText = (lang==='ta' && opt.ta) ? opt.ta : opt.sa;
+      html += '<button class="' + cls + '" ' + disabled + ' onclick="selectQuizOption(' + optIdx + ')">' + escapeHtml(optText) + '</button>';
+    });
+    html += '</div>';
+    if(quizAnswered){
+      html += '<div class="quiz-explanation">' + escapeHtml(lang==='ta' ? q.explanation_ta : q.explanation_sa) + '</div>';
+      html += '<button class="quiz-next-btn" onclick="nextQuizQuestion()">'
+        + (quizIndex + 1 < quizQuestions.length ? 'अग्रिमः प्रश्नः (Next)' : 'परिणामं पश्यत (See Result)')
+        + '</button>';
+    }
+    return html;
+  }
+
+  function resetQuizState(){
+    quizQuestions = []; quizIndex = 0; quizScore = 0; quizAnswered = false; quizSelectedOption = null;
+  }
+
+  function buildSelect(){
+    var sel = document.getElementById('verseSelect');
+    sel.innerHTML = '';
+    verses.forEach(function(v, i){
+      var opt = document.createElement('option');
+      opt.value = i;
+      opt.textContent = 'श्लोकः ' + v.number + (v.grammar ? ' ✓' : '');
+      sel.appendChild(opt);
+    });
+    sel.addEventListener('change', function(){
+      current = parseInt(sel.value, 10);
+      resetQuizState();
+      render();
+    });
+  }
+
+  function buildLangToggle(){
+    var wrap = document.getElementById('langToggleWrap');
+    wrap.innerHTML = '';
+    var saBtn = document.createElement('button');
+    saBtn.textContent = 'संस्कृतम्';
+    saBtn.className = 'lang-btn' + (lang==='sa' ? ' active' : '');
+    saBtn.addEventListener('click', function(){ lang='sa'; render(); });
+    var taBtn = document.createElement('button');
+    taBtn.textContent = 'தமிழ்';
+    taBtn.className = 'lang-btn' + (lang==='ta' ? ' active' : '');
+    taBtn.addEventListener('click', function(){ lang='ta'; render(); });
+    wrap.appendChild(saBtn);
+    wrap.appendChild(taBtn);
+  }
+
+  function renderTable(tbl, hl){
+    /* hl: optional {row: 0-based row index, col: 1|2|3 (matches array index within each row)} to highlight */
+    var html = '<table class="decl-table"><thead><tr>';
+    tbl.headers.forEach(function(h){ html += '<th>'+escapeHtml(h)+'</th>'; });
+    html += '</tr></thead><tbody>';
+    tbl.rows.forEach(function(r, ri){
+      html += '<tr>';
+      r.forEach(function(c, ci){
+        var isHl = hl && ri === hl.row && ci === hl.col;
+        var style = isHl ? ' style="background:#fff3b0;font-weight:700;border:2px solid #d4a017;"' : '';
+        html += '<td'+style+'>'+escapeHtml(c)+'</td>';
+      });
+      html += '</tr>';
+    });
+    html += '</tbody></table>';
+    return html;
+  }
+
+  /* ===== Paradigm engine: generative declension paradigms + natva sandhi ===== */
+  var PARADIGM_LIB = JSON.parse(document.getElementById('paradigm-data').textContent);
+
+  var NATVA_TRANSPARENT = "अआइईउऊऋॠऌएऐओऔािीुूृॄॢेैोौंकखगघङपफबभम";
+  var NATVA_TRIGGERS = "रऋॠष";
+  function applyNatva(word){
+    var out = '', active = false;
+    for(var i=0;i<word.length;i++){
+      var ch = word[i];
+      if(ch === 'न'){ out += active ? 'ण' : 'न'; active = false; continue; }
+      out += ch;
+      if(NATVA_TRIGGERS.indexOf(ch) !== -1) active = true;
+      else if(NATVA_TRANSPARENT.indexOf(ch) !== -1) { /* stays */ }
+      else active = false;
+    }
+    return out;
+  }
+  function natvaTable(tbl){
+    return { headers: tbl.headers, rows: tbl.rows.map(function(row){
+      return [row[0]].concat(row.slice(1).map(applyNatva));
+    })};
+  }
+  var HEAD4 = ["विभक्तिः","एकवचनम्","द्विवचनम्","बहुवचनम्"];
+  function genAMasc(stem){
+    return { headers: HEAD4, rows: [
+      ["प्रथमा", stem+"ः", stem+"ौ", stem+"ाः"],
+      ["द्वितीया", stem+"म्", stem+"ौ", stem+"ान्"],
+      ["तृतीया", stem+"ेन", stem+"ाभ्याम्", stem+"ैः"],
+      ["चतुर्थी", stem+"ाय", stem+"ाभ्याम्", stem+"ेभ्यः"],
+      ["पञ्चमी", stem+"ात्", stem+"ाभ्याम्", stem+"ेभ्यः"],
+      ["षष्ठी", stem+"स्य", stem+"योः", stem+"ानाम्"],
+      ["सप्तमी", stem+"े", stem+"योः", stem+"ेषु"],
+      ["सम्बोधन", stem, stem+"ौ", stem+"ाः"],
+    ]};
+  }
+  function genANeut(stem){
+    var nomacc = [stem+"म्", stem+"े", stem+"ानि"];
+    return { headers: HEAD4, rows: [
+      ["प्रथमा"].concat(nomacc),
+      ["द्वितीया"].concat(nomacc),
+      ["तृतीया", stem+"ेन", stem+"ाभ्याम्", stem+"ैः"],
+      ["चतुर्थी", stem+"ाय", stem+"ाभ्याम्", stem+"ेभ्यः"],
+      ["पञ्चमी", stem+"ात्", stem+"ाभ्याम्", stem+"ेभ्यः"],
+      ["षष्ठी", stem+"स्य", stem+"योः", stem+"ानाम्"],
+      ["सप्तमी", stem+"े", stem+"योः", stem+"ेषु"],
+      ["सम्बोधन"].concat(nomacc),
+    ]};
+  }
+  function genIMasc(stem){
+    var base = stem.slice(-1) === 'ि' ? stem.slice(0,-1) : stem;
+    return { headers: HEAD4, rows: [
+      ["प्रथमा", base+"िः", base+"ी", base+"यः"],
+      ["द्वितीया", base+"िम्", base+"ी", base+"ीन्"],
+      ["तृतीया", base+"िना", base+"िभ्याम्", base+"िभिः"],
+      ["चतुर्थी", base+"ये", base+"िभ्याम्", base+"िभ्यः"],
+      ["पञ्चमी", base+"ेः", base+"िभ्याम्", base+"िभ्यः"],
+      ["षष्ठी", base+"ेः", base+"्योः", base+"ीनाम्"],
+      ["सप्तमी", base+"ौ", base+"्योः", base+"िषु"],
+      ["सम्बोधन", base+"े", base+"ी", base+"यः"],
+    ]};
+  }
+  function genVatMasc(base){
+    return { headers: HEAD4, rows: [
+      ["प्रथमा", base+"वान्", base+"वन्तौ", base+"वन्तः"],
+      ["द्वितीया", base+"वन्तम्", base+"वन्तौ", base+"वतः"],
+      ["तृतीया", base+"वता", base+"वद्भ्याम्", base+"वद्भिः"],
+      ["चतुर्थी", base+"वते", base+"वद्भ्याम्", base+"वद्भ्यः"],
+      ["पञ्चमी", base+"वतः", base+"वद्भ्याम्", base+"वद्भ्यः"],
+      ["षष्ठी", base+"वतः", base+"वतोः", base+"वताम्"],
+      ["सप्तमी", base+"वति", base+"वतोः", base+"वत्सु"],
+      ["सम्बोधन", base+"वन्", base+"वन्तौ", base+"वन्तः"],
+    ]};
+  }
+  function genMatMasc(base){
+    return { headers: HEAD4, rows: [
+      ["प्रथमा", base+"मान्", base+"मन्तौ", base+"मन्तः"],
+      ["द्वितीया", base+"मन्तम्", base+"मन्तौ", base+"मतः"],
+      ["तृतीया", base+"मता", base+"मद्भ्याम्", base+"मद्भिः"],
+      ["चतुर्थी", base+"मते", base+"मद्भ्याम्", base+"मद्भ्यः"],
+      ["पञ्चमी", base+"मतः", base+"मद्भ्याम्", base+"मद्भ्यः"],
+      ["षष्ठी", base+"मतः", base+"मतोः", base+"मताम्"],
+      ["सप्तमी", base+"मति", base+"मतोः", base+"मत्सु"],
+      ["सम्बोधन", base+"मन्", base+"मन्तौ", base+"मन्तः"],
+    ]};
+  }
+  var GEN_FN = {'A-P':genAMasc, 'A-N':genANeut, 'I-P':genIMasc, 'VAT-P':genVatMasc, 'MAT-P':genMatMasc};
+  function generateDeclension(code, stem){
+    var p = PARADIGM_LIB[code];
+    if(!p) return null;
+    if(p.type === 'irr') return p.table;
+    var fn = GEN_FN[code];
+    return fn ? natvaTable(fn(stem)) : null;
+  }
+  function parseCell(cellStr){
+    /* "V-N" -> {row: V-1, col: N} */
+    if(!cellStr) return null;
+    var parts = cellStr.split('-');
+    return { row: parseInt(parts[0],10)-1, col: parseInt(parts[1],10) };
+  }
+
+  function renderTabContent(key, g){
+    /* ========== COMPONENT 1: पदच्छेदः ========== */
+    if(key === 'padaccheda'){
+      var row = '<div class="section-title">पदच्छेदः (शब्दशः विभाजनम्)</div><div class="padaccheda-row">';
+      g.padaccheda.forEach(function(p){
+        row += '<span class="padaccheda-item hover-term" tabindex="0">'+escapeHtml(p.word)
+          + '<span class="tooltip-box">'
+          +   '<b>सं:</b> '+escapeHtml(p.meaning_sa)+'<br>'
+          +   '<b>en:</b> '+escapeHtml(p.meaning_en)+'<br>'
+          +   '<b>த:</b> '+escapeHtml(p.meaning_ta)
+          + '</span></span>';
+      });
+      row += '</div>';
+      row += '<div class="hover-hint">शब्दोपरि माउसं स्थापयत वा Tab-कुञ्जिकया गच्छत — त्रिभाषासु अर्थः दृश्यते (hover or Tab to any word for its Sanskrit / English / Tamil meaning)</div>';
+      return row;
+    }
+
+    /* ========== COMPONENT 2: अन्वयः ========== */
+    if(key === 'anvaya'){
+      var sa = g.saralartha_sa, ta = g.saralartha_ta;
+      var shown = (lang==='ta') ? ta : sa;
+      var anvaya_shown = (lang==='ta') ? g.anvaya_ta : g.anvaya_sa;
+      return '<div class="section-title">अन्वयः (गद्यक्रमः)</div><div class="anvaya-box">'+escapeHtml(anvaya_shown)+'</div>'
+        + '<div class="section-title" style="margin-top:14px;">सरलार्थः</div><div class="anvaya-box">'+escapeHtml(shown)+'</div>';
+    }
+
+    /* ========== COMPONENT 3: पद-विग्रहः ========== */
+    if(key === 'padavigraha'){
+      var html = '<div class="section-title">पद-विग्रह एवं व्याकरण-विशेषः</div>';
+      g.pada_vigraha.forEach(function(w){
+        html += '<div class="word-card"><div class="w">'+escapeHtml(w.word)+'</div>'
+          + '<div class="field"><b>अर्थः:</b> '+escapeHtml(bi(w,'meaning'))+'</div>'
+          + '<div class="field"><b>निर्वचनम्:</b> '+escapeHtml(bi(w,'etymology'))+'</div>'
+          + '<div class="field"><b>रूपविचारः:</b> '+escapeHtml(bi(w,'morphology'))+'</div>'
+          + '<div class="field"><b>वाक्ये कार्यम्:</b> '+escapeHtml(bi(w,'role'))+'</div>'
+          + '</div>';
+      });
+      return html;
+    }
+
+    /* ========== COMPONENT 4: कारकः ========== */
+    if(key === 'karaka'){
+      var k = g.karaka;
+      var html = '<div class="section-title">कारक एवं क्रिया-सम्बन्धः</div><div class="karaka-grid">';
+      if(k.karta) html += '<div class="k-item"><b>कर्ता:</b> '+escapeHtml(bi(k,'karta'))+'</div>';
+      if(k.karma) html += '<div class="k-item"><b>कर्म:</b> '+escapeHtml(bi(k,'karma'))+'</div>';
+      if(k.karana) html += '<div class="k-item"><b>करणम्:</b> '+escapeHtml(bi(k,'karana'))+'</div>';
+      if(k.adhikarana) html += '<div class="k-item"><b>अधिकरणम्:</b> '+escapeHtml(bi(k,'adhikarana'))+'</div>';
+      if(k.sambandha) html += '<div class="k-item"><b>संबन्धः:</b> '+escapeHtml(bi(k,'sambandha'))+'</div>';
+      html += '</div>';
+      return html;
+    }
+
+    /* ========== COMPONENT 5: शब्दरूपाणि ========== */
+    if(key === 'shabdarupani'){
+      var sr = g.shabdarupani;
+      var html = '<div class="section-title">शब्दरूपाणि (नामपद-रूपाणि)</div>';
+      if(sr.coverage_note){
+        html += '<div class="group-note" style="margin-bottom:12px;">'+escapeHtml(sr.coverage_note)+'</div>';
+      }
+      Object.keys(sr).forEach(function(stemKey){
+        if(stemKey === 'coverage_note' || stemKey === 'stem_count') return;
+        var s = sr[stemKey];
+        html += '<div class="group-title" style="margin-top:16px;">'+escapeHtml(s.lemma)+' — '+escapeHtml(bi(s,'meaning'))+'</div>';
+        html += '<div class="group-note">श्लोके प्रयुक्तरूपम् (form in verse): <b>'+escapeHtml(s.word_in_verse)+'</b> | '+escapeHtml(bi(s,'grammar_note'))+'</div>';
+        if(s.paradigm){
+          /* compact reference form: generate the table from the shared paradigm library */
+          var pinfo = PARADIGM_LIB[s.paradigm];
+          var tbl = generateDeclension(s.paradigm, s.stem);
+          if(pinfo){
+            html += '<div class="group-note" style="font-size:0.9em;opacity:0.8;">प्रकारः/Paradigm: <b>'+escapeHtml(s.paradigm)+'</b> — '+escapeHtml(bi(pinfo,'name'))+'</div>';
+          }
+          if(tbl){
+            var hl = Array.isArray(s.cell) ? s.cell.map(parseCell) : [parseCell(s.cell)];
+            /* renderTable only highlights one cell at a time; if multiple occurrences, highlight the first and note the rest */
+            html += renderTable(tbl, hl[0]);
+            if(hl.length > 1){
+              html += '<div class="group-note" style="font-size:0.85em;">(इस श्लोक में यह शब्द एकाधिक रूपों में प्रयुक्तः — cells: '+escapeHtml(s.cell.join(', '))+')</div>';
+            }
+          }
+        } else if(s.declension_table){
+          /* legacy full-table format (verse 1.1.1) */
+          html += renderTable(s.declension_table);
+        }
+      });
+      return html;
+    }
+
+    /* ========== COMPONENT 6: धातुरूपाणि ========== */
+    if(key === 'dhaturupani'){
+      var d = g.dhaturupani;
+      var html = '<div class="section-title">धातुरूपाणि</div>';
+      if(!d.pracch_root){
+        /* Honest empty case: this verse has no finite verb (elided अस्ति). */
+        html += '<div class="group-note">'+escapeHtml(d.coverage_note || 'अस्मिन् श्लोके क्रियापदं नास्ति।')+'</div>';
+        return html;
+      }
+      if(d.coverage_note){
+        html += '<div class="group-note" style="margin-bottom:12px;">'+escapeHtml(d.coverage_note)+'</div>';
+      }
+      html += '<div class="group-title">'+escapeHtml(d.pracch_root)+'-धातुः</div>';
+      html += '<div class="group-note">अर्थः: '+escapeHtml(bi(d,'pracch_meaning'))+'</div>';
+      html += '<div class="group-note">गणः: '+escapeHtml(bi(d,'pracch_gana'))+'</div>';
+      html += '<div class="group-note">लकारः: '+escapeHtml(bi(d,'pracch_lakara'))+'</div>';
+      html += '<div class="group-note" style="margin-top:8px; margin-bottom:10px;"><b>व्यवहृतरूपम्:</b> '+escapeHtml(bi(d,'pracch_form'))+'</div>';
+      if(d.conjugation_perfect){
+        html += '<div class="group-title">रूपावली (लकारः: '+escapeHtml(bi(d,'pracch_lakara'))+')</div>';
+        html += renderTable(d.conjugation_perfect);
+      }
+      if(d.second_root){
+        var d2 = d.second_root;
+        html += '<div class="group-title" style="margin-top:18px;">'+escapeHtml(d2.root)+'-धातुः</div>';
+        html += '<div class="group-note">अर्थः: '+escapeHtml(bi(d2,'meaning'))+'</div>';
+        html += '<div class="group-note">गणः: '+escapeHtml(bi(d2,'gana'))+'</div>';
+        html += '<div class="group-note">लकारः: '+escapeHtml(bi(d2,'lakara'))+'</div>';
+        html += '<div class="group-note" style="margin-top:8px; margin-bottom:10px;"><b>व्यवहृतरूपम्:</b> '+escapeHtml(bi(d2,'form'))+'</div>';
+        if(d2.conjugation_perfect){
+          html += '<div class="group-title">रूपावली (लकारः: '+escapeHtml(bi(d2,'lakara'))+')</div>';
+          html += renderTable(d2.conjugation_perfect);
+        }
+      }
+      return html;
+    }
+
+    /* ========== COMPONENT 7: प्रत्ययाः ========== */
+    if(key === 'pratyaya'){
+      var html = '<div class="section-title">प्रत्ययाः (Suffixes & Morphology)</div>';
+      g.pratyaya.forEach(function(p){
+        html += '<div class="pratyaya-item"><span class="word">'+escapeHtml(p.word)+'</span>'
+          + '<div style="margin-top:4px;"><b>विश्लेषणम्:</b> '+escapeHtml(bi(p,'breakdown'))+'</div>'
+          + '<div style="margin-top:4px;"><b>प्रत्ययः:</b> '+escapeHtml(bi(p,'pratyaya_name'))+'</div>'
+          + '<div style="margin-top:4px;"><b>कार्यम्:</b> '+escapeHtml(bi(p,'function'))+'</div>'
+          + '</div>';
+      });
+      return html;
+    }
+
+    /* ========== COMPONENT 8: सन्धिः ========== */
+    if(key === 'sandhi'){
+      var html = '<div class="section-title">सन्धिः (Sound Changes)</div>';
+      g.sandhi.forEach(function(s){
+        var ruleShown = (lang==='ta') ? s.sandhi_rule_ta : s.sandhi_rule_sa;
+        html += '<div class="sandhi-item"><span class="loc">स्थानम्: '+escapeHtml(s.location)+'</span>'
+          + '<div style="margin-top:4px;"><b>परिणामः:</b> '+escapeHtml(s.result)+'</div>'
+          + '<div style="margin-top:4px;"><b>सन्धि-भेदः:</b> '+escapeHtml(bi(s,'sandhi_type'))+'</div>'
+          + '<div style="margin-top:4px;"><b>नियमः:</b> '+escapeHtml(ruleShown)+'</div>'
+          + '</div>';
+      });
+      return html;
+    }
+
+    /* ========== COMPONENT 9: समासः ========== */
+    if(key === 'samasa'){
+      var html = '<div class="section-title">समासः (Compound Analysis)</div>';
+      g.samasa.forEach(function(s){
+        var vigrahaShown = (lang==='ta') ? s.vigraha_ta : s.vigraha_sa;
+        html += '<div class="samasa-item"><span class="comp">'+escapeHtml(s.word)+'</span>'
+          + '<div style="margin-top:4px;"><b>प्रभेदः:</b> '+escapeHtml(bi(s,'compound_type'))+'</div>'
+          + '<div style="margin-top:4px;"><b>विग्रहः:</b> '+escapeHtml(vigrahaShown)+'</div>'
+          + '<div style="margin-top:4px;"><b>अर्थः:</b> '+escapeHtml(bi(s,'meaning'))+'</div>'
+          + '</div>';
+      });
+      return html;
+    }
+
+    /* ========== COMPONENT 10: छन्दस्/अलङ्कारः ========== */
+    if(key === 'chandas'){
+      var html = '<div class="section-title">छन्दस् (Prosody) & अलङ्कारः (Literary Devices)</div>';
+      html += '<div class="group-title">छन्दस्भेदः: '+escapeHtml(verses[current].chandas)+'</div>';
+      html += '<div class="group-note">'+escapeHtml(bi(g,'chandas_definition'))+'</div>';
+      html += '<div style="margin-top:12px;"><div class="group-title">गणनः (Scansion)</div>';
+      g.scansion.forEach(function(s){
+        html += '<div class="scansion-row"><div class="p">'+escapeHtml(s.text)+'</div><div class="m">'+s.matra+' mātrāḥ</div></div>';
+      });
+      html += '</div>';
+      if(g.alankara && g.alankara.length > 0){
+        html += '<div style="margin-top:12px;"><div class="group-title">अलङ्कारः</div>';
+        g.alankara.forEach(function(a){
+          html += '<div class="alankara-item"><div class="name">'+escapeHtml(a.name)+'</div>'
+            + '<div style="margin-top:4px; font-size:0.9rem;">'+escapeHtml(bi(a,'definition'))+'</div>'
+            + '</div>';
+        });
+        html += '</div>';
+      }
+      return html;
+    }
+
+    /* ========== COMPONENT 11: प्रश्नोत्तरी ========== */
+    if(key === 'quiz'){
+      return renderQuizTab();
+    }
+
+    return '<div class="pending-note">Data for this component not yet loaded.</div>';
+  }
+
+  function render(){
+    var v = verses[current];
+    var g = v.grammar;
+    
+    var html = '<div class="verse-card">'
+      + '<span class="verse-num-badge">श्लोकः '+escapeHtml(v.number)+'</span>'
+      + '<div class="moola"><div>'+escapeHtml(v.devanagari)+'</div></div>'
+      + '<div class="iast">'+escapeHtml(v.iast)+'</div>'
+      + '<div style="text-align:center; color:var(--muted); font-size:0.9rem; margin-top:6px;">'+escapeHtml(v.chandas)+'</div>'
+      + '<div class="tabs">';
+    
+    tabs.forEach(function(t){
+      html += '<button class="tab-btn'+(t.key===activeTab ? ' active' : '')+'" onclick="switchTab(\''+t.key+'\')">'+escapeHtml(t.label)+'</button>';
+    });
+    
+    html += '</div>';
+    
+    tabs.forEach(function(t){
+      html += '<div class="tab-panel'+(t.key===activeTab ? ' active' : '')+'" id="tab-'+t.key+'">'
+        + renderTabContent(t.key, g)
+        + '</div>';
+    });
+    
+    html += '</div>';
+    
+    document.getElementById('mainArea').innerHTML = html;
+    document.getElementById('verseSelect').value = current;
+    document.getElementById('counter').textContent = (current + 1) + ' / ' + verses.length;
+    document.getElementById('prevBtn').disabled = (current === 0);
+    document.getElementById('nextBtn').disabled = (current === verses.length - 1);
+  }
+
+  function switchTab(key){
+    activeTab = key;
+    render();
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', function(){
+    if(current > 0) { current--; resetQuizState(); render(); }
+  });
+  document.getElementById('nextBtn').addEventListener('click', function(){
+    if(current < verses.length - 1) { current++; resetQuizState(); render(); }
+  });
+
+  buildSelect();
+  buildLangToggle();
+  render();
+</script>
+
+</body>
+</html>
