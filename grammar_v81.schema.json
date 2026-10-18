@@ -1,0 +1,268 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "sanskrit-grammar-v8.1.schema.json",
+  "title": "Sanskrit Grammar 10+1 Component JSON v8.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "shlokas"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "8.1"
+    },
+    "shlokas": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/verse"
+      }
+    },
+    "_v81_labels": {
+      "type": "object",
+      "properties": {
+        "labels_sa": {
+          "type": "object"
+        },
+        "component_descriptions_sa": {
+          "type": "object"
+        },
+        "status_sa": {
+          "type": "object"
+        },
+        "quality_status_sa": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "present",
+        "absent",
+        "not_applicable",
+        "needs_review",
+        "unknown"
+      ]
+    },
+    "word": {
+      "type": "object",
+      "required": [
+        "id",
+        "sequence",
+        "word",
+        "surface",
+        "lemma_id",
+        "meaning_sa",
+        "meaning_en",
+        "meaning_ta"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+\\.w[0-9]{2}$"
+        },
+        "sequence": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "word": {
+          "type": "string",
+          "minLength": 1
+        },
+        "surface": {
+          "type": "string"
+        },
+        "lemma_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "meaning_sa": {
+          "type": "string"
+        },
+        "meaning_en": {
+          "type": "string"
+        },
+        "meaning_ta": {
+          "type": "string"
+        }
+      }
+    },
+    "verse": {
+      "type": "object",
+      "required": [
+        "shloka_metadata",
+        "COMPONENT_1_padaccheda",
+        "COMPONENT_2_anvaya",
+        "COMPONENT_3_padavigraha",
+        "COMPONENT_4_karaka",
+        "COMPONENT_5_shabdarupani",
+        "COMPONENT_6_dhaturupani",
+        "COMPONENT_7_pratyaya",
+        "COMPONENT_8_sandhi",
+        "COMPONENT_9_samasa",
+        "COMPONENT_10_chandas",
+        "_v81"
+      ],
+      "properties": {
+        "shloka_metadata": {
+          "type": "object",
+          "required": [
+            "id",
+            "devanagari"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "devanagari": {
+              "type": "string"
+            }
+          }
+        },
+        "COMPONENT_1_padaccheda": {
+          "type": "object",
+          "required": [
+            "word_count",
+            "padaccheda"
+          ],
+          "properties": {
+            "word_count": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "padaccheda": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/word"
+              }
+            }
+          }
+        },
+        "COMPONENT_2_anvaya": {
+          "type": "object",
+          "required": [
+            "anvaya_sa",
+            "anvaya_ta",
+            "saralartha",
+            "translation_en"
+          ]
+        },
+        "COMPONENT_3_padavigraha": {
+          "type": "object",
+          "required": [
+            "word_count",
+            "pada_vigraha"
+          ],
+          "properties": {
+            "word_count": {
+              "type": "integer"
+            },
+            "pada_vigraha": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "word_id",
+                  "sequence",
+                  "lemma_id"
+                ]
+              }
+            }
+          }
+        },
+        "COMPONENT_4_karaka": {
+          "type": "object",
+          "required": [
+            "karaka"
+          ],
+          "properties": {
+            "karaka": {
+              "type": "object"
+            }
+          }
+        },
+        "COMPONENT_5_shabdarupani": {
+          "type": "object",
+          "required": [
+            "stem_count",
+            "shabdarupani"
+          ]
+        },
+        "COMPONENT_6_dhaturupani": {
+          "type": "object",
+          "required": [
+            "dhaturupani"
+          ]
+        },
+        "COMPONENT_7_pratyaya": {
+          "type": "object",
+          "required": [
+            "word_count",
+            "pratyaya"
+          ],
+          "properties": {
+            "word_count": {
+              "type": "integer"
+            },
+            "pratyaya": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "word_id",
+                  "sequence",
+                  "status"
+                ]
+              }
+            }
+          }
+        },
+        "COMPONENT_8_sandhi": {
+          "type": "object",
+          "required": [
+            "junction_count",
+            "sandhi"
+          ]
+        },
+        "COMPONENT_9_samasa": {
+          "type": "object",
+          "required": [
+            "samasa"
+          ]
+        },
+        "COMPONENT_10_chandas": {
+          "type": "object",
+          "required": [
+            "chandas_name",
+            "scansion",
+            "alankara"
+          ]
+        },
+        "_v81": {
+          "type": "object",
+          "required": [
+            "schema_version",
+            "no_fabrication_policy",
+            "validation_required"
+          ],
+          "properties": {
+            "schema_version": {
+              "const": "8.1"
+            },
+            "no_fabrication_policy": {
+              "const": true
+            },
+            "validation_required": {
+              "const": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "description": "v8.1 grammar JSON. Machine-facing keys remain stable; all human-visible UI labels are supplied in Sanskrit through labels_sa/component_descriptions_sa/status_sa/quality_status_sa."
+}

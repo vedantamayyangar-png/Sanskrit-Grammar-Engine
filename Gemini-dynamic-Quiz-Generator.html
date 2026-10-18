@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanskrit AI Quiz Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; line-height: 1.6; }
+        .input-group { margin-bottom: 20px; }
+        input[type="text"] { padding: 10px; width: 70%; font-size: 16px; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #4CAF50; color: white; border: none; }
+        .quiz-container { margin-top: 30px; border-top: 2px solid #eee; padding-top: 20px; }
+        .question { font-weight: bold; margin-bottom: 10px; }
+        .option { display: block; margin: 8px 0; padding: 10px; background: #f9f9f9; border: 1px solid #ddd; cursor: pointer; border-radius: 4px; }
+        .option:hover { background: #f0f0f0; }
+        #loading { display: none; color: #666; font-style: italic; }
+    </style>
+</head>
+<body>
+
+    <h2>Sanskrit Quiz Generator</h2>
+    <p>Enter a root word or topic (e.g., "Gacchati", "Ram", "Dhatu") to generate a dynamic quiz.</p>
+
+    <div class="input-group">
+        <input type="text" id="wordInput" placeholder="e.g., पठति" value="पठति">
+        <button onclick="generateQuiz()">Generate Quiz</button>
+    </div>
+
+    <div id="loading">Generating quiz questions via Gemini AI...</div>
+    <div id="quizDisplay" class="quiz-container"></div>
+
+    <script>
+        // ⚠️ For prototyping only. Do not expose this key in a production website.
+        const API_KEY = "YOUR_GEMINI_API_KEY"; 
+        // Using gemini-1.5-flash as it is fast and handles JSON schemas perfectly
+        const API_URL = `https://googleapis.com\${API_KEY}`;
+
+        async function generateQuiz() {
+            const word = document.getElementById('wordInput').value.trim();
+            if (!word) return alert("Please enter a Sanskrit word!");
+
+            const loading = document.getElementById('loading');
+            const quizDisplay = document.getElementById('quizDisplay');
+            
+            loading.style.display = "block";
+            quizDisplay.innerHTML = "";
+
+            // Constructing a detailed prompt that strictly demands JSON structure
+            const prompt = `
+                You are a Sanskrit language expert. Generate a 3-question multiple-choice quiz about the Sanskrit word or concept: "\${word}".
+                Focus on its meaning, grammar rules, tense (Lakara), root (Dhatu), or prefix/suffix.
+                
+                You MUST respond ONLY with a valid JSON object matching this schema. Do not include markdown formatting like \`\`\`json.
+                
+                Schema:
+                {
+                  "quizTitle": "Title of the quiz",
+                  "questions": [
+                    {
+                      "questionText": "The Sanskrit grammar question?",
+                      "options": ["Option A", "Option B", "Option C", "Option D"],
+                      "correctAnswer": "The exact matching correct option string"
+                    }
+                  ]
+                }
+            `;
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: prompt }] }],
+                        generationConfig: {
+                            // Enforce JSON format output from the model
+                            responseMimeType: "application/json" 
+                        }
+                    })
+                });
+
+                const data = await response.json();
+                
+                // Extracting the raw text response text
+                const rawText = data.candidates[0].content.parts[0].text;
+                const quizData = JSON.parse(rawText);
+
+                renderQuiz(quizData);
+            } catch (error) {
+                console.error("Error generating quiz:", error);
+                quizDisplay.innerHTML = "<p style='color:red;'>Failed to generate quiz. Check console/API key.</p>";
+            } finally {
+                loading.style.display = "none";
+            }
+        }
+
+        function renderQuiz(quizData) {
+            const quizDisplay = document.getElementById('quizDisplay');
+            let html = `<h3>${quizData.quizTitle}</h3>`;
+
+            quizData.questions.forEach((q, qIndex) => {
+                html += `
+                    <div style="margin-bottom: 25px;">
+                        <div class="question">Q${qIndex + 1}: ${q.questionText}</div>
+                `;
+                q.options.forEach(option => {
+                    html += `
+                        <button class="option" onclick="checkAnswer(this, '${option.replace(/'/g, "\\'")}', '${q.correctAnswer.replace(/'/g, "\\'")}')">
+                            ${option}
+                        </button>
+                    `;
+                });
+                html += `</div>`;
+            });
+
+            quizDisplay.innerHTML = html;
+        }
+
+        function checkAnswer(buttonElement, selected, correct) {
+            if (selected === correct) {
+                buttonElement.style.background = "#c8e6c9"; // Green tint
+                alert("उत्तमम्! Correct Answer!");
+            } else {
+                buttonElement.style.background = "#ffcdd2"; // Red tint
+                alert(`Incorrect. The correct answer is: ${correct}`);
+            }
+        }
+    </script>
+</body>
+</html>

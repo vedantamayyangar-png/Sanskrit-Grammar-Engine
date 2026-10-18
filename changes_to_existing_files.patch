@@ -1,0 +1,451 @@
+diff --git a/02_Sanskrit_Grammar_Engine/scripts/citation_lookup.py b/02_Sanskrit_Grammar_Engine/scripts/citation_lookup.py
+index 5cdc9b4..ef02210 100644
+--- a/02_Sanskrit_Grammar_Engine/scripts/citation_lookup.py
++++ b/02_Sanskrit_Grammar_Engine/scripts/citation_lookup.py
+@@ -108,6 +108,30 @@ SANDHI_TYPE_CITATIONS = {
+     "jashtva": [
+         ("vyan-3", "जश्त्व सन्धिः", "8.2.39"),
+     ],
++    # ---- added in the Sarga-1 gold-standard pass: the oracle already emitted "satva-sandhiḥ"
++    # (samas tyāge) but it had no entry here, so it fell through to a transliterated label; the
++    # rest are produced by combined_splitter.deterministic_junction / split_fused_token.
++    "satva-sandhiḥ": [("visarga-3", "विसर्गस्य सकारः (विसर्जनीयस्य सः)", "8.3.34")],
++    "satva-> ṣṭutva-sandhiḥ": [("visarga-3", "विसर्जनीयस्य सः", "8.3.34"), ("vyan-2", "ष्टुत्व सन्धिः", "8.4.41")],
++    "anusvāra-sandhiḥ": [("vyan-6", "अनुस्वार सन्धिः (मोऽनुस्वारः)", "8.3.23")],
++    "sulopa-sandhiḥ": [("sandhi_rulebook.json-बहिः", "सुलोपः (एतत्तदोः सुलोपोऽकोरनञ्समासे हलि)", "6.1.132")],
++    "jaśtva-sandhiḥ": [("vyan-3", "जश्त्व सन्धिः (झलां जशोऽन्ते)", "8.2.39")],
++    "jaśtva-> pūrvasavarṇa-sandhiḥ": [("vyan-3", "जश्त्व सन्धिः", "8.2.39"),
++                                      ("vyan-14 (सन्दर्भः)", "पूर्वसवर्ण सन्धिः (झयो होऽन्यतरस्याम्)", "8.4.62")],
++    "jaśtva-> ścutva-sandhiḥ": [("vyan-3", "जश्त्व सन्धिः", "8.2.39"), ("vyan-1", "श्चुत्व सन्धिः", "8.4.40")],
++    "ścutva-sandhiḥ": [("vyan-1", "श्चुत्व सन्धिः (स्तोः श्चुना श्चुः)", "8.4.40")],
++    "anunāsika-sandhiḥ": [("vyan-5", "अनुनासिक सन्धिः (यरोऽनुनासिकेऽनुनासिको वा)", "8.4.45")],
++    "pūrvarūpa-sandhiḥ": [("svara-6", "पूर्वरूप सन्धिः (एङः पदान्तादति)", "6.1.109")],
++    "ayādi-sandhiḥ": [("svara-5", "अयादि सन्धिः (एचोऽयवायावः)", "6.1.78")],
++    "visarga-lopa (aḥ)": [("visarga-4b", "विसर्गलोपः (भोभगोअघोअपूर्वस्य योऽशि; लोपः शाकल्यस्य)", "8.3.17 → 8.3.19")],
++    "visarga-lopa (āḥ)": [("visarga-4b", "विसर्गलोपः (भोभगोअघोअपूर्वस्य योऽशि; लोपः शाकल्यस्य)", "8.3.17 → 8.3.19")],
++    "visarga-lopa (khar-para śar)": [("visarga-2", "विसर्गलोपः (खर्परे शरि वा विसर्गलोपो वक्तव्यः)", "8.3.36 वार्त्तिकम्")],
++    "ṅamuṭ-sandhiḥ": [("vyan-13", "ङमुडागमः (ङमो ह्रस्वादचि ङमुण्नित्यम्)", "8.3.32")],
++    "rutva-> satva (naś chavy apraśān)": [("sandhi_rulebook.json-बहिः", "नश्छव्यप्रशान् (रुत्वम्)", "8.3.7"),
++                                          ("visarga-3", "विसर्जनीयस्य सः", "8.3.34")],
++    "dīrgha-sandhiḥ": [("svara-1", "सवर्णदीर्घ सन्धिः (अकः सवर्णे दीर्घः)", "6.1.101")],
++    "guṇa-sandhiḥ": [("svara-2", "गुण सन्धिः (आद्गुणः)", "6.1.87")],
++    "vṛddhi-sandhiḥ": [("svara-3", "वृद्धि सन्धिः (वृद्धिरेचि)", "6.1.88")],
+ }
+ 
+ # Sandhi_type values that mean "checked, no real rule fired" -- must be
+@@ -143,6 +167,19 @@ def lookup_sandhi_citation(sandhi_type):
+ # tatpurusha/bahuvrihi/dvandva/avyayibhava arrays (dvigu and गति/प्रादि
+ # nested under tatpurusha in that file) by content.
+ # --------------------------------------------------------------------------- #
++DEVANAGARI_SAMASA_CITATIONS = [
++    ("नञ्तत्पुरुषः", "अष्टाध्यायी 2.2.6 (नञ्)"),
++    ("नञ्बहुव्रीहिः", "अष्टाध्यायी 2.2.24 (अनेकमन्यपदार्थे) सह वार्त्तिकम् (नञोऽस्त्यर्थानां…)"),
++    ("उपपदतत्पुरुषः", "अष्टाध्यायी 2.2.19 (उपपदमतिङ्)"),
++    ("कर्मधारयः", "अष्टाध्यायी 1.2.42 (तत्पुरुषः समानाधिकरणः कर्मधारयः); 2.1.57 (विशेषणं विशेष्येण बहुलम्)"),
++    ("बहुव्रीहिः", "अष्टाध्यायी 2.2.24 (अनेकमन्यपदार्थे)"),
++    ("द्वन्द्वः", "अष्टाध्यायी 2.2.29 (चार्थे द्वन्द्वः)"),
++    ("द्विगुः", "अष्टाध्यायी 2.1.52 (सङ्ख्यापूर्वो द्विगुः)"),
++    ("अव्ययीभावः", "अष्टाध्यायी 2.1.5 (अव्ययीभावः); 2.1.6"),
++    ("तत्पुरुषः", "अष्टाध्यायी 2.1.22 (तत्पुरुषः); 2.2.8 (षष्ठी)"),
++]
++
++
+ def lookup_samasa_citation(type_guess):
+     """
+     Returns (devanagari_label, citation_str, is_known) for a
+@@ -155,15 +192,22 @@ def lookup_samasa_citation(type_guess):
+     """
+     if type_guess.startswith("not a compound"):
+         return "-", "", True
++    # Devanagari type names produced by samasa_classifier.py (Sarga-1 pass): "<type> — <reason>"
++    for dev_type, cite in DEVANAGARI_SAMASA_CITATIONS:
++        if type_guess.startswith(dev_type):
++            return type_guess, cite, True
+     if type_guess.startswith("dvigu"):
++        # FIXED (Sarga-1 pass): was "2.1.51 (दvigu-1, तद्धितार्थद्विगुः)" -- a mixed-script typo, and
++        # 2.1.51 (तद्धितार्थोत्तरपदसमाहारे च) is the licensing rule, not the dvigu definition.
+         return ("द्विगुः (सङ्ख्यापूर्वपदः)",
+-                "अष्टाध्यायी 2.1.51 (दvigu-1, तद्धितार्थद्विगुः)", True)
++                "अष्टाध्यायी 2.1.52 (सङ्ख्यापूर्वो द्विगुः); 2.1.51 (तद्धितार्थोत्तरपदसमाहारे च)", True)
+     if type_guess.startswith("tatpuruSa (upasarga-compound"):
+         return ("प्रादितत्पुरुषः (उपसर्गपूर्वपदः)",
+                 "अष्टाध्यायी 2.2.18 (nan-4, प्रादिसमासः)", True)
+     if type_guess.startswith("nañ-tatpuruSa"):
++        # FIXED (Sarga-1 pass): was "2.2.61" -- the nañ-samāsa sūtra is 2.2.6 (नञ्).
+         return ("नञ्तत्पुरुषः",
+-                "अष्टाध्यायी 2.2.61 (nan-1, नञ्समासः)", True)
++                "अष्टाध्यायी 2.2.6 (नञ्)", True)
+     if type_guess.startswith("avyayibhava"):
+         return ("अव्ययीभावः (सम्भाव्यः)",
+                 "अष्टाध्यायी 2.1.6 (avyayibhava-1) -- अनिश्चितम्", True)
+diff --git a/03_Sandhi_and_Samasa_Tools/samasa/combined_splitter.py b/03_Sandhi_and_Samasa_Tools/samasa/combined_splitter.py
+index 2f1380d..c5d6d3c 100644
+--- a/03_Sandhi_and_Samasa_Tools/samasa/combined_splitter.py
++++ b/03_Sandhi_and_Samasa_Tools/samasa/combined_splitter.py
+@@ -105,6 +105,129 @@ from indic_transliteration.sanscript import transliterate as tl  # noqa: E402
+ from build_ramayana_input import parasavarna_normalize  # noqa: E402  (sandhi/build_ramayana_input.py)
+ 
+ 
++# --------------------------------------------------------------------------- #
++# DETERMINISTIC JUNCTION LAYER (added 2026-09-23, Sarga-1 gold-standard pass)
++#
++# restore_word_boundary() asks the forward sandhi engine "which pre-sandhi
++# pair reproduces the printed pair?" and then ranks candidates by
++# dictionary validation. Scoring all 708 printed-token junctions of Sarga 1
++# against the hand-written analysis showed it names only 88 of ~300 real
++# junction sandhis. The misses are almost all cases where the PRINTED
++# ending by itself proves that a sandhi rule applied -- a pada-final
++# anusvāra before a consonant (मोऽनुस्वारः), a pada-final द्/ग्/ड्/ब्
++# (जश्त्व -- a citation pada can never end in a voiced stop), च्/ज्/ञ् before a
++# palatal (श्चुत्व), स/एष before a consonant (सुलोप), a hiatus after अ/आ
++# (visarga lopa), a word ending in य्/व् (यण्) or आव्/आय् (अयादि) -- but the
++# oracle's dictionary tie-break lets the as-printed form win whenever the
++# restored citation form is not itself a headword (inflected words, verb
++# forms, pronouns). These rules are unambiguous from spelling alone, so
++# they are applied here as a FALLBACK whenever the oracle returns nothing
++# better than "as-printed". Each rule is a Pāṇinian sūtra, cited in the
++# same "name (a|p|s)" style the oracle already uses.
++# --------------------------------------------------------------------------- #
++_VOWEL_START = ("a", "ā", "i", "ī", "u", "ū", "ṛ", "ṝ", "ḷ", "e", "o", "'")
++_HARD_START = ("k", "c", "ṭ", "t", "p", "ś", "ṣ", "s")  # includes aspirates (kh, ch, ...)
++_VOICED_CONS = ("g", "j", "ḍ", "d", "b", "ṅ", "ñ", "ṇ", "n", "m", "y", "r", "l", "v", "h")
++_JUNCTION_PARTICLES_A = {"ca", "na", "iva", "eva", "ha", "sma", "atha", "tathā", "yathā",
++                         "hā", "vā", "mā", "sadā", "tadā", "yadā", "kadā", "sarvadā"}
++_TRUE_R_FINALS = {"punar", "antar", "prātar", "svar", "ahar", "dvār", "gir", "pur"}
++
++
++def _starts_consonant(tok):
++    return bool(tok) and not tok.startswith(_VOWEL_START)
++
++
++def _starts_soft(tok):
++    return bool(tok) and (tok.startswith(_VOWEL_START) or tok.startswith(_VOICED_CONS))
++
++
++def deterministic_junction(t1, t2, score=None):
++    """Return (sandhi_type, sutra, left_citation, right_citation) for a printed IAST junction
++    whose ending alone proves a sandhi rule applied, else None. Never guesses between two
++    genuinely possible readings -- ambiguous patterns (e.g. -ā before a voiced consonant,
++    which may be a real feminine -ā or a lost -āḥ) are deliberately left out."""
++    if not t1 or not t2:
++        return None
++    last2 = t1[-2:]
++    # 1. anusvāra before a consonant: final m -> ṃ
++    if t1.endswith("ṃ") and _starts_consonant(t2):
++        return ("anusvāra-sandhiḥ", "mo'nusvāraḥ (8|3|23)", t1[:-1] + "m", t2)
++    # 2. saḥ / eṣaḥ lose visarga before any consonant
++    if t1 in ("sa", "eṣa") and _starts_consonant(t2):
++        return ("sulopa-sandhiḥ", "etattadoḥ sulopo'koranañsamāse hali (6|1|132)", t1 + "ḥ", t2)
++    # 3. -d + dh- : t + h -> d + dh (jhayo ho'nyatarasyām) -- only when a lexicon scorer says
++    #    the h- reading is the better word (real "tad dhanam"-type junctions stay plain jaśtva)
++    if t1.endswith("d") and t2.startswith("dh") and score is not None:
++        if score("h" + t2[2:]) > score(t2):
++            return ("jaśtva-> pūrvasavarṇa-sandhiḥ",
++                    "jhalāṃ jaśo'nte (8|2|39)-> jhayo ho'nyatarasyām (8|4|62)",
++                    t1[:-1] + "t", "h" + t2[2:])
++    # 4. jaśtva: a pada can never end in a voiced stop
++    jash = {"d": "t", "g": "k", "ḍ": "ṭ", "b": "p"}
++    if t1[-1] in jash and len(t1) > 1 and _starts_soft(t2):
++        return ("jaśtva-sandhiḥ", "jhalāṃ jaśo'nte (8|2|39)", t1[:-1] + jash[t1[-1]], t2)
++    # 5. ścutva: t + c/ch -> c, t + j/jh -> j, n + ś/c/j -> ñ
++    if t1.endswith("c") and t2.startswith("c"):
++        return ("ścutva-sandhiḥ", "stoḥ ścunā ścuḥ (8|4|40)", t1[:-1] + "t", t2)
++    if t1.endswith("j") and t2.startswith("j"):
++        return ("jaśtva-> ścutva-sandhiḥ", "jhalāṃ jaśo'nte (8|2|39)-> stoḥ ścunā ścuḥ (8|4|40)",
++                t1[:-1] + "t", t2)
++    if t1.endswith("ñ") and t2.startswith(("ś", "c", "j")):
++        return ("ścutva-sandhiḥ", "stoḥ ścunā ścuḥ (8|4|40)", t1[:-1] + "n", t2)
++    # 6. anunāsika: t + nasal -> n, only for closed forms whose t-reading is certain
++    if t2.startswith(("n", "m")) and (t1.endswith("īn") or t1 in ("cin", "tan", "etan", "yan", "kiṃcin")):
++        return ("anunāsika-sandhiḥ", "yaro'nunāsike'nunāsiko vā (8|4|45)", t1[:-1] + "t", t2)
++    # 7. visarga -> r after a vowel other than a/ā, before a voiced sound
++    if t1.endswith("r") and len(t1) > 2 and t1[-2] not in ("a", "ā") and _starts_soft(t2):
++        left = t1 if t1 in _TRUE_R_FINALS else t1[:-1] + "ḥ"
++        return ("repha-sandhiḥ", "sasajuṣo ruḥ (8|2|66)", left, t2)
++    if t1 in _TRUE_R_FINALS and _starts_soft(t2):
++        return ("repha-sandhiḥ", "sasajuṣo ruḥ (8|2|66)", t1, t2)
++    # 8. -o before a voiced consonant / avagraha: aḥ -> o
++    if t1.endswith("o") and len(t1) > 1:
++        if t2.startswith("'"):
++            return ("rutva -> utva-> guṇa-> pūrvarupa",
++                    "sasajuṣo ruḥ (8|2|66)-> ato roraplutādaplute (6|1|113)-> ād guṇaḥ (6|1|87)-> eṅaḥ padāntādati (6|1|109)",
++                    t1[:-1] + "aḥ", "a" + t2[1:])
++        if t2.startswith(_VOICED_CONS):
++            return ("rutva-> utva-> guṇa-sandhiḥ",
++                    "sasajuṣo ruḥ (8|2|66)-> haśi ca (6|1|114)-> ād guṇaḥ (6|1|87)", t1[:-1] + "aḥ", t2)
++    # 8b. n + t/c -> ṃs/ṃś (naś chavy apraśān 8.3.7): bhagavāṃs tatra, paśyaṃs tat
++    if t1.endswith(("ṃs", "ṃś", "ṃṣ")) and t2.startswith(("t", "c", "ṭ")):
++        return ("rutva-> satva (naś chavy apraśān)", "naś chavy apraśān (8|3|7)-> visarjanīyasya saḥ (8|3|34)",
++                t1[:-2] + "n", t2)
++    # 9. visarga -> s/ś/ṣ before a hard dental/palatal/retroflex
++    if t1.endswith("ś") and t2.startswith(("c", "ś")):
++        return ("satva-> ścutva-sandhiḥ", "visarjanīyasya saḥ (8|3|34)-> stoḥ ścunā ścuḥ (8|4|40)", t1[:-1] + "ḥ", t2)
++    if t1.endswith("s") and t2.startswith("t"):
++        return ("satva-sandhiḥ", "visarjanīyasya saḥ (8|3|34)", t1[:-1] + "ḥ", t2)
++    if t1.endswith("ṣ") and t2.startswith("ṭ"):
++        return ("satva-> ṣṭutva-sandhiḥ", "visarjanīyasya saḥ (8|3|34)-> ṣṭunā ṣṭuḥ (8|4|41)", t1[:-1] + "ḥ", t2)
++    # 10. -e + avagraha: pūrvarūpa
++    if t1.endswith(("e", "o")) and t2.startswith("'") and not t1.endswith("o"):
++        return ("pūrvarūpa-sandhiḥ", "eṅaḥ padāntādati (6|1|109)", t1, "a" + t2[1:])
++    # 11. ayādi: āv / āy before a vowel
++    if last2 in ("āv", "āy") and t2.startswith(_VOWEL_START):
++        return ("ayādi-sandhiḥ", "eco'yavāyāvaḥ (6|1|78)", t1[:-2] + ("au" if last2 == "āv" else "ai"), t2)
++    # 11b. ṅamuṭ: a short vowel + ṅ/ṇ/n doubles before a vowel (ṅamo hrasvād aci ṅamuṇ nityam 8.3.32)
++    if t1.endswith(("nn", "ṅṅ", "ṇṇ")) and t2.startswith(_VOWEL_START[:-1]) and len(t1) > 3:
++        return ("ṅamuṭ-sandhiḥ", "ṅamo hrasvādaci ṅamuṇnityam (8|3|32)", t1[:-1], t2)
++    # 12. yaṇ: a word ending in a semivowel after a consonant
++    if len(t1) > 1 and t1[-1] in ("y", "v") and t1[-2] not in "aāiīuūṛeo" and t2.startswith(_VOWEL_START):
++        return ("yaṇ", "iko yaṇaci (6|1|77)", t1[:-1] + ("i" if t1[-1] == "y" else "u"), t2)
++    # 13. hiatus after a/ā: a visarga was dropped (bho-bhago-agho-apūrvasya yo'śi, lopaḥ śākalyasya)
++    if t2.startswith(_VOWEL_START[:-1]) and t1 not in _JUNCTION_PARTICLES_A:
++        if t1.endswith("ā") and len(t1) > 1:
++            return ("visarga-lopa (āḥ)", "bhobhagoaghoapūrvasya yo'śi (8|3|17)-> lopaḥ śākalyasya (8|3|19)", t1 + "ḥ", t2)
++        if t1.endswith("a") and not t1.endswith(("ai", "au")) and len(t1) > 1:
++            return ("visarga-lopa (aḥ)", "bhobhagoaghoapūrvasya yo'śi (8|3|17)-> lopaḥ śākalyasya (8|3|19)", t1 + "ḥ", t2)
++    # 14. visarga dropped before a sibilant + hard consonant (vārttika khar-pare śari vā visargalopo vaktavyaḥ)
++    if t1.endswith("a") and t1 not in _JUNCTION_PARTICLES_A and len(t1) > 3 \
++            and t2[:1] in ("s", "ś", "ṣ") and t2[1:2] in ("k", "c", "ṭ", "t", "p", "m", "n"):
++        return ("visarga-lopa (khar-para śar)", "kharpare śari vā visargalopo vaktavyaḥ (vārttika on 8|3|36)", t1 + "ḥ", t2)
++    return None
++
++
+ class CombinedSplitter:
+     def __init__(self, sqlite_dict_path=DEFAULT_SQLITE_DICT):
+         self.sqlite_dict_path = sqlite_dict_path
+@@ -114,6 +237,24 @@ class CombinedSplitter:
+         self._db_path = sqlite_dict_path
+ 
+     # ------------------------------------------------------------- utils --
++    def _iast_word_score(self, iast_word):
++        """Rough lexical plausibility of an IAST word, used only to break the one genuinely
++        ambiguous deterministic-junction case (d + dh-: is the second word dh- or h-?).
++        2 = the word (or its stem after a common ending, or a kṛt-resolved form) is attested;
++        1 = its first 3+ letters are an attested stem (first member of a compound);
++        0 = nothing found."""
++        deva = parasavarna_normalize(tl(iast_word, sanscript.IAST, sanscript.DEVANAGARI))
++        try:
++            if self._is_dictionary_word(deva) or self.sp.resolve_pratyaya(iast_word, scheme="iast"):
++                return 2
++        except Exception:
++            pass
++        wx = self.sp._to_wx(iast_word, sanscript.IAST)
++        for n in range(len(wx) - 1, 2, -1):
++            if self.sp.dictionary and wx[:n] in self.sp.dictionary:
++                return 1
++        return 0
++
+     def _is_dictionary_word(self, deva_piece):
+         """
+         Does `deva_piece` resolve to a real dictionary headword, either
+@@ -373,6 +514,14 @@ class CombinedSplitter:
+             except Exception:
+                 cands = []
+             junctions[i] = cands[0] if cands else None
++            # Deterministic fallback (see deterministic_junction above): only when the oracle
++            # found nothing better than the printed form itself.
++            if junctions[i] is None or junctions[i].get("sandhi_type") == "as-printed":
++                det = deterministic_junction(iast_tokens[i], iast_tokens[i + 1], score=self._iast_word_score)
++                if det is not None:
++                    styp, sutra, left, right = det
++                    junctions[i] = {"left": left, "right": right, "sandhi_type": styp,
++                                    "sutra": sutra, "dict_backed": None, "source": "deterministic"}
+ 
+         # Citation forms, left-to-right -- mirrors restore_tokens()'s own
+         # logic exactly (an avagraha-restored token's real ENDING, fixed
+@@ -387,7 +536,9 @@ class CombinedSplitter:
+                 citation[i] = best["left"]
+             if best["right"] != iast_tokens[i + 1]:
+                 citation[i + 1] = best["right"]
+-        citation = [c.lstrip("'") for c in citation]
++        # An avagraha stands for an elided initial अ (एङः पदान्तादति): restore it rather than
++        # dropping the apostrophe -- "samartho 'si" is samarthaḥ + asi, not + si (Sarga-1 pass fix).
++        citation = [("a" + c[1:]) if c.startswith("'") else c for c in citation]
+ 
+         rows = []
+         for i, word in enumerate(iast_tokens):
+@@ -410,17 +561,152 @@ class CombinedSplitter:
+             # real false samasa split (मुनिपुंगवम् -> मुनि+पुंग+वम् instead
+             # of मुनि+पुङ्गवम्) purely from the un-normalized spelling not
+             # matching the dictionary's own headword form.
++            token_split = self.split_fused_token(citation[i])
+             deva_citation = parasavarna_normalize(
+-                tl(citation[i], sanscript.IAST, sanscript.DEVANAGARI))
+-            samasa = self._best_samasa_decomposition(deva_citation)
++                tl(token_split["pieces"][-1] if token_split else citation[i], sanscript.IAST, sanscript.DEVANAGARI))
++            legacy = self._best_samasa_decomposition(deva_citation)
++            samasa = self._classified_samasa(token_split["pieces"][-1] if token_split else citation[i])
++            if samasa is None and self._classifier() is False:
++                samasa = legacy         # morphology data unavailable: old behaviour
+ 
+             rows.append({
+                 "word": word, "citation_form": citation[i],
+                 "sandhi_rule": sandhi_rule, "sandhi_sutra": sandhi_sutra,
+                 "sandhi_vigraha": sandhi_vigraha, "samasa": samasa,
++                "samasa_legacy": legacy,
++                "token_split": token_split["pieces"] if token_split else None,
++                "token_split_sandhi": token_split["sandhi"] if token_split else None,
+             })
+         return rows
+ 
++    # ------------------------------------------------ fused printed tokens --
++    # GRETIL prints some genuine two-word sandhi fusions as ONE token (caiva = ca + eva,
++    # sītāpy = sītā + api, tasyābhiṣeka… = tasya + abhiṣeka…). analyze_pada_line only looks at
++    # junctions BETWEEN printed tokens, so these were invisible (PROJECT_STATE.md open item 8:
++    # caitat). Running the recursive splitter on every token is the change already proven to
++    # cause ~90% false positives, so this is deliberately narrow: a token is split only if
++    #   (1) the whole token is NOT already a validated simple word (pada_analyser score >= 3, not
++    #       a compound guess), and
++    #   (2) the left piece is a closed-class word (particle / pronoun / adverb) OR carries an
++    #       overt inflection (verb, gerund, case ending) -- a compound's first member never does,
++    #       which is what separates tasya+abhiṣeka (two words) from kausalyā+ānanda (compound);
++    #   (3) the right piece is itself a plausible word (score >= 2).
++    _CLOSED_LEFT = {"ca", "na", "sa", "tu", "hi", "iva", "eva", "iti", "api", "atha", "tatra", "yatra",
++                    "sadā", "sarvadā", "tadā", "yadā", "tena", "tasya", "asya", "tathā", "yathā",
++                    "evam", "punar", "saha", "ha", "vā", "mā", "tataḥ", "yena", "yasya", "kim"}
++    _CLOSED_RIGHT = {"api", "iti", "eva", "atha", "iva", "asya", "etat", "etad", "ātmānam", "asmin",
++                     "idam", "ayam", "enam", "eṣaḥ", "api"}
++
++    def _pa(self):
++        if getattr(self, "_pada_analyser", None) is None:
++            morph = os.path.normpath(os.path.join(HERE, "..", "morphology"))
++            if morph not in sys.path:
++                sys.path.insert(0, morph)
++            try:
++                from pada_analyser import PadaAnalyser
++                self._pada_analyser = PadaAnalyser()
++            except Exception:           # morphology data missing: feature silently off
++                self._pada_analyser = False
++        return self._pada_analyser
++
++    def _classifier(self):
++        """samasa_classifier.SamasaClassifier sharing this splitter's PadaAnalyser (lazy), or
++        False if the morphology data is not available."""
++        if getattr(self, "_samasa_classifier", None) is None:
++            pa = self._pa()
++            if not pa:
++                self._samasa_classifier = False
++            else:
++                from samasa_classifier import SamasaClassifier
++                self._samasa_classifier = SamasaClassifier(pa)
++        return self._samasa_classifier
++
++    def _classified_samasa(self, iast_word):
++        """Samāsa decision from samasa_classifier (ending stripped first, lexicon-validated members,
++        explicit type rule). Returns the analyze_pada_line samasa shape, or None."""
++        sc = self._classifier()
++        if not sc:
++            return None
++        try:
++            res = sc.analyse(iast_word, scheme="iast")
++        except Exception:
++            return None
++        if not res:
++            return None
++        return {"type_guess": f"{res['type']} — {res['reason']}", "type": res["type"],
++                "members": res["members"], "confidence": res["confidence"],
++                "stem": res["stem"], "source": "samasa_classifier"}
++
++    def _word_score(self, iast):
++        pa = self._pa()
++        if not pa:
++            return 0, None
++        rd = pa.analyse(iast, scheme="iast", max_readings=1)
++        if not rd:
++            return 0, None
++        return rd[0]["_score"], rd[0]
++
++    def split_fused_token(self, iast_token):
++        """Return {"pieces": [left, right], "sandhi": (type, sutra)} or None."""
++        t = iast_token
++        if len(t) < 4 or not self._pa():
++            return None
++        whole, wr = self._word_score(t)
++        whole_is_word = whole >= 2.5 and not (wr and wr.get("members"))
++        whole_is_compound = bool(wr and wr.get("members")) and whole >= 2
++        cands = []
++        for k in range(1, len(t) - 1):
++            c = t[k]
++            left, right = t[:k], t[k + 1:]
++            opts = []
++            if c == "ā":
++                opts += [(left + "a", "a" + right, "dīrgha-sandhiḥ", "akaḥ savarṇe dīrghaḥ (6|1|101)"),
++                         (left + "a", "ā" + right, "dīrgha-sandhiḥ", "akaḥ savarṇe dīrghaḥ (6|1|101)"),
++                         (left + "ā", "a" + right, "dīrgha-sandhiḥ", "akaḥ savarṇe dīrghaḥ (6|1|101)"),
++                         (left + "ā", "ā" + right, "dīrgha-sandhiḥ", "akaḥ savarṇe dīrghaḥ (6|1|101)")]
++            elif c == "e" and not t[k - 1:k] in ("a", "ā"):
++                opts += [(left + "a", "i" + right, "guṇa-sandhiḥ", "ād guṇaḥ (6|1|87)"),
++                         (left + "ā", "i" + right, "guṇa-sandhiḥ", "ād guṇaḥ (6|1|87)")]
++            elif c == "o":
++                opts += [(left + "a", "u" + right, "guṇa-sandhiḥ", "ād guṇaḥ (6|1|87)"),
++                         (left + "ā", "u" + right, "guṇa-sandhiḥ", "ād guṇaḥ (6|1|87)")]
++            elif t[k:k + 2] == "ai":
++                right = t[k + 2:]
++                opts += [(left + "a", "e" + right, "vṛddhi-sandhiḥ", "vṛddhireci (6|1|88)"),
++                         (left + "ā", "e" + right, "vṛddhi-sandhiḥ", "vṛddhireci (6|1|88)"),
++                         (left + "a", "ai" + right, "vṛddhi-sandhiḥ", "vṛddhireci (6|1|88)")]
++            elif c in ("y", "v") and t[k + 1:k + 2] in ("a", "ā", "u", "e", "o") and t[k - 1:k] not in "aāiīuūeo":
++                opts += [(left + ("i" if c == "y" else "u"), right, "yaṇ", "iko yaṇaci (6|1|77)")]
++            for l, r, styp, sutra in opts:
++                if len(l) < 2 or len(r) < 2:
++                    continue
++                closed_l, closed_r = l in self._CLOSED_LEFT, r in self._CLOSED_RIGHT
++                ls, lr = self._word_score(l)
++                if not closed_l:
++                    if lr is None or lr.get("members") or ls < (2 if closed_r else 3):
++                        continue
++                    if styp == "yaṇ" and lr["type"] != "verb":
++                        continue        # i/u-final nouns are too often compound first members
++                    overt = (lr["type"] == "verb"
++                             or (lr["type"] == "avyaya" and lr.get("kind") in ("krdanta", "taddhita"))
++                             or (lr["type"] == "noun" and lr.get("case") != 8
++                                 and lr["stem"] != tl(l, sanscript.IAST, sanscript.DEVANAGARI)))
++                    if not (overt or closed_r):
++                        continue
++                rs, rr = self._word_score(r)
++                if rs < 2 and not closed_r:
++                    continue
++                if whole_is_word and not (closed_l and closed_r) and not (closed_l and rs > whole + 0.3):
++                    continue            # the unsplit token is already a good word: keep it
++                if whole_is_compound and not closed_r and (rr is None or rr.get("members") or rs <= whole):
++                    continue            # cāru+nisvana is a better compound than ca + āru-nisvana
++                cands.append((ls + rs + (1 if closed_l else 0) + (1 if closed_r else 0), l, r, styp, sutra))
++        if not cands:
++            return None
++        cands.sort(key=lambda c: (-round(c[0], 6), c[1], c[2]))
++        _, l, r, styp, sutra = cands[0]
++        return {"pieces": [l, r], "sandhi": (styp, sutra)}
++
+     def split_word(self, deva_word):
+         """
+         Run the two-tool pipeline on a single continuous Devanagari word
+diff --git a/03_Sandhi_and_Samasa_Tools/samasa/samasa_splitter.py b/03_Sandhi_and_Samasa_Tools/samasa/samasa_splitter.py
+index 6dcc200..32027b0 100644
+--- a/03_Sandhi_and_Samasa_Tools/samasa/samasa_splitter.py
++++ b/03_Sandhi_and_Samasa_Tools/samasa/samasa_splitter.py
+@@ -1545,7 +1545,10 @@ CASE_ENDING_TABLE_WX = [
+     ("vAn", "nominative", "singular", "-vat stem (e.g. balavAn, bhagavAn)"),
+     ("Iyam", "nominative", "singular", "fem I-stem/pronoun (iyam)"),
+     ("asya", "genitive", "singular", "a-stem masc/neut gen sg (e.g. rAmasya)"),
+-    ("Anam", "genitive", "plural", "a-stem gen pl (e.g. narANAm -- approximate)"),
++    # FIXED (Sarga-1 gold-standard pass): was "Anam" -- the a-stem genitive plural is -ānām
++    # (WX "AnAm"), so the old entry never matched a real genitive plural (prajānām, rakṣasām...).
++    ("AnAm", "genitive", "plural", "a-stem gen pl (e.g. narANAm -- approximate)"),
++    ("ANAm", "genitive", "plural", "a-stem gen pl after r/ṣ (ṇatva), e.g. rAmANAm"),
+     ("eRu", "locative", "plural", "a-stem loc pl (e.g. narezu)"),
+     ("AByAm", "instrumental", "dual", ""),
+     ("Aw", "ablative", "singular", "a-stem abl sg (e.g. grAmAw)"),
+@@ -1553,7 +1556,13 @@ CASE_ENDING_TABLE_WX = [
+     ("An", "accusative", "plural", "a-stem masc acc pl (ambiguous w/ -mat/-vat nom sg, see above)"),
+     ("aH", "nominative", "singular", "a-stem masc nom sg (e.g. rAmaH)"),
+     ("am", "accusative", "singular", "a-stem masc acc sg / neut nom-acc sg"),
+-    ("ena", "instrumental", "singular", "a-stem masc/neut inst sg (e.g. rAmeRa)"),
++    ("ena", "instrumental", "singular", "a-stem masc/neut inst sg (e.g. vanena)"),
++    # ADDED (Sarga-1 pass): the ṇatva form -eṇa (WX "eNa": rāmeṇa, cāritreṇa) was missing, so every
++    # instrumental after r/ṛ/ṣ went unrecognised.
++    ("eNa", "instrumental", "singular", "a-stem inst sg after r/ṣ (ṇatva), e.g. rAmeNa"),
++    ("EH", "instrumental", "plural", "a-stem inst pl (e.g. janaiH)"),
++    ("eByaH", "dative", "plural", "a-stem dat/abl pl -- ambiguous with ablative"),
++    ("ayoH", "genitive", "dual", "a-stem gen/loc dual -- ambiguous with locative"),
+     ("Aya", "dative", "singular", "a-stem masc/neut dat sg"),
+     ("iH", "nominative", "singular", "i-stem masc/fem nom sg (e.g. vAlmIkiH)"),
+     ("uH", "nominative", "singular", "u-stem masc/fem nom sg (e.g. guruH)"),

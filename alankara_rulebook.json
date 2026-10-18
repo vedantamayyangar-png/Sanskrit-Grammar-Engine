@@ -1,0 +1,208 @@
+{
+  "title": "अलङ्कारः — The Rhetorical Figures (Alaṅkāra) Rule Book",
+  "subtitle": "Compiled from classroom source material on शब्दालङ्कार and अर्थालङ्कार (word-figures and meaning-figures), cross-referenced to standard classical alaṅkāra-śāstra terminology",
+  "source_note": "Compiled from a single classroom source PDF ('08_अलङ्कारः.pdf'). IMPORTANT STRUCTURAL NOTE: unlike sandhi/samāsa/natva (which are Pāṇinian/vyākaraṇa topics governed by the Aṣṭādhyāyī), अलङ्कारशास्त्र (poetics/rhetoric) is a SEPARATE traditional discipline with its own classical authorities (Bharata's Nāṭyaśāstra, Daṇḍin's Kāvyādarśa, Mammaṭa's Kāvyaprakāśa, Viśvanātha's Sāhityadarpaṇa, etc.), not numbered by Aṣṭādhyāyī sūtras at all. Accordingly, ashtadhyayi_ref is null throughout this file -- it would be actively misleading to invent Pāṇinian citations for this material. The 'sutra_devanagari' field is used instead for the PDF's own definitional one-liners (which function like sūtras pedagogically, even though they are not from the Aṣṭādhyāyī), and book_ref points to standard classical alaṅkāra treatises for further reading, without claiming a specific verified verse-number from any of them (I did not independently verify exact kārikā numbers against a critical edition).",
+  "how_to_read": {
+    "upameya": "उपमेयम् -- the thing being described/compared",
+    "upamana": "उपमानम् -- the thing it is compared to",
+    "samanya_dharma": "सामान्यधर्मः -- the shared quality justifying the comparison",
+    "upamana_vachaka": "उपमानवाचकम् -- the comparison-word itself (इव, वत्, सदृश, यथा etc.)",
+    "process": "the structural mechanism that defines this figure"
+  },
+  "shabda_alankara": [
+    {
+      "id": "alankara-1",
+      "sanskrit_name": "अलङ्कारस्य सामान्यपरिभाषा",
+      "english_name": "Definition: alaṅkāra as ornament/embellishment of speech",
+      "rule": "अलं करोति इति अलङ्कारः -- 'that which adorns/embellishes' is called अलङ्कार. In everyday usage the word means ordinary physical ornament (वस्त्रालङ्कारः, केशालङ्कारः etc.); in literary usage (साहित्ये/काव्ये) it means a deliberate, patterned arrangement of syllables/words (वर्णानां/शब्दानां विन्यासः) that enhances the beauty (सौन्दर्यम्) of a text. Alaṅkāra divides into two broad classes: शब्दालङ्कारः (figures depending on the actual sound/wording) and अर्थालङ्कारः (figures depending on the meaning, which would survive even if paraphrased into different words).",
+      "sutra_devanagari": "अलं करोति इति अलङ्कारः",
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "08_अलङ्कारः.pdf",
+      "process": "definitional",
+      "examples": []
+    },
+    {
+      "id": "alankara-2",
+      "sanskrit_name": "छेकानुप्रासः",
+      "english_name": "Chekānuprāsa: a single repetition of a similar consonant-cluster/sound",
+      "rule": "When a similar sound (सजातीयवर्णः, meaning a full vowel+consonant unit, not just the bare consonant) occurs just ONE additional time (एकवारम् आवर्तनम्) in prose or verse, that is called छेकानुप्रासः.",
+      "sutra_devanagari": null,
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "08_अलङ्कारः.pdf; cf. Mammaṭa, Kāvyaprakāśa, chapter on śabdālaṅkāra",
+      "process": "एकवारम् समान-वर्ण-आवर्तनम्",
+      "examples": [
+        {
+          "sandhi": "शारदा शारदाम्भोजवदना वदनाम्बुजे",
+          "gloss": "the 'वदन' sound-cluster repeats once"
+        }
+      ]
+    },
+    {
+      "id": "alankara-3",
+      "sanskrit_name": "वृत्त्यनुप्रासः",
+      "english_name": "Vṛttyanuprāsa: repeated (more than once) repetition of a similar sound",
+      "rule": "When the same sound/sound-cluster (सजातीय वर्णः or वर्णसमुदायः) recurs MANY times (अनेकवारम् आवर्तनम्), not just once, that is called वृत्त्यनुप्रासः -- distinguished from छेकानुप्रासः purely by the number of repetitions.",
+      "sutra_devanagari": null,
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "08_अलङ्कारः.pdf",
+      "process": "अनेकवारम् समान-वर्ण-आवर्तनम्",
+      "examples": [
+        {
+          "sandhi": "नव स्तन्यं मन्ये धरणिधरकन्ये...",
+          "gloss": "a well-known repeated-alliteration example"
+        }
+      ]
+    },
+    {
+      "id": "alankara-4",
+      "sanskrit_name": "यमकम्",
+      "english_name": "Yamaka: a repeated sound-sequence that carries a DIFFERENT meaning each time",
+      "rule": "When a sound or sound-sequence repeats multiple times (as in वृत्त्यनुप्रासः) but, crucially, conveys a DIFFERENT meaning (भिन्नभिन्नम् अर्थम्) at each occurrence, that is called यमकम् -- distinguished from वृत्त्यनुप्रासः by this meaning-shift across repetitions, which is itself the source of the figure's cleverness.",
+      "sutra_devanagari": null,
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "08_अलङ्कारः.pdf",
+      "process": "अनेकवारम् समान-वर्ण-आवर्तनम्, प्रतिवारं भिन्नार्थसूचनं च",
+      "examples": [
+        {
+          "sandhi": "सरस्वति प्रसादं मे स्थिरति चित्तसरस्वति। सरस्वति कुरु क्षेत्रकुरुक्षेत्रसरस्वति॥",
+          "gloss": "the phrase 'सरस्वति'/'कुरुक्षेत्र' recurs with shifting sense (goddess vs. one's own mental clarity vs. place-name) across the verse"
+        }
+      ]
+    }
+  ],
+  "artha_alankara": [
+    {
+      "id": "alankara-5",
+      "sanskrit_name": "उपमालङ्कारः",
+      "english_name": "Upamā: simile -- explicit comparison of two distinct things sharing a quality",
+      "rule": "The most prominent and famous of the अर्थालङ्कारs. One thing (उपमेयम्, the subject being described) is compared to another (उपमानम्) via an explicit comparison-word (उपमानवाचकम्: इव, वत्, सदृश, यथा etc.), on the basis of a shared quality (सामान्यधर्मः). When all four components (उपमेय, उपमान, सामान्यधर्म, उपमानवाचक) are explicitly present, it is called पूर्णोपमा (\"complete\" simile); when the सामान्यधर्म is left unstated but understood, it is called लुप्तोपमा (\"elliptical\" simile).",
+      "sutra_devanagari": null,
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "08_अलङ्कारः.pdf; cf. Daṇḍin, Kāvyādarśa, and Mammaṭa, Kāvyaprakāśa, on upamā and its subtypes",
+      "process": "उपमेयस्य उपमानेन सह सामान्यधर्मद्वारा तुलना, उपमानवाचकयुक्ता",
+      "examples": [
+        {
+          "sandhi": "मुखं चन्द्रः इव सुन्दरम्",
+          "gloss": "उपमेय=मुखम्, उपमान=चन्द्रः, सामान्यधर्म=सुन्दरम्, उपमानवाचक=इव — पूर्णोपमा"
+        },
+        {
+          "sandhi": "वाणी सुधा इव अस्ति",
+          "gloss": "no सामान्यधर्म stated (implied: आह्लादकरी) — लुप्तोपमा"
+        }
+      ]
+    },
+    {
+      "id": "alankara-6",
+      "sanskrit_name": "रूपकालङ्कारः",
+      "english_name": "Rūpaka: metaphor -- the identity (not mere comparison) of upameya and upamāna",
+      "rule": "Where उपमा merely COMPARES two things (keeping them distinct), रूपक asserts their identity (अभेदः): the उपमेय IS declared to be the उपमान outright, with no comparison-word at all. The characterizing insight is इदम् एव एतद् (\"this itself is that\").",
+      "sutra_devanagari": null,
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "08_अलङ्कारः.pdf",
+      "process": "उपमेयस्य उपमाने अभेद-आरोपणम्, न तु तुलना",
+      "examples": [
+        {
+          "sandhi": "रामस्य मुखचन्द्रं दृष्ट्वा प्रजाः सन्तुष्टाः",
+          "gloss": "मुखं एव चन्द्रः -- the face IS declared a moon, not merely 'moon-like'"
+        },
+        {
+          "sandhi": "अहं वचनकुसुमैः अर्चयामि",
+          "gloss": "वचनानि एव कुसुमानि -- words themselves declared to be flowers"
+        },
+        {
+          "sandhi": "तस्याः वदनसरोजं पश्य",
+          "gloss": "वदनम् एव सरोजम्"
+        }
+      ]
+    },
+    {
+      "id": "alankara-7",
+      "sanskrit_name": "अतिशयोक्तिः",
+      "english_name": "Atiśayokti: hyperbole -- the upamāna stated alone, with the upameya entirely omitted",
+      "rule": "When only the उपमान (the thing compared TO) is mentioned, while the उपमेय (the actual subject) is left out entirely -- rather than merely having an implicit सामान्यधर्म as in लुप्तोपमा -- the resulting overstated/hyperbolic expression is called अतिशयोक्तिः.",
+      "sutra_devanagari": null,
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "08_अलङ्कारः.pdf",
+      "process": "उपमेयं विना, उपमानमात्रम् उच्यते",
+      "examples": [
+        {
+          "sandhi": "पश्य नीलोत्पलद्वन्द्वम्",
+          "gloss": "eyes described purely via the comparison-object (blue lotuses), the eyes themselves left unstated"
+        },
+        {
+          "sandhi": "सिंहः आगच्छन् अस्ति",
+          "gloss": "said of a person of great valor, without naming the person"
+        },
+        {
+          "sandhi": "तत्र गजः याति",
+          "gloss": "similarly hyperbolic"
+        }
+      ]
+    },
+    {
+      "id": "alankara-8",
+      "sanskrit_name": "अर्थान्तरन्यासः",
+      "english_name": "Arthāntaranyāsa: corroboration -- a general statement supported by a specific one (or vice versa)",
+      "rule": "When a general/universal statement (सामान्यविषयः) is corroborated/justified by a specific instance (विशेषवाक्येन), or conversely a specific claim is generalized by a universal principle, the two-sentence pairing is called अर्थान्तरन्यासः.",
+      "sutra_devanagari": null,
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "08_अलङ्कारः.pdf",
+      "process": "सामान्यवाक्यस्य विशेषवाक्येन समर्थनम्, अथवा विपरीतम्",
+      "examples": [
+        {
+          "sandhi": "अगस्त्यः समुद्रम् अपिबत्। किम् असाध्यं महात्मनाम्!",
+          "gloss": "specific feat corroborates a general maxim about great souls"
+        },
+        {
+          "sandhi": "जनकः अष्टावक्रं सत्कृतवान्। महात्मनः खलु गुणग्राहिणः।",
+          "gloss": "same pattern"
+        }
+      ]
+    },
+    {
+      "id": "alankara-9",
+      "sanskrit_name": "श्लेषालङ्कारः",
+      "english_name": "Śleṣa: paronomasia/pun -- one word conveying more than one meaning in the same sentence",
+      "rule": "When a single word, in one and the same sentence, simultaneously conveys more than one distinct meaning, that figure is called श्लेषालङ्कारः. Since a word's full meaning shifts entirely depending on which sense is intended, श्लेष is a favorite device for double-entendre verses.",
+      "sutra_devanagari": null,
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "08_अलङ्कारः.pdf",
+      "process": "एकस्मिन् वाक्ये एकं पदम् अनेकम् अर्थं सूचयति",
+      "examples": [
+        {
+          "sandhi": "कादम्बरीरसज्ञानाम् आहारः अपि न रोचते",
+          "gloss": "'कादम्बरी' = Bāṇabhaṭṭa's novel, or 'liquor' -- two readings of the same sentence"
+        },
+        {
+          "sandhi": "माघे मेघे गतं वयः",
+          "gloss": "'माघे' = the poet Māgha's epic Śiśupālavadha, or the month Māgha; 'मेघे' = Kālidāsa's Meghadūta, or a rain-cloud -- the whole line reads differently under each pairing"
+        },
+        {
+          "sandhi": "सर्वदो माधवः रक्षतु",
+          "gloss": "'सर्वदः माधवः' ('the ever-giving Madhava') or 'सर्वदा उमाधवः' ('always the husband of Uma', i.e. Shiva) -- both readings valid"
+        }
+      ]
+    }
+  ],
+  "summary_counts": {
+    "shabda_alankara_rules": 4,
+    "artha_alankara_rules": 5,
+    "total_rules": 9,
+    "status": "Covers all figures named in the source PDF: 3 śabdālaṅkāras (chekānuprāsa, vṛttyanuprāsa, yamaka) plus the general definition, and 5 arthālaṅkāras (upamā, rūpaka, atiśayokti, arthāntaranyāsa, śleṣa)."
+  },
+  "bibliography": [
+    "Source PDF: '08_अलङ्कारः.pdf' -- classroom material on rhetorical figures.",
+    "Bharata. Nāṭyaśāstra (earliest systematic treatment of alaṅkāra, within dramaturgy).",
+    "Daṇḍin. Kāvyādarśa (a foundational classical treatise specifically on alaṅkāra-śāstra).",
+    "Mammaṭa. Kāvyaprakāśa (standard later classical reference for śabda/artha-alaṅkāra classification) -- cited for context; exact kārikā numbers not independently verified against a critical edition this session."
+  ]
+}

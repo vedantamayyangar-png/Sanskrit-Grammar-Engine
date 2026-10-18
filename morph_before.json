@@ -1,0 +1,6540 @@
+{
+ "1": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": "वर"
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": "मुनिपुङ्गव"
+   }
+  ]
+ ],
+ "2": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "लोक"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": "गुणवत्"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": "वीर्यवत्"
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "3": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": "युक्"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "locative",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": "हि"
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "4": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": "आत्मवत्"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "संयुग"
+   }
+  ]
+ ],
+ "5": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": "नर"
+   }
+  ]
+ ],
+ "6": [
+  [
+   {
+    "is_verb": true,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": true,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": null,
+    "stem": null
+   }
+  ]
+ ],
+ "7": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "plural"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": "युक्"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "8": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": "श्रु"
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": "धृतिमत्"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "9": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": "बुद्धिमत्"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": "नीतिमत्"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "10": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "11": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": "प्रतापवत्"
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "12": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "हित"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": "समाधिमत्"
+   }
+  ]
+ ],
+ "13": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "singular"
+    ],
+    "stem": "धर्म"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "14": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": "प्रतिभानवत्"
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "15": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "16": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": "हिमवत्"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ]
+ ],
+ "17": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "क्रोध"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "18": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "instrumental",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "त्याग"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "सत्य"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "19": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": "सुत"
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "instrumental",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "20": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": "वर"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": "एन"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "singular"
+    ],
+    "stem": "राम"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "21": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "instrumental",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": "संय"
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": "प्रिय"
+   }
+  ]
+ ],
+ "22": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": "प्रतिज्ञा"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "ablative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "ablative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "23": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "24": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "25": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": "अनुग"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "instrumental",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ]
+ ],
+ "26": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "instrumental",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "plural"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": "चित्रकूट"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "singular"
+    ],
+    "stem": "भरद्वाज"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "ablative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "27": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": "रम्य"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "वन"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": "सुख"
+   }
+  ]
+ ],
+ "28": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "गत"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "राम"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": "सुत"
+   }
+  ]
+ ],
+ "29": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "मृत"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": "भर"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "dative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "30": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "पादुक"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "dative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "31": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": "काम"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "32": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "singular"
+    ],
+    "stem": "नागर"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "singular"
+    ],
+    "stem": "जन"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "एकाग्र"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ]
+ ],
+ "33": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "34": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ]
+ ],
+ "35": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "singular"
+    ],
+    "stem": "राम"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "वन"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "सर्व"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "36": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "instrumental",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "37": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "plural"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "38": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "रण"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "plural"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ]
+ ],
+ "39": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "40": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "instrumental",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "instrumental",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ]
+ ],
+ "41": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "42": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "instrumental",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": "दूर"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "singular"
+    ],
+    "stem": "राम"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "43": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "मैथिली"
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "44": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "instrumental",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "वन"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ]
+ ],
+ "45": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "रूप"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": "घोरदर्शन"
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": "स्वर्ग"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "46": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "47": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": "सङ्ग"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "वानर"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ]
+ ],
+ "48": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "सुग्रीव"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "dative",
+     "singular"
+    ],
+    "stem": "सुग्रीव"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "49": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "instrumental",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": null,
+    "stem": "प्र"
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "instrumental",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "50": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "राम"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": null,
+    "stem": "प्र"
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "राघव"
+   }
+  ]
+ ],
+ "51": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": "काय"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": "उत्तम"
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "instrumental",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "52": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "instrumental",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "53": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "instrumental",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": "विश्वस्"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "54": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "instrumental",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "instrumental",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "55": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "आहव"
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": "सुग्रीव"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ]
+ ],
+ "56": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": "जनकात्मजा"
+   }
+  ]
+ ],
+ "57": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "singular"
+    ],
+    "stem": "गृध्र"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "ablative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": "हनुमत्"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "58": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "59": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": "तोरण"
+   }
+  ]
+ ],
+ "60": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": "शूर"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ]
+ ],
+ "61": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "ablative",
+     "singular"
+    ],
+    "stem": "वर"
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "62": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": "लङ्का"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "ऋत"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "मैथिली"
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "dative",
+     "singular"
+    ],
+    "stem": "राम"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": "प्रिय"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "63": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": "प्रदक्षिण"
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "64": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ]
+ ],
+ "65": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": "सेतु"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ]
+ ],
+ "66": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "instrumental",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": "रावण"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "आहव"
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": "विभीषण"
+   }
+  ]
+ ],
+ "67": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "instrumental",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "singular"
+    ],
+    "stem": "राघव"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "68": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ]
+ ],
+ "69": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "plural"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "70": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": "सीता"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "71": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "72": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": null,
+    "stem": "भविष्य"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "plural"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "73": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": null,
+    "stem": "मज्जन्"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "74": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ]
+ ],
+ "75": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "लोक"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "स्व"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "स्व"
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "धर्म"
+   },
+   {
+    "is_verb": true,
+    "case": null,
+    "stem": null
+   }
+  ]
+ ],
+ "76": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": null,
+    "stem": null
+   }
+  ]
+ ],
+ "77": [
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": "संमित"
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": true,
+    "case": null,
+    "stem": null
+   }
+  ]
+ ],
+ "78": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "genitive",
+     "plural"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": "स्वर्ग"
+   },
+   {
+    "is_verb": true,
+    "case": null,
+    "stem": null
+   }
+  ]
+ ],
+ "79": [
+  [
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "ablative",
+     "singular"
+    ],
+    "stem": "ईय"
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "ablative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "ablative",
+     "singular"
+    ],
+    "stem": "ईय"
+   }
+  ],
+  [
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "nominative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": null,
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "accusative",
+     "singular"
+    ],
+    "stem": null
+   },
+   {
+    "is_verb": false,
+    "case": [
+     "ablative",
+     "singular"
+    ],
+    "stem": "ईय"
+   }
+  ]
+ ]
+}

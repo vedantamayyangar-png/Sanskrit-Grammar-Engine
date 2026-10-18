@@ -1,0 +1,297 @@
+{
+  "title": "छन्दस् — The Sanskrit Prosody (Meter) Rule Book",
+  "subtitle": "Compiled from classroom source material on छन्दःशास्त्र (Sanskrit metrics): guru/laghu determination, the गण (triplet) system, and the defining patterns of the major classical metres",
+  "source_note": "Compiled from a single classroom source PDF ('09_छन्दस्.pdf'), which presents both the general mechanics of Sanskrit prosody (varna, matra, guru/laghu rules, the gana system) and the specific defining patterns (lakshana) of ten named classical metres, each illustrated with real verses (several from well-known devotional/classical sources -- e.g. the Durga/Sarasvati stotra verses, the Vasantatilaka verses on perseverance, the Bhagavad Gita-adjacent Śaṅkara verses). IMPORTANT STRUCTURAL NOTE: छन्दःशास्त्र (prosody), like अलङ्कारशास्त्र, is NOT a Pāṇinian/Aṣṭādhyāyī topic -- its classical authority is Piṅgala's Chandaḥśāstra (Chandas-sūtra), a separate, older treatise with its own sūtra-numbering tradition that this source material does not cite by number. Accordingly ashtadhyayi_ref is null throughout; 'sutra_devanagari' holds the PDF's own memorable verse-rules (which are genuine, widely-used mnemonic verses in the prosody tradition, e.g. यमाताराजभानसलगम्), and book_ref points to Piṅgala's treatise and standard secondary sources for context.",
+  "how_to_read": {
+    "varna": "वर्णः / अक्षरम् -- a single syllable: a vowel, or a vowel with its preceding consonant(s)",
+    "matra": "मात्रा -- the metrical duration/weight of a syllable (1 for लघु, 2 for गुरु)",
+    "guru_laghu": "गुरु (heavy, 2-mātrā) vs लघु (light, 1-mātrā) syllable",
+    "gana": "गणः -- a group of three consecutive syllables, classified into one of 8 named patterns",
+    "yati": "यतिः -- a caesura/pause point required at a specific syllable-count within a pāda"
+  },
+  "general_rules": [
+    {
+      "id": "chandas-1",
+      "sanskrit_name": "छन्दसः परिभाषा एवं पद्य-गद्य-विभागः",
+      "english_name": "Definition: chandas as one of the six vedāṅgas; verse (पद्य) vs prose (गद्य)",
+      "rule": "छन्दयति/आह्लादयति इत्यनेन छन्दः -- chandas is so called because it delights/pleases (the reader/listener). It is one of the six वेदाङ्ग (auxiliary Vedic disciplines: शिक्षा, कल्प, व्याकरण, निरुक्त, छन्द, ज्योतिष), and one of the fourteen traditional विद्याs. Literature (साहित्यम्/काव्यम्) divides into पद्यम् (verse) and गद्यम् (prose): पद्यम् is defined as पादचतुष्टययुक्तम् -- text organized into four पादs (metrical quarters/lines), each governed by a fixed count and pattern of syllables; anything not meeting this is गद्यम्.",
+      "sutra_devanagari": "यत् गद्यम् नास्ति तत् पद्यम्, यत् पद्यम् नास्ति तद् गद्यम्। पादचतुष्टययुक्तं पद्यम् (पद्यं चतुष्पात्)।",
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "09_छन्दस्.pdf",
+      "process": "definitional",
+      "examples": []
+    },
+    {
+      "id": "chandas-2",
+      "sanskrit_name": "वर्णः, मात्रा, हृस्व-दीर्घविभागः",
+      "english_name": "Syllable (वर्ण) and mora (मात्रा): the basic units of measurement",
+      "rule": "A वर्णः (syllable, for metrical purposes) is a vowel, either alone or preceded by consonant(s) -- a bare consonant alone does NOT count as a syllable. मात्रा is the fixed pronunciation-duration assigned to a syllable's vowel: short vowels (अ इ उ ऋ ऌ) are हृस्व/लघुवर्ण, worth 1 मात्रा (एकमात्रात्मक); long vowels (आ ई ऊ ॠ ए ऐ ओ औ) are दीर्घ/गुरुवर्ण, worth 2 मात्रा (द्विमात्रात्मक).",
+      "sutra_devanagari": "वर्णः (अक्षरम्) — स्वरः अथवा स्वरसहितव्यञ्जनम्। मात्रा — अक्षरगत-स्वरस्य निर्धारितः उच्चारणकालः।",
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "09_छन्दस्.pdf",
+      "process": "definitional; foundation for the guru/laghu rule (chandas-3)",
+      "examples": [
+        {
+          "sandhi": "अवाक् (downward)",
+          "gloss": "contains exactly two syllables: अ, and वाक् -- a bare consonant is never its own syllable"
+        }
+      ]
+    },
+    {
+      "id": "chandas-3",
+      "sanskrit_name": "गुरु-लघु-निर्णयसूत्रम्",
+      "english_name": "The five-fold rule for determining whether a syllable is गुरु (heavy) or लघु (light)",
+      "rule": "A syllable is गुरु (heavy) if ANY of the following apply: (1) it carries an अनुस्वार (nasal mark), (2) its vowel is दीर्घ (long), (3) it carries a विसर्ग, (4) it is immediately followed by a consonant-cluster (संयोग) -- i.e. the vowel is followed by two or more consonants before the next vowel, (5) it stands at the very end of a पाद (पादान्त) and metrical necessity calls for it to be treated as heavy even if otherwise short. Any syllable meeting none of these conditions is लघु (light).",
+      "sutra_devanagari": "सानुस्वारश्च दीर्घश्च विसर्गी च गुरूर्भवेत् वर्णः संयोगपूर्वश्च तथा पादान्तगोऽपि वा॥",
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "09_छन्दस्.pdf",
+      "process": "पञ्चविधं गुरुत्वनिमित्तम् — अनुस्वार, दीर्घत्व, विसर्ग, संयोगपूर्वत्व, पादान्तत्व",
+      "examples": [
+        {
+          "sandhi": "अंश, कंस, वंश, हंस",
+          "gloss": "अनुस्वार-युक्त — all गुरु"
+        },
+        {
+          "sandhi": "का, की, कू, के, कै, को, कौ",
+          "gloss": "दीर्घवर्ण — all गुरु"
+        },
+        {
+          "sandhi": "रामः, हरिः, दुःखितः",
+          "gloss": "विसर्गयुक्त — all गुरु"
+        },
+        {
+          "sandhi": "सत्य -- स इत्यत्र त्-संयुक्तवर्णस्य पूर्वस्य स गुरुः",
+          "gloss": "संयोगपूर्व — the स् before the त्य-cluster is गुरु even though स is short"
+        }
+      ]
+    },
+    {
+      "id": "chandas-4",
+      "sanskrit_name": "गणव्यवस्था एवं गणसूत्रम्",
+      "english_name": "The गण system: syllables are grouped into triplets, classified by a mnemonic sūtra",
+      "rule": "A group of three consecutive syllables is called a गणः. There are exactly eight possible गुरु-लघु patterns for a triplet, and Sanskrit prosody names each with a traditional mnemonic device: the single ten-syllable phrase यमाताराजभानसलगम् encodes all eight गणs as overlapping three-syllable windows (positions 1-2-3 → यगण, 2-3-4 → मगण, 3-4-5 → तगण, 4-5-6 → रगण, 5-6-7 → जगण, 6-7-8 → भगण, 7-8-9 → नगण, 8-9-10 → सगण), where the fixed guru/laghu pattern of the mnemonic word ('य-मा-ता-रा-ज-भा-न-स-ल-गम्', itself alternating heavy/light in a specific way) automatically yields each गण's own pattern by reading three consecutive syllables starting at that position.",
+      "sutra_devanagari": "यमाताराजभानसलगम्",
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "09_छन्दस्.pdf",
+      "process": "त्रयाणाम् अक्षराणां समूहः एकः गणः; गुरु-लघु-क्रमेण अष्टविधाः गणाः",
+      "examples": [
+        {
+          "sandhi": "यगणः (यमाता, ।ऽऽ) — यशोदा, नयाचे",
+          "gloss": "लघु-गुरु-गुरु"
+        },
+        {
+          "sandhi": "मगणः (मातारा, ऽऽऽ) — मान्धाता, सीतायै",
+          "gloss": "गुरु-गुरु-गुरु"
+        },
+        {
+          "sandhi": "तगणः (ताराज, ऽऽ।) — सर्वत्र, आयाति",
+          "gloss": "गुरु-गुरु-लघु"
+        },
+        {
+          "sandhi": "रगणः (राजभा, ऽ।ऽ) — राधिका, पार्वती",
+          "gloss": "गुरु-लघु-गुरु"
+        },
+        {
+          "sandhi": "जगणः (जभान, ।ऽ।) — जयन्त, निनिन्द",
+          "gloss": "लघु-गुरु-लघु"
+        },
+        {
+          "sandhi": "भगणः (भानस, ऽ।।) — भारत, आनय",
+          "gloss": "गुरु-लघु-लघु"
+        },
+        {
+          "sandhi": "नगणः (नसल, ।।।) — नयन, भवति",
+          "gloss": "लघु-लघु-लघु"
+        },
+        {
+          "sandhi": "सगणः (सलगम्, ।।ऽ) — यमुना, ललना",
+          "gloss": "लघु-लघु-गुरु"
+        }
+      ]
+    },
+    {
+      "id": "chandas-5",
+      "sanskrit_name": "गणानां गौरव-लाघव-स्मरणश्लोकः",
+      "english_name": "Mnemonic verse for remembering which gaṇas are 'heavy-biased' vs 'light-biased'",
+      "rule": "A traditional verse summarizes the eight गणs' character: भ-ज-स-गणाः आदि-मध्य-अन्तेषु गौरवं यान्ति (भगण, जगण, सगण are heavy at the start/middle/end respectively of their own guru-laghu positions), while य-र-त-गणाः तत्रैव लाघवं यान्ति (यगण, रगण, तगण are correspondingly light at those same positions) — this is used as a quick check when scanning verse, alongside the direct fact that मगण's all three syllables are गुरु and नगण's all three are लघु.",
+      "sutra_devanagari": "आदिमध्यावसानेषु भजसा यान्ति गौरवम्। यरता लाघवं यान्ति मनौ तु गुरुलाघवम्॥",
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "09_छन्दस्.pdf",
+      "process": "स्मरणसाधनम् (mnemonic), not itself an independent rule -- restates chandas-4's 8-gaṇa table in a different form",
+      "examples": []
+    }
+  ],
+  "named_metres": [
+    {
+      "id": "chandas-6",
+      "sanskrit_name": "अनुष्टुप् छन्दः",
+      "english_name": "Anuṣṭubh: the most common classical śloka metre (8 syllables per pāda)",
+      "rule": "अनुष्टुप् has four पादs of 8 syllables each (32 total). Its defining constraint is comparatively loose (most positions are free), except: the 6th syllable of every pāda is always गुरु; the 5th syllable of every pāda is always लघु; in the 2nd and 4th pādas, the 7th syllable is always लघु; in the 1st and 3rd pādas, the 7th syllable is always गुरु.",
+      "sutra_devanagari": "श्लोके षष्ठं गुरु ज्ञेयम् सर्वत्र लघु पञ्चमम्। द्विश्चतुष्पादयोर्ह्रस्वम् सप्तमं दीर्घमन्ययोः॥",
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "09_छन्दस्.pdf",
+      "process": "८ अक्षराणि प्रतिपादम्, ६ष्ठं सर्वत्र गुरु, ५मं सर्वत्र लघु, ७मं पादभेदेन गुरु/लघु",
+      "examples": [
+        {
+          "sandhi": "या देवी सर्वभूतेषु मातृरूपेण संस्थिता। नमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः॥",
+          "gloss": "the well-known Devī-māhātmya invocation, in anuṣṭubh"
+        },
+        {
+          "sandhi": "सरस्वति नमस्तुभ्यं वरदे कामरूपिणि। विद्यारम्भं करिष्यामि सिद्धिर्भवतु मे सदा॥",
+          "gloss": "the common Sarasvatī invocation before study"
+        }
+      ]
+    },
+    {
+      "id": "chandas-7",
+      "sanskrit_name": "वसन्ततिलका वृत्तम्",
+      "english_name": "Vasantatilakā: a 14-syllable metre (त-भ-ज-ज-ग-ग gaṇa pattern)",
+      "rule": "Each pāda has 14 syllables, following the gaṇa-sequence त-भ-ज-ज-ग-ग (i.e. तगण, भगण, जगण, जगण, then two additional गुरु syllables).",
+      "sutra_devanagari": "उक्ता वसन्ततिलका तभजा जगौ गः",
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "09_छन्दस्.pdf",
+      "process": "१४ अक्षराणि प्रतिपादम्; त-भ-ज-ज-ग-ग गणक्रमः",
+      "examples": [
+        {
+          "sandhi": "प्रारभ्यते न खलु विघ्नभयेन नीचैः। प्रारभ्य विघ्नविहता विरमन्ति मध्याः। विघ्नैः पुनः पुनरपि प्रतिहन्यमानाः। प्रारब्धमुत्तमगुणा न परित्यजन्ति॥",
+          "gloss": "a famous verse on perseverance, in vasantatilakā"
+        }
+      ]
+    },
+    {
+      "id": "chandas-8",
+      "sanskrit_name": "इन्द्रवज्रा, उपेन्द्रवज्रा, उपजातिवृत्तानि",
+      "english_name": "Indravajrā, Upendravajrā, and their mixture Upajāti (11-syllable metres)",
+      "rule": "इन्द्रवज्रा: 11 syllables per pāda, gaṇa-pattern त-त-ज-ग-ग. उपेन्द्रवज्रा: 11 syllables, gaṇa-pattern ज-त-ज-ग-ग (differs from इन्द्रवज्रा only in whether the very first syllable is गुरु [इन्द्रवज्रा] or लघु [उपेन्द्रवज्रा]). जब any poem mixes pādas of both types within the same verse, the whole is called उपजाति.",
+      "sutra_devanagari": "स्यादिन्द्रवज्रा यदि तौ जगौ गः — उपेन्द्रवज्रा जतजास्ततो गौ",
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "09_छन्दस्.pdf",
+      "process": "११ अक्षराणि प्रतिपादम्; इन्द्रवज्रा त-त-ज-ग-ग, उपेन्द्रवज्रा ज-त-ज-ग-ग, मिश्रणे उपजातिः",
+      "examples": [
+        {
+          "sandhi": "त्वमेव माता च पिता त्वमेव त्वमेव बन्धुश्च सखा त्वमेव। त्वमेव विद्या द्रविणं त्वमेव त्वमेव सर्वं मम देव देव॥",
+          "gloss": "उपेन्द्रवज्रा verse (well-known devotional stotra)"
+        },
+        {
+          "sandhi": "हरे मुरारे मधुकैटभारे गोविन्द गोपाल मुकुन्द शौरे। यज्ञेश नारायण कृष्ण विष्णो निराश्रयं मां जगदीश रक्ष॥",
+          "gloss": "उपजाति verse, mixing both pāda-types (marked उ/इ per pāda in the source)"
+        }
+      ]
+    },
+    {
+      "id": "chandas-9",
+      "sanskrit_name": "शार्दूलविक्रीडितम्",
+      "english_name": "Śārdūlavikrīḍita: a 19-syllable metre with a mid-line caesura (म-स-ज-स-त-त-ग)",
+      "rule": "19 syllables per pāda, gaṇa-pattern म-स-ज-स-त-त-ग, with a mandatory यति (caesura/pause) after the 12th syllable (i.e. a 12+7 split).",
+      "sutra_devanagari": "सूर्याश्वैः यदि मः सजौ सततगाः शार्दूलविक्रीडितम्",
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "09_छन्दस्.pdf",
+      "process": "१९ अक्षराणि प्रतिपादम्; म-स-ज-स-त-त-ग गणक्रमः; यतिः द्वादशाक्षरे",
+      "examples": [
+        {
+          "sandhi": "या कुन्देन्दुतुषारहारधवला या शुभ्रवस्त्रावृता। या वीणावरदण्डमण्डितकरा या श्वेतपद्मासना॥ या ब्रह्माच्युतशंकरप्रभृतिभिर्देवैः सदा वन्दिता। सा मां पातु सरस्वती भगवती निःशेषजाड्यापहा॥",
+          "gloss": "the classical Sarasvatī-vandanā"
+        }
+      ]
+    },
+    {
+      "id": "chandas-10",
+      "sanskrit_name": "मन्दाक्रान्ता वृत्तम्",
+      "english_name": "Mandākrāntā: a 17-syllable metre with two caesuras (म-भ-न-त-त-ग-ग)",
+      "rule": "17 syllables per pāda, gaṇa-pattern म-भ-न-त-त-ग-ग, with यति after both the 4th and 10th (equivalently, given as 4-6-7 split points in the source) syllables.",
+      "sutra_devanagari": "मन्दाक्रान्ता जलधिषडगैर्म्भौ नतौ ताद्गुरू चेत्",
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "09_छन्दस्.pdf",
+      "process": "१७ अक्षराणि प्रतिपादम्; म-भ-न-त-त-ग-ग गणक्रमः; यतिद्वयम् (४, १०/११)",
+      "examples": [
+        {
+          "sandhi": "कश्चित् कान्ताविरहगुरुणा स्वाधिकारात् प्रमत्तः शापेनास्तंगमितमहिमा वर्षभोग्येण भर्तुः।",
+          "gloss": "opening verses of Kālidāsa's Meghadūta, the metre's most famous exemplar"
+        }
+      ]
+    },
+    {
+      "id": "chandas-11",
+      "sanskrit_name": "शिखरिणी वृत्तम्",
+      "english_name": "Śikhariṇī: a 17-syllable metre (य-म-न-स-भ-ल-ग)",
+      "rule": "17 syllables per pāda, gaṇa-pattern य-म-न-स-भ-ल-ग, with यति after the 6th syllable.",
+      "sutra_devanagari": "रसैः रुद्रैश्छिन्ना यमनसभला गः शिखरिणी",
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "09_छन्दस्.pdf",
+      "process": "१७ अक्षराणि प्रतिपादम्; य-म-न-स-भ-ल-ग गणक्रमः; यतिः षष्ठाक्षरे",
+      "examples": [
+        {
+          "sandhi": "यदा किञ्चिज्ज्ञोऽहं द्विप इव मदान्धः समभवं तदा सर्वज्ञोऽस्मीत्यभवदवलिप्तं मम मनः।",
+          "gloss": "a well-known verse on the arc of learning and humility"
+        }
+      ]
+    },
+    {
+      "id": "chandas-12",
+      "sanskrit_name": "तोटकम्",
+      "english_name": "Toṭaka: a 12-syllable metre of four सगणs",
+      "rule": "12 syllables per pāda, made of exactly four consecutive सगण (।।ऽ, ।।ऽ, ।।ऽ, ।।ऽ).",
+      "sutra_devanagari": "इह तोटकमम्बुधिसैः प्रथितम्",
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "09_छन्दस्.pdf",
+      "process": "१२ अक्षराणि प्रतिपादम्; चत्वारः सगणाः",
+      "examples": [
+        {
+          "sandhi": "विदिताखिलशास्त्रसुधाजलधे महितोपनिषत्कथितार्थनिधे। हृदये कलये विमलं चरणं भव शङ्कर देशिक मे शरणम्॥",
+          "gloss": "the famous Toṭakāṣṭakam, traditionally in praise of Śaṅkara's disciple Toṭakācārya"
+        }
+      ]
+    },
+    {
+      "id": "chandas-13",
+      "sanskrit_name": "मालिनी वृत्तम्",
+      "english_name": "Mālinī: a 15-syllable metre with a mid-line caesura (न-न-म-य-य)",
+      "rule": "15 syllables per pāda, gaṇa-pattern न-न-म-य-य, with यति after the 8th syllable.",
+      "sutra_devanagari": "ननमयययुतेयं मालिनी भोगिलोकैः",
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "09_छन्दस्.pdf",
+      "process": "१५ अक्षराणि प्रतिपादम्; न-न-म-य-य गणक्रमः; यतिः अष्टमाक्षरे",
+      "examples": [
+        {
+          "sandhi": "प्रथमवयसि पीतं तोयमल्पं भवत्ति शिरसि निहितभाराः नारिकेला नराणाम्। ददति जलमनल्पास्वादमाजीवितान्तं न हि कृतमुपकारं साधवो विस्मरन्ति॥",
+          "gloss": "a verse comparing coconut palms and gracious people"
+        }
+      ]
+    },
+    {
+      "id": "chandas-14",
+      "sanskrit_name": "आर्या (मात्राछन्दः)",
+      "english_name": "Āryā: a mora-counted (mātrā-chandas) metre, not a fixed syllable-count metre",
+      "rule": "Unlike all the preceding metres (which are वृत्त-छन्दस्, defined by a fixed COUNT of syllables per pāda), आर्या belongs to the जाति class, defined instead by a fixed count of मात्रा (metrical morae) per pāda -- 12 मात्रा in the 1st pāda, 18 in the 2nd, 12 in the 3rd, and 15 in the 4th, regardless of how many actual syllables are used to reach that count.",
+      "sutra_devanagari": "यस्याः पादे प्रथमे द्वादश मात्रास्तथा तृतीयेऽपि। अष्टादश द्वितीये चतुर्थके पञ्चदश साssर्या॥",
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "09_छन्दस्.pdf",
+      "process": "मात्राछन्दः (जातिः); पादे मात्रासंख्या: १२-१८-१२-१५",
+      "examples": []
+    }
+  ],
+  "summary_counts": {
+    "general_rules": 5,
+    "named_metres": 9,
+    "total_rules": 14,
+    "status": "Covers all metres explicitly named and given a defining lakṣaṇa-verse in the source PDF: anuṣṭubh, vasantatilakā, indravajrā/upendravajrā/upajāti, śārdūlavikrīḍita, mandākrāntā, śikhariṇī, toṭaka, mālinī, āryā -- plus the general vṛtta/jāti, varna/mātrā, guru/laghu, and gaṇa mechanics that underlie all of them."
+  },
+  "bibliography": [
+    "Source PDF: '09_छन्दस्.pdf' -- classroom material on Sanskrit prosody, illustrated with real classical verses (Devī-māhātmya, Meghadūta, Toṭakāṣṭakam, Sarasvatī-vandanā, and others).",
+    "Piṅgala. Chandaḥśāstra (Chandas-sūtra) -- the foundational classical treatise on Sanskrit metrics; cited for context, not independently checked against a critical edition for the exact lakṣaṇa-verse readings given in the source PDF."
+  ]
+}

@@ -1,0 +1,248 @@
+{
+  "title": "णत्वप्रकरणम् — The Natva (Retroflex ण) Rule Book",
+  "subtitle": "Compiled from two independent classroom source documents on णत्वम् (the ऋ/र्/ष्-triggered retroflexion of न् to ण्), cross-referenced to Pāṇini's Aṣṭādhyāyī where citations are given in the source materials",
+  "source_note": "This rulebook merges two source PDFs on the same topic (natva): '10_णत्वप्रकरणम् (काव्यदपठनार्थम्)' and '10_णत्वम्'. Both cover the same core rule (रषाभ्यां नो णः समानपदे) but were evidently produced by different instructors/compilers, since they cite DIFFERENT sūtra numbers for the same rule: the first cites 8.4.1 (which matches the standard, widely-attested Aṣṭādhyāyī numbering for this sūtra), while the second cites 8.4.41. This is flagged as an unresolved discrepancy between the two source documents rather than silently resolved -- 8.4.1 is used as the primary ashtadhyayi_ref since it matches standard reference numbering, with the alternate citation preserved in a note. All other sūtra citations in this file are taken directly from whichever source PDF stated them, without independent re-verification beyond this one flagged case.",
+  "how_to_read": {
+    "ashtadhyayi_ref": "Chapter.Pada.Sutra number in Pāṇini's Aṣṭādhyāyī, as cited in the source material",
+    "akhanda_pada": "अखण्डपदम् / समानपदम् -- an unsegmented (non-compound) word",
+    "sakhanda_pada": "सखण्डपदम् / समस्तपदम् -- a segmented (compound) word",
+    "nimitta": "निमित्तम् -- the phonetic trigger/cause for the rule",
+    "process": "how the substitution/rule operates"
+  },
+  "rvowel_context": [
+    {
+      "id": "natva-1",
+      "sanskrit_name": "रषाभ्यां नो णत्वम्",
+      "english_name": "Core rule: ऋ/र्/ष् trigger retroflexion of a following न् to ण्",
+      "rule": "Within a single unsegmented word (समानपदे), when a following न् is preceded -- without any intervening word-boundary -- by ऋ, र्, or ष्, that न् is replaced by ण्. This is the foundational natva rule; all following entries describe how far this triggering reaches and where it is blocked.",
+      "sutra_devanagari": "रषाभ्यां नो णः समानपदे",
+      "ashtadhyayi_ref": "8.4.1",
+      "related_ashtadhyayi": [
+        "8.4.41 (alternate citation given in one source document for the same rule -- see source_note)"
+      ],
+      "book_ref": "10_णत्वप्रकरणम् and 10_णत्वम् (both source PDFs; both give this as the opening/core rule)",
+      "process": "आदेशः (substitution): निमित्तं (ऋ/र्/ष्) + न् → ण्, within one अखण्डपद",
+      "examples": [
+        {
+          "sandhi": "पुष् + नाति = पुष्णाति",
+          "gloss": "ष्-triggered: 'n' after ष् becomes ण्"
+        },
+        {
+          "sandhi": "विष्+नुः = विष्णुः",
+          "gloss": "ष्-triggered, root-internal"
+        },
+        {
+          "sandhi": "कीर्+न = कीर्णः",
+          "gloss": "र्-triggered (repha)"
+        },
+        {
+          "sandhi": "पितृ+नाम् = पितॄणाम्",
+          "gloss": "ऋ-triggered"
+        },
+        {
+          "sandhi": "विसृ+नाम् = विसृणाम्",
+          "gloss": "ऋ-triggered (attributed to the extension ऋणृतो नस्य णत्वं वाच्यम्, see natva-2)"
+        }
+      ]
+    },
+    {
+      "id": "natva-2",
+      "sanskrit_name": "ऋवर्णात्नस्य णत्ववाच्यम्",
+      "english_name": "Extension: ऋ itself (not just र्/ष्) independently triggers natva",
+      "rule": "A separate statement (वार्तिक-प्रकृति) clarifies that ऋ, on its own, also counts as a natva trigger for a following न् -- not only र् and ष्. This is why root-vowel ऋ (as in विसृ, पितृ) triggers the change even though it is a vowel, not the consonants र्/ष्.",
+      "sutra_devanagari": "ऋवर्णान्नस्य णत्वं वाच्यम्",
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [
+        "8.4.1"
+      ],
+      "book_ref": "10_णत्वप्रकरणम्.pdf",
+      "process": "वार्तिकः (supplementary clarifying statement) extending the trigger-set of natva-1 to include ऋ itself",
+      "examples": [
+        {
+          "sandhi": "विसृ + नाम् = विसृणाम्",
+          "gloss": "'of the streams/creations'"
+        },
+        {
+          "sandhi": "पितृ + नाम् = पितॄणाम्",
+          "gloss": "'of the fathers'"
+        }
+      ]
+    },
+    {
+      "id": "natva-3",
+      "sanskrit_name": "अट्कुप्वाङ्नुम्व्यवायेऽपि",
+      "english_name": "Natva reaches across an intervening अट्/कवर्ग/पवर्ग/आङ्/अनुस्वार, not just directly-adjacent न्",
+      "rule": "The trigger (ऋ/र्/ष्) need not be immediately adjacent to the न् -- natva still applies even if any of the following intervene between them: a vowel or the semivowels ह्/य्/व्/र् (जोड़ी named अट् here), a velar consonant (कवर्ग: क्/ख्/ग्/घ्/ङ्), a labial consonant (पवर्ग: प्/फ्/ब्/भ्/म्), the prefix आ (आङ्), or an anusvāra (नुम्).",
+      "sutra_devanagari": "अट्कुप्वाङ्नुम्व्यवायेऽपि",
+      "ashtadhyayi_ref": "8.4.2",
+      "related_ashtadhyayi": [
+        "8.4.1"
+      ],
+      "book_ref": "10_णत्वप्रकरणम्.pdf and 10_णत्वम्.pdf (second source cites this as 8.4.12)",
+      "process": "आदेशः, with the trigger's reach extended across specific intervening sound-classes (व्यवधानम्)",
+      "flagged_nuance": "The 'अट्' referenced here is a technical pratyāhāra covering vowels plus ह्/य्/व्/र् -- not the augment 'अट्' (used in the imperfect/aorist) of the same name. Both source PDFs also reproduce the full Māheśvara-sūtra (शिवसूत्र) list to define exactly which sounds belong to each of the referenced classes (कवर्ग, पवर्ग, etc.) -- reproduced in natva-4 below as reference material rather than as a separate operative rule.",
+      "examples": [
+        {
+          "sandhi": "पुष्प + शस् = पुष्पाणि",
+          "gloss": "पवर्ग (प्) intervenes between ष् and न्"
+        },
+        {
+          "sandhi": "ब्रह्म + जस् = ब्राह्मणः",
+          "gloss": "पवर्ग (म्) intervenes"
+        },
+        {
+          "sandhi": "निर् + आ + नह् + क्त = निराबद्धम्",
+          "gloss": "आङ् (आ-prefix) intervenes"
+        },
+        {
+          "sandhi": "तारी + औट् = तारिणी",
+          "gloss": "vowel (अट्) intervenes"
+        },
+        {
+          "sandhi": "बृंह् + अनीयर् = बृंहणीयम्",
+          "gloss": "अनुस्वार (नुम्) intervenes"
+        }
+      ]
+    },
+    {
+      "id": "natva-4",
+      "sanskrit_name": "व्यवधायकवर्गसूचिः (माहेश्वरसूत्रानुसारेण)",
+      "english_name": "Reference table: the sound-groups (अट्/कवर्ग/पवर्ग etc.) that may intervene without blocking natva",
+      "rule": "Both source documents reproduce the fourteen Māheśvara-sūtras (शिवसूत्राणि) -- Pāṇini's foundational phoneme-groupings -- to precisely define which sounds fall under अट्, कवर्ग, and पवर्ग for the purposes of natva-3. This entry is reference material, not an independently operative rule.",
+      "sutra_devanagari": "अइउण् ऋऌक् एओङ् ऐऔच् हयवरट् लण् ञमङणनम् झभञ् घढधष् जबगडदश् खफछठथचटतव् कपय् शषसर् हल्",
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "10_णत्वप्रकरणम्.pdf",
+      "process": "reference/definitional (शिवसूत्राणि), not itself a substitution rule",
+      "examples": []
+    },
+    {
+      "id": "natva-5",
+      "sanskrit_name": "सज्ञायां समासे नित्यं णत्वम्",
+      "english_name": "In compounds, natva is obligatory when the result is a proper name (संज्ञा)",
+      "rule": "When the compound (समस्तपद) as a whole functions as a fixed name (संज्ञा), natva of the uttarapada's initial न् is obligatory (नित्यम्), not merely optional as in the general compound case (see natva-6).",
+      "sutra_devanagari": null,
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "10_णत्वप्रकरणम्.pdf",
+      "process": "पूर्वपदस्थ निमित्तात् उत्तरपदस्थ नकारस्य णकारः नित्यं भवति संज्ञायां",
+      "examples": [
+        {
+          "sandhi": "राम + अयनम् = रामायणम्",
+          "gloss": "a fixed epic-name, natva obligatory"
+        },
+        {
+          "sandhi": "शूर्प + नखा = शूर्पणखा",
+          "gloss": "proper name, natva obligatory"
+        }
+      ]
+    },
+    {
+      "id": "natva-6",
+      "sanskrit_name": "समस्तपदे विकल्पेन णत्वम्",
+      "english_name": "In ordinary (non-name) compounds, natva of the second member is optional",
+      "rule": "Prāt‍ipadika-final न् (or a न् governed by विभक्ति or अनुस्वार-context) in the uttarapada of a compound optionally (विकल्पेन) takes natva when the pūrvapada carries the trigger -- both the retroflexed and plain-dental forms are valid.",
+      "sutra_devanagari": "प्रातिपदिकान्तनुम्विभक्तिषु",
+      "ashtadhyayi_ref": "8.4.11",
+      "related_ashtadhyayi": [
+        "8.4.1"
+      ],
+      "book_ref": "10_णत्वप्रकरणम्.pdf",
+      "process": "विकल्पेन आदेशः -- both forms are grammatically acceptable in a general (non-saṃjñā) compound",
+      "examples": [
+        {
+          "sandhi": "माष + वापिन् + औ = माषवापिणौ / माषवापिनौ",
+          "gloss": "प्रातिपदिकान्त natva, optional"
+        },
+        {
+          "sandhi": "माष + वापा + न् + इ = माषवापाणि / माषवापानि",
+          "gloss": "नुम्-सम्बन्धी natva, optional"
+        },
+        {
+          "sandhi": "माष + वाप + इन = माषवापेण / माषवापेन",
+          "gloss": "विभक्तिसम्बन्धी natva, optional"
+        },
+        {
+          "sandhi": "प्र + योगेण",
+          "gloss": "कवर्ग-व्यवधान compound, natva नित्यं here per the source (contrast with the general optional case)"
+        }
+      ]
+    },
+    {
+      "id": "natva-7",
+      "sanskrit_name": "पदान्तस्य णत्वनिषेधः",
+      "english_name": "Prohibition: natva never applies to a word-final न्",
+      "rule": "Even if the retroflexion-trigger (ऋ/र्/ष्) is present earlier in the same word, a न् standing at the absolute end of the word (पदान्त) never undergoes natva.",
+      "sutra_devanagari": "पदान्तस्य",
+      "ashtadhyayi_ref": "8.4.37",
+      "related_ashtadhyayi": [
+        "8.4.1"
+      ],
+      "book_ref": "10_णत्वप्रकरणम्.pdf",
+      "process": "निषेधः (blocking rule) -- overrides natva-1 specifically at word-final position",
+      "examples": [
+        {
+          "sandhi": "रामान्",
+          "gloss": "word-final न्, natva blocked despite the र् earlier in राम"
+        },
+        {
+          "sandhi": "हरीन्",
+          "gloss": "word-final न्, natva blocked"
+        },
+        {
+          "sandhi": "गुरून्",
+          "gloss": "word-final न्, natva blocked"
+        },
+        {
+          "sandhi": "पूषन्",
+          "gloss": "word-final न्, natva blocked"
+        },
+        {
+          "sandhi": "वृक्षान्",
+          "gloss": "word-final न्, natva blocked"
+        }
+      ]
+    },
+    {
+      "id": "natva-8",
+      "sanskrit_name": "अन्यवर्णव्यवधाने णत्वनिषेधः",
+      "english_name": "Prohibition: natva is blocked if a sound outside the permitted intervening set (natva-3/natva-4) comes between the trigger and न्",
+      "rule": "If, within a single word, any sound OTHER than अट्/कवर्ग/पवर्ग/आङ्/अनुस्वार stands between the ऋ/र्/ष् trigger and the following न्, natva does not apply -- the न् remains dental.",
+      "sutra_devanagari": null,
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [
+        "8.4.2"
+      ],
+      "book_ref": "10_णत्वम्.pdf",
+      "process": "निषेधः -- a direct converse-application of natva-3's permitted-intervener list",
+      "examples": [
+        {
+          "sandhi": "रमिमना",
+          "gloss": "श् intervenes (not in the permitted set) -- natva blocked"
+        },
+        {
+          "sandhi": "रत्नम्",
+          "gloss": "त् intervenes -- natva blocked"
+        },
+        {
+          "sandhi": "शृगालेन",
+          "gloss": "ल् intervenes -- natva blocked"
+        },
+        {
+          "sandhi": "रटनम्",
+          "gloss": "ट् intervenes -- natva blocked"
+        }
+      ]
+    }
+  ],
+  "summary_counts": {
+    "rvowel_context_rules": 8,
+    "total_rules": 8,
+    "status": "Covers both source PDFs on natva in full. This is a narrower, single-topic rulebook (unlike the sandhi/samasa rulebooks) since both sources treat only this one sandhi phenomenon."
+  },
+  "bibliography": [
+    "Source PDF: '10_णत्वप्रकरणम् (काव्यदपठनार्थम्)' -- classroom material for kāvya-reading preparation.",
+    "Source PDF: '10_णत्वम्' -- a second, independently structured classroom treatment of the same topic.",
+    "Pāṇini. Aṣṭādhyāyī, Book 8 Pāda 4 (the jaśtva/natva/visarga section), critical editions/translations by Śrīśa Candra Vasu and by Rama Nath Sharma -- used only to check the 8.4.1 vs 8.4.41 discrepancy noted in source_note; other citations are reproduced from the source PDFs as-is."
+  ]
+}

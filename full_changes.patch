@@ -1,0 +1,839 @@
+39a40,181
+> Changelog (Tier-2/Tier-3 pass -- narrower correctness fixes, hygiene, structure):
+>   - dictionary_lookup: removesuffix() instead of rstrip() for case-ending
+>     stripping (rstrip('H') strips every trailing H, not one suffix -- rare
+>     on well-formed SLP1 output but silent when it happens); added
+>     ORDER BY e.entry_id to the stem lookup so a stem mapping to more than
+>     one dictionary entry picks a row deterministically instead of
+>     whatever SQLite's query planner happens to return; guarded against a
+>     NULL body_text with a falsy is_crossref, which previously raised
+>     TypeError on row[1][:120]; de-duplicated the [slp1, -H, -M] candidate
+>     list so a word with no trailing H/M isn't queried three times for the
+>     same string. Added check_same_thread=False to the cached connection
+>     (a read-only cache shared across threads is safe here; sqlite3's
+>     default would otherwise raise ProgrammingError for a future
+>     threaded/server caller) and a new close_connections() helper to
+>     release the cache explicitly.
+>   - restore_natva_in_right_piece: `.replace('ण','न')` rewrote EVERY ण in
+>     right_piece, not just the one the trigger identified -- अणुगणम्
+>     (which has two, and whose second ण has nothing to do with a natva
+>     boundary carried over from left_piece) became अनुगनम्, corrupting an
+>     unrelated ण. Now replaces positionally, once, at the first ण in the
+>     piece. Also narrowed the trigger from scanning the ENTIRE left_piece
+>     for ऋ/र्/ष् to just its last 6 characters -- natva-1/3's conditioning
+>     sound sits near the boundary that abuts right_piece, not arbitrarily
+>     far away in a long compound.
+>   - category() (split_word_recursive's ranking): visarga-ro-ri used to
+>     share avagraha's top tier (-1). Given its own tier (0), between
+>     avagraha and particle-validated -- both pieces confirming is strong
+>     evidence, but it is still a phonological pattern that could in
+>     principle coincide by chance, unlike avagraha, which is a written
+>     marker with no other use in the language at all. Renumbered the rest
+>     of the scale accordingly and updated the two downstream threshold
+>     checks (tie-surfacing, continue-past-first-peel gate) from category
+>     <= 1 to <= 2 so the SAME set of tiers (avagraha, roH-ri,
+>     particle-validated, both-confirmed) still counts as "fully
+>     confirmed" -- the semantic boundary is unchanged, only its numeric
+>     position shifted.
+>   - is_pragrhya_no_sandhi_context's result (pragrhya_flag) was computed
+>     on every svara candidate and attached to it, but nothing downstream
+>     ever read it. category() now applies a flat +100 penalty to a
+>     flagged candidate's tier, pushing it below every unflagged candidate
+>     at any tier while preserving relative order among other flagged
+>     candidates -- consistent with the guard's own docstring ("flag,
+>     don't silently drop", since the word-list check is partial).
+>   - Added SYNTHETIC_CITATIONS for the five rule_ids that can never match
+>     a key in sandhi_rulebook.json because they are synthesized by this
+>     file itself (visarga-ro-ri, vyan-3+coH-kuH, svara-6+visarga-4,
+>     visarga-4b, sa-etad-exception) -- previously these always printed
+>     "Ashtadhyayi ?", including visarga-ro-ri, which sits in the ranking's
+>     second-highest trust tier. Sourced from the same Ashtadhyayi
+>     references each generator's own docstring already cites in prose,
+>     not borrowed from an unrelated rule's citation.
+>   - NEW: normalize_input() -- Unicode NFC normalization, and stripping of
+>     daṇḍa/double-daṇḍa, Devanagari digits, and zero-width joiner/
+>     non-joiner. Nothing previously normalized input at all, so e.g.
+>     candidates_vyan6 on 'रामं वन्दे ।' produced a right piece containing
+>     the daṇḍa. Spaces are deliberately never touched (Devanagari has no
+>     internal space that isn't a real word boundary). Wired into
+>     generate_candidates, split_word_recursive (which dictionary-checks
+>     the raw word before generate_candidates ever runs), split_word, and
+>     _read_words_from_file's corpus-line parsing.
+>   - (The Tier-1 pada-final fix to candidates_vyan3 -- see the entry below
+>     -- also covers its guttural coH-kuH branch automatically: that branch
+>     reuses the same right_start computed by the fixed check above it,
+>     rather than needing its own separate fix.)
+>   - split_word_recursive: the two INDEPENDENT depth limits (max_depth,
+>     rounds within one call; a local MAX_EXPANSION_DEPTH=8, nesting across
+>     calls) are replaced by ONE shared work budget (max_total_peels=40,
+>     threaded by reference through every call this invocation makes).
+>     Neither old limit bounded WIDTH -- a phrase with many sibling right
+>     pieces, each independently running up to max_depth rounds of its own,
+>     could still do unbounded total work despite both limits being
+>     respected individually. A single counter, decremented by every
+>     peeling round AND every expansion recursion, bounds total work
+>     regardless of whether it is spent going deep or wide, which is also
+>     what actually protects the call stack (verified: the original
+>     दर्शयामास चात्मानम् stack-overflow trigger, a 120-word adversarial
+>     phrase, and the default budget run under an artificially-lowered
+>     sys.setrecursionlimit(200) all complete without error).
+>   - File-mode double-execution: print_recursive_result()/split_word() now
+>     return their computed result, and the main loop threads it into
+>     _print_validation() (which forwards it to _compute_actual_split())
+>     instead of re-running the whole engine a second time per word just to
+>     grade it. Halves the engine calls made by a corpus run in file mode.
+>   - Removed: unused SOFT_TRIGGERS (also contained stray Latin 'g'/'h'
+>     characters, a v1 romanized-input leftover) and the duplicated
+>     module-level HARD_CONSONANTS definition (two identical copies; a
+>     future edit to one would not have applied to code reading the other).
+>   - split_word()'s "no candidates" message no longer hard-codes "28
+>     implemented rules" -- derived from len(ALL_GENERATORS) instead, so it
+>     can't drift from the actual generator count again the way it already
+>     had after candidates_svara_unified replaced seven entries with one.
+>   Verified: 32/32 main suite (plus vyan-6, vyan-11, boundary-elision, and
+>   the two Tier-1 suites) all still pass with the same exit-0 gate; the
+>   natva and category renumbering changes were checked against the
+>   regression words directly, not just by suite pass/fail.
+> 
+> Changelog (Tier-1 correctness pass -- ordering, layering, invariants):
+>   - generate_candidates: now imposes a CANONICAL order on its output
+>     (generator index, then len(right), then rule_id/left/right) and applies
+>     a structural well-formedness filter. Previously two stages silently
+>     depended on raw emission order -- split_word()/_compute_actual_split()
+>     report confirmed[0] with no sort at all, and split_word_recursive()'s
+>     ranking sort is stable, so ties fell back to emission order. The
+>     unified-scan swap changed exactly that: same candidate SET as the seven
+>     functions it replaced (verified, 0 mismatches / ~4000 words) but
+>     right-to-left rather than left-to-right, differing on ~19% of words and
+>     flipping the reported answer on ~28% of svara-triggered words. The
+>     corpus runs missed it because the visarga/vyanjana generators run first
+>     and usually supplied confirmed[0]. So "byte-for-byte identical output"
+>     below held for one corpus, not by construction -- it does now.
+>     Side effect: this also FIXES non-recursive mode on words like
+>     सूर्योदयः, which reported सु+उर्योदयः purely because svara-1 emitted
+>     before svara-2; shortest-right now wins within a generator.
+>   - is_well_formed_candidate: NEW central invariant -- no right piece may
+>     begin with a combining mark, which would mean the split cut through a
+>     grapheme cluster and orphaned a vowel sign. 10 of 286 candidates
+>     dropped across the regression words, 0 correct answers lost.
+>   - candidates_vyan3 / candidates_vyan4: require the trigger consonant to
+>     be PADA-FINAL (virama-marked or end of string). Both skipped a virama
+>     "if present" but never rejected a MATRA, so they fired mid-word where
+>     the rule cannot apply: देवेन्द्रः yielded left='त्',
+>     right='ेवेन्द्रः'. On random input this drops vyan-3 candidates from
+>     2088 to 41 and malformed ones from 541 to 16 (the rest caught by the
+>     invariant above).
+>   - candidates_elided_visarga_boundary: no longer calls dictionary_lookup.
+>     It made generate_candidates -- the pure-phonology layer -- require an
+>     open SQLite connection, so generators could not be tested in isolation
+>     and --test silently depended on dictionary contents. The condition is
+>     unchanged, now declared as requires_bare_form_absent and enforced by
+>     validate_against_dictionary.
+>   - dictionary_lookup: raises an actionable FileNotFoundError for a missing
+>     database instead of letting sqlite3.connect CREATE an empty one (which
+>     surfaced later as a misleading "no such table: stems" and left a
+>     zero-byte file on disk).
+>   - --test: tallies failures across every sub-suite and exits non-zero.
+>     It previously printed FAIL and exited 0, so a total regression reported
+>     green. Adds two new suites: unified-scan set-equivalence against the
+>     seven retained originals (so the rollback reference stays trustworthy),
+>     and the well-formedness invariant.
+>   Verified: 32/32 main suite, and --recursive corpus output byte-identical
+>   to the pre-patch version.
+> 
+113a256
+> import unicodedata
+116c259,292
+< SOFT_TRIGGERS = set("गघजझडढदधबभयरलवहमनङञणgh")  # hash-ish, simplified for v1
+---
+> # REMOVED: SOFT_TRIGGERS (unused anywhere in this file, and mixed in stray
+> # Latin 'g'/'h' characters -- a leftover from a v1 romanized-input approach
+> # that this Devanagari-native module no longer takes).
+> 
+> # Characters this module treats as structurally meaningless: zero-width
+> # joiner/non-joiner (encoding artifacts, not phonology), daṇḍa/double-daṇḍa
+> # (verse punctuation), and the Devanagari digits (verse/chapter numbering
+> # that sometimes rides along in corpus text). Devanagari itself never
+> # contains an internal space that isn't a real word boundary, so spaces are
+> # deliberately NOT touched here -- stripping punctuation must not collapse
+> # or invent word boundaries.
+> _ZERO_WIDTH = '\u200b\u200c\u200d\ufeff'
+> _PUNCTUATION_TO_STRIP = '।॥' + '०१२३४५६७८९' + _ZERO_WIDTH
+> 
+> def normalize_input(text):
+>     """Normalize raw corpus/CLI text before it reaches any generator.
+> 
+>     FIXED (see changelog): nothing previously normalized input at all, so a
+>     generator's character-by-character scan treated daṇḍa, verse-number
+>     digits, and zero-width joiner/non-joiner as ordinary letters -- e.g.
+>     candidates_vyan6 on 'रामं वन्दे ।' happily produced a right piece
+>     containing the daṇḍa, and a ZWJ/ZWNJ inserted by some input pipeline
+>     silently broke every character-position trigger near it. Also applies
+>     Unicode NFC normalization, since Devanagari text can arrive with
+>     combining sequences in more than one equivalent byte form.
+> 
+>     Idempotent and cheap, so it is safe to call at every entry point
+>     (generate_candidates, split_word, split_word_recursive, and the file
+>     reader) rather than trying to guarantee it only ever runs once."""
+>     if not text:
+>         return text
+>     text = unicodedata.normalize('NFC', text)
+>     return ''.join(ch for ch in text if ch not in _PUNCTUATION_TO_STRIP)
+> 
+155a332,376
+> # FIXED (see changelog): several generators emit synthetic rule_ids that
+> # combine or extend a rulebook entry -- 'vyan-3+coH-kuH', 'svara-6+visarga-4',
+> # 'visarga-ro-ri', 'visarga-4b', 'sa-etad-exception'. None of these can
+> # match a key in sandhi_rulebook.json (its ids are the plain 'svara-1'/
+> # 'vyan-3'/'visarga-2' style), so CITATIONS.get(c['rule_id']) always fell
+> # through to {} for them and split_word()/print_recursive_result() printed
+> # "Ashtadhyayi ?" -- for the RULE the ranking trusts MOST (visarga-ro-ri
+> # sits in the top confirmed tier, just below avagraha; see category()).
+> # Rather than borrowing a different rule's citation (which would mislabel
+> # the sutra), these are sourced directly from the same Ashtadhyayi
+> # references each generator's own docstring already cites in prose.
+> SYNTHETIC_CITATIONS = {
+>     'visarga-ro-ri': {
+>         'ashtadhyayi_ref': '8.3.14', 'lsk_prakarana': None,
+>         'english_name': 'roH ri (visarga elision before an r-initial word, '
+>                          'with compensatory lengthening of a preceding short i/u)',
+>         'sutra_devanagari': 'रो रि',
+>     },
+>     'vyan-3+coH-kuH': {
+>         'ashtadhyayi_ref': '8.2.30 + 8.2.39', 'lsk_prakarana': None,
+>         'english_name': 'coH kuH (velar-from-palatal reversion) feeding jashtva',
+>         'sutra_devanagari': 'चोः कुः',
+>     },
+>     'svara-6+visarga-4': {
+>         'ashtadhyayi_ref': '6.1.109 + 8.3.17', 'lsk_prakarana': None,
+>         'english_name': 'purvarupa (elision before avagraha) combined with the '
+>                          'a-preceded visarga -> o (guna) it presupposes, resolved '
+>                          'in one step',
+>         'sutra_devanagari': 'एङः पदान्तादति; ससजुषो रुः',
+>     },
+>     'visarga-4b': {
+>         'ashtadhyayi_ref': None, 'lsk_prakarana': None,
+>         'english_name': 'visarga elided at a word boundary before a non-a vowel '
+>                          '(शाकल्य लोपः) -- not itself a compulsory Ashtadhyayi rule, '
+>                          'a recognised optional/dialectal reading',
+>         'sutra_devanagari': None,
+>     },
+>     'sa-etad-exception': {
+>         'ashtadhyayi_ref': None, 'lsk_prakarana': None,
+>         'english_name': 'सः/एषः closed-class exception: visarga drops entirely '
+>                          'before any consonant, without the usual u-guna step',
+>         'sutra_devanagari': None,
+>     },
+> }
+> 
+382,384c603,619
+<         if ch in jash_to_jhal and i + 1 < len(word):
+<             # skip the virama that belongs to this consonant cluster, if present
+<             right_start = i + 2 if (i + 1 < len(word) and word[i+1] == '्') else i + 1
+---
+>         if ch in jash_to_jhal:
+>             # FIXED: a jashtva source must be PADA-FINAL, which in Devanagari
+>             # means virama-marked (or the very end of the string). The old
+>             # code skipped the virama "if present" but did not REJECT the
+>             # alternative -- a consonant carrying a MATRA -- so it fired on
+>             # mid-word consonants where the rule cannot have applied, and
+>             # sliced straight through the grapheme cluster: देवेन्द्रः
+>             # produced left='त्', right='ेवेन्द्रः', a right piece beginning
+>             # with an orphaned vowel sign (not a valid Devanagari string)
+>             # whose द had silently lost its own े. Against a comprehensive
+>             # dictionary such a fragment can validate by accident and win a
+>             # ranking tier.
+>             if i + 1 < len(word) and word[i+1] != '्':
+>                 continue
+>             right_start = i + 2 if i + 1 < len(word) else i + 1
+>             if right_start >= len(word):
+>                 continue
+398c633,636
+< HARD_CONSONANTS = set("कखचछटठतथपफशषस")
+---
+> # REMOVED: duplicate `HARD_CONSONANTS = set("कखचछटठतथपफशषस")` -- identical to
+> # the module-level definition near the top of the file. Harmless today
+> # (both had the same value), but a future edit to one copy would silently
+> # not apply to code below this point that reads the other.
+449,450c687,693
+<         if ch in jhal_to_jal and i + 1 < len(word):
+<             right_start = i + 2 if (i + 1 < len(word) and word[i+1] == '्') else i + 1
+---
+>         if ch in jhal_to_jal:
+>             # FIXED: same pada-final requirement as vyan-3 above -- a
+>             # consonant carrying a matra is mid-word, so this hardening rule
+>             # cannot have produced it, and splitting there orphans the matra.
+>             if i + 1 < len(word) and word[i+1] != '्':
+>                 continue
+>             right_start = i + 2 if i + 1 < len(word) else i + 1
+576c819,829
+<     trigger_present = any(t in left_piece for t in ('ऋ', 'र', 'ष'))
+---
+>     # NARROWED (see changelog): `any(t in left_piece for t in (...))` scanned
+>     # the ENTIRE left piece for a trigger consonant, so a natva-conditioning
+>     # र् anywhere in a long compound -- arbitrarily far from this boundary --
+>     # would license a restoration here. natva-1/3's conditioning sound sits
+>     # near the word-final boundary that abuts right_piece, not anywhere in
+>     # left_piece; restrict the scan to the last few characters so a trigger
+>     # far from the boundary no longer counts. (natva-3's own intervening-
+>     # sound allowance is why this is a window, not just the final letter --
+>     # still an approximation, per this function's docstring.)
+>     trigger_window = left_piece[-6:]
+>     trigger_present = any(t in trigger_window for t in ('ऋ', 'र', 'ष'))
+579c832,840
+<     restored = right_piece.replace('ण', 'न')
+---
+>     # FIXED: .replace('ण', 'न') rewrote EVERY ण in right_piece, not just
+>     # the one this trigger is about -- अणुगणम् (which has two, and whose
+>     # SECOND ण has nothing to do with a natva boundary that lies to the
+>     # left of the piece) became अनुगनम्, corrupting a ण that was never a
+>     # natva product. Only the FIRST ण in the piece is a plausible target
+>     # of a natva change carried over the boundary from left_piece; replace
+>     # positionally, once, and leave any other ण in the piece untouched.
+>     idx = right_piece.index('ण')
+>     restored = right_piece[:idx] + 'न' + right_piece[idx + 1:]
+1274,1278c1535,1551
+<             if not dictionary_lookup(tok1)['found']:
+<                 left = word[:start1] + restored['restored']
+<                 right = word[end1:]  # keeps the space, unchanged from here on
+<                 out.append({'rule_id': restored['rule_id'], 'left': left, 'right': right,
+<                             'note': f"elided-visarga boundary restoration: {restored['note']}"})
+---
+>             #
+>             # FIXED (layering): this check used to call dictionary_lookup()
+>             # RIGHT HERE, which made generate_candidates() -- nominally the
+>             # pure-phonology layer -- depend on an open SQLite connection.
+>             # That broke the generate/validate separation the whole module
+>             # is built around: the generators could not be exercised at all
+>             # without a populated dictionary file, so they were untestable
+>             # in isolation and the --test suite silently depended on
+>             # dictionary contents. The condition is unchanged; it is now
+>             # DECLARED on the candidate and enforced by
+>             # validate_against_dictionary(), which is the layer that is
+>             # allowed to touch the database.
+>             left = word[:start1] + restored['restored']
+>             right = word[end1:]  # keeps the space, unchanged from here on
+>             out.append({'rule_id': restored['rule_id'], 'left': left, 'right': right,
+>                         'requires_bare_form_absent': tok1,
+>                         'note': f"elided-visarga boundary restoration: {restored['note']}"})
+1296a1570,1588
+> COMBINING_MARKS = set('ािीुूृॄॢेैोौंःँ्')
+> 
+> def is_well_formed_candidate(c):
+>     """Cheap structural invariant applied to EVERY generator's output.
+> 
+>     A right piece may never begin with a combining mark (a vowel matra,
+>     anusvara/visarga, or a virama): in Devanagari those attach to a
+>     preceding base consonant, so a right piece starting with one means the
+>     split cut through a grapheme cluster and orphaned a vowel sign -- the
+>     resulting string is not valid Devanagari, it cannot be a real word, and
+>     the base consonant it belonged to has silently lost its vowel.
+> 
+>     Enforced centrally rather than trusting each of the ~25 generators to
+>     slice cleanly on its own. Measured against this file's own regression
+>     words: drops 10 of 286 candidates, loses 0 correct answers.
+>     """
+>     return not (c['right'] and c['right'][0] in COMBINING_MARKS)
+> 
+> 
+1297a1590
+>     word = normalize_input(word)
+1299c1592
+<     for gen in ALL_GENERATORS:
+---
+>     for gen_index, gen in enumerate(ALL_GENERATORS):
+1301c1594,1597
+<             c['citation'] = CITATIONS.get(c['rule_id'], {})
+---
+>             if not is_well_formed_candidate(c):
+>                 continue
+>             c['citation'] = CITATIONS.get(c['rule_id']) or SYNTHETIC_CITATIONS.get(c['rule_id'], {})
+>             c['_gen_index'] = gen_index
+1307a1604,1625
+>     # FIXED: impose a CANONICAL order. Nothing downstream may depend on the
+>     # order generators happen to emit in -- but two things silently did.
+>     # split_word()/_compute_actual_split() report confirmed[0], i.e. pure
+>     # emission order with no sort at all; and split_word_recursive()'s
+>     # ranking sort is STABLE, so candidates tied on
+>     # (category, validated, len(right)) are decided by emission order too
+>     # (the "insertion-order artifact" its own comments call out).
+>     #
+>     # That made behaviour hostage to each generator's internal scan
+>     # DIRECTION. The unified-scan swap changed exactly that: it produces
+>     # the same candidate SET as the seven functions it replaced (verified,
+>     # 0 mismatches on ~4000 words) but in right-to-left rather than
+>     # left-to-right order, differing on ~19% of words -- which flips the
+>     # reported answer on ~28% of svara-triggered words. The corpus runs
+>     # missed this only because the visarga/vyanjana generators run first
+>     # and usually supply confirmed[0].
+>     #
+>     # Sorting here makes the two versions byte-identical (verified, 0
+>     # mismatches on 1505 words) and makes that property hold by
+>     # construction for any future generator rewrite.
+>     results.sort(key=lambda c: (c['_gen_index'], len(c['right']),
+>                                 c['rule_id'], c['left'], c['right']))
+1316,1318c1634,1637
+<     the process (validate_against_dictionary's original per-call connect/
+<     close pattern is preserved for it, but repeated single-word lookups
+<     during recursion would otherwise reopen the DB file every call)."""
+---
+>     the process, since repeated single-word lookups during recursion would
+>     otherwise reopen the DB file every call. (validate_against_dictionary
+>     now goes through this same cache too -- it no longer opens its own
+>     connection; see close_connections() to release the cache explicitly.)"""
+1326c1645,1666
+<         conn = sqlite3.connect(db_path)
+---
+>         # FIXED: sqlite3.connect() CREATES a missing database file instead
+>         # of failing. So a missing/mistyped dictionary path used to leave a
+>         # zero-byte apte_dictionary.sqlite on disk and then surface as
+>         # "OperationalError: no such table: stems" -- an error that points
+>         # at a schema problem rather than the actual missing-file cause,
+>         # with a junk file now sitting there to confuse the next run.
+>         # Same actionable-error treatment load_citations() already gets.
+>         if not os.path.isfile(db_path):
+>             raise FileNotFoundError(
+>                 f"Dictionary database not found: {db_path}\n"
+>                 "Build it with build_apte_dictionary.py, or pass an explicit "
+>                 "db_path. (Not creating it here: an empty database would "
+>                 "fail later with a misleading 'no such table' error.)"
+>             )
+>         # FIXED: sqlite3 defaults to check_same_thread=True, so a cached
+>         # connection created on one thread raises ProgrammingError the
+>         # moment a different thread (a future web wrapper, a worker pool)
+>         # reuses it. This module never mutates the dictionary at runtime
+>         # -- every access here is a read -- so sharing a read connection
+>         # across threads is safe; check_same_thread=False just stops
+>         # sqlite3 from refusing it.
+>         conn = sqlite3.connect(db_path, check_same_thread=False)
+1333a1674,1681
+>     #
+>     # FIXED: rstrip(chars) strips every trailing character IN THE SET, not
+>     # a single suffix -- 'ramaHH'.rstrip('H') gives 'rama', not 'ramaH'.
+>     # Unlikely to matter for well-formed SLP1 output, but silent when it
+>     # does. removesuffix() only removes the exact suffix, once.
+>     # Also de-duplicated (a word with no trailing H/M queried the same
+>     # string three times) while preserving try-order, and each attempt
+>     # is dict-keyed so the query text always matches what actually matched.
+1335c1683,1689
+<     for candidate in [slp1, slp1.rstrip('H'), slp1.rstrip('M')]:
+---
+>     candidates = list(dict.fromkeys([slp1, slp1.removesuffix('H'), slp1.removesuffix('M')]))
+>     for candidate in candidates:
+>         # ORDER BY entry_id: a bare SELECT ... LIMIT 1 with no ORDER BY
+>         # returns an arbitrary row when a stem maps to more than one
+>         # entry -- not guaranteed stable across SQLite versions or after
+>         # ANALYZE. Ordering by entry_id makes the choice deterministic
+>         # and reproducible.
+1338c1692
+<                        WHERE s.stem = ? LIMIT 1""", (candidate,))
+---
+>                        WHERE s.stem = ? ORDER BY e.entry_id LIMIT 1""", (candidate,))
+1340a1695,1699
+>             # FIXED: row[1] (body_text) can be NULL for a cross-reference
+>             # entry even when is_crossref is falsy in some corpora -- the
+>             # old `row[1][:120]` then raised TypeError. body_text or ''
+>             # makes a NULL gloss an empty string instead of a crash.
+>             gloss = 'see cross-ref' if row[2] else (row[1] or '')[:120]
+1342,1343c1701
+<                     'gloss': (row[2] and 'see cross-ref' ) or row[1][:120],
+<                     'found': True}
+---
+>                     'gloss': gloss, 'found': True}
+1346a1705,1717
+> def close_connections():
+>     """Close every cached sqlite3 connection opened by dictionary_lookup()
+>     and clear the cache. dictionary_lookup's mutable-default cache lives
+>     for the whole process and previously had no way to release its
+>     connection(s) -- fine for a one-shot CLI run, but a long-lived caller
+>     (a REPL, a server, a test suite that rebuilds the dictionary between
+>     runs) had no way to force a reconnect or free the file handle."""
+>     conn_cache = dictionary_lookup.__defaults__[1]  # the _conn_cache default
+>     for conn in conn_cache.values():
+>         conn.close()
+>     conn_cache.clear()
+> 
+> 
+1365a1737,1744
+>         # Enforce any deferred precondition a generator declared rather than
+>         # testing itself (see candidates_elided_visarga_boundary): the
+>         # restoration is only trustworthy when the BARE form does NOT already
+>         # validate on its own. A candidate failing this is DROPPED, exactly
+>         # as it was never generated before that check moved here.
+>         bare = c.get('requires_bare_form_absent')
+>         if bare and dictionary_lookup(bare, db_path=db_path)['found']:
+>             continue
+1381c1760
+< def split_word_recursive(word, max_depth=6, _expansion_depth=0):
+---
+> def split_word_recursive(word, max_depth=6, max_total_peels=40, _budget=None):
+1400a1780,1800
+>     max_total_peels: a SHARED work budget (see _budget below), consumed
+>     by every peeling round this call makes AND by every nested call this
+>     call's right-piece expansion spawns. Bounds total engine work across
+>     the whole recursive tree from one top-level call, not per-call.
+> 
+>     FIXED (see changelog): this used to take two INDEPENDENT limits --
+>     max_depth (rounds within one call) and a local MAX_EXPANSION_DEPTH=8
+>     (nesting depth across calls, hard-coded, undocumented at the call
+>     site). Two problems: the two numbers interacted non-obviously (a
+>     docstring on one didn't mention the other), and neither bounded
+>     WIDTH -- a phrase with many sibling right pieces, each independently
+>     running up to max_depth rounds of its own, could still do unbounded
+>     total work despite both limits being respected individually. A single
+>     counter, threaded by reference through every call this invocation
+>     makes (both main-loop rounds and expansion recursion), bounds total
+>     work regardless of whether it is spent going deep or wide -- which is
+>     also what actually protects the call stack, since a worst-case chain
+>     of one-nested-call-per-round (the दर्शयामास चात्मानम् case that
+>     originally motivated MAX_EXPANSION_DEPTH) now exhausts the SAME
+>     budget the wide case would, at the same total-work bound.
+> 
+1404a1805,1823
+>     if _budget is None:
+>         # Top-level call: create the shared budget once. Every call this
+>         # invocation goes on to make -- this call's own peeling rounds
+>         # below, and any right-piece sub-expansion -- draws from and
+>         # mutates this SAME list, so the cap is on total work across the
+>         # whole recursive tree, not per call. (A one-element list, not a
+>         # plain int, because ints are immutable in Python -- passing the
+>         # list by reference is what lets nested calls decrement the same
+>         # counter the caller sees.)
+>         _budget = [max_total_peels]
+> 
+>     # Normalize here too, not just inside generate_candidates: the
+>     # whole-word dictionary guard immediately below runs BEFORE
+>     # generate_candidates is ever called, so an unnormalized word (stray
+>     # daṇḍa, ZWJ, non-NFC input) could fail that lookup for a reason that
+>     # has nothing to do with sandhi. Idempotent on recursive calls, since
+>     # `core` here is always sliced from an already-normalized string.
+>     word = normalize_input(word)
+> 
+1429a1849,1858
+>         # NEW: consume one unit of the shared work budget per round of
+>         # this loop, not just inside right-piece expansion -- see the
+>         # docstring's note on why max_depth and MAX_EXPANSION_DEPTH were
+>         # merged into a single total-work counter. Checked before doing
+>         # any work this round, so an exhausted budget stops immediately
+>         # rather than after one more (possibly expensive) round.
+>         if _budget[0] <= 0:
+>             break
+>         _budget[0] -= 1
+> 
+1500,1512c1929,1957
+<             # 0 = right piece IS a recognized closed-class particle --
+<             #     our single strongest signal, since particles are
+<             #     exactly what tends to sit at a real word boundary.
+<             # 1 = both left and right independently dictionary-confirmed
+<             # 2 = right piece is a known particle but left doesn't
+<             #     independently validate (keeps multi-step peeling
+<             #     working -- see changelog -- without letting a
+<             #     coincidental particle match beat a fully-confirmed
+<             #     candidate that doesn't happen to end in a particle)
+<             # 3 = only the LEFT (the stem/head) is confirmed
+<             # 4 = only the RIGHT is confirmed
+<             # 5 = neither confirmed
+<             # NOTE on why LEFT-only outranks RIGHT-only (3 < 4): a short
+---
+>             #  0 = visarga-ro-ri, both pieces independently confirmed.
+>             #      REVISED (see changelog): this used to share tier -1 with
+>             #      avagraha. roH ri's trigger (a long ई/ऊ immediately
+>             #      followed by literal र्) is specific and, combined with
+>             #      full dictionary confirmation on both sides, is strong
+>             #      evidence -- but it is still a PHONOLOGICAL pattern that
+>             #      could in principle coincide by chance, unlike avagraha,
+>             #      which is a written marker with no other use at all.
+>             #      Giving it its own tier keeps it above every generic
+>             #      both-confirmed candidate (which is what it needed
+>             #      promotion for in the first place -- नीरोगः's correct
+>             #      रो+गः would otherwise lose the shortest-right tiebreak
+>             #      to visarga-4's coincidentally-real short match) without
+>             #      overstating its evidence to the level of an explicit
+>             #      textual marker.
+>             #  1 = right piece IS a recognized closed-class particle AND
+>             #      validated -- our strongest generic signal, since
+>             #      particles are exactly what tends to sit at a real word
+>             #      boundary.
+>             #  2 = both left and right independently dictionary-confirmed
+>             #  3 = right piece is a known particle but left doesn't
+>             #      independently validate (keeps multi-step peeling
+>             #      working -- see changelog -- without letting a
+>             #      coincidental particle match beat a fully-confirmed
+>             #      candidate that doesn't happen to end in a particle)
+>             #  4 = only the LEFT (the stem/head) is confirmed
+>             #  5 = only the RIGHT is confirmed
+>             #  6 = neither confirmed
+>             # NOTE on why LEFT-only outranks RIGHT-only (4 < 5): a short
+1522,1547c1967,1996
+<                 return -1
+<             if c['rule_id'] == 'visarga-ro-ri' and c['validated'] and c['right_dictionary_check']['found']:
+<                 # roH ri's trigger (a long ई/ऊ immediately followed by a
+<                 # literal र्) is considerably more specific than visarga-4's
+<                 # generic "any ओ before a non-hard sound" -- when visarga-4
+<                 # ALSO fires somewhere inside the same word (नीरोगः's
+<                 # "रो" looks, in isolation, exactly like visarga-4's own
+<                 # output pattern), its short, coincidentally-real "गः"
+<                 # right piece can beat roH ri's correct, longer "रोगः" on
+<                 # the plain shortest-right tiebreak. Only promote roH ri
+<                 # here when BOTH its pieces independently validate --
+<                 # unlike svara-6's avagraha, this is a phonological
+<                 # pattern, not a written marker, so it still needs full
+<                 # dictionary confirmation to earn the trust.
+<                 return -1
+<             if c['right'] in KNOWN_PARTICLES and c['validated']:
+<                 return 0
+<             if c['validated'] and c['right_dictionary_check']['found']:
+<                 return 1
+<             if c['right'] in KNOWN_PARTICLES:
+<                 return 2
+<             if c['validated']:
+<                 return 3
+<             if c['right_dictionary_check']['found']:
+<                 return 4
+<             return 5
+---
+>                 base = -1
+>             elif c['rule_id'] == 'visarga-ro-ri' and c['validated'] and c['right_dictionary_check']['found']:
+>                 base = 0
+>             elif c['right'] in KNOWN_PARTICLES and c['validated']:
+>                 base = 1
+>             elif c['validated'] and c['right_dictionary_check']['found']:
+>                 base = 2
+>             elif c['right'] in KNOWN_PARTICLES:
+>                 base = 3
+>             elif c['validated']:
+>                 base = 4
+>             elif c['right_dictionary_check']['found']:
+>                 base = 5
+>             else:
+>                 base = 6
+>             # NEW: apply the pragrhya guard the candidate was already
+>             # carrying (see generate_candidates / is_pragrhya_no_sandhi_context).
+>             # It was computed and attached to every svara candidate but
+>             # nothing ever READ it, so a candidate svara-9 itself flags as
+>             # "sandhi should NOT occur here" ranked exactly like any other
+>             # unflagged candidate in its tier. A flat +100 pushes it below
+>             # every unflagged candidate at every base tier while preserving
+>             # its relative order against OTHER flagged candidates, rather
+>             # than discarding it outright -- the guard is deliberately
+>             # partial (closed word-list only, see its own docstring), so a
+>             # flagged candidate should lose to a clean alternative, not
+>             # vanish if it turns out to be the only option left.
+>             if c.get('pragrhya_flag'):
+>                 return base + 100
+>             return base
+1570,1575c2019,2024
+<         # ambiguous" when `best` is FULLY confirmed (category <= 1 --
+<         # both avagraha-certain or both-sides-dictionary-confirmed).
+<         # Below that tier, the tie_key (category, validated-bit, length)
+<         # doesn't check whether the RIGHT piece independently validates
+<         # at all -- so for गिरीन्द्रः it was flagging गिरि+ईन्द्रः as an
+<         # "equally valid" alternative to गिरि+इन्द्रः purely because
+---
+>         # ambiguous" when `best` is FULLY confirmed (category <= 2 --
+>         # avagraha-certain, roH-ri-confirmed, or both-sides-dictionary-
+>         # confirmed). Below that tier, the tie_key (category, validated-bit,
+>         # length) doesn't check whether the RIGHT piece independently
+>         # validates at all -- so for गिरीन्द्रः it was flagging गिरि+ईन्द्रः
+>         # as an "equally valid" alternative to गिरि+इन्द्रः purely because
+1582,1583c2031,2034
+<         # category <= 1 captures exactly that and nothing weaker.
+<         if category(best) <= 1:
+---
+>         # category <= 2 captures exactly that and nothing weaker.
+>         # (Threshold moved from <=1 to <=2 when visarga-ro-ri got its own
+>         # tier between avagraha and particle-validated -- see category().)
+>         if category(best) <= 2:
+1594c2045
+<         if i > 0 and category(best) > 1:
+---
+>         if i > 0 and category(best) > 2:
+1604c2055,2056
+<             # independently confirm; anything weaker, stop.
+---
+>             # independently confirm (or the higher-trust avagraha/roH-ri
+>             # tiers); anything weaker, stop.
+1634,1643c2086,2089
+<     # Hard cap on how deep the right-piece expansion can recurse into
+<     # itself, independent of max_depth (which only bounds the main
+<     # left-peeling loop). A candidate whose right piece shrinks by only
+<     # one or two characters per round can otherwise recurse hundreds of
+<     # levels deep on a long multi-word phrase and blow Python's call
+<     # stack (hit directly on दर्शयामास चात्मानम् during testing) well
+<     # before max_depth's rounds-per-call limit would ever stop it --
+<     # this bounds total expansion depth ACROSS nested calls, not just
+<     # rounds within one call.
+<     MAX_EXPANSION_DEPTH = 8
+---
+>     # REMOVED: the old local MAX_EXPANSION_DEPTH=8 hard cap on nesting
+>     # depth. Expansion recursion now draws from the SAME shared _budget
+>     # every main-loop round above also consumes -- see split_word_recursive's
+>     # docstring for why one counter replaces the two independent limits.
+1648,1649c2094,2096
+<         if core and len(core) >= 2 and _expansion_depth < MAX_EXPANSION_DEPTH:
+<             sub = split_word_recursive(core, max_depth=max_depth, _expansion_depth=_expansion_depth + 1)
+---
+>         if core and len(core) >= 2 and _budget[0] > 0:
+>             sub = split_word_recursive(core, max_depth=max_depth, max_total_peels=max_total_peels,
+>                                         _budget=_budget)
+1740a2188
+>     word = normalize_input(word)  # so the echoed "Input:" matches what was actually split
+1744c2192,2196
+<         print("No sandhi split candidates found by any of the 28 implemented rules.")
+---
+>         # FIXED: was hard-coded "28 implemented rules", a number that
+>         # silently drifts from reality every time a generator is added,
+>         # removed, or superseded (candidates_svara_unified alone replaced
+>         # seven entries with one). Derived from ALL_GENERATORS instead.
+>         print(f"No sandhi split candidates found by any of the {len(ALL_GENERATORS)} implemented rules.")
+1748c2200
+<         return
+---
+>         return None
+1771a2224,2228
+>     # NEW: return the confirmed list so a caller that already ran split_word
+>     # (the file-mode loop below, via _print_validation) doesn't have to
+>     # re-run generate_candidates()+validate_against_dictionary() a second
+>     # time on the same word just to grade it. See _compute_actual_split.
+>     return confirmed
+1896c2353,2360
+<         word = fields[0]
+---
+>         # FIXED: normalize the word here too, not just inside
+>         # generate_candidates/split_word_recursive -- this is the real
+>         # corpus-intake path (file mode), so a daṇḍa, verse-number digit,
+>         # or stray ZWJ/ZWNJ riding along in a corpus line is stripped
+>         # before the word is ever compared, split, or printed. expected/
+>         # name are left as the corpus wrote them (they're grading/display
+>         # text, not something a generator scans).
+>         word = normalize_input(fields[0])
+1911c2375
+< def _compute_actual_split(word, recursive):
+---
+> def _compute_actual_split(word, recursive, precomputed=None):
+1922c2386,2398
+<     just printed. Nothing about the split logic itself changes."""
+---
+>     just printed. Nothing about the split logic itself changes.
+> 
+>     FIXED (see changelog): file mode used to run the FULL engine on every
+>     word twice -- once via print_recursive_result()/split_word() to
+>     display it, and again here via a fresh split_word_recursive()/
+>     generate_candidates() call just to grade it, doubling the cost of
+>     every corpus run for no behavioural difference (both calls are
+>     deterministic on the same input). `precomputed` lets a caller that
+>     already ran the display function pass its result straight through:
+>     the dict split_word_recursive()/print_recursive_result() returns when
+>     recursive, or the `confirmed` list split_word() now returns otherwise.
+>     Passing nothing preserves the original recompute-from-scratch
+>     behaviour, so this stays a safe default for any other caller."""
+1924c2400
+<         result = split_word_recursive(word)
+---
+>         result = precomputed if precomputed is not None else split_word_recursive(word)
+1927,1929c2403,2408
+<         cands = generate_candidates(word)
+<         validated = validate_against_dictionary(cands)
+<         confirmed = [c for c in validated if c['validated']]
+---
+>         if precomputed is not None:
+>             confirmed = precomputed
+>         else:
+>             cands = generate_candidates(word)
+>             validated = validate_against_dictionary(cands)
+>             confirmed = [c for c in validated if c['validated']]
+1936c2415
+< def _print_validation(word, expected, recursive):
+---
+> def _print_validation(word, expected, recursive, precomputed=None):
+1943a2423,2426
+>     `precomputed` is forwarded to _compute_actual_split() -- see its
+>     docstring for why: avoids re-running the engine on a word the caller
+>     already ran once to display.
+> 
+1957c2440
+<     actual_pieces = _compute_actual_split(word, recursive)
+---
+>     actual_pieces = _compute_actual_split(word, recursive, precomputed=precomputed)
+2010a2494,2499
+>             #
+>             # FIXED (see changelog): the engine used to run TWICE per word
+>             # here -- once to display, once more inside _print_validation
+>             # to grade -- doubling every corpus run's cost. Both display
+>             # calls now return their result, which is threaded straight
+>             # into _print_validation instead of being thrown away.
+2012c2501
+<                 print_recursive_result(word)
+---
+>                 engine_result = print_recursive_result(word)
+2014c2503
+<                 split_word(word, show_all=show_all)
+---
+>                 engine_result = split_word(word, show_all=show_all)
+2017c2506
+<             outcome = _print_validation(word, expected, recursive)
+---
+>             outcome = _print_validation(word, expected, recursive, precomputed=engine_result)
+2076a2566,2571
+>     # FIXED: the suite used to print PASS/FAIL and then always exit 0, so a
+>     # total regression reported green to CI. Every sub-suite now feeds one
+>     # tally and the process exits non-zero on any failure -- which matters
+>     # here more than usual, since much of this file's design rests on
+>     # changes having been "verified against the regression suite".
+>     _failures = 0 if r6_match else 1
+2088a2584
+>     _failures += len(natva_tests) - np_
+2101a2598
+>     _failures += len(tests) - passed
+2120a2618
+>     _failures += len(boundary_tests) - bp
+2130a2629,2677
+> 
+>     # NEW: lock in the unified-scan equivalence claim as an actual test
+>     # rather than a changelog assertion. candidates_svara1/2/3/4/5/6/
+>     # 9_m_junction are retained as a rollback reference; that reference is
+>     # only trustworthy while it still agrees with candidates_svara_unified,
+>     # and nothing enforced that. Compares the candidate SET (the real
+>     # invariant) -- emission order deliberately differs, which is precisely
+>     # why generate_candidates() now imposes a canonical order.
+>     print()
+>     print("Unified-scan equivalence (candidates_svara_unified vs the 7 originals):")
+>     _superseded = [candidates_svara1, candidates_svara2, candidates_svara3,
+>                    candidates_svara4, candidates_svara5, candidates_svara6,
+>                    candidates_svara9_m_junction]
+>     _eq_words = [w for w, _l, _r, _rule in tests] + [
+>         "महर्षिः", "रामोऽपि", "विवासयामास", "विष्णुना सदृशः", "तत्रैव",
+>         "नमस्ते", "भानूदयः", "पाण्डवाश्चैव", "धर्म इवापरः", "नीरोगः",
+>     ]
+>     def _key(c):
+>         return (c['rule_id'], c['left'], c['right'])
+>     _eq_fail = 0
+>     for _w in _eq_words:
+>         _u = sorted(_key(c) for c in candidates_svara_unified(_w))
+>         _o = sorted(_key(c) for g in _superseded for c in g(_w))
+>         if _u != _o:
+>             _eq_fail += 1
+>             print(f"  [FAIL] {_w}: unified-only={sorted(set(_u)-set(_o))[:3]} "
+>                   f"originals-only={sorted(set(_o)-set(_u))[:3]}")
+>     print(f"  {len(_eq_words)-_eq_fail}/{len(_eq_words)} words produce an identical candidate set")
+>     _failures += _eq_fail
+> 
+>     # NEW: structural invariant -- no generator may emit a right piece
+>     # beginning with a combining mark (see is_well_formed_candidate).
+>     print()
+>     print("Well-formedness invariant (no orphaned vowel signs in right pieces):")
+>     _wf_fail = 0
+>     for _w in _eq_words:
+>         for _c in generate_candidates(_w):
+>             if not is_well_formed_candidate(_c):
+>                 _wf_fail += 1
+>                 print(f"  [FAIL] {_w}: {_c['rule_id']} -> {_c['left']} + {_c['right']}")
+>     print(f"  {'PASS' if not _wf_fail else 'FAIL'} -- {_wf_fail} malformed candidate(s) survived filtering")
+>     _failures += _wf_fail
+> 
+>     print()
+>     if _failures:
+>         print(f"RESULT: {_failures} failure(s). Exiting non-zero.")
+>         sys.exit(1)
+>     print("RESULT: all suites passed.")
+>     sys.exit(0)

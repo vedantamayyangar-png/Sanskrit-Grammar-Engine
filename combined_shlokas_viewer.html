@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>रामायणम् — व्याकरणविश्लेषणसहितम् (Combined Shlokas Viewer)</title>
+<style>
+  :root{
+    --bg: #fbf6ec;
+    --panel: #fffdf8;
+    --ink: #2b1d0e;
+    --maroon: #7a1f1f;
+    --maroon-dark: #5a1414;
+    --gold: #b8860b;
+    --gold-soft: #e8c988;
+    --line: #e2d3ad;
+    --muted: #7a6a4d;
+    --accent-bg: #f4e9cf;
+    --shadow: 0 2px 10px rgba(90,20,20,0.08);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;overflow-x:hidden;}
+  body{
+    background: var(--bg);
+    background-image: radial-gradient(circle at 10% 10%, #f6ecd6 0, transparent 40%),
+                       radial-gradient(circle at 90% 90%, #f6ecd6 0, transparent 40%);
+    color: var(--ink);
+    font-family: "Noto Serif Devanagari","Tiro Devanagari Sanskrit","Palatino Linotype",Georgia,serif;
+    overflow-wrap: anywhere;
+    line-height: 1.6;
+  }
+  header{
+    background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
+    color: #fbe9c6;
+    padding: 18px 16px 14px;
+    text-align:center;
+    box-shadow: var(--shadow);
+    position: relative;
+  }
+  header h1{ margin:0; font-size: 1.9rem; letter-spacing:0.5px; text-shadow: 0 1px 2px rgba(0,0,0,0.3); }
+  header .sub{ font-size:0.95rem; color:var(--gold-soft); margin-top:4px; font-family: Georgia, serif; letter-spacing: 0.5px; }
+  .ornament{ font-size:0.85rem; opacity:0.8; margin-top:6px; color:#e8d3a0;}
+
+  /* ===== file loader ===== */
+  .loader-bar{
+    background: var(--accent-bg);
+    border-bottom: 1px solid var(--line);
+    padding: 10px 14px;
+    display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:center;
+  }
+  .loader-bar label.file-btn{
+    font-family:inherit; background:var(--panel); border:1px solid var(--gold-soft);
+    color:var(--maroon-dark); padding:6px 14px; border-radius:6px; cursor:pointer; font-size:0.9rem;
+  }
+  .loader-bar label.file-btn:hover{ background: var(--gold-soft); }
+  .loader-bar input[type=file]{ display:none; }
+  .loader-status{ font-size:0.85rem; color:var(--muted); }
+  .loader-status.err{ color:#8a2f26; font-weight:bold; }
+  .loader-status.ok{ color:#2c5a29; font-weight:bold; }
+
+  .nav-bar{
+    display:flex; flex-wrap:wrap; gap:10px; justify-content:center; align-items:center;
+    background: var(--accent-bg);
+    padding:10px 12px;
+    border-bottom: 1px solid var(--line);
+    position: sticky; top:0; z-index: 20;
+  }
+  .nav-bar button, .nav-bar select{
+    font-family:inherit; background: var(--panel); border:1px solid var(--gold-soft);
+    color: var(--maroon-dark); padding:6px 12px; border-radius:6px; cursor:pointer; font-size:0.95rem;
+  }
+  .nav-bar button:hover{ background: var(--gold-soft); }
+  .nav-bar button:disabled{ opacity:0.4; cursor:not-allowed; }
+  .nav-bar select{min-width:110px;}
+  .nav-bar .counter{ color:var(--muted); font-size:0.85rem; }
+
+  main{ max-width: 960px; margin: 0 auto; padding: 18px 14px 60px; }
+
+  .empty-state{ text-align:center; padding:60px 20px; color:var(--muted); }
+  .empty-state .big{ font-size:1.3rem; color:var(--maroon-dark); margin-bottom:10px; }
+
+  .verse-card{
+    background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+    box-shadow: var(--shadow); padding: 20px 18px; margin-bottom: 20px;
+  }
+  .verse-num-badge{
+    display:inline-block; background: var(--maroon); color:#fce8bd;
+    padding:2px 12px; border-radius:20px; font-size:0.85rem; margin-bottom:10px;
+  }
+  .status-badge{
+    display:inline-block; padding:2px 10px; border-radius:20px; font-size:0.78rem; margin-left:8px;
+  }
+  .status-badge.full{ background:#e3f3e1; color:#2c5a29; }
+  .status-badge.partial{ background:#fbe9c6; color:#7a5a10; }
+  .moola{
+    text-align:center; color: var(--maroon-dark); font-size:1.5rem;
+    font-weight:600; margin: 14px 0 6px; line-height:1.8;
+  }
+  .iast{
+    text-align:center; color: var(--muted); font-style: italic; font-size:1.05rem;
+    font-family: Georgia, serif; margin: 2px 0 10px;
+  }
+
+  .tabs{
+    display:flex; flex-wrap:wrap; gap:6px; margin-top:18px; border-bottom: 2px solid var(--gold-soft); padding-bottom:8px;
+    overflow-x: auto;
+  }
+  .tab-btn{
+    font-family:inherit; font-size:0.85rem; background:var(--accent-bg); border:1px solid var(--gold-soft);
+    color:var(--maroon-dark); padding:5px 10px; border-radius:16px; cursor:pointer; white-space: nowrap;
+  }
+  .tab-btn.active{ background: var(--maroon); color:#fce8bd; border-color:var(--maroon); }
+  .tab-panel{ display:none; padding-top:14px; animation: fadeIn 0.2s ease-in; }
+  .tab-panel.active{ display:block; }
+  @keyframes fadeIn{ from{opacity:0;} to{opacity:1;} }
+
+  .section-title{ color:var(--maroon-dark); font-size:1.1rem; margin: 4px 0 10px; border-bottom:1px solid var(--line); padding-bottom:4px;}
+
+  /* COMPONENT 1 */
+  .padaccheda-row{ display:flex; flex-wrap:wrap; gap:10px; }
+  .padaccheda-item{
+    background: var(--accent-bg); padding:4px 10px; border-radius:6px; font-size:1.05rem; border:1px solid var(--line);
+  }
+  .hover-term{ border-bottom: 1px dotted var(--gold); cursor: help; position: relative; display: inline-block; }
+  .hover-term .tooltip-box{
+    visibility: hidden; opacity: 0; position: absolute; bottom: 125%; left: 50%;
+    transform: translateX(-50%); background: var(--maroon-dark); color: var(--gold-soft);
+    padding: 8px 12px; border-radius: 6px; font-size: 0.8rem; line-height: 1.55;
+    white-space: normal; min-width: 190px; max-width: 300px; z-index: 30;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3); transition: opacity 0.15s ease; pointer-events: none; text-align: left;
+  }
+  .hover-term:hover .tooltip-box, .hover-term:focus .tooltip-box{ visibility: visible; opacity: 1; }
+  .hover-hint{ font-size:0.82rem; color:var(--muted); margin-top:10px; }
+
+  /* COMPONENT 2 */
+  .anvaya-box{ background:#fdf9ef; padding:10px 12px; border-radius:6px; font-size:1.05rem; border:1px solid var(--line); }
+  .translation-box{
+    margin-top:14px; padding:12px 14px; background: var(--accent-bg);
+    border-left: 4px solid var(--gold); border-radius: 6px; font-size:1rem;
+  }
+  .translation-box .label{ font-weight:bold; color:var(--maroon-dark); margin-bottom:4px; display:block;}
+
+  /* COMPONENT 3 */
+  .word-card{ border:1px solid var(--line); border-radius:8px; padding:10px 12px; margin-bottom:10px; background:#fffef9; }
+  .word-card .w{ font-size:1.15rem; color:var(--maroon-dark); font-weight:bold; }
+  .word-card .field{ margin-top:4px; font-size:0.92rem; }
+  .word-card .field b{ color:var(--muted); font-weight:600; }
+
+  /* COMPONENT 4 */
+  .karaka-grid{ display:grid; grid-template-columns: 1fr; gap:8px; }
+  .karaka-grid .k-item{ background:#fdf9ef; border:1px solid var(--line); border-radius:6px; padding:8px 10px; font-size:0.95rem;}
+  .karaka-grid .k-item b{ color:var(--maroon-dark);}
+  .karaka-note{ font-size:0.82rem; color:var(--muted); margin-top:10px; font-style:italic; }
+
+  /* COMPONENTS 5 & 6 */
+  table.decl-table{ width:100%; border-collapse:collapse; margin-bottom:6px; font-size:0.95rem; }
+  table.decl-table th, table.decl-table td{ border:1px solid var(--line); padding:6px 8px; text-align:center; }
+  table.decl-table th{ background: var(--accent-bg); color:var(--maroon-dark); }
+  .group-title{ font-weight:bold; margin: 14px 0 4px; color:var(--maroon-dark); }
+  .group-note{ font-size:0.85rem; color:var(--muted); margin-bottom:6px; }
+
+  /* COMPONENT 7 */
+  .pratyaya-item{ background:#fdf9ef; border:1px solid var(--line); border-radius:6px; padding:10px 12px; margin-bottom:10px; font-size:0.95rem; }
+  .pratyaya-item .word{ color:var(--maroon-dark); font-weight:bold; margin-bottom:4px; display:block;}
+  .confidence-tag{ font-size:0.75rem; padding:1px 8px; border-radius:10px; margin-left:6px; }
+  .confidence-tag.resolved, .confidence-tag.dictionary-verified{ background:#e3f3e1; color:#2c5a29; }
+  .confidence-tag.heuristic, .confidence-tag.phonology-only, .confidence-tag.recognized{ background:#fbe9c6; color:#7a5a10; }
+
+  /* COMPONENT 8 */
+  .sandhi-item{ background:#fdf9ef; border:1px solid var(--line); border-radius:6px; padding:10px 12px; margin-bottom:10px; font-size:0.95rem; }
+  .sandhi-item .loc{ color:var(--maroon-dark); font-weight:bold; margin-bottom:4px; display:block;}
+
+  /* COMPONENT 9 */
+  .samasa-item{ background:#fdf9ef; border:1px solid var(--line); border-radius:6px; padding:10px 12px; margin-bottom:10px; font-size:0.95rem; }
+  .samasa-item .comp{ color:var(--maroon-dark); font-weight:bold; margin-bottom:4px; display:block;}
+
+  /* COMPONENT 10 */
+  .scansion-row{ display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; padding:6px 0; border-bottom:1px dashed var(--line);}
+  .scansion-row .p{ flex:2; min-width:180px; }
+  .scansion-row .m{ flex:1; min-width:80px; color:var(--maroon); letter-spacing:2px;}
+  .alankara-item{ margin-bottom:10px; }
+  .alankara-item .name{ font-weight:bold; color:var(--maroon-dark); }
+
+  .pending-note{
+    margin-top:16px; padding:14px; text-align:center; color:var(--muted);
+    background: repeating-linear-gradient(45deg, #f4ecd8, #f4ecd8 10px, #f1e6ce 10px, #f1e6ce 20px);
+    border-radius:8px; border:1px dashed var(--gold-soft); font-size:0.95rem;
+  }
+  .pending-note .words{ margin-top:8px; font-size:0.85rem; color:var(--ink); }
+
+  footer{ text-align:center; padding:20px 12px; color:var(--muted); font-size:0.8rem; }
+
+  @media (min-width: 640px){ .karaka-grid{ grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>॥ श्रीरामायणम् ॥</h1>
+  <div class="sub">व्याकरणविश्लेषणसहितम् — Combined Shlokas JSON Viewer</div>
+  <div class="ornament">Renders any file matching the "combine_grammar_json.py" combined-shlokas output format</div>
+</header>
+
+<div class="loader-bar">
+  <label class="file-btn">
+    <input type="file" id="fileInput" accept="application/json,.json">
+    Choose combined_shlokas JSON file&hellip;
+  </label>
+  <span class="loader-status" id="loaderStatus">No file loaded yet.</span>
+</div>
+
+<div class="nav-bar" id="navBar" style="display:none;">
+  <button id="prevBtn" title="पूर्वश्लोकः">&larr; पूर्वः</button>
+  <select id="verseSelect"></select>
+  <button id="nextBtn" title="अग्रिमश्लोकः">अग्रिमः &rarr;</button>
+  <span class="counter" id="counter"></span>
+</div>
+
+<main id="mainArea">
+  <div class="empty-state">
+    <div class="big">No data loaded</div>
+    <div>Choose a JSON file above &mdash; one matching the <code>{"shlokas": [...]}</code> combined-shlokas format
+    (each shloka carrying COMPONENT_1 through COMPONENT_10) &mdash; to begin.</div>
+  </div>
+</main>
+
+<footer>
+  रामायणम् — व्याकरणविश्लेषणसहितम्। Generated components are dictionary-checked (padaccheda, sandhi, samasa, pratyaya, karaka);
+  hand-authored components (anvaya, pada-vigraha, shabdarupani, dhaturupani, chandas) are marked per-verse below.
+</footer>
+
+<script>
+  var verses = [];
+  var current = 0;
+
+  function escapeHtml(s){
+    if (s === null || s === undefined) return '';
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  /* ---------------------------------------------------------- file loading --- */
+  document.getElementById('fileInput').addEventListener('change', function(e){
+    var file = e.target.files[0];
+    if (!file) return;
+    var status = document.getElementById('loaderStatus');
+    status.className = 'loader-status';
+    status.textContent = 'Reading ' + file.name + '&hellip;';
+    var reader = new FileReader();
+    reader.onload = function(ev){
+      try {
+        var data = JSON.parse(ev.target.result);
+        if (!data || !Array.isArray(data.shlokas)) {
+          throw new Error('JSON does not have a top-level "shlokas" array.');
+        }
+        verses = data.shlokas;
+        if (verses.length === 0) throw new Error('"shlokas" array is empty.');
+        current = 0;
+        status.className = 'loader-status ok';
+        status.textContent = '\u2713 Loaded ' + file.name + ' \u2014 ' + verses.length + ' shloka(s).';
+        document.getElementById('navBar').style.display = 'flex';
+        buildSelect();
+        render();
+      } catch (err) {
+        status.className = 'loader-status err';
+        status.textContent = '\u2717 Could not parse this file: ' + err.message;
+        document.getElementById('navBar').style.display = 'none';
+        document.getElementById('mainArea').innerHTML =
+          '<div class="empty-state"><div class="big">Failed to load</div><div>' +
+          escapeHtml(err.message) + '</div></div>';
+      }
+    };
+    reader.onerror = function(){
+      status.className = 'loader-status err';
+      status.textContent = '\u2717 Could not read the file.';
+    };
+    reader.readAsText(file, 'UTF-8');
+  });
+
+  function buildSelect(){
+    var sel = document.getElementById('verseSelect');
+    sel.innerHTML = '';
+    verses.forEach(function(v, i){
+      var opt = document.createElement('option');
+      opt.value = i;
+      var id = (v.shloka_metadata && v.shloka_metadata.id) || ('#' + (i+1));
+      opt.textContent = 'श्लोकः ' + id;
+      sel.appendChild(opt);
+    });
+    sel.addEventListener('change', function(){
+      current = parseInt(sel.value, 10);
+      render();
+    });
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', function(){
+    if (current > 0) { current--; render(); }
+  });
+  document.getElementById('nextBtn').addEventListener('click', function(){
+    if (current < verses.length - 1) { current++; render(); }
+  });
+
+  /* ---------------------------------------------------------- table helper --- */
+  function renderTable(tbl){
+    if (!tbl || !tbl.headers || !tbl.rows) return '<p class="group-note">(no table data)</p>';
+    var html = '<table class="decl-table"><thead><tr>';
+    tbl.headers.forEach(function(h){ html += '<th>' + escapeHtml(h) + '</th>'; });
+    html += '</tr></thead><tbody>';
+    tbl.rows.forEach(function(r){
+      html += '<tr>';
+      r.forEach(function(c){ html += '<td>' + escapeHtml(c) + '</td>'; });
+      html += '</tr>';
+    });
+    html += '</tbody></table>';
+    if (tbl.note) html += '<p class="group-note">' + escapeHtml(tbl.note) + '</p>';
+    return html;
+  }
+
+  function isSkeleton(comp){
+    return comp && comp.status === 'SKELETON_NEEDS_MANUAL_AUTHORING';
+  }
+  function pendingNote(comp){
+    var words = (comp && comp.words_in_verse) ? comp.words_in_verse.join(', ') : '';
+    return '<div class="pending-note">' +
+      escapeHtml((comp && comp.description) || 'This component has not been manually authored yet for this verse.') +
+      (words ? '<div class="words"><b>Words in verse:</b> ' + escapeHtml(words) + '</div>' : '') +
+      '</div>';
+  }
+
+  /* ---------------------------------------------------------- tab renderers --- */
+  var TABS = [
+    {key:'c1', label:'१. पदच्छेदः'},
+    {key:'c2', label:'२. अन्वयः'},
+    {key:'c3', label:'३. पद-विग्रहः'},
+    {key:'c4', label:'४. कारकः'},
+    {key:'c5', label:'५. शब्दरूपाणि'},
+    {key:'c6', label:'६. धातुरूपाणि'},
+    {key:'c7', label:'७. प्रत्ययाः'},
+    {key:'c8', label:'८. सन्धिः'},
+    {key:'c9', label:'९. समासः'},
+    {key:'c10', label:'१०. छन्दस्/अलङ्कारः'},
+  ];
+  var activeTab = 'c1';
+
+  function renderC1(v){
+    var c = v.COMPONENT_1_padaccheda;
+    if (!c || !c.padaccheda) return '<p class="group-note">(no data)</p>';
+    var html = '<div class="section-title">पदच्छेदः — Word Segmentation</div><div class="padaccheda-row">';
+    c.padaccheda.forEach(function(w){
+      var tip = [];
+      if (w.surface) tip.push('<b>surface:</b> ' + escapeHtml(w.surface));
+      if (w.meaning_en) tip.push('<b>meaning:</b> ' + escapeHtml(w.meaning_en));
+      if (w.meaning_sa) tip.push('<b>sa:</b> ' + escapeHtml(w.meaning_sa));
+      html += '<span class="padaccheda-item"><span class="hover-term" tabindex="0">' +
+        escapeHtml(w.word) +
+        (tip.length ? '<span class="tooltip-box">' + tip.join('<br>') + '</span>' : '') +
+        '</span></span>';
+    });
+    html += '</div><div class="hover-hint">Hover or tab-focus a word for its gloss.</div>';
+    return html;
+  }
+
+  function renderC2(v){
+    var c = v.COMPONENT_2_anvaya;
+    if (isSkeleton(c)) return pendingNote(c);
+    if (!c) return '<p class="group-note">(no data)</p>';
+    var html = '<div class="section-title">अन्वयः — Syntactic Order</div>';
+    html += '<div class="anvaya-box">' + escapeHtml(c.anvaya_sa) + '</div>';
+    if (c.translation_en) {
+      html += '<div class="translation-box"><span class="label">Translation</span>' +
+        escapeHtml(c.translation_en) + '</div>';
+    }
+    return html;
+  }
+
+  function renderC3(v){
+    var c = v.COMPONENT_3_padavigraha;
+    if (isSkeleton(c)) return pendingNote(c);
+    if (!c || !c.pada_vigraha) return '<p class="group-note">(no data)</p>';
+    var html = '<div class="section-title">पद-विग्रहः — Word-by-Word Analysis</div>';
+    c.pada_vigraha.forEach(function(w){
+      html += '<div class="word-card"><div class="w">' + escapeHtml(w.word) + '</div>';
+      var fields = [
+        ['pos', w.pos], ['gender', w.gender], ['number', w.number], ['case', w.case],
+        ['meaning', w.meaning], ['etymology', w.etymology], ['role', w.role],
+      ];
+      fields.forEach(function(f){
+        if (f[1]) html += '<div class="field"><b>' + f[0] + ':</b> ' + escapeHtml(f[1]) + '</div>';
+      });
+      html += '</div>';
+    });
+    return html;
+  }
+
+  function renderC4(v){
+    var c = v.COMPONENT_4_karaka;
+    if (!c || !c.karaka) return '<p class="group-note">(no data)</p>';
+    var k = c.karaka;
+    var html = '<div class="section-title">कारकः — Semantic Roles</div><div class="karaka-grid">';
+    var rows = [
+      ['कर्ता (karta)', k.karta], ['कर्म (karma)', k.karma],
+      ['करणः (karana)', k.karana], ['अधिकरणम् (adhikarana)', k.adhikarana],
+      ['सम्बन्धः (sambandha)', k.sambandha],
+    ];
+    rows.forEach(function(r){
+      if (r[1]) html += '<div class="k-item"><b>' + r[0] + ':</b> ' + escapeHtml(r[1]) + '</div>';
+    });
+    html += '</div>';
+    if (k._note) html += '<div class="karaka-note">' + escapeHtml(k._note) + '</div>';
+    return html;
+  }
+
+  function renderC5(v){
+    var c = v.COMPONENT_5_shabdarupani;
+    if (isSkeleton(c)) return pendingNote(c);
+    if (!c || !c.shabdarupani) return '<p class="group-note">(no data)</p>';
+    var html = '<div class="section-title">शब्दरूपाणि — Declension Paradigms</div>';
+    var s = c.shabdarupani;
+    Object.keys(s).forEach(function(key){
+      if (key === 'note') return;
+      var entry = s[key];
+      if (!entry || !entry.declension_table) return;
+      html += '<div class="group-title">' + escapeHtml(entry.lemma || key) +
+        (entry.gender ? ' (' + escapeHtml(entry.gender) + ')' : '') + '</div>';
+      html += renderTable(entry.declension_table);
+    });
+    if (s.note) html += '<p class="group-note">' + escapeHtml(s.note) + '</p>';
+    return html;
+  }
+
+  function renderC6(v){
+    var c = v.COMPONENT_6_dhaturupani;
+    if (isSkeleton(c)) return pendingNote(c);
+    if (!c || !c.dhaturupani) return '<p class="group-note">(no data)</p>';
+    var d = c.dhaturupani;
+    var html = '<div class="section-title">धातुरूपाणि — Verb Conjugation</div>';
+    function renderOne(root){
+      var out = '<div class="group-title">\u221a' + escapeHtml(root.root) +
+        (root.gana ? ' (gana: ' + escapeHtml(root.gana) + ')' : '') + '</div>';
+      if (root.lakara) out += '<div class="group-note">lakara: ' + escapeHtml(root.lakara) + '</div>';
+      if (root.form) out += '<div class="group-note">' + escapeHtml(root.form) + '</div>';
+      if (root.conjugation) out += renderTable(root.conjugation);
+      return out;
+    }
+    if (d.root) html += renderOne(d);
+    if (Array.isArray(d.roots)) d.roots.forEach(function(r){ html += renderOne(r); });
+    if (d.note) html += '<p class="group-note">' + escapeHtml(d.note) + '</p>';
+    if (!d.root && !d.roots) html += '<p class="group-note">(no finite verb in this verse)</p>';
+    return html;
+  }
+
+  function renderC7(v){
+    var c = v.COMPONENT_7_pratyaya;
+    if (!c || !c.pratyaya) return '<p class="group-note">(no data)</p>';
+    var html = '<div class="section-title">प्रत्ययाः — Suffix Breakdown</div>';
+    c.pratyaya.forEach(function(p){
+      html += '<div class="pratyaya-item"><span class="word">' + escapeHtml(p.word) +
+        (p.confidence ? '<span class="confidence-tag ' + escapeHtml((p.confidence||'').replace(/[^a-z-]/gi,'')) +
+          '">' + escapeHtml(p.confidence) + '</span>' : '') + '</span>';
+      if (p.breakdown) html += '<div><b>breakdown:</b> ' + escapeHtml(p.breakdown) + '</div>';
+      if (p.pratyaya_name) html += '<div><b>pratyaya:</b> ' + escapeHtml(p.pratyaya_name) + '</div>';
+      if (p.function) html += '<div><b>function:</b> ' + escapeHtml(p.function) + '</div>';
+      html += '</div>';
+    });
+    return html;
+  }
+
+  function renderC8(v){
+    var c = v.COMPONENT_8_sandhi;
+    if (!c || !c.sandhi) return '<p class="group-note">(no data)</p>';
+    if (c.sandhi.length === 0) return '<p class="group-note">No sandhi junctions requiring restoration were found in this verse.</p>';
+    var html = '<div class="section-title">सन्धिः — Sound Changes</div>';
+    c.sandhi.forEach(function(s){
+      html += '<div class="sandhi-item"><span class="loc">' + escapeHtml(s.location) + '</span>';
+      if (s.original && s.result) html += '<div>' + escapeHtml(s.original) + ' \u2192 ' + escapeHtml(s.result) + '</div>';
+      if (s.sandhi_type) html += '<div><b>type:</b> ' + escapeHtml(s.sandhi_type) + '</div>';
+      if (s.sandhi_rule_sa) html += '<div><b>rule:</b> ' + escapeHtml(s.sandhi_rule_sa) + '</div>';
+      html += '</div>';
+    });
+    return html;
+  }
+
+  function renderC9(v){
+    var c = v.COMPONENT_9_samasa;
+    if (!c || !c.samasa) return '<p class="group-note">(no data)</p>';
+    if (c.samasa.length === 0) return '<p class="group-note">No compounds were found in this verse.</p>';
+    var html = '<div class="section-title">समासः — Compound Analysis</div>';
+    c.samasa.forEach(function(s){
+      html += '<div class="samasa-item"><span class="comp">' + escapeHtml(s.word) +
+        (s.confidence ? '<span class="confidence-tag ' + escapeHtml((s.confidence||'').replace(/[^a-z-]/gi,'')) +
+          '">' + escapeHtml(s.confidence) + '</span>' : '') + '</span>';
+      if (s.compound_type) html += '<div><b>type:</b> ' + escapeHtml(s.compound_type) + '</div>';
+      if (s.breakdown) html += '<div><b>breakdown:</b> ' + escapeHtml(s.breakdown) + '</div>';
+      if (s.meaning) html += '<div><b>meaning:</b> ' + escapeHtml(s.meaning) + '</div>';
+      html += '</div>';
+    });
+    return html;
+  }
+
+  function renderC10(v){
+    var c = v.COMPONENT_10_chandas;
+    if (isSkeleton(c)) return pendingNote(c);
+    if (!c) return '<p class="group-note">(no data)</p>';
+    var html = '<div class="section-title">छन्दस् — Meter</div>';
+    if (c.chandas_name) html += '<p><b>Meter:</b> ' + escapeHtml(c.chandas_name) + '</p>';
+    (c.scansion || []).forEach(function(q){
+      html += '<div class="scansion-row"><span class="p">quarter ' + q.quarter + ': ' +
+        escapeHtml(q.text) + '</span><span class="m">' + q.matra + ' syllables</span></div>';
+    });
+    if (c.alankara && c.alankara.length){
+      html += '<div class="section-title" style="margin-top:18px;">अलङ्कारः — Literary Devices</div>';
+      c.alankara.forEach(function(a){
+        html += '<div class="alankara-item"><span class="name">' + escapeHtml(a.name) + '</span><br>' +
+          escapeHtml(a.definition) + '</div>';
+      });
+    }
+    return html;
+  }
+
+  var RENDERERS = { c1:renderC1, c2:renderC2, c3:renderC3, c4:renderC4, c5:renderC5,
+                    c6:renderC6, c7:renderC7, c8:renderC8, c9:renderC9, c10:renderC10 };
+
+  function switchTab(key){
+    activeTab = key;
+    document.querySelectorAll('.tab-btn').forEach(function(b){
+      b.classList.toggle('active', b.dataset.key === key);
+    });
+    document.querySelectorAll('.tab-panel').forEach(function(p){
+      p.classList.toggle('active', p.dataset.key === key);
+    });
+  }
+
+  function render(){
+    if (!verses.length) return;
+    var v = verses[current];
+    var meta = v.shloka_metadata || {};
+    document.getElementById('counter').textContent =
+      (current + 1) + ' / ' + verses.length;
+    document.getElementById('prevBtn').disabled = (current === 0);
+    document.getElementById('nextBtn').disabled = (current === verses.length - 1);
+    document.getElementById('verseSelect').value = current;
+
+    var statusClass = (meta.manual_content_status === 'fully authored') ? 'full' : 'partial';
+    var statusLabel = meta.manual_content_status || 'unknown';
+
+    var html = '<div class="verse-card">';
+    html += '<div class="verse-num-badge">श्लोकः ' + escapeHtml(meta.id) + '</div>';
+    html += '<span class="status-badge ' + statusClass + '">' + escapeHtml(statusLabel) + '</span>';
+    if (meta.devanagari) {
+      html += '<div class="moola">' + escapeHtml(meta.devanagari) + '</div>';
+    }
+    if (meta.iast) {
+      html += '<div class="iast">' + escapeHtml(meta.iast) + '</div>';
+    }
+
+    html += '<div class="tabs">';
+    TABS.forEach(function(t){
+      html += '<button class="tab-btn' + (t.key === activeTab ? ' active' : '') +
+        '" data-key="' + t.key + '">' + t.label + '</button>';
+    });
+    html += '</div>';
+
+    TABS.forEach(function(t){
+      html += '<div class="tab-panel' + (t.key === activeTab ? ' active' : '') +
+        '" data-key="' + t.key + '">' + RENDERERS[t.key](v) + '</div>';
+    });
+
+    html += '</div>';
+    document.getElementById('mainArea').innerHTML = html;
+
+    document.querySelectorAll('.tab-btn').forEach(function(b){
+      b.addEventListener('click', function(){ switchTab(b.dataset.key); });
+    });
+  }
+</script>
+</body>
+</html>

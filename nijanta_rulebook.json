@@ -1,0 +1,256 @@
+{
+  "title": "णिजन्तम् — The Causative (णिच्) Rule Book",
+  "subtitle": "Compiled from classroom source material on णिच्-प्रत्यय (the causative affix) and its karaka (case) effects on the caused agent, cross-referenced to Pāṇini's Aṣṭādhyāyī",
+  "source_note": "Compiled from a single classroom source PDF ('06_णिजन्तम्.pdf') which explains णिच् formation via root+causative pairs and, in greater detail, the vibhakti (case) rules governing the प्रयोज्यकर्ता (caused agent) depending on the semantic class of the underlying root. The PDF itself gives no explicit Aṣṭādhyāyī sūtra numbers; the ashtadhyayi_ref values below (3.1.26 for the core णिच् rule, and 1.4.52/1.4.53-adjacent kāraka rules for the प्रयोज्यकर्ता vibhakti assignment) are standard, well-established citations for these topics in Pāṇinian grammar, not independently re-verified via web search this session -- flagged here rather than presented with false certainty. Where the PDF gives no operative sūtra at all (the six-fold karaka classification is pedagogical, not a single cited sūtra), ashtadhyayi_ref is left null.",
+  "how_to_read": {
+    "ashtadhyayi_ref": "Chapter.Pada.Sutra number in Pāṇini's Aṣṭādhyāyī",
+    "prayojaka_karta": "प्रयोजककर्ता -- the causer/instigator (subject of the causative sentence)",
+    "prayojya_karta": "प्रयोज्यकर्ता -- the one caused/made to perform the action (was subject of the non-causative sentence)",
+    "process": "how the causative stem is formed and/or which vibhakti the प्रयोज्यकर्ता takes"
+  },
+  "nijanta_rules": [
+    {
+      "id": "nijanta-1",
+      "sanskrit_name": "णिजन्तस्य परिभाषा",
+      "english_name": "Definition: a root ending in णिच् is called णिजन्त",
+      "rule": "A root (धातु) to which the affix णिच् has been added is called णिजन्त (\"causative-ended\"). The affix णिच् has two distinct uses: स्वार्थे (as an inherent part of certain root-classes, with no independent causal meaning of its own -- e.g. चुरादिगण verbs like चोरयति, क्षालयति, प्रेषयति, कथयति) and प्रेरणार्थे (genuinely causative: 'X causes Y to do Z').",
+      "sutra_devanagari": "हेतुमति च",
+      "ashtadhyayi_ref": "3.1.26",
+      "related_ashtadhyayi": [],
+      "book_ref": "06_णिजन्तम्.pdf",
+      "process": "धातुः + णिच् = णिजन्तधातुः; प्रायः सर्वेभ्यः धातुभ्यः णिच् प्रेरणार्थे भवति",
+      "examples": [
+        {
+          "sandhi": "पठति (अणिजन्तम्) → पाठयति (णिजन्तम्)",
+          "gloss": "अध्यापकः छात्रं पाठं पाठयति -- 'the teacher causes the student to read'"
+        },
+        {
+          "sandhi": "खादति → खादयति",
+          "gloss": "causative of 'to eat'"
+        },
+        {
+          "sandhi": "हसति → हासयति",
+          "gloss": "causative of 'to laugh'"
+        },
+        {
+          "sandhi": "क्रीडति → क्रीडयति",
+          "gloss": "causative of 'to play'"
+        }
+      ]
+    },
+    {
+      "id": "nijanta-2",
+      "sanskrit_name": "प्रयोजककर्तृ-प्रयोज्यकर्तृ-विभागः",
+      "english_name": "The two agents of a causative sentence: causer and caused",
+      "rule": "Every causative sentence names two agents: the one who causes/instigates the action (प्रयोजककर्ता, expressed in the nominative/प्रथमा) and the one who is actually made to perform it (प्रयोज्यकर्ता, whose case varies by root-class -- see nijanta-3 through nijanta-8). The प्रयोजककर्ता is always प्रथमा; only the प्रयोज्यकर्ता's case is variable.",
+      "sutra_devanagari": null,
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "06_णिजन्तम्.pdf",
+      "process": "अणिजन्तवाक्ये कर्ता प्रथमा-विभक्तौ; णिजन्तवाक्ये सः एव प्रयोज्यकर्ता भवति, प्रयोजककर्ता नूतनः प्रथमान्तः",
+      "examples": [
+        {
+          "sandhi": "बालः शालां गच्छति। भ्राता बालकं शालां गमयति।",
+          "gloss": "अत्र भ्राता प्रयोजककर्ता, बालकः प्रयोज्यकर्ता"
+        }
+      ]
+    },
+    {
+      "id": "nijanta-3",
+      "sanskrit_name": "गत्यर्थकधातूनां प्रयोज्यकर्तुः द्वितीया",
+      "english_name": "Motion verbs (गत्यर्थक): the caused agent takes accusative (द्वितीया)",
+      "rule": "For roots meaning motion (गच्छति, अटति, सञ्चरति and similar), when used causatively, the प्रयोज्यकर्ता takes the accusative (द्वितीया) case -- EXCEPT for the two roots ई (इ, 'to go': एति) and वह् ('to carry': वहति), which despite being motion-verbs take तृतीया instead (see nijanta-4).",
+      "sutra_devanagari": null,
+      "ashtadhyayi_ref": "1.4.52",
+      "related_ashtadhyayi": [],
+      "book_ref": "06_णिजन्तम्.pdf",
+      "process": "गत्यर्थकधातूनां णिजन्तत्वे प्रयोज्यकर्तुः द्वितीया विभक्तिः भवति",
+      "examples": [
+        {
+          "sandhi": "पुत्रः शालां प्राप्नोति। पिता पुत्रं शालां प्रापयति।",
+          "gloss": "पुत्रं (द्वितीया) is the प्रयोज्यकर्ता"
+        },
+        {
+          "sandhi": "भृत्यः स्यूतं प्रेषयति। स्वामी भृत्यं स्यूतं प्रेषयति।",
+          "gloss": "भृत्यं (द्वितीया)"
+        },
+        {
+          "sandhi": "कोकिलः नीडं गच्छति। काकः कोकिलं नीडं गमयति।",
+          "gloss": "कोकिलं (द्वितीया)"
+        },
+        {
+          "sandhi": "यात्री तीर्थक्षेत्रम् अटति। मार्गदर्शी यात्रिणं तीर्थक्षेत्रम् आटयति।",
+          "gloss": "यात्रिणं (द्वितीया)"
+        }
+      ]
+    },
+    {
+      "id": "nijanta-4",
+      "sanskrit_name": "ई-वह्-धात्वोः अपवादः तृतीया",
+      "english_name": "Exception within motion verbs: ई (इ) and वह् take तृतीया, not द्वितीया",
+      "rule": "Although ई ('to go') and वह् ('to carry') are themselves motion-verbs, their प्रयोज्यकर्ता exceptionally takes the instrumental (तृतीया), not the accusative expected by the general motion-verb rule (nijanta-3).",
+      "sutra_devanagari": null,
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [
+        "1.4.52"
+      ],
+      "book_ref": "06_णिजन्तम्.pdf",
+      "process": "अपवादः -- गत्यर्थकभिन्नस्थले तृतीया",
+      "examples": [
+        {
+          "sandhi": "गोविन्दः पुस्तकं नयति। मनोजः गोविन्देन पुस्तकं नाययति।",
+          "gloss": "गोविन्देन (तृतीया, not द्वितीया)"
+        },
+        {
+          "sandhi": "वृषभः भारं वहति। शाकटिकः वृषभेण भारं वाहयति।",
+          "gloss": "वृषभेण (तृतीया)"
+        }
+      ]
+    },
+    {
+      "id": "nijanta-5",
+      "sanskrit_name": "बुद्ध्यर्थकधातूनां प्रयोज्यकर्तुः द्वितीया",
+      "english_name": "Cognition verbs (बुद्ध्यर्थक/ज्ञानार्थक): the caused agent takes accusative (द्वितीया)",
+      "rule": "For roots of knowing/understanding (जानाति, बोधति, वेत्ति and similar), the causative's प्रयोज्यकर्ता takes द्वितीया.",
+      "sutra_devanagari": null,
+      "ashtadhyayi_ref": "1.4.52",
+      "related_ashtadhyayi": [],
+      "book_ref": "06_णिजन्तम्.pdf",
+      "process": "बुद्ध्यर्थकधातूनां णिजन्तत्वे प्रयोज्यकर्तुः द्वितीया",
+      "examples": [
+        {
+          "sandhi": "बलदेवः कथां जानाति। वसुदेवः बलदेवं कथां ज्ञापयति।",
+          "gloss": "बलदेवं (द्वितीया)"
+        },
+        {
+          "sandhi": "शिष्यः श्लोकार्थं बोधति। अध्यापकः शिष्यं श्लोकार्थं बोधयति।",
+          "gloss": "शिष्यं (द्वितीया)"
+        }
+      ]
+    },
+    {
+      "id": "nijanta-6",
+      "sanskrit_name": "भक्षणार्थकधातूनां प्रयोज्यकर्तुः द्वितीया, अद्-खाद्योः अपवादः",
+      "english_name": "Eating verbs (भक्षणार्थक/प्रत्यवसानार्थक): द्वितीया, except अद्/खाद् which take तृतीया",
+      "rule": "For most eating-verbs (भुज्, अश्नाति, पिबति etc.), the प्रयोज्यकर्ता takes द्वितीया. The two roots अद् and खाद् are exceptions and take तृतीया instead -- UNLESS the sentence implies हिंसा (an act of destruction/violence toward the food), in which case even अद्/खाद् revert to द्वितीया for the प्रयोज्यकर्ता.",
+      "sutra_devanagari": null,
+      "ashtadhyayi_ref": "1.4.52",
+      "related_ashtadhyayi": [],
+      "book_ref": "06_णिजन्तम्.pdf",
+      "process": "भक्षणार्थकधातूनां द्वितीया; अद्-खाद्योः तृतीया (अहिंसायाम्), किन्तु हिंसायां द्वितीया एव",
+      "flagged_nuance": "The PDF gives a worked contrast on this exact point: बटुः अन्नं भक्षति → पिता बटुना अन्नं भक्षयति (तृतीया, no हिंसा/destruction implied for cooked food already prepared to be eaten) versus धेनवः सस्यं भक्षन्ति → गोपालः धेनून् सस्यं भक्षयति (द्वितीया, because eating growing crops implies हिंसा/destroying them).",
+      "examples": [
+        {
+          "sandhi": "शिशुः शर्कराम् भुङ्क्ते। माता शिशुं शर्कराम् भोजयति।",
+          "gloss": "general भक्षण root, द्वितीया"
+        },
+        {
+          "sandhi": "बटुः अन्नं अत्ति। पिता बटुना अन्नं भक्षयति।",
+          "gloss": "अद्-exception, तृतीया, no हिंसा"
+        },
+        {
+          "sandhi": "धेनवः सस्यं भक्षन्ति। गोपालः धेनून् सस्यं भक्षयति।",
+          "gloss": "हिंसा-सन्दर्भे द्वितीया, अपवादः निवृत्तः"
+        }
+      ]
+    },
+    {
+      "id": "nijanta-7",
+      "sanskrit_name": "शब्दकर्मकधातूनां प्रयोज्यकर्तुः द्वितीया",
+      "english_name": "'Sound-object' verbs (शब्दकर्मक): the caused agent takes accusative (द्वितीया)",
+      "rule": "A small class of roots (पठ्, श्रु, अधी and similar) always take a sound/text as their object (वेदः, पद्यम्, गद्यम् etc. -- hence 'sound-object' verbs). Their causative प्रयोज्यकर्ता takes द्वितीया.",
+      "sutra_devanagari": null,
+      "ashtadhyayi_ref": "1.4.52",
+      "related_ashtadhyayi": [],
+      "book_ref": "06_णिजन्तम्.pdf",
+      "process": "शब्दकर्मकधातूनां णिजन्तत्वे प्रयोज्यकर्तुः द्वितीया",
+      "examples": [
+        {
+          "sandhi": "छात्रः वेदम् अधीते। श्रोत्रियः छात्रं वेदम् अध्यापयति।",
+          "gloss": "छात्रं (द्वितीया)"
+        },
+        {
+          "sandhi": "बालकः पद्यं पठति। अध्यापकः बालकं पद्यं पाठयति।",
+          "gloss": "बालकं (द्वितीया)"
+        }
+      ]
+    },
+    {
+      "id": "nijanta-8",
+      "sanskrit_name": "अकर्मकधातूनां प्रयोज्यकर्तुः द्वितीया",
+      "english_name": "Intransitive verbs (अकर्मक): the caused agent takes accusative (द्वितीया)",
+      "rule": "For intransitive roots (वर्धते, उपविशति, म्रियते, जायते and similar, which have no object of their own), the causative's प्रयोज्यकर्ता takes द्वितीया.",
+      "sutra_devanagari": null,
+      "ashtadhyayi_ref": "1.4.52",
+      "related_ashtadhyayi": [],
+      "book_ref": "06_णिजन्तम्.pdf",
+      "process": "अकर्मकधातूनां णिजन्तत्वे प्रयोज्यकर्तुः द्वितीया",
+      "examples": [
+        {
+          "sandhi": "वृक्षः वर्धते। कृषीवलः वृक्षं वर्धयति।",
+          "gloss": "वृक्षं (द्वितीया)"
+        },
+        {
+          "sandhi": "वृद्धः उपविशति। युवकः वृद्धम् उपवेशयति।",
+          "gloss": "वृद्धम् (द्वितीया)"
+        },
+        {
+          "sandhi": "सज्जनः म्रियते। दुर्जनः सज्जनं मारयति।",
+          "gloss": "सज्जनं (द्वितीया)"
+        }
+      ]
+    },
+    {
+      "id": "nijanta-9",
+      "sanskrit_name": "षट्स्थलेषु प्रयोज्यकर्तुः द्वितीया; अन्यत्र तृतीया",
+      "english_name": "Summary rule: द्वितीया applies only in six specific semantic classes; elsewhere तृतीया is used",
+      "rule": "The PDF summarizes: द्वितीया for the प्रयोज्यकर्ता is limited to exactly six contexts -- (1) गत्यर्थक roots (except ई/वह्), (2) बुद्ध्यर्थक/ज्ञानार्थक roots, (3) भक्षणार्थक/प्रत्यवसानार्थक roots (except अद्/खाद् when non-हिंसक), (4) शब्दकर्मक roots, (5) अकर्मक roots, (6) the root दृश् ('to see'). In every OTHER causative context, the प्रयोज्यकर्ता takes तृतीया instead. The recommended check when analyzing any causative sentence: first identify whether the root is गत्यर्थक or अकर्मक (etc.); if यes, प्रयोज्यकर्तुः द्वितीया; otherwise तृतीया.",
+      "sutra_devanagari": null,
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [
+        "1.4.52"
+      ],
+      "book_ref": "06_णिजन्तम्.pdf",
+      "process": "षट्सु स्थलेषु द्वितीया; अन्यत्र सर्वत्र तृतीया",
+      "examples": []
+    },
+    {
+      "id": "nijanta-10",
+      "sanskrit_name": "णिजन्तानां उभयपदित्वम्, केषाञ्चित् अपवादः",
+      "english_name": "Causatives are generally उभयपदी (both padas); a few roots lack the ātmanepada causative form",
+      "rule": "Most causative (णिजन्त) verb-forms can be conjugated in both परस्मैपद and आत्मनेपद (उभयपदी), regardless of the underlying root's own pada-class -- e.g. गमयति/गमयते, कारयति/कारयते. However, a handful of roots (धृ, कम्प्, नश्, युध् among others) have NO ātmanepada causative form -- only धारयति, कम्पयति, नाशयति, योधयति exist, not *धारयते etc. Separately: every root, in its causative form, ALWAYS permits at least the परस्मैपद conjugation, even if the root itself is normally exclusively आत्मनेपदी -- using a causative in a purely-परस्मैपद form is therefore never an error.",
+      "sutra_devanagari": null,
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "06_णिजन्तम्.pdf",
+      "process": "प्रायः णिजन्तधातवः उभयपदिनः; अपवादाः धृ/कम्प्/नश्/युध् आदयः केवलं परस्मैपदिनः",
+      "examples": [
+        {
+          "sandhi": "गमयति / गमयते",
+          "gloss": "regular उभयपदी causative"
+        },
+        {
+          "sandhi": "कारयति / कारयते",
+          "gloss": "regular उभयपदी causative"
+        },
+        {
+          "sandhi": "धारयति (धृ)",
+          "gloss": "no *धारयते form exists"
+        },
+        {
+          "sandhi": "नाशयति (नश्)",
+          "gloss": "no *नाशयते form exists"
+        }
+      ]
+    }
+  ],
+  "summary_counts": {
+    "nijanta_rules": 10,
+    "total_rules": 10,
+    "status": "Covers the source PDF's full treatment: definition, the two senses of णिच्, and all six karaka-classes governing the caused agent's vibhakti, plus the उभयपदी note. The PDF's extensive fill-in-the-blank exercises are not reproduced (pedagogical drill material, not rule content)."
+  },
+  "bibliography": [
+    "Source PDF: '06_णिजन्तम्.pdf' -- classroom material on causative formation and kāraka assignment.",
+    "Pāṇini. Aṣṭādhyāyī 3.1.26 (हेतुमति च) and 1.4.52ff. (kāraka rules for the caused agent) -- standard, widely-cited grammar references for this topic, used here without independent re-verification via search (see source_note)."
+  ]
+}

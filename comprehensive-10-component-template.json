@@ -1,0 +1,923 @@
+{
+  "note": "COMPREHENSIVE TEMPLATE v8 — Ramayana Bala Kanda 1.1.1 (the epic's opening verse). All 10 grammar components fully covered, PLUS an 11th component: an auto-generated quiz that reads questions directly from Components 1/3/4/8/9/10 rather than hand-authored content, so it never drifts out of sync with the grammar tabs above it. 8/8 words in पद-विग्रहः, 7/7 declinable stems each with full 7-case tables in शब्दरूपाणि, 8/8 inflected words in प्रत्ययाः, all real सन्धिः junctures documented, all 11 components fully bilingual (Sanskrit+Tamil), and पदच्छेदः carries a THIRD language (English) per-word for the hover-tooltip feature.",
+  "grammar_components": "१. पदच्छेदः (+ hover glosses sa/en/ta) | २. अन्वयः | ३. पद-विग्रहः | ४. कारकः (+ word-id cross-refs) | ५. शब्दरूपाणि | ६. धातुरूपाणि | ७. प्रत्ययाः | ८. सन्धिः | ९. समासः | १०. छन्दस्/अलङ्कारः | ११. प्रश्नोत्तरी (auto-generated quiz, not stored as separate data)",
+  "coverage_rules_applied": "Word-Coverage Rule (Component 1 count == Component 3 count) | Stem-Coverage Rule (every distinct declinable stem present in Component 5) | Table-Completeness (every declension table has all applicable case rows) | Bilingual-Coverage Rule (every content field has both data _ta AND a render-time language switch — no hand-rolled ternaries) | Hover-Gloss Rule (every पदच्छेदः word carries meaning_sa + meaning_en + meaning_ta for the underlined-term tooltip)",
+  "shloka_metadata": {
+    "id": "1.1.1",
+    "number": 1,
+    "devanagari": "तपः स्वाध्यायनिरतं तपस्वी वाग्विदां वरम् । नारदं परिपप्रच्छ वाल्मीकिर्मुनिपुङ्गवम् ॥ १-१-१ ॥",
+    "iast": "tapaḥ-svādhyāya-nirataṃ tapasvī vāg-vidāṃ varam | nāradaṃ paripapraccha vālmīkir-munipuṅgavam || 1-1-1 ||",
+    "kanda": "बाल-काण्डः",
+    "sarga": 1,
+    "chandas_sa": "अनुष्टुप्",
+    "verified_sources": "valmikiramayan.net, gyaandweep.com, srivalmikiramayana.com, stotranidhi.com, ramcharit.in"
+  },
+  "COMPONENT_1_padaccheda": {
+    "description": "१. पदच्छेदः — Word segmentation, now upgraded to carry per-word hover-gloss data. Each entry is {word, meaning_sa, meaning_en, meaning_ta} — English is the ONE new exception to the sa/_ta convention, added specifically to power a hover tooltip that shows all three languages at once regardless of the page's current language toggle. This is the authoritative word list — every other per-word component must match its count.",
+    "word_count": 8,
+    "padaccheda": [
+      {
+        "word": "तपः-स्वाध्याय-निरतम्",
+        "meaning_sa": "तपसि स्वाध्याये च निरतः (मग्नः)",
+        "meaning_en": "absorbed/engaged in penance and Vedic self-study",
+        "meaning_ta": "தவத்திலும் சுவாத்யாயத்திலும் ஈடுபட்டவர்"
+      },
+      {
+        "word": "तपस्वी",
+        "meaning_sa": "तपः कुर्वन्, तपोयुक्तः",
+        "meaning_en": "the ascetic; one who practices penance",
+        "meaning_ta": "தவசி, தவம் செய்பவர்"
+      },
+      {
+        "word": "वाग्-विदाम्",
+        "meaning_sa": "वाचः वेत्तारः (षष्ठी-बहुवचनम्)",
+        "meaning_en": "of those who know/master speech (genitive plural)",
+        "meaning_ta": "பேச்சு வல்லுநர்களில், சொல் வல்லோரில்"
+      },
+      {
+        "word": "वरम्",
+        "meaning_sa": "श्रेष्ठम्, उत्तमम्",
+        "meaning_en": "the best, foremost",
+        "meaning_ta": "சிறந்தவர், மேலானவர்"
+      },
+      {
+        "word": "नारदम्",
+        "meaning_sa": "नारदमुनिम् (द्वितीया विभक्तिः)",
+        "meaning_en": "Nārada (accusative — the sage being asked)",
+        "meaning_ta": "நாரதரை (செயப்படுபொருள் — கேட்கப்படும் முனிவர்)"
+      },
+      {
+        "word": "परिपप्रच्छ",
+        "meaning_sa": "प्रष्टवान् (प्रच्छ् धातोः परोक्षभूतकालः)",
+        "meaning_en": "asked, inquired (perfect tense of √prach)",
+        "meaning_ta": "கேட்டார், வினவினார்"
+      },
+      {
+        "word": "वाल्मीकिः",
+        "meaning_sa": "वाल्मीकिमुनिः (प्रथमा विभक्तिः — कर्ता)",
+        "meaning_en": "Vālmīki (nominative — the subject/asker)",
+        "meaning_ta": "வால்மீகி முனிவர் (எழுவாய்)"
+      },
+      {
+        "word": "मुनि-पुङ्गवम्",
+        "meaning_sa": "मुनिषु पुङ्गवः इव श्रेष्ठः",
+        "meaning_en": "foremost among sages (lit. 'bull among sages')",
+        "meaning_ta": "முனிவர்களில் காளை போன்ற சிறந்தவர்"
+      }
+    ],
+    "hover_tooltip_pattern": {
+      "css_class": "hover-term",
+      "behavior": "dotted underline + cursor:help; reveals .tooltip-box with all three languages on :hover OR :focus (tabindex=0 makes it keyboard-accessible, not mouse-only)",
+      "note": "The tooltip is intentionally NOT tied to the Sanskrit/Tamil page-level toggle — it always shows सं/en/த together, since its purpose is a quick multi-language reference independent of which single language the rest of the page is displaying."
+    }
+  },
+  "COMPONENT_2_anvaya": {
+    "description": "२. अन्वयः — Syntactic order (prose order of verse)",
+    "anvaya_sa": "वाल्मीकिः तपस्वी तपःस्वाध्यायनिरतं वाग्विदां वरं मुनिपुङ्गवं नारदं परिपप्रच्छ।",
+    "anvaya_ta": "தவசியான வால்மீகி, தவத்திலும் சுவாத்யாயத்திலும் ஈடுபட்டு, பேச்சு வல்லுநரில் சிறந்தவரும் முனிவர்களில் தலைசிறந்தவருமான நாரதரிடம் கேட்டார்.",
+    "saralartha": {
+      "sa": "तपसि स्वाध्याये च निरतं, वाग्विदां वरं, मुनिषु पुङ्गवं नारदं तपस्वी वाल्मीकिः परिपप्रच्छ।",
+      "ta": "தவத்திலும் வேதத்தை ஓதுவதிலும் ஈடுபட்டவரும், பேச்சு வல்லுநரில் சிறந்தவரும், முனிவர்களில் தலைசிறந்தவருமான நாரதரிடம் தவசியான வால்மீகி (பின்வருமாறு) கேட்டார்."
+    },
+    "translation_en": "The ascetic Valmiki asked Narada — who was absorbed in austerity and Vedic study, the best among the eloquent, and the foremost among sages — the following question."
+  },
+  "COMPONENT_3_padavigraha": {
+    "description": "३. पद-विग्रहः — Word-by-word analysis WITH MEANINGS. COMPLETE: all 8/8 words covered (including the compound पदs and the pronoun-free structure of this verse — every word here is content-bearing, no indeclinables to separately track).",
+    "word_count": 8,
+    "pada_vigraha": [
+      {
+        "id": "1.1.1.w1",
+        "word": "तपः-स्वाध्याय-निरतम्",
+        "surface": "tapaḥ-svādhyāya-niratam",
+        "lemma_sa": "तपःस्वाध्यायनिरत",
+        "pos": "adjective (compound)",
+        "gender": "masculine",
+        "number": "singular",
+        "case": "accusative",
+        "meaning": "तपसि स्वाध्याये च निरतः (मग्नः)",
+        "meaning_ta": "தவத்திலும் சுவாத்யாயத்திலும் ஈடுபட்டவர்",
+        "etymology": "तपस् + स्वाध्याय (द्वन्द्वः) + निरत (नि+रम् धातोः क्तप्रत्ययः) — सप्तमीतत्पुरुषसमासः",
+        "etymology_ta": "தபஸ் + சுவாத்யாய (இரட்டைத் தொகை) + நிரத (நி+ரம் தாதுவின் க்த-ஈறு) — ஏழாம் வேற்றுமைத் தொகை",
+        "morphology": "विशेषणम्, समासपदम्, पुल्लिङ्गम्, द्वितीया विभक्तिः, एकवचनम्",
+        "morphology_ta": "பெயரடை, தொகைச்சொல், ஆண்பால், செயப்படுபொருள் வேற்றுமை, ஒருமை",
+        "role": "विशेषणम् — नारदम् इत्यस्य गुणं निर्दिशति",
+        "role_ta": "பெயரடை — 'நாரதம்' என்பதன் பண்பைக் குறிக்கிறது"
+      },
+      {
+        "id": "1.1.1.w2",
+        "word": "तपस्वी",
+        "surface": "tapasvī",
+        "lemma_sa": "तपस्विन्",
+        "pos": "noun/adjective",
+        "gender": "masculine",
+        "number": "singular",
+        "case": "nominative",
+        "meaning": "तपः कुर्वन्, तपोयुक्तः",
+        "meaning_ta": "தவசி, தவம் செய்பவர்",
+        "etymology": "तपस् + विन् (मतुबर्थीयप्रत्ययः) — 'तपोयुक्तः' इत्यर्थे",
+        "etymology_ta": "தபஸ் + विன் (உடைமைப் பிரத்யயம்) — 'தவம் உடையவர்' எனும் பொருளில்",
+        "morphology": "नामपदम्/विशेषणम्, इन्-कारान्तम्, पुल्लिङ्गम्, प्रथमा विभक्तिः, एकवचनम्",
+        "morphology_ta": "பெயர்ச்சொல்/பெயரடை, इன்-ஈறு, ஆண்பால், எழுவாய் வேற்றுமை, ஒருமை",
+        "role": "कर्तृविशेषणम् — वाल्मीकिः इत्यस्य गुणं निर्दिशति",
+        "role_ta": "எழுவாய்ப் பெயரடை — 'வால்மீகி' என்பதன் பண்பைக் குறிக்கிறது"
+      },
+      {
+        "id": "1.1.1.w3",
+        "word": "वाग्-विदाम्",
+        "surface": "vāg-vidām",
+        "lemma_sa": "वाग्विद्",
+        "pos": "noun (compound)",
+        "gender": "masculine",
+        "number": "plural",
+        "case": "genitive",
+        "meaning": "वाचः वेत्तारः (शब्दवेत्तारः)",
+        "meaning_ta": "பேச்சு வல்லுநர்கள்",
+        "etymology": "वाच् + विद् (क्विप्प्रत्ययान्तः, ज्ञानार्थकधातुः) — उपपदतत्पुरुषसमासः; चकारस्य गकारः (जश्त्वसन्धिः)",
+        "etymology_ta": "வாச் + विद் (க்விப்-ஈறு அறிதல் தாது) — உபபத தொகைச்சொல்; ச் என்பது க் ஆக மாறியது (ஜஷ்த்வ சந்தி)",
+        "morphology": "नामपदम्, व्यञ्जनान्तम् (द्-कारान्तम्), पुल्लिङ्गम्, षष्ठी विभक्तिः, बहुवचनम्",
+        "morphology_ta": "பெயர்ச்சொல், மெய்யீறு (द்-ஈறு), ஆண்பால், ஆறாம் வேற்றுமை, பன்மை",
+        "role": "सम्बन्धकारकः — वरम् इत्यस्य सम्बन्धं निर्दिशति ('वाग्विदां मध्ये वरः')",
+        "role_ta": "உடைமை உறவு — 'வரம்' என்பதன் தொடர்பைக் குறிக்கிறது"
+      },
+      {
+        "id": "1.1.1.w4",
+        "word": "वरम्",
+        "surface": "varam",
+        "lemma_sa": "वर",
+        "pos": "adjective",
+        "gender": "masculine",
+        "number": "singular",
+        "case": "accusative",
+        "meaning": "श्रेष्ठम्, उत्तमम्",
+        "meaning_ta": "சிறந்தவர், மேலானவர்",
+        "etymology": "वृ (वरणे) धातोः अप्प्रत्ययः — 'वरणीयतमः' इत्यर्थे",
+        "etymology_ta": "வ்ரு (தேர்ந்தெடு) தாதுவின் அப்-பிரத்யயம் — 'தேர்ந்தெடுக்கத் தக்கவர்' எனும் பொருளில்",
+        "morphology": "विशेषणम्, अकारान्तम्, पुल्लिङ्गम्, द्वितीया विभक्तिः, एकवचनम्",
+        "morphology_ta": "பெயரடை, अ-ஈறு, ஆண்பால், செயப்படுபொருள் வேற்றுமை, ஒருமை",
+        "role": "विशेषणम् — नारदम् इत्यस्य गुणं निर्दिशति (वाग्विदां मध्ये श्रेष्ठः)",
+        "role_ta": "பெயரடை — 'நாரதம்' என்பதன் பண்பைக் குறிக்கிறது"
+      },
+      {
+        "id": "1.1.1.w5",
+        "word": "नारदम्",
+        "surface": "nāradam",
+        "lemma_sa": "नारद",
+        "pos": "noun (proper)",
+        "gender": "masculine",
+        "number": "singular",
+        "case": "accusative",
+        "meaning": "नारदमुनिम्",
+        "meaning_ta": "நாரத முனிவரை",
+        "etymology": "नारद (रूढं देवर्षिनाम) + अम् (द्वितीया-एकवचन-प्रत्ययः)",
+        "etymology_ta": "நாரத (ரூடப் பெயர்) + अம் (செயப்படுபொருள் ஒருமை விகுதி)",
+        "morphology": "नामपदम् (व्यक्तिवाचकम्), अकारान्तम्, पुल्लिङ्गम्, द्वितीया विभक्तिः, एकवचनम्",
+        "morphology_ta": "பெயர்ச்சொல் (சிறப்புப் பெயர்), अ-ஈறு, ஆண்பால், செயப்படுபொருள் வேற்றுமை, ஒருமை",
+        "role": "कर्म — वाल्मीकिना पृष्टः (परिपप्रच्छ इत्यस्य कर्म)",
+        "role_ta": "செயப்படுபொருள் — வால்மீகியால் கேட்கப்பட்டவர்"
+      },
+      {
+        "id": "1.1.1.w6",
+        "word": "परिपप्रच्छ",
+        "surface": "paripapraccha",
+        "lemma_sa": "प्रच्छ्",
+        "pos": "verb",
+        "gender": "—",
+        "number": "singular",
+        "case": "—",
+        "verb_info": {
+          "lakara": "परोक्षभूतकालः (perfect)",
+          "person": "3",
+          "pada": "parasmaipada",
+          "root": "prach",
+          "root_sa": "प्रच्छ्",
+          "gana": "6"
+        },
+        "meaning": "प्रष्टवान्, पृष्टवान्",
+        "meaning_ta": "கேட்டார், வினவினார்",
+        "etymology": "परि (उपसर्गः) + प्रच्छ् (धातुः, तुदादिगणः) + द्वित्वम् (पप्रच्छ) + तृतीयपुरुषैकवचन-परोक्षभूत-प्रत्ययः",
+        "etymology_ta": "பரி (முன்னொட்டு) + ப்ரச்ச் (தாது) + இரட்டிப்பு (பப்ரச்ச) + மூன்றாம் புருஷன் ஒருமை பரோக்ஷ பூத விகுதி",
+        "morphology": "क्रियापदम्, परोक्षभूतकालः, प्रथमपुरुषः, एकवचनम्, परस्मैपदम्",
+        "morphology_ta": "வினைச்சொல், பரோக்ஷ-பூத காலம், முதல் புருஷன், ஒருமை, பரஸ்மைபதம்",
+        "role": "मुख्यक्रिया — कर्ता वाल्मीकिः, कर्म नारदम्",
+        "role_ta": "பிரதான வினை — எழுவாய் வால்மீகி, செயப்படுபொருள் நாரதம்"
+      },
+      {
+        "id": "1.1.1.w7",
+        "word": "वाल्मीकिः",
+        "surface": "vālmīkiḥ",
+        "lemma_sa": "वाल्मीकि",
+        "pos": "noun (proper)",
+        "gender": "masculine",
+        "number": "singular",
+        "case": "nominative",
+        "meaning": "वाल्मीकिमुनिः",
+        "meaning_ta": "வால்மீகி முனிவர்",
+        "etymology": "वल्मीक (पुट्टु) + इञ्-प्रत्ययः — 'वल्मीकात् जातः/सम्बद्धः' इति रूढा व्युत्पत्तिः",
+        "etymology_ta": "வல்மீக (புற்று) + இஞ்-பிரத்யயம் — 'புற்றிலிருந்து தோன்றியவர்' எனும் பாரம்பரிய விளக்கம்",
+        "morphology": "नामपदम् (व्यक्तिवाचकम्), इकारान्तम्, पुल्लिङ्गम्, प्रथमा विभक्तिः, एकवचनम्",
+        "morphology_ta": "பெயர்ச்சொல் (சிறப்புப் பெயர்), இ-ஈறு, ஆண்பால், எழுவாய் வேற்றுமை, ஒருமை",
+        "role": "कर्ता — वाक्यस्य मुख्यकर्ता (परिपप्रच्छ इत्यस्य कर्ता)",
+        "role_ta": "எழுவாய் — வாக்கியத்தின் முதன்மைப் பொருள்"
+      },
+      {
+        "id": "1.1.1.w8",
+        "word": "मुनि-पुङ्गवम्",
+        "surface": "muni-puṅgavam",
+        "lemma_sa": "मुनिपुङ्गव",
+        "pos": "noun (compound)",
+        "gender": "masculine",
+        "number": "singular",
+        "case": "accusative",
+        "meaning": "मुनिषु पुङ्गवः इव श्रेष्ठः",
+        "meaning_ta": "முனிவர்களில் காளை போன்ற சிறந்தவர்",
+        "etymology": "मुनि + पुङ्गव (वृषभः, श्रेष्ठार्थे रूढः) — षष्ठीतत्पुरुषसमासः (उपमानगर्भितः)",
+        "etymology_ta": "முனி + புங்கவ (காளை, சிறந்தவர் எனும் பொருளில்) — ஆறாம் வேற்றுமைத் தொகை (உவமை உட்பொதிந்தது)",
+        "morphology": "नामपदम्, समासपदम्, पुल्लिङ्गम्, द्वितीया विभक्तिः, एकवचनम्",
+        "morphology_ta": "பெயர்ச்சொல், தொகைச்சொல், ஆண்பால், செயப்படுபொருள் வேற்றுமை, ஒருமை",
+        "role": "विशेषणम् — नारदम् इत्यस्य गुणं निर्दिशति (मुनिषु श्रेष्ठः)",
+        "role_ta": "பெயரடை — 'நாரதம்' என்பதன் பண்பைக் குறிக்கிறது"
+      }
+    ]
+  },
+  "COMPONENT_4_karaka": {
+    "description": "४. कारकः — Semantic/grammatical roles. All 5 fields filled honestly — including adhikarana, which genuinely has no locative word in this verse and is labeled as such. karta_word_id / karma_word_id are explicit cross-references to pada_vigraha entry ids — added specifically so the quiz generator (Component 11) can identify the correct answer to 'who is the कर्ता/कर्म' questions without fragile text-parsing of the role field.",
+    "karaka": {
+      "karta": "वाल्मीकिः (कर्ता — तपस्वी इति विशेषितः)",
+      "karta_ta": "வால்மீகி (எழுவாய் — தவசி எனப் பண்புரைக்கப்பட்டவர்)",
+      "karma": "नारदम् (कर्म — तपःस्वाध्यायनिरतं वाग्विदां वरं मुनिपुङ्गवम् इति त्रिभिः विशेषणैः विशेषितः)",
+      "karma_ta": "நாரதம் (செயப்படுபொருள் — மூன்று பெயரடைகளால் விவரிக்கப்பட்டவர்)",
+      "karana": "वाचा एव (मौखिकप्रश्नरूपेण) — निहितम्, श्लोके स्पष्टतया अनुक्तम्",
+      "karana_ta": "வாக்கால் (வாய்மொழி வினாவாக) — மறைமுகமாகக் கொள்ளப்பட்டது, வெளிப்படையாகக் கூறப்படவில்லை",
+      "adhikarana": "इदं श्लोके प्रत्यक्षम् अधिकरणपदं नास्ति",
+      "adhikarana_ta": "இந்த ஶ்லோகத்தில் நேரடியான இடப்பொருள் (அதிகரணம்) இல்லை",
+      "sambandha": "वाग्विदाम् (षष्ठी) — 'वाग्विदां मध्ये वरः' इति वरम् इत्यस्य सम्बन्धः",
+      "sambandha_ta": "வாக்விதாம் (ஆறாம் வேற்றுமை) — 'பேச்சு வல்லுநரில் சிறந்தவர்' என வரம் என்பதன் தொடர்பு",
+      "karta_word_id": "1.1.1.w7",
+      "karma_word_id": "1.1.1.w5"
+    }
+  },
+  "COMPONENT_5_shabdarupani": {
+    "description": "५. शब्दरूपाणि — Noun/pronoun/adjective declensions. COMPLETE: all 7 distinct declinable stems in the verse, each with a full 7-case × 3-number table (not partial). Includes वाग्विद्, a consonant (द्-stem) noun with an irregular nominative (चर्त्व: द्→त्) — flagged in its grammar_note as distinct from the more common a-stem/i-stem/in-stem patterns.",
+    "stem_count": 7,
+    "shabdarupani": {
+      "coverage_note": "7 distinct declinable stems occur in 1.1.1 (तपःस्वाध्यायनिरत, तपस्विन्, वाग्विद्, वर, नारद, वाल्मीकि, मुनिपुङ्गव). परिपप्रच्छ is a verb (Component 6); this verse has no indeclinables.",
+      "stem_count": 7,
+      "tapahsvadhyayanirata": {
+        "lemma": "तपःस्वाध्यायनिरत",
+        "word_in_verse": "तपःस्वाध्यायनिरतम्",
+        "meaning": "engaged in penance and Vedic study",
+        "meaning_ta": "தவத்திலும் ஓதலிலும் ஈடுபட்டவர்",
+        "grammar_note": "समासपदम् — नियमित अकारान्त-पुल्लिङ्ग-विशेषणवत् विभज्यते (declines like वीर)",
+        "grammar_note_ta": "தொகைச்சொல் — साधारण अ-ஈற்று ஆண்பால் பெயரடை போல் அமையும் (वीर போல்)",
+        "declension_table": {
+          "headers": [
+            "विभक्तिः",
+            "एकवचनम्",
+            "द्विवचनम्",
+            "बहुवचनम्"
+          ],
+          "rows": [
+            [
+              "प्रथमा",
+              "तपःस्वाध्यायनिरतः",
+              "तपःस्वाध्यायनिरतौ",
+              "तपःस्वाध्यायनिरताः"
+            ],
+            [
+              "द्वितीया",
+              "तपःस्वाध्यायनिरतम्",
+              "तपःस्वाध्यायनिरतौ",
+              "तपःस्वाध्यायनिरतान्"
+            ],
+            [
+              "तृतीया",
+              "तपःस्वाध्यायनिरतेन",
+              "तपःस्वाध्यायनिरताभ्याम्",
+              "तपःस्वाध्यायनिरतैः"
+            ],
+            [
+              "चतुर्थी",
+              "तपःस्वाध्यायनिरताय",
+              "तपःस्वाध्यायनिरताभ्याम्",
+              "तपःस्वाध्यायनिरतेभ्यः"
+            ],
+            [
+              "पञ्चमी",
+              "तपःस्वाध्यायनिरतात्",
+              "तपःस्वाध्यायनिरताभ्याम्",
+              "तपःस्वाध्यायनिरतेभ्यः"
+            ],
+            [
+              "षष्ठी",
+              "तपःस्वाध्यायनिरतस्य",
+              "तपःस्वाध्यायनिरतयोः",
+              "तपःस्वाध्यायनिरतानाम्"
+            ],
+            [
+              "सप्तमी",
+              "तपःस्वाध्यायनिरते",
+              "तपःस्वाध्यायनिरतयोः",
+              "तपःस्वाध्यायनिरतेषु"
+            ]
+          ]
+        }
+      },
+      "tapasvin": {
+        "lemma": "तपस्विन्",
+        "word_in_verse": "तपस्वी",
+        "meaning": "ascetic; one devoted to penance",
+        "meaning_ta": "தவசி",
+        "grammar_note": "इन्-कारान्त-विशेषणम् — नामपदं प्रथमा-एकवचने ई-कारेण अन्तं याति (declines like यशस्विन्)",
+        "grammar_note_ta": "इன்-ஈற்றுப் பெயரடை — எழுவாய் ஒருமை ई-ல் முடியும் (यशस्विन் போல்)",
+        "declension_table": {
+          "headers": [
+            "विभक्तिः",
+            "एकवचनम्",
+            "द्विवचनम्",
+            "बहुवचनम्"
+          ],
+          "rows": [
+            [
+              "प्रथमा",
+              "तपस्वी",
+              "तपस्विनौ",
+              "तपस्विनः"
+            ],
+            [
+              "द्वितीया",
+              "तपस्विनम्",
+              "तपस्विनौ",
+              "तपस्विनः"
+            ],
+            [
+              "तृतीया",
+              "तपस्विना",
+              "तपस्विभ्याम्",
+              "तपस्विभिः"
+            ],
+            [
+              "चतुर्थी",
+              "तपस्विने",
+              "तपस्विभ्याम्",
+              "तपस्विभ्यः"
+            ],
+            [
+              "पञ्चमी",
+              "तपस्विनः",
+              "तपस्विभ्याम्",
+              "तपस्विभ्यः"
+            ],
+            [
+              "षष्ठी",
+              "तपस्विनः",
+              "तपस्विनोः",
+              "तपस्विनाम्"
+            ],
+            [
+              "सप्तमी",
+              "तपस्विनि",
+              "तपस्विनोः",
+              "तपस्विषु"
+            ]
+          ]
+        }
+      },
+      "vagvid": {
+        "lemma": "वाग्विद्",
+        "word_in_verse": "वाग्विदाम्",
+        "meaning": "one who knows/masters speech",
+        "meaning_ta": "பேச்சு வல்லுநர்",
+        "grammar_note": "व्यञ्जनान्त-द्-कारान्त-नामपदम् (क्विबन्तं कृदन्तम्) — सुहृद्-वर्गवत् विभज्यते; प्रथमैकवचने चर्त्वेन 'वाग्वित्' भवति",
+        "grammar_note_ta": "மெய்யீறு द்-ஈற்றுச் சொல் (क्विप் ஈறு) — सुहृद் வகுப்பு போல் அமையும்; எழுவாய் ஒருமையில் चर्त्व விதியால் 'वाग्वित्' ஆகும்",
+        "declension_table": {
+          "headers": [
+            "विभक्तिः",
+            "एकवचनम्",
+            "द्विवचनम्",
+            "बहुवचनम्"
+          ],
+          "rows": [
+            [
+              "प्रथमा",
+              "वाग्वित्",
+              "वाग्विदौ",
+              "वाग्विदः"
+            ],
+            [
+              "द्वितीया",
+              "वाग्विदम्",
+              "वाग्विदौ",
+              "वाग्विदः"
+            ],
+            [
+              "तृतीया",
+              "वाग्विदा",
+              "वाग्विद्भ्याम्",
+              "वाग्विद्भिः"
+            ],
+            [
+              "चतुर्थी",
+              "वाग्विदे",
+              "वाग्विद्भ्याम्",
+              "वाग्विद्भ्यः"
+            ],
+            [
+              "पञ्चमी",
+              "वाग्विदः",
+              "वाग्विद्भ्याम्",
+              "वाग्विद्भ्यः"
+            ],
+            [
+              "षष्ठी",
+              "वाग्विदः",
+              "वाग्विदोः",
+              "वाग्विदाम्"
+            ],
+            [
+              "सप्तमी",
+              "वाग्विदि",
+              "वाग्विदोः",
+              "वाग्वित्सु"
+            ]
+          ]
+        }
+      },
+      "vara": {
+        "lemma": "वर",
+        "word_in_verse": "वरम्",
+        "meaning": "best, foremost",
+        "meaning_ta": "சிறந்தவர்",
+        "grammar_note": "नियमित अकारान्त-पुल्लिङ्ग-विशेषणम् (declines like वीर)",
+        "grammar_note_ta": "साधारण अ-ஈற்று ஆண்பால் பெயரடை (वीर போல்)",
+        "declension_table": {
+          "headers": [
+            "विभक्तिः",
+            "एकवचनम्",
+            "द्विवचनम्",
+            "बहुवचनम्"
+          ],
+          "rows": [
+            [
+              "प्रथमा",
+              "वरः",
+              "वरौ",
+              "वराः"
+            ],
+            [
+              "द्वितीया",
+              "वरम्",
+              "वरौ",
+              "वरान्"
+            ],
+            [
+              "तृतीया",
+              "वरेण",
+              "वराभ्याम्",
+              "वरैः"
+            ],
+            [
+              "चतुर्थी",
+              "वराय",
+              "वराभ्याम्",
+              "वरेभ्यः"
+            ],
+            [
+              "पञ्चमी",
+              "वरात्",
+              "वराभ्याम्",
+              "वरेभ्यः"
+            ],
+            [
+              "षष्ठी",
+              "वरस्य",
+              "वरयोः",
+              "वराणाम्"
+            ],
+            [
+              "सप्तमी",
+              "वरे",
+              "वरयोः",
+              "वरेषु"
+            ]
+          ]
+        }
+      },
+      "narada": {
+        "lemma": "नारद",
+        "word_in_verse": "नारदम्",
+        "meaning": "Nārada (proper noun)",
+        "meaning_ta": "நாரதர்",
+        "grammar_note": "नियमित अकारान्त-पुल्लिङ्ग-व्यक्तिवाचकनाम (declines like वीर)",
+        "grammar_note_ta": "साधारण अ-ஈற்று ஆண்பால் சிறப்புப் பெயர் (वीर போல்)",
+        "declension_table": {
+          "headers": [
+            "विभक्तिः",
+            "एकवचनम्",
+            "द्विवचनम्",
+            "बहुवचनम्"
+          ],
+          "rows": [
+            [
+              "प्रथमा",
+              "नारदः",
+              "नारदौ",
+              "नारदाः"
+            ],
+            [
+              "द्वितीया",
+              "नारदम्",
+              "नारदौ",
+              "नारदान्"
+            ],
+            [
+              "तृतीया",
+              "नारदेन",
+              "नारदाभ्याम्",
+              "नारदैः"
+            ],
+            [
+              "चतुर्थी",
+              "नारदाय",
+              "नारदाभ्याम्",
+              "नारदेभ्यः"
+            ],
+            [
+              "पञ्चमी",
+              "नारदात्",
+              "नारदाभ्याम्",
+              "नारदेभ्यः"
+            ],
+            [
+              "षष्ठी",
+              "नारदस्य",
+              "नारदयोः",
+              "नारदानाम्"
+            ],
+            [
+              "सप्तमी",
+              "नारदे",
+              "नारदयोः",
+              "नारदेषु"
+            ]
+          ]
+        }
+      },
+      "valmiki": {
+        "lemma": "वाल्मीकि",
+        "word_in_verse": "वाल्मीकिः",
+        "meaning": "Vālmīki (proper noun)",
+        "meaning_ta": "வால்மீகி",
+        "grammar_note": "इ-कारान्त-पुल्लिङ्ग-व्यक्तिवाचकनाम (declines like शुचि)",
+        "grammar_note_ta": "इ-ஈற்று ஆண்பால் சிறப்புப் பெயர் (शुचि போல்)",
+        "declension_table": {
+          "headers": [
+            "विभक्तिः",
+            "एकवचनम्",
+            "द्विवचनम्",
+            "बहुवचनम्"
+          ],
+          "rows": [
+            [
+              "प्रथमा",
+              "वाल्मीकिः",
+              "वाल्मीकी",
+              "वाल्मीकयः"
+            ],
+            [
+              "द्वितीया",
+              "वाल्मीकिम्",
+              "वाल्मीकी",
+              "वाल्मीकीन्"
+            ],
+            [
+              "तृतीया",
+              "वाल्मीकिना",
+              "वाल्मीकिभ्याम्",
+              "वाल्मीकिभिः"
+            ],
+            [
+              "चतुर्थी",
+              "वाल्मीकये",
+              "वाल्मीकिभ्याम्",
+              "वाल्मीकिभ्यः"
+            ],
+            [
+              "पञ्चमी",
+              "वाल्मीकेः",
+              "वाल्मीकिभ्याम्",
+              "वाल्मीकिभ्यः"
+            ],
+            [
+              "षष्ठी",
+              "वाल्मीकेः",
+              "वाल्मीक्योः",
+              "वाल्मीकीनाम्"
+            ],
+            [
+              "सप्तमी",
+              "वाल्मीकौ",
+              "वाल्मीक्योः",
+              "वाल्मीकिषु"
+            ]
+          ]
+        }
+      },
+      "munipungava": {
+        "lemma": "मुनिपुङ्गव",
+        "word_in_verse": "मुनिपुङ्गवम्",
+        "meaning": "foremost among sages (lit. 'bull among sages')",
+        "meaning_ta": "முனிவர்களில் தலைசிறந்தவர்",
+        "grammar_note": "समासपदम् — नियमित अकारान्त-पुल्लिङ्गवत् विभज्यते (declines like वीर)",
+        "grammar_note_ta": "தொகைச்சொல் — साधारण अ-ஈற்று ஆண்பால் போல் அமையும் (वीर போல்)",
+        "declension_table": {
+          "headers": [
+            "विभक्तिः",
+            "एकवचनम्",
+            "द्विवचनम्",
+            "बहुवचनम्"
+          ],
+          "rows": [
+            [
+              "प्रथमा",
+              "मुनिपुङ्गवः",
+              "मुनिपुङ्गवौ",
+              "मुनिपुङ्गवाः"
+            ],
+            [
+              "द्वितीया",
+              "मुनिपुङ्गवम्",
+              "मुनिपुङ्गवौ",
+              "मुनिपुङ्गवान्"
+            ],
+            [
+              "तृतीया",
+              "मुनिपुङ्गवेन",
+              "मुनिपुङ्गवाभ्याम्",
+              "मुनिपुङ्गवैः"
+            ],
+            [
+              "चतुर्थी",
+              "मुनिपुङ्गवाय",
+              "मुनिपुङ्गवाभ्याम्",
+              "मुनिपुङ्गवेभ्यः"
+            ],
+            [
+              "पञ्चमी",
+              "मुनिपुङ्गवात्",
+              "मुनिपुङ्गवाभ्याम्",
+              "मुनिपुङ्गवेभ्यः"
+            ],
+            [
+              "षष्ठी",
+              "मुनिपुङ्गवस्य",
+              "मुनिपुङ्गवयोः",
+              "मुनिपुङ्गवानाम्"
+            ],
+            [
+              "सप्तमी",
+              "मुनिपुङ्गवे",
+              "मुनिपुङ्गवयोः",
+              "मुनिपुङ्गवेषु"
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "COMPONENT_6_dhaturupani": {
+    "description": "६. धातुरूपाणि — Verb conjugation. Single finite verb root (प्रच्छ्, class 6) with its full perfect-tense paradigm (all 3 persons × 3 numbers) — not just a one-line summary.",
+    "dhaturupani": {
+      "pracch_root": "प्रच्छ् (prach)",
+      "pracch_meaning": "पृच्छति, प्रष्टुम् इच्छति (प्रश्नं करोति)",
+      "pracch_meaning_ta": "கேட்கிறார், வினவுகிறார்",
+      "pracch_gana": "६ (तुदादिगणः)",
+      "pracch_gana_ta": "6 (துதாதி கணம்)",
+      "pracch_lakara": "परोक्षभूतकालः (perfect)",
+      "pracch_lakara_ta": "பரோக்ஷ-பூதகாலம் (இறந்த காலம்)",
+      "pracch_form": "परिपप्रच्छ = परि (उपसर्गः) + पप्रच्छ, तृतीयपुरुष-एकवचन-परस्मैपदम्",
+      "pracch_form_ta": "परिपप्रच्छ = பரி (முன்னொட்டு) + பப்ரச்ச, மூன்றாம் புருஷன் ஒருமை பரஸ்மைபதம்",
+      "conjugation_perfect": {
+        "headers": [
+          "पुरुषः",
+          "एकवचनम्",
+          "द्विवचनम्",
+          "बहुवचनम्"
+        ],
+        "rows": [
+          [
+            "प्रथमपुरुषः",
+            "पप्रच्छ",
+            "पप्रच्छतुः",
+            "पप्रच्छुः"
+          ],
+          [
+            "मध्यमपुरुषः",
+            "पप्रच्छिथ / पप्रष्ठ",
+            "पप्रच्छथुः",
+            "पप्रच्छ"
+          ],
+          [
+            "उत्तमपुरुषः",
+            "पप्रच्छ",
+            "पप्रच्छिव",
+            "पप्रच्छिम"
+          ]
+        ]
+      }
+    }
+  },
+  "COMPONENT_7_pratyaya": {
+    "description": "७. प्रत्ययाः — Suffix breakdown. COMPLETE: 8/8 words (this verse has no indeclinables to exclude, unlike 1.7.1's two instances of च).",
+    "word_count": 8,
+    "pratyaya": [
+      {
+        "word": "तपः-स्वाध्याय-निरतम्",
+        "breakdown": "तपस् + स्वाध्याय + निरत + अम्",
+        "breakdown_ta": "தபஸ் + சுவாத்யாய + நிரத + अம்",
+        "pratyaya_name": "अम्-विभक्तिः",
+        "pratyaya_name_ta": "अம்-விபக்தி",
+        "function": "द्वितीया-एकवचन-प्रत्ययः (नारदम् इत्यस्य विशेषणत्वेन)",
+        "function_ta": "செயப்படுபொருள் ஒருமை விகுதி (நாரதத்தை விசேடிக்கும் பெயரடை)"
+      },
+      {
+        "word": "तपस्वी",
+        "breakdown": "तपस् + विन् + सुँ (ई-आदेशः)",
+        "breakdown_ta": "தபஸ் + विन் + सुँ (ई-ஆக மாற்றம்)",
+        "pratyaya_name": "मतुबर्थीयः विन्-प्रत्ययः",
+        "pratyaya_name_ta": "मतुप्-அர்த்த विन्-பிரத்யயம்",
+        "function": "'तपोयुक्तः' इत्यर्थे विशेषणनिर्माणम्",
+        "function_ta": "'தவம் உடையவர்' எனும் பொருளில் பெயரடை உருவாக்கம்"
+      },
+      {
+        "word": "वाग्-विदाम्",
+        "breakdown": "वाच् + विद् (क्विप्) + आम्",
+        "breakdown_ta": "வாச் + विद் (க்விப்) + आம்",
+        "pratyaya_name": "क्विप्-प्रत्ययः + आम्-विभक्तिः",
+        "pratyaya_name_ta": "க்விப்-பிரத்யயம் + आம்-விபக்தி",
+        "function": "कृदन्तनिर्माणम् (ज्ञातृवाचकम्) + षष्ठी-बहुवचनम्",
+        "function_ta": "கிருதந்த உருவாக்கம் (அறிபவர் பொருள்) + ஆறாம் வேற்றுமை பன்மை"
+      },
+      {
+        "word": "वरम्",
+        "breakdown": "वृ + अप् + अम्",
+        "breakdown_ta": "வ்ரு + अப் + अம்",
+        "pratyaya_name": "अप्-प्रत्ययः",
+        "pratyaya_name_ta": "अப்-பிரத்யயம்",
+        "function": "गुणवाचकविशेषणनिर्माणम्",
+        "function_ta": "பண்புப் பெயரடை உருவாக்கம்"
+      },
+      {
+        "word": "नारदम्",
+        "breakdown": "नारद + अम्",
+        "breakdown_ta": "நாரத + अம்",
+        "pratyaya_name": "अम्-विभक्तिः",
+        "pratyaya_name_ta": "अம்-விபக்தி",
+        "function": "द्वितीया-एकवचन-प्रत्ययः",
+        "function_ta": "செயப்படுபொருள் ஒருமை விகுதி"
+      },
+      {
+        "word": "परिपप्रच्छ",
+        "breakdown": "परि + प्रच्छ् + द्वित्वम् (पप्रच्छ) + तिप्",
+        "breakdown_ta": "பரி + ப்ரச்ச் + இரட்டிப்பு (பப்ரச்ச) + तिप्",
+        "pratyaya_name": "परोक्षभूतकालप्रत्ययः",
+        "pratyaya_name_ta": "பரோக்ஷ-பூதகால விகுதி",
+        "function": "तृतीयपुरुष-एकवचन-परस्मैपद-निर्माणम्",
+        "function_ta": "மூன்றாம் புருஷன் ஒருமை பரஸ்மைபத வடிவ உருவாக்கம்"
+      },
+      {
+        "word": "वाल्मीकिः",
+        "breakdown": "वाल्मीकि + सुँ",
+        "breakdown_ta": "வால்மீகி + सुँ",
+        "pratyaya_name": "सुँ-विभक्तिः",
+        "pratyaya_name_ta": "सुँ-விபக்தி",
+        "function": "प्रथमा-एकवचन-प्रत्ययः",
+        "function_ta": "எழுவாய் ஒருமை விகுதி"
+      },
+      {
+        "word": "मुनि-पुङ्गवम्",
+        "breakdown": "मुनि + पुङ्गव + अम्",
+        "breakdown_ta": "முனி + புங்கவ + अம்",
+        "pratyaya_name": "अम्-विभक्तिः",
+        "pratyaya_name_ta": "अம்-விபக்தி",
+        "function": "द्वितीया-एकवचन-प्रत्ययः (समासस्य)",
+        "function_ta": "செயப்படுபொருள் ஒருமை விகுதி (தொகைச்சொல்லுக்கு)"
+      }
+    ]
+  },
+  "COMPONENT_8_sandhi": {
+    "description": "८. सन्धिः — Sound changes. 2 real junctures: one classic visarga-to-र् sandhi (वाल्मीकिः+मुनिपुङ्गवम्) and one internal compound-formation jaśtva sandhi (वाच्+विद्→वाग्विद्, च्→ग् before a voiced sound). तपः+स्वाध्याय is deliberately NOT listed — the visarga is retained unchanged before स् (a permitted option per Pāṇini 8.3.36), so per the coverage rule ('one entry per boundary where the sound actually changes'), a non-change doesn't get a forced entry.",
+    "junction_count": 2,
+    "sandhi": [
+      {
+        "location": "वाल्मीकिः + मुनिपुङ्गवम्",
+        "original": "वाल्मीकिः + मुनिपुङ्गवम्",
+        "result": "वाल्मीकिर्मुनिपुङ्गवम्",
+        "sandhi_type": "विसर्गसन्धिः (रेफादेशः)",
+        "sandhi_type_ta": "விசர்க்க சந்தி (ர-ஆக மாற்றம்)",
+        "sandhi_rule_sa": "इकारात्/ईकारात् परस्य विसर्गस्य घोषवति परे रेफादेशः (इ/ई + विसर्गः + घोषवर्णः → र्)",
+        "sandhi_rule_ta": "इ/ई-க்குப் பின் வரும் விசர்க்கம், தொடர்ந்து ஒலிக்கும் மெய் வரும்போது 'र्' ஆக மாறும்"
+      },
+      {
+        "location": "वाच् + विद् (समासान्तर्गतम्)",
+        "original": "वाच् + विद्",
+        "result": "वाग्विद्",
+        "sandhi_type": "जश्त्वसन्धिः (व्यञ्जनसन्धिः)",
+        "sandhi_type_ta": "ஜஷ்த்வ சந்தி (மெய் இணைப்பு)",
+        "sandhi_rule_sa": "झलां जशोऽन्ते (चकारस्य घोषवति परे गकारादेशः) — पदान्तर्गतसन्धिः, समासनिर्माणकाले",
+        "sandhi_rule_ta": "ச் என்பது ஒலிக்கும் மெய் தொடரும்போது 'க்' ஆக மாறும் — தொகைச்சொல் அமையும்போது நிகழும் உள்-சந்தி"
+      }
+    ]
+  },
+  "COMPONENT_9_samasa": {
+    "description": "९. समासः — Compound analysis. 3 compounds: a locative tatpurusha with an embedded dvandva (तपःस्वाध्यायनिरतम्), an upapada-tatpurusha built on a क्विप्-suffixed root noun (वाग्विदाम्), and a genitive tatpurusha with an embedded simile (मुनिपुङ्गवम् — 'bull among sages').",
+    "samasa": [
+      {
+        "word": "तपःस्वाध्यायनिरतम्",
+        "compound_type": "सप्तमीतत्पुरुषसमासः (द्वन्द्वगर्भितपूर्वपदः)",
+        "compound_type_ta": "ஏழாம் வேற்றுமைத் தொகை (இரட்டைத் தொகை உட்பொதிந்தது)",
+        "breakdown": "तपसि स्वाध्याये च निरतः",
+        "vigraha_sa": "तपसि स्वाध्याये च निरतः",
+        "vigraha_ta": "தவத்திலும் சுவாத்யாயத்திலும் ஈடுபட்டவர்",
+        "meaning": "engaged in penance and Vedic study",
+        "meaning_ta": "தவத்திலும் ஓதலிலும் ஈடுபட்டவர்"
+      },
+      {
+        "word": "वाग्विदाम्",
+        "compound_type": "उपपदतत्पुरुषसमासः (क्विबन्तः)",
+        "compound_type_ta": "உபபத தொகைச்சொல் (க்விப் ஈறு)",
+        "breakdown": "वाचः वेत्ति इति वाग्विद्",
+        "vigraha_sa": "वाचः वेत्ति इति वाग्विद्, तेषां वाग्विदाम्",
+        "vigraha_ta": "பேச்சை அறிபவர் என்பது 'வாக்வித்', அவர்களது (பன்மை)",
+        "meaning": "of those who know/master speech",
+        "meaning_ta": "பேச்சு வல்லுநர்களில்"
+      },
+      {
+        "word": "मुनिपुङ्गवम्",
+        "compound_type": "षष्ठीतत्पुरुषसमासः (उपमानगर्भितः)",
+        "compound_type_ta": "ஆறாம் வேற்றுமைத் தொகை (உவமை உட்பொதிந்தது)",
+        "breakdown": "मुनीनां पुङ्गवः इव",
+        "vigraha_sa": "मुनीनां मध्ये पुङ्गवः इव श्रेष्ठः",
+        "vigraha_ta": "முனிவர்களில் காளை போன்ற சிறந்தவர்",
+        "meaning": "the foremost/best among sages (lit. 'bull among sages')",
+        "meaning_ta": "முனிவர்களில் தலைசிறந்தவர்"
+      }
+    ]
+  },
+  "COMPONENT_10_chandas": {
+    "description": "१०. छन्दस्/अलङ्कारः — Meter, prosody, literary devices. Notes this verse's special status as the epic's opening line. Two alankara entries: the verse's overall स्वभावोक्ति (plain narration) style, plus the minor रूपक embedded inside मुनिपुङ्गवम् itself.",
+    "chandas_name": "अनुष्टुप्",
+    "chandas_definition": "षोडश-मात्र-वृत्तम् (16-mātrā meter per half-verse) — रामायणस्य आदिश्लोकः, वाल्मीकिना नारदं प्रति प्रश्नरूपेण महाकाव्यारम्भः",
+    "chandas_definition_ta": "பதினாறு மாத்திரை வృத்தம் — ராமாயணத்தின் முதல் ஶ்லோகம், வால்மீகி நாரதரிடம் கேட்கும் வினாவாக காவியம் தொடங்குகிறது",
+    "scansion": [
+      {
+        "quarter": 1,
+        "text": "तपः स्वाध्यायनिरतं",
+        "matra": 8
+      },
+      {
+        "quarter": 2,
+        "text": "तपस्वी वाग्विदां वरम्",
+        "matra": 8
+      },
+      {
+        "quarter": 3,
+        "text": "नारदं परिपप्रच्छ",
+        "matra": 8
+      },
+      {
+        "quarter": 4,
+        "text": "वाल्मीकिर्मुनिपुङ्गवम्",
+        "matra": 8
+      }
+    ],
+    "alankara": [
+      {
+        "name": "स्वभावोक्तिः",
+        "definition": "स्वाभाविक-गुण-वर्णनम्, अलङ्कार-रहितम् — श्लोकस्य प्रधानशैली",
+        "definition_ta": "இயற்கையான குணவர்ணனை, அலங்காரமற்றது — ஶ்லோகத்தின் முதன்மை நடை"
+      },
+      {
+        "name": "रूपकालङ्कारः (गौणः, समासान्तर्गतः)",
+        "definition": "'मुनिपुङ्गवम्' इत्यत्र मुनिः पुङ्गवरूपेण (वृषभरूपेण) रूपितः — समासान्तर्गतं गौणरूपकम्",
+        "definition_ta": "'முனிபுங்கவம்' என்பதில் முனிவர் காளையாக உருவகிக்கப்பட்டுள்ளார் — தொகைச்சொல்லுக்குள் அமைந்த சிறு உருவகம்"
+      }
+    ]
+  },
+  "COMPONENT_11_quiz": {
+    "description": "११. प्रश्नोत्तरी — Quiz. DELIBERATELY NOT a data section like Components 1-10: there is no quiz JSON to author. The quiz is generated AT RUNTIME by JavaScript that reads Components 1 (पदच्छेदः hover meanings), 3 (पद-विग्रहः cases/roles), 4 (कारकः word-id cross-refs), 8 (सन्धिः types), 9 (समासः types), and 10 (छन्दस् name) — the same data every other tab displays. This avoids exactly the kind of duplicate-content drift the companion sanskrit-grammar-master-prompt.md document warns about (its retired grammar.saralartha field, which duplicated shlokartha and drifted out of sync).",
+    "question_types_generated": [
+      "शब्दार्थः (word meaning) — one per पदच्छेदः word, 4-option MCQ, distractors sampled from other words' meanings",
+      "विभक्तिः (case) — one per inflected पद-विग्रहः word, 4-option MCQ from the 7 case names",
+      "कारकः (karta/karma) — up to 2 questions, using karaka.karta_word_id / karma_word_id to identify the correct word unambiguously",
+      "सन्धिः (sandhi type) — one per सन्धिः entry",
+      "समासः (compound type) — one per समासः entry",
+      "छन्दः (meter) — one per verse"
+    ],
+    "design_notes": [
+      "Correctness is tracked by array INDEX (correctIndex), never by matching display text — this avoids the class of bug where a bilingual field's Sanskrit and Tamil strings could mismatch and silently break answer-checking.",
+      "Every MCQ option is stored as {sa, ta} at generation time and resolved to display text at render time via the same bi()-style logic used everywhere else, so the quiz respects the page's language toggle exactly like the other 10 tabs.",
+      "Quiz state resets whenever the verse changes (prev/next/jump-to), so a half-finished quiz never silently carries over to a different shloka's questions.",
+      "8 questions are sampled per attempt (shuffled) from the full generated bank, so repeat attempts on the same verse don't always ask the same 8."
+    ]
+  }
+}

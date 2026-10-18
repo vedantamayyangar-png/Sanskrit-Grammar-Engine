@@ -1,0 +1,412 @@
+{
+  "title": "कृत्प्रत्ययः — The Primary (Verbal Root) Derivative Affix Rule Book",
+  "subtitle": "The standard, commonly-taught set of कृत्-प्रत्ययs (affixes attaching directly to a verbal root to form participles, infinitives, gerunds, and agent/action nouns)",
+  "source_note": "IMPORTANT PROVENANCE NOTE, DIFFERENT FROM THE OTHER FILES IN THIS PROJECT: the user's own authoritative source for this batch -- Dr. Ghanashyam Dora's English translation of the Laghusiddhāntakaumudī -- was checked directly (table of contents, page by page) and does NOT include a kṛt-pratyaya chapter; that translated volume's scope is explicitly limited to Saṃjñā, Paribhāṣā, Sandhi, Kāraka, Samāsa, and Strī-pratyaya only (kṛt-pratyaya appears later in the full Siddhāntakaumudī tradition, in a volume/section not covered by this particular translation). This file is therefore built from general, well-established Pāṇinian grammar knowledge (the same 14-affix set commonly taught in Sanskrit pedagogy and cited across standard grammar references), NOT independently re-verified page-by-page against a critical edition the way the strī-pratyaya file was. Sūtra numbers given are the well-known, standard citations for these affixes; confidence should be treated as lower than the PDF-sourced files in this project, and flagged as such throughout.",
+  "how_to_read": {
+    "ashtadhyayi_ref": "Chapter.Pada.Sutra number in Pāṇini's Aṣṭādhyāyī (standard citation, not re-verified this session)",
+    "krdanta": "कृदन्तः -- a word formed by kṛt-suffixation of a verbal root",
+    "process": "what kind of word the affix forms (participle/infinitive/gerund/agent-noun/action-noun) and its declension behavior"
+  },
+  "avyaya_krt": [
+    {
+      "id": "krt-1",
+      "sanskrit_name": "क्त्वा-प्रत्ययः",
+      "english_name": "ktvā: gerund/absolutive ('having done X'), for a simple (non-prefixed) root",
+      "rule": "Added to a root to form an indeclinable (अव्यय) gerund meaning 'having done [the root's action]', used when the SAME agent performs two successive actions -- the action in क्त्वा-form happens first. Used only when the root has no verbal prefix (उपसर्ग); with a prefix, ल्यप् (krt-2) is used instead.",
+      "sutra_devanagari": "समानकर्तृकयोः पूर्वकाले",
+      "ashtadhyayi_ref": "3.4.21",
+      "related_ashtadhyayi": [
+        "7.1.37 (governs the ktvā/lyap split by presence of a prefix)"
+      ],
+      "book_ref": "general Paninian grammar reference, not from the user's LSK source (see source_note)",
+      "process": "धातुः(अनुपसर्गः) + क्त्वा = ...त्वा (अव्ययम्)",
+      "examples": [
+        {
+          "sandhi": "कृ + क्त्वा = कृत्वा",
+          "gloss": "'having done'"
+        },
+        {
+          "sandhi": "गम् + क्त्वा = गत्वा",
+          "gloss": "'having gone'"
+        },
+        {
+          "sandhi": "पठ् + क्त्वा = पठित्वा",
+          "gloss": "'having read' -- सः पठित्वा अत्र आगमिष्यति ('he will come here after reading')"
+        },
+        {
+          "sandhi": "हन् + क्त्वा = हत्वा",
+          "gloss": "'having killed'"
+        },
+        {
+          "sandhi": "क्री + क्त्वा = क्रीत्वा",
+          "gloss": "'having bought'"
+        }
+      ]
+    },
+    {
+      "id": "krt-2",
+      "sanskrit_name": "ल्यप्-प्रत्ययः",
+      "english_name": "lyap: gerund/absolutive, for a root WITH a verbal prefix (replaces क्त्वा)",
+      "rule": "The same 'having done X' gerund sense as क्त्वा, but used specifically when the root carries a verbal prefix (उपसर्ग) -- ल्यप् replaces क्त्वा in that context, surfacing as -य after the (usually sandhi-modified) root.",
+      "sutra_devanagari": "समासेऽनञ्पूर्वे क्त्वो ल्यप्",
+      "ashtadhyayi_ref": "7.1.37",
+      "related_ashtadhyayi": [
+        "3.4.21"
+      ],
+      "book_ref": "general Paninian grammar reference, not from the user's LSK source (see source_note)",
+      "process": "उपसर्गः + धातुः + ल्यप् = ...य (अव्ययम्)",
+      "examples": [
+        {
+          "sandhi": "उप + कृ + ल्यप् = उपकृत्य",
+          "gloss": "'having helped/benefited' (cf. plain कृत्वा without prefix)"
+        },
+        {
+          "sandhi": "प्र + हन् + ल्यप् = प्रहृत्य",
+          "gloss": "'having struck'"
+        },
+        {
+          "sandhi": "अव + मन् + ल्यप् = अवमत्य",
+          "gloss": "'having disrespected'"
+        },
+        {
+          "sandhi": "वि + क्री + ल्यप् = विक्रीय",
+          "gloss": "'having sold'"
+        },
+        {
+          "sandhi": "नि + स् + गम् + ल्यप् = निर्गम्य",
+          "gloss": "'having gone out'"
+        }
+      ]
+    },
+    {
+      "id": "krt-3",
+      "sanskrit_name": "तुमुन्-प्रत्ययः",
+      "english_name": "tumun: infinitive ('in order to do X' / 'to do X')",
+      "rule": "Added to a root to form an indeclinable infinitive, used when one agent's action is undertaken FOR THE PURPOSE of another action -- comparable to English 'to X' / 'in order to X'.",
+      "sutra_devanagari": "तुमुन्ण्वुलौ क्रियायां क्रियार्थायाम्",
+      "ashtadhyayi_ref": "3.3.10",
+      "related_ashtadhyayi": [],
+      "book_ref": "general Paninian grammar reference, not from the user's LSK source (see source_note)",
+      "process": "धातुः + तुमुन् = ...तुम् (अव्ययम्)",
+      "examples": [
+        {
+          "sandhi": "गम् + तुमुन् = गन्तुम्",
+          "gloss": "'to go' -- बालकः गृहं गन्तुम् उद्यतः अस्ति ('the boy is ready to go home')"
+        },
+        {
+          "sandhi": "पठ् + तुमुन् = पठितुम्",
+          "gloss": "'to read'"
+        },
+        {
+          "sandhi": "नी + तुमुन् = नेतुम्",
+          "gloss": "'to lead/carry'"
+        },
+        {
+          "sandhi": "कृ + तुमुन् = कर्तुम्",
+          "gloss": "'to do'"
+        },
+        {
+          "sandhi": "दृश् + तुमुन् = द्रष्टुम्",
+          "gloss": "'to see'"
+        }
+      ]
+    }
+  ],
+  "adjectival_krt": [
+    {
+      "id": "krt-4",
+      "sanskrit_name": "शतृ-प्रत्ययः",
+      "english_name": "śatṛ: present active participle (परस्मैपदी), '[one who is] doing X'",
+      "rule": "Added to a परस्मैपदी present-tense stem to form an adjectival present participle, declining like a t-stem (with an inserted nasal for thematic stems, e.g. -अन्त्-/-न्त्-). Used for the परस्मैपद side; शानच् (krt-5) is the corresponding आत्मनेपद affix.",
+      "sutra_devanagari": "लटः शतृशानचावप्रथमासमानाधिकरणे",
+      "ashtadhyayi_ref": "3.2.124",
+      "related_ashtadhyayi": [],
+      "book_ref": "general Paninian grammar reference, not from the user's LSK source (see source_note)",
+      "process": "लट्-स्तेमः(परस्मैपदी) + शतृ = ...अत्/...न्त् (विशेषणम्)",
+      "examples": [
+        {
+          "sandhi": "गम् + शतृ = गच्छत् (गच्छन्, गच्छन्ती स्त्रियाम्)",
+          "gloss": "'going/one who goes'"
+        },
+        {
+          "sandhi": "पठ् + शतृ = पठत्",
+          "gloss": "'reading/one who reads'"
+        },
+        {
+          "sandhi": "हस् + शतृ = हसत्",
+          "gloss": "'laughing'"
+        }
+      ]
+    },
+    {
+      "id": "krt-5",
+      "sanskrit_name": "शानच्-प्रत्ययः",
+      "english_name": "śānac: present middle participle (आत्मनेपदी), '[one who is] doing X (for oneself)'",
+      "rule": "The आत्मनेपद counterpart of शतृ (krt-4): added to an आत्मनेपदी present-tense stem to form the corresponding present participle.",
+      "sutra_devanagari": "लटः शतृशानचावप्रथमासमानाधिकरणे",
+      "ashtadhyayi_ref": "3.2.124",
+      "related_ashtadhyayi": [],
+      "book_ref": "general Paninian grammar reference, not from the user's LSK source (see source_note)",
+      "process": "लट्-स्तेमः(आत्मनेपदी) + शानच् = ...मान/...आन (विशेषणम्)",
+      "examples": [
+        {
+          "sandhi": "सेव् + शानच् = सेवमान",
+          "gloss": "'serving/one who serves'"
+        },
+        {
+          "sandhi": "लभ् + शानच् = लभमान",
+          "gloss": "'obtaining/one who obtains'"
+        },
+        {
+          "sandhi": "युध् + शानच् = युध्यमान",
+          "gloss": "'fighting/one who fights'"
+        }
+      ]
+    },
+    {
+      "id": "krt-6",
+      "sanskrit_name": "क्त-प्रत्ययः (निष्ठा)",
+      "english_name": "kta: past passive participle, '[having been] done'",
+      "rule": "Added to a root to form the past passive participle, meaning '[that which has been] X-ed'. Grouped together with क्तवतु (krt-7) under the technical term निष्ठा.",
+      "sutra_devanagari": "निष्ठा",
+      "ashtadhyayi_ref": "3.2.102",
+      "related_ashtadhyayi": [],
+      "book_ref": "general Paninian grammar reference, not from the user's LSK source (see source_note)",
+      "process": "धातुः + क्त = ...त/...न (विशेषणम्, कर्मणि/भावे)",
+      "examples": [
+        {
+          "sandhi": "कृ + क्त = कृतः",
+          "gloss": "'done'"
+        },
+        {
+          "sandhi": "गम् + क्त = गतः",
+          "gloss": "'gone'"
+        },
+        {
+          "sandhi": "पठ् + क्त = पठितः",
+          "gloss": "'[having been] read'"
+        },
+        {
+          "sandhi": "हन् + क्त = हतः",
+          "gloss": "'killed'"
+        }
+      ]
+    },
+    {
+      "id": "krt-7",
+      "sanskrit_name": "क्तवतु-प्रत्ययः",
+      "english_name": "ktavatu: past active participle (agent sense), '[one who] has done X'",
+      "rule": "Grouped with क्त (krt-6) under निष्ठा, but expresses the ACTIVE/agent sense ('one who has done X') rather than the passive sense -- declines with the possessive-suffix pattern (nominative -वान्).",
+      "sutra_devanagari": "निष्ठा",
+      "ashtadhyayi_ref": "3.2.102",
+      "related_ashtadhyayi": [],
+      "book_ref": "general Paninian grammar reference, not from the user's LSK source (see source_note)",
+      "process": "धातुः + क्तवतु = ...तवत् (कर्तरि विशेषणम्)",
+      "examples": [
+        {
+          "sandhi": "कृ + क्तवतु = कृतवान्",
+          "gloss": "'[he] has done'"
+        },
+        {
+          "sandhi": "गम् + क्तवतु = गतवान्",
+          "gloss": "'[he] has gone'"
+        },
+        {
+          "sandhi": "पठ् + क्तवतु = पठितवान्",
+          "gloss": "'[he] has read'"
+        }
+      ]
+    },
+    {
+      "id": "krt-8",
+      "sanskrit_name": "तव्यत्/अनीयर्-प्रत्ययौ",
+      "english_name": "tavyat and anīyar: gerundive/obligative, '[X] must/should be done'",
+      "rule": "Both affixes independently express the same gerundive (potential passive) sense -- 'ought to be/must be done' -- and are largely interchangeable, forming an adjective agreeing with the (grammatical) object.",
+      "sutra_devanagari": "तव्यत्तव्यानीयरः",
+      "ashtadhyayi_ref": "3.1.96",
+      "related_ashtadhyayi": [],
+      "book_ref": "general Paninian grammar reference, not from the user's LSK source (see source_note)",
+      "process": "धातुः + तव्यत्/अनीयर् = ...तव्यम्/...अनीयम् (कर्मणि विशेषणम्)",
+      "examples": [
+        {
+          "sandhi": "पठ् + तव्यत् = पठितव्यम्",
+          "gloss": "तेन संस्कृतं पठितव्यम् ('he should study Sanskrit')"
+        },
+        {
+          "sandhi": "कृ + अनीयर् = करणीयम्",
+          "gloss": "'ought to be done'"
+        },
+        {
+          "sandhi": "पठ् + अनीयर् = पठनीयम्",
+          "gloss": "'ought to be read'"
+        },
+        {
+          "sandhi": "दृश् + अनीयर् = दर्शनीयम्",
+          "gloss": "'worth seeing'"
+        }
+      ]
+    },
+    {
+      "id": "krt-9",
+      "sanskrit_name": "यत्/ण्यत्/क्यप्-प्रत्ययाः",
+      "english_name": "yat, ṇyat, kyap: a further set of gerundive-forming affixes (root-specific alternatives to tavyat/anIyar)",
+      "rule": "Three further affixes carrying the same basic gerundive ('ought to be done') sense as तव्यत्/अनीयर् (krt-8), each attaching to different, largely root-specific subsets of verbs rather than being freely interchangeable.",
+      "sutra_devanagari": "अचो यत्; ऋहलोर्ण्यत्",
+      "ashtadhyayi_ref": "3.1.97",
+      "related_ashtadhyayi": [
+        "3.1.124 (ऋहलोर्ण्यत्)"
+      ],
+      "book_ref": "general Paninian grammar reference, not from the user's LSK source (see source_note)",
+      "process": "धातुः(विशिष्टः) + यत्/ण्यत्/क्यप् = ...यम् (कर्मणि विशेषणम्)",
+      "examples": [
+        {
+          "sandhi": "कृ + ण्यत् = कार्यम्",
+          "gloss": "'to be done, a duty'"
+        },
+        {
+          "sandhi": "हृ + ण्यत् = हार्यम्",
+          "gloss": "'to be taken/removed'"
+        },
+        {
+          "sandhi": "वच् + यत् = वाच्यम्",
+          "gloss": "'to be said'"
+        },
+        {
+          "sandhi": "दृश् + क्यप् = दृश्यम्",
+          "gloss": "'visible, to be seen'"
+        },
+        {
+          "sandhi": "पद् + क्यप् = पद्यम्",
+          "gloss": "'verse' (lit. 'that which is to be gone through/composed')"
+        }
+      ]
+    }
+  ],
+  "nominal_krt": [
+    {
+      "id": "krt-10",
+      "sanskrit_name": "तृच्-प्रत्ययः",
+      "english_name": "tṛc: agent noun, '[one who] does X (habitually/characteristically)'",
+      "rule": "Added to a root to form an r-stem agent-noun meaning 'a doer of X' -- productive and very common, declining like the ऋ-stem nouns पितृ/भ्रातृ.",
+      "sutra_devanagari": null,
+      "ashtadhyayi_ref": "3.1.133",
+      "related_ashtadhyayi": [],
+      "book_ref": "general Paninian grammar reference, not from the user's LSK source (see source_note)",
+      "process": "धातुः + तृच् = ...तृ (कर्तरि नाम)",
+      "examples": [
+        {
+          "sandhi": "कृ + तृच् = कर्तृ",
+          "gloss": "'a doer, agent'"
+        },
+        {
+          "sandhi": "दा + तृच् = दातृ",
+          "gloss": "'a giver'"
+        },
+        {
+          "sandhi": "नी + तृच् = नेतृ",
+          "gloss": "'a leader'"
+        },
+        {
+          "sandhi": "जि + तृच् = जेतृ",
+          "gloss": "'a conqueror'"
+        }
+      ]
+    },
+    {
+      "id": "krt-11",
+      "sanskrit_name": "ण्वुल्/ल्युट्-प्रत्ययौ",
+      "english_name": "ṇvul and lyuṭ: further agent/action-noun affixes (surfacing as -अक and -अन)",
+      "rule": "ण्वुल् (surfacing as -अक) forms an agent noun like तृच् but declining as a regular अ-stem; ल्युट् (surfacing as -अन) forms an ACTION noun ('the act of X-ing') rather than an agent noun.",
+      "sutra_devanagari": null,
+      "ashtadhyayi_ref": "3.1.133",
+      "related_ashtadhyayi": [
+        "3.3.115 (ल्युट् for करण/अधिकरण sense)"
+      ],
+      "book_ref": "general Paninian grammar reference, not from the user's LSK source (see source_note)",
+      "process": "धातुः + ण्वुल्/ल्युट् = ...अक (कर्तरि नाम) / ...अन (भाव/करणे नाम)",
+      "examples": [
+        {
+          "sandhi": "कृ + ण्वुल् = कारकः",
+          "gloss": "'a maker, an agent/causer' (also the technical grammar term for a semantic role)"
+        },
+        {
+          "sandhi": "पा + ण्वुल् = पायकः",
+          "gloss": "'a drinker'"
+        },
+        {
+          "sandhi": "गम् + ल्युट् = गमनम्",
+          "gloss": "'the act of going'"
+        },
+        {
+          "sandhi": "पठ् + ल्युट् = पठनम्",
+          "gloss": "'the act of reading'"
+        },
+        {
+          "sandhi": "कृ + ल्युट् = करणम्",
+          "gloss": "'the act of doing' (also: 'an instrument')"
+        }
+      ]
+    },
+    {
+      "id": "krt-12",
+      "sanskrit_name": "क्तिन्-प्रत्ययः",
+      "english_name": "ktin: feminine abstract action noun, 'the act/state of X-ing'",
+      "rule": "Added to a root to form a feminine i-stem abstract noun denoting the action itself -- comparable to English '-tion'/'-ing' as an abstract noun (गति, स्थिति, बुद्धि etc.).",
+      "sutra_devanagari": "स्त्रियां क्तिन्",
+      "ashtadhyayi_ref": "3.3.94",
+      "related_ashtadhyayi": [],
+      "book_ref": "general Paninian grammar reference, not from the user's LSK source (see source_note)",
+      "process": "धातुः + क्तिन् = ...ति/...इ (भाववाचकं स्त्रीलिङ्गनाम)",
+      "examples": [
+        {
+          "sandhi": "गम् + क्तिन् = गतिः",
+          "gloss": "'motion, going'"
+        },
+        {
+          "sandhi": "स्था + क्तिन् = स्थितिः",
+          "gloss": "'state, standing'"
+        },
+        {
+          "sandhi": "बुध् + क्तिन् = बुद्धिः",
+          "gloss": "'intellect, understanding'"
+        },
+        {
+          "sandhi": "मन् + क्तिन् = मतिः",
+          "gloss": "'thought, opinion'"
+        }
+      ]
+    },
+    {
+      "id": "krt-13",
+      "sanskrit_name": "णिनि-प्रत्ययः",
+      "english_name": "ṇini: agent noun with a habitual/characteristic sense, '[one who] habitually does X'",
+      "rule": "Forms an in-stem agent noun (nominative -ई) with a stronger habitual/characterizing sense than तृच् -- 'one who characteristically/professionally does X'.",
+      "sutra_devanagari": null,
+      "ashtadhyayi_ref": "3.2.78",
+      "related_ashtadhyayi": [],
+      "book_ref": "general Paninian grammar reference, not from the user's LSK source (see source_note)",
+      "process": "धातुः + णिनि = ...इन् (कर्तरि, शीलार्थे नाम)",
+      "examples": [
+        {
+          "sandhi": "पठ् + णिनि = पाठिन्",
+          "gloss": "'a habitual reader/reciter'"
+        },
+        {
+          "sandhi": "वद् + णिनि = वादिन्",
+          "gloss": "'a speaker/debater'"
+        }
+      ]
+    }
+  ],
+  "summary_counts": {
+    "avyaya_krt_rules": 3,
+    "adjectival_krt_rules": 6,
+    "nominal_krt_rules": 4,
+    "total_rules": 13,
+    "status": "Covers the standard 13-14 affix set commonly taught as an introductory kṛt-pratyaya survey: 3 indeclinable-forming (ktvā/lyap/tumun), 6 participle/gerundive-forming, and 4 noun-forming affixes. This is a representative pedagogical subset -- the Aṣṭādhyāyī's actual kṛt section (roughly 3.1 through 3.4) defines several hundred kṛt affixes in total; exhaustive coverage was not attempted."
+  },
+  "bibliography": [
+    "NOT sourced from the user's provided Laghusiddhāntakaumudī translation, which does not include a kṛt-pratyaya chapter (verified via its table of contents -- see source_note).",
+    "Compiled from standard, widely-taught Pāṇinian grammar references and commonly-cited sūtra numbers for these affixes; not independently re-verified against a critical edition or page-by-page source this session."
+  ]
+}
