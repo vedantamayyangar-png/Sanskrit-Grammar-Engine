@@ -1,0 +1,122 @@
+<!doctype html><html lang="sa"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sanskrit Grammar Engine Renderer</title><style>:root{--bg:#f5f1e8;--card:#fffdf8;--ink:#29251f;--muted:#756d61;--accent:#7b3f00;--line:#ddd2c2}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,"Noto Sans Devanagari",sans-serif}header{padding:20px 28px;background:#3d2a1d;color:#fff;position:sticky;top:0;z-index:5}h1{margin:0;font-size:24px}.sub{opacity:.82;font-size:13px;margin-top:5px}.toolbar{display:flex;gap:9px;flex-wrap:wrap;padding:13px 28px;background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:72px;z-index:4}button,input{font:inherit}button{border:1px solid var(--line);background:#fff;border-radius:7px;padding:7px 11px;cursor:pointer}.primary{background:var(--accent);color:#fff;border-color:var(--accent)}.filters{margin-left:auto}.wrap{max-width:1200px;margin:auto;padding:22px}.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:18px}.stat,.verse{background:var(--card);border:1px solid var(--line);border-radius:11px}.stat{padding:12px}.stat b{display:block;font-size:20px}.stat span{font-size:12px;color:var(--muted)}.verse{margin:14px 0;overflow:hidden}.vhead{padding:13px 16px;display:flex;justify-content:space-between;background:#fbf7ef}.vnum{font-weight:700;color:var(--accent)}.ref{font-size:12px;color:var(--muted)}.ia{padding:14px 16px;font:18px/1.8 Georgia,"Noto Serif",serif;border-top:1px solid var(--line)}.dev{padding:0 16px 15px;font:23px/1.9 "Noto Serif Devanagari",serif}details{border-top:1px solid var(--line)}summary{cursor:pointer;padding:11px 16px;font-weight:650}.pair{margin:0 16px 11px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}.pairtop{padding:9px 11px;background:#faf7f0;display:flex;gap:9px;flex-wrap:wrap;align-items:center}.arrow{color:var(--accent);font-weight:700}.candidate{padding:9px 11px;border-top:1px solid #eee7dd}.rule{font-weight:700}.type{font-size:12px;color:var(--muted);margin-left:7px}.status{font-size:11px;margin-left:7px;padding:2px 7px;border-radius:10px;background:#e8f3ec}.result{margin-top:5px;font-size:17px}.empty{padding:10px 12px;color:var(--muted);font-size:13px}</style></head><body><header><h1>संस्कृत-व्याकरण-विश्लेषणम्</h1><div class="sub" id="subtitle"></div></header><div class="toolbar"><label>JSON <input id="file" type="file" accept=".json,application/json"></label><button id="all" class="primary">सर्वे</button><button id="with">सन्धियुक्ताः</button><button id="without">सन्धिरहिताः</button><div class="filters">श्लोकः <input id="search" type="number" placeholder="101"></div></div><main class="wrap"><div id="summary" class="summary"></div><div id="content"></div></main><script>
+let DATA=null, engineMode="auto", filterMode="all";
+
+const $=id=>document.getElementById(id);
+function esc(x){return String(x??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));}
+
+function detectEngine(d){
+  const e=String(d?.engine||"").toLowerCase();
+  if(e.includes("samasa")||e.includes("samāsa")) return "samasa";
+  if(e.includes("sandhi")||d?.results?.some(v=>v.sandhi_pairs)) return "sandhi";
+  if(d?.results?.some(v=>v.identified_compounds)) return "samasa";
+  return "generic";
+}
+
+function render(){
+  if(!DATA)return;
+  const mode=engineMode==="auto"?detectEngine(DATA):engineMode;
+  const results=DATA.results||[];
+  const q=$("search").value;
+  let rows=results.filter(v=>!q||String(v.verse)===q);
+
+  if(mode==="samasa"){
+    if(filterMode==="with") rows=rows.filter(v=>(v.identified_compounds||[]).length);
+    if(filterMode==="without") rows=rows.filter(v=>!(v.identified_compounds||[]).length);
+  }else if(mode==="sandhi"){
+    if(filterMode==="with") rows=rows.filter(v=>(v.sandhi_pairs||[]).some(p=>(p.प्रस्ताविताः||[]).length));
+    if(filterMode==="without") rows=rows.filter(v=>(v.sandhi_pairs||[]).every(p=>!(p.प्रस्ताविताः||[]).length));
+  }
+
+  $("subtitle").textContent=`${DATA.source||""} · ${DATA.encoding||"UTF-8"} · ${DATA.input_script||""} · verses ${DATA.start_verse??""}–${DATA.end_verse??""} · ${mode}`;
+  if(mode==="samasa") renderSamasaSummary(results,rows);
+  else if(mode==="sandhi") renderSandhiSummary(results,rows);
+  else renderGenericSummary(results,rows);
+  $("content").innerHTML=rows.map(v=>mode==="samasa"?samasaVerseHTML(v):mode==="sandhi"?sandhiVerseHTML(v):genericVerseHTML(v)).join("")
+    || `<div class="verse"><div class="empty">No matching verses.</div></div>`;
+}
+
+function renderSamasaSummary(results,rows){
+  const compounds=results.reduce((n,v)=>n+(v.identified_compounds||[]).length,0);
+  const proposals=results.reduce((n,v)=>n+(v.identified_compounds||[]).reduce((a,c)=>a+(c.प्रस्ताविताः||[]).length,0),0);
+  $("summary").innerHTML=[
+    ["इञ्जिनः",DATA.engine],["प्रक्रियितश्लोकाः",DATA.verses_processed],
+    ["समास-पदानि",compounds],["समास-प्रस्तावाः",proposals],["दृश्याः श्लोकाः",rows.length]
+  ].map(x=>`<div class="stat"><b>${esc(x[1])}</b><span>${esc(x[0])}</span></div>`).join("");
+}
+function renderSandhiSummary(results,rows){
+  const pairs=results.reduce((n,v)=>n+(v.sandhi_pairs||[]).length,0);
+  const candidates=results.reduce((n,v)=>n+(v.sandhi_pairs||[]).reduce((a,p)=>a+(p.प्रस्ताविताः||[]).length,0),0);
+  $("summary").innerHTML=[
+    ["इञ्जिनः",DATA.engine],["प्रक्रियितश्लोकाः",DATA.verses_processed],
+    ["पदद्वय-परीक्षणानि",pairs],["सन्धि-प्रस्तावाः",candidates],["दृश्याः श्लोकाः",rows.length]
+  ].map(x=>`<div class="stat"><b>${esc(x[1])}</b><span>${esc(x[0])}</span></div>`).join("");
+}
+function renderGenericSummary(results,rows){
+  $("summary").innerHTML=[
+    ["इञ्जिनः",DATA.engine||"—"],["प्रक्रियितश्लोकाः",DATA.verses_processed??results.length],
+    ["दृश्याः श्लोकाः",rows.length]
+  ].map(x=>`<div class="stat"><b>${esc(x[1])}</b><span>${esc(x[0])}</span></div>`).join("");
+}
+
+function header(v){
+  return `<div class="vhead"><span class="vnum">श्लोक ${esc(v.verse)}</span><span class="ref">${esc(v.token_count??"")} ${v.token_count?"tokens":""}</span></div>`;
+}
+function sourceText(v){
+  return `<div class="ia">${esc(v.original_IAST||"")}</div>${v.devanagari_internal?`<div class="dev">${esc(v.devanagari_internal)}</div>`:""}`;
+}
+
+function samasaVerseHTML(v){
+  const comps=v.identified_compounds||[];
+  return `<article class="verse">${header(v)}${sourceText(v)}
+  <details open><summary>समास-पदानि (${comps.length})</summary>
+  ${comps.map((c,i)=>`<div class="pair">
+    <div class="pairtop"><span>${i+1}.</span><code>${esc(c.token_IAST)}</code><span class="arrow">→</span><code>${esc(c.token_देवनागरी)}</code></div>
+    ${(c.प्रस्ताविताः||[]).map(h=>`<div class="candidate">
+      <div><span class="rule">${esc(h.sanskrit_name||h.samasa_class||"समासः")}</span>
+      <span class="type">${esc(h.samasa_class||"")}</span>
+      <span class="status">${esc(h.rule_id||"")}</span></div>
+      <div class="result"><b>विग्रहः</b> ${esc(h.vigraha||"—")}</div>
+      <div class="result"><b>समस्तपदम्</b> ${esc(h.compound||"—")}</div>
+      ${h.iast?`<div class="type">IAST: ${esc(h.iast)}</div>`:""}
+      ${h.process?`<div class="type"><b>प्रक्रिया:</b> ${esc(h.process)}</div>`:""}
+      ${h.ashtadhyayi_ref?`<div class="type"><b>अष्टाध्यायी-सन्दर्भः:</b> ${esc(h.ashtadhyayi_ref)}</div>`:""}
+      ${h.book_ref?`<div class="type"><b>ग्रन्थ-सन्दर्भः:</b> ${esc(h.book_ref)}</div>`:""}
+      ${h.gloss?`<div class="type"><b>अर्थः:</b> ${esc(h.gloss)}</div>`:""}
+      ${h.flagged_nuance?`<div class="type"><b>विशेष-टिप्पणी:</b> ${esc(h.flagged_nuance)}</div>`:""}
+      ${h.rule?`<div class="type"><b>नियमः:</b> ${esc(h.rule)}</div>`:""}
+    </div>`).join("")||`<div class="empty">समास-प्रस्तावः नास्ति</div>`}
+  </div>`).join("")}
+  </details>
+  ${v.unmatched_compound_note?`<div class="empty">${esc(v.unmatched_compound_note)}</div>`:""}
+  </article>`;
+}
+
+function sandhiVerseHTML(v){
+  const pairs=v.sandhi_pairs||[];
+  return `<article class="verse">${header(v)}${sourceText(v)}
+  <details open><summary>सन्धि-पदद्वयम् (${pairs.length})</summary>
+  ${pairs.map((p,i)=>`<div class="pair"><div class="pairtop"><span>${i+1}.</span><code>${esc(p.पूर्वपदम्_IAST)}</code><span class="arrow">+</span><code>${esc(p.उत्तरपदम्_IAST)}</code><span class="arrow">→</span><code>${esc(p.पूर्वपदम्)} + ${esc(p.उत्तरपदम्)}</code></div>
+  ${(p.प्रस्ताविताः||[]).map(c=>`<div class="candidate"><span class="rule">${esc(c.नियम_क्रमाङ्कः)}</span><span class="type">${esc(c.सन्धिनाम||c.सन्धिप्रकारः)}</span><span class="status">${esc(c.स्थितिः||"")}</span><div class="result">${esc(c.परिणामः)} <small>(${esc(c.परिणामः_IAST)})</small></div>${c.टिप्पणी?`<div class="type">${esc(c.टिप्पणी)}</div>`:""}</div>`).join("")||`<div class="empty">सन्धि-प्रस्तावः नास्ति</div>`}
+  </div>`).join("")}
+  </details></article>`;
+}
+
+function genericVerseHTML(v){
+  return `<article class="verse">${header(v)}${sourceText(v)}
+  <details open><summary>विश्लेषण-दत्तांशः</summary><pre style="padding:16px;white-space:pre-wrap">${esc(JSON.stringify(v,null,2))}</pre></details></article>`;
+}
+
+$("file").addEventListener("change",e=>{
+  const f=e.target.files[0]; if(!f)return;
+  const r=new FileReader();
+  r.onload=()=>{try{DATA=JSON.parse(r.result); render()}catch(x){alert("Invalid JSON: "+x.message)}};
+  r.readAsText(f,"UTF-8");
+});
+$("all").onclick=()=>{filterMode="all";render()};
+$("with").onclick=()=>{filterMode="with";render()};
+$("without").onclick=()=>{filterMode="without";render()};
+$("search").oninput=render;
+
+DATA=__DATA__;
+render();
+</script></body></html>

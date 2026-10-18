@@ -1,0 +1,219 @@
+{
+  "title": "सन्नन्तम् — The Desiderative (सन्) Rule Book",
+  "subtitle": "Compiled from classroom source material on सन्-प्रत्यय (the desiderative affix, 'wants/wishes to do X') and its reduplicated stem-formation pattern",
+  "source_note": "Compiled from a single classroom source PDF ('07_सन्नन्तम्_-_अभ्यासार्थम्.pdf'), which is itself primarily a drilling/exercise document (अभ्यासार्थम् = 'for practice') built around a smaller set of core rules plus an extensive root-pairing table and several full conjugation tables (contributed by a second author, 'Sundharam C G', for verbs like इत्सति/पिपासति/निगीषति/युयुत्सति/शुश्रूषते/etc.). Only the rule content and a representative sample of the root-pairs are reproduced here; the fill-in-the-blank drills themselves are not. One entry (sannanta-2) corrects an apparent OCR error in the source scan (गम् + सन् was rendered illegibly as 'णिगणिषति'; the standard, well-attested form जिगमिषति is used instead, following the same reduplication pattern -- velar-to-palatal ग→ज -- documented for this root elsewhere). No Aṣṭādhyāyī sūtra numbers are given in the source material for this topic; ashtadhyayi_ref is left null throughout except where a well-known standard citation is added and flagged as such.",
+  "how_to_read": {
+    "ashtadhyayi_ref": "Chapter.Pada.Sutra number in Pāṇini's Aṣṭādhyāyī, where available",
+    "ichha": "इच्छा -- the desiderative noun ('the wish to do X'), feminine",
+    "ichhu": "इच्छुः -- the desiderative adjective ('desirous of doing X')",
+    "process": "how the desiderative stem is built from the root"
+  },
+  "sannanta_rules": [
+    {
+      "id": "sannanta-1",
+      "sanskrit_name": "सन्प्रत्ययस्य अर्थः",
+      "english_name": "Definition: सन् expresses 'wishes/wants to do the root's action'",
+      "rule": "The affix सन्, added to a root, produces a verb meaning 'wishes/desires to [do the root's action]'. सन् is one of twelve related affixes traditionally grouped together as सनादि-प्रत्ययाः (see sannanta-2); सन् itself is the one used for ordinary desiderative formation.",
+      "sutra_devanagari": "धातोः इच्छार्थे सन्प्रत्ययः भवति",
+      "ashtadhyayi_ref": "3.1.7",
+      "related_ashtadhyayi": [],
+      "book_ref": "07_सन्नन्तम्.pdf",
+      "process": "धातुः + सन् = सन्नन्तधातुः, अर्थः: '...तुम् इच्छति'",
+      "examples": [
+        {
+          "sandhi": "पठ् + सन् = पिपठिषति",
+          "gloss": "'wishes to read' = पठितुम् इच्छति"
+        },
+        {
+          "sandhi": "गम् + सन् = जिगमिषति",
+          "gloss": "'wishes to go' = गन्तुम् इच्छति"
+        }
+      ]
+    },
+    {
+      "id": "sannanta-2",
+      "sanskrit_name": "द्वादश सनादिप्रत्ययाः",
+      "english_name": "Reference: the twelve सनादि affixes, of which सन् is one",
+      "rule": "Pāṇinian grammar groups twelve affixes together under the technical label सनादि (\"सन् etc.\"): सन्, क्यच्, काम्यच्, क्यङ्, क्यण्, णिङ्, णिच्, यङ्, यक्, आय, ईयङ्, न्तिप्. A root bearing any of these is called सनादि-अन्त (or, when specifically सन् is meant, सन्नन्त). This entry is reference material; only सन् itself is treated in detail in this rulebook.",
+      "sutra_devanagari": "सन्नाद्यन्ता धातवः",
+      "ashtadhyayi_ref": "3.1.32",
+      "related_ashtadhyayi": [],
+      "book_ref": "07_सन्नन्तम्.pdf",
+      "process": "reference/definitional",
+      "examples": []
+    },
+    {
+      "id": "sannanta-3",
+      "sanskrit_name": "सन्नन्तस्य द्विरुक्तिः (अभ्यासः)",
+      "english_name": "The desiderative stem is formed by reduplication + weak-grade root + इष्/स् augment",
+      "rule": "The सन्-stem is built by (1) reduplicating the root's initial syllable (with the same general consonant/vowel-selection pattern used in other reduplicating formations -- velars reduplicate as palatals, aspirates deaspirate), (2) keeping the root itself in a weak/unstrengthened grade, and (3) inserting the augment इष् (or, for some roots, स्) before the desiderative's own person-endings. The resulting stem conjugates like a thematic (a-stem) present.",
+      "sutra_devanagari": null,
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [
+        "3.1.7"
+      ],
+      "book_ref": "07_सन्नन्तम्.pdf",
+      "process": "अभ्यासः + धातुः(दुर्बलरूपे) + इष्/स् + तिङ्",
+      "examples": [
+        {
+          "sandhi": "पठितुम् → पिपठिषति",
+          "gloss": "पि-reduplication + पठ् + इष् + अति"
+        },
+        {
+          "sandhi": "कर्तुम् → चिकीर्षति",
+          "gloss": "क→च् reduplication (velar→palatal)"
+        },
+        {
+          "sandhi": "मोक्तुम् → मुमुक्षते",
+          "gloss": "आत्मनेपदी सन्नन्त (मुच् root)"
+        },
+        {
+          "sandhi": "खादितुम् → चिखादिषति",
+          "gloss": "reduplicated + weak root + इष्"
+        },
+        {
+          "sandhi": "श्रोतुम् → शुश्रूषते",
+          "gloss": "श्रु root, आत्मनेपदी, root vowel lengthens in reduplicated stem"
+        },
+        {
+          "sandhi": "द्रष्टुम् → दिदृक्षते",
+          "gloss": "दृश् root, आत्मनेपदी"
+        },
+        {
+          "sandhi": "ज्ञातुम् → जिज्ञासते",
+          "gloss": "ज्ञा root, आत्मनेपदी, स्-augment not इष्"
+        },
+        {
+          "sandhi": "लब्धुम् → लिप्सते",
+          "gloss": "लभ् root, आत्मनेपदी, स्-augment"
+        }
+      ]
+    },
+    {
+      "id": "sannanta-4",
+      "sanskrit_name": "इच्छा-प्रत्ययान्तं नामपदम्",
+      "english_name": "The desiderative noun इच्छा ('the wish to X') is formed from the same reduplicated stem",
+      "rule": "Replacing the verbal ending of the सन्-stem with the feminine noun-suffix -आ (rather than a personal verb-ending) produces इच्छा-प्रत्ययान्त, an abstract feminine noun meaning \"the wish/desire to [do the root's action]\".",
+      "sutra_devanagari": null,
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [
+        "3.1.7"
+      ],
+      "book_ref": "07_सन्नन्तम्.pdf",
+      "process": "अभ्यासः + धातुः + इष्/स् + आ (स्त्रीलिङ्गनाम)",
+      "examples": [
+        {
+          "sandhi": "पठितुम् इच्छा = पिपठिषा",
+          "gloss": "'the wish to read'"
+        },
+        {
+          "sandhi": "कर्तुम् इच्छा = चिकीर्षा",
+          "gloss": "'the wish to do'"
+        },
+        {
+          "sandhi": "ज्ञातुम् इच्छा = जिज्ञासा",
+          "gloss": "'the wish to know' -- this word survives in English as 'jijnasa/enquiry'"
+        }
+      ]
+    },
+    {
+      "id": "sannanta-5",
+      "sanskrit_name": "इच्छु-प्रत्ययान्तं विशेषणपदम्",
+      "english_name": "The desiderative adjective इच्छुः ('desirous of X') is formed from the same reduplicated stem",
+      "rule": "Replacing the verbal ending of the सन्-stem with the u-stem adjectival suffix (उ) instead produces इच्छु-प्रत्ययान्त, an adjective meaning \"desirous of [doing the root's action]\", declined like a regular u-stem across all three genders.",
+      "sutra_devanagari": null,
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [
+        "3.1.7"
+      ],
+      "book_ref": "07_सन्नन्तम्.pdf",
+      "process": "अभ्यासः + धातुः + इष्/स् + उ (विशेषणम्, उकारान्तम्)",
+      "examples": [
+        {
+          "sandhi": "पठितुम् इच्छुः = पिपठिषुः",
+          "gloss": "'desirous of reading'; declines पिपठिषुः/पिपठिषू/पिपठिषवः"
+        },
+        {
+          "sandhi": "योद्धुम् इच्छुः = युयुत्सुः",
+          "gloss": "'desirous of fighting'"
+        },
+        {
+          "sandhi": "भवितुम् इच्छुः = बुभूषुः",
+          "gloss": "'desirous of becoming'"
+        }
+      ]
+    },
+    {
+      "id": "sannanta-6",
+      "sanskrit_name": "मूलधातोः कर्म स्वकीयविभक्तौ एव तिष्ठति",
+      "english_name": "Caution: the desiderative's object keeps the case the underlying verb's object would take -- NOT the genitive",
+      "rule": "Because इच्छुः/इच्छा look like ordinary nouns/adjectives, learners are tempted to put their object in the genitive (षष्ठी), as one normally would with a noun. This is INCORRECT: the object retains whatever case the underlying (non-desiderative) verb itself would assign to its object -- typically द्वितीया for a transitive root. The source PDF gives this exact अशुद्धम्/शुद्धम् (incorrect/correct) contrast as a caution.",
+      "sutra_devanagari": null,
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "07_सन्नन्तम्.pdf",
+      "process": "निषेधः — षष्ठी न भवति; मूलधातोः कर्मविभक्तिः एव अनुवर्तते",
+      "flagged_nuance": "The source explicitly flags this as a common learner error: 'जलस्य पिपासुः' (genitive) is marked अशुद्धम् (incorrect); 'जलं पिपासुः' (accusative, matching पातुम्/पा- root's own object-case) is marked शुद्धम् (correct).",
+      "examples": [
+        {
+          "sandhi": "जलस्य पिपासुः (अशुद्धम्) → जलं पिपासुः (शुद्धम्)",
+          "gloss": "'thirsty for water' -- accusative, not genitive"
+        },
+        {
+          "sandhi": "संस्कृतस्य जिज्ञासवः (अशुद्धम्) → संस्कृतं जिज्ञासवः (शुद्धम्)",
+          "gloss": "'wishing to know Sanskrit'"
+        },
+        {
+          "sandhi": "युद्धस्य चिकीर्षुः (अशुद्धम्) → युद्धं चिकीर्षुः (शुद्धम्)",
+          "gloss": "'wishing to make war'"
+        }
+      ]
+    },
+    {
+      "id": "sannanta-7",
+      "sanskrit_name": "सन्नन्तानां पदव्यवस्था — परस्मैपदम्/आत्मनेपदम्",
+      "english_name": "Desiderative pada (voice) generally follows the underlying root's own pada-class",
+      "rule": "Most सन्नन्त verbs conjugate in whichever pada (परस्मैपद or आत्मनेपद) their underlying root normally takes, though some specific roots show a fixed आत्मनेपदी desiderative regardless. The source's conjugation tables illustrate both patterns.",
+      "sutra_devanagari": null,
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "book_ref": "07_सन्नन्तम्.pdf (conjugation tables contributed by Sundharam C G)",
+      "process": "प्रायः मूलधातोः पदानुसारेण; केचन धातवः आत्मनेपदिनः एव सन्नन्ते",
+      "examples": [
+        {
+          "sandhi": "दा (दत्ते) → दित्सते",
+          "gloss": "आत्मनेपदी throughout"
+        },
+        {
+          "sandhi": "पा (पिबति) → पिपासति",
+          "gloss": "परस्मैपदी throughout"
+        },
+        {
+          "sandhi": "नी (नयति) → निनीषति",
+          "gloss": "परस्मैपदी throughout"
+        },
+        {
+          "sandhi": "युध् (युध्यते) → युयुत्सते",
+          "gloss": "आत्मनेपदी throughout"
+        },
+        {
+          "sandhi": "वच् (वक्ति) → विवक्षति",
+          "gloss": "परस्मैपदी throughout"
+        },
+        {
+          "sandhi": "ग्रह् (गृह्णाति) → जिघृक्षति",
+          "gloss": "परस्मैपदी throughout"
+        }
+      ]
+    }
+  ],
+  "summary_counts": {
+    "sannanta_rules": 7,
+    "total_rules": 7,
+    "status": "Covers the source PDF's core rule content: definition, the sanadi-list reference, stem formation, the two derived nominal forms (इच्छा/इच्छुः), the genitive-object caution, and pada distribution. Does not reproduce the PDF's extensive practice exercises or its ~25-root pairing table in full (a representative sample is given per rule instead)."
+  },
+  "bibliography": [
+    "Source PDF: '07_सन्नन्तम्_-_अभ्यासार्थम्.pdf' -- classroom exercise material on desiderative formation, including conjugation tables contributed by 'Sundharam C G'.",
+    "Pāṇini. Aṣṭādhyāyī 3.1.7 (dhātoḥ karmaṇaḥ samānakartṛkādicchāyāṃ vā -- the core desiderative rule) and 3.1.32 (sannādyantā dhātavaḥ -- the sanadi-classification rule) -- standard, widely-cited references, used here without independent re-verification via search (see source_note)."
+  ]
+}

@@ -1,0 +1,1103 @@
+{
+  "title_sa": "संख्याशब्दाः - संख्येयशब्दाः",
+  "title_en": "Sabdamanjari — Numerals Reference Chart (Cardinals and Ordinals, 3 through 1,00,00,000)",
+  "source": "Sabdamanjari (शब्दमञ्जरी), Samskrit Education Society",
+  "source_pdf_pages": "108-114 (printed page numbers; physical PDF pages 109-115)",
+  "relation_to_main_corpus": "Companion file to sabdamanjari_vibhakti_tables_from_page_5_2.json (the main corpus file). The main corpus file covers pratipadika words 1-185, the last of which (185, द्वितीय नपुंसकलिङ्ग) is the final word in the book given a full 8-case declension table. This file transcribes the nominative-only numerals reference chart that follows immediately after word 185 in the book, which the main corpus file's extraction_summary explicitly notes was deferred to a separate file.",
+  "schema_note": "Unlike the main corpus file's words[].declension_table (8 case-rows x vachana/gender columns), the source here prints ONLY nominative-singular forms, by gender, for each number's cardinal and ordinal. Accordingly each entry below has flat 'cardinal'/'ordinal' objects with pum/stri/napum keys (or a single shared citation field where the book gives one form for all/most genders), not a declension_table. Where the book prints two alternate spellings for one cell, they are hyphen-joined in that one field, matching the main corpus file's convention. Where the book prints entirely separate alternate words/paradigms, they are recorded as a list under 'alternates' / 'ordinal_alternates' / 'ordinal_alt_tama', each note-annotated.",
+  "general_declension_rules": [
+    "9 (नव) and 10 (दश) are not separately tabled in the book; a note after word 177 (सप्तन्) states they decline like सप्तन्.",
+    "Ordinals from 'तृतीय' (3rd) onward, other than the fully-tabled words 183-185 (द्वितीय), are not separately tabled; the book's explicit rule (PDF p.108, following word 185) states: 'चतुर्थ-पञ्चमादयः शब्दाः सर्वेऽपि — पुंसि राम शब्दवत्; स्त्रियां नदी शब्दवत्; क्लीबे फल शब्दवत् द्रष्टव्याः' — i.e. all ordinals from the 4th onward decline: masculine like राम (word 1), feminine like नदी (ईकारान्त, e.g. पद्धतिः — the नदी paradigm itself is not a separate word in this corpus), neuter like फल (word 3).",
+    "एकोनविंशति (19), विंशति (20), षष्टि (60), सप्तति (70), अशीति (80), नवति (90) and कोटि (1,00,00,000) — the इकारान्त feminine cardinal nouns — decline like मति (इकारान्त स्त्रीलिङ्ग); मति itself is not a separate word in this corpus.",
+    "त्रिंशत् (30), चत्वारिंशत् (40), पञ्चाशत् (50) — the दकारान्त cardinal nouns — decline like सरित् (दकारान्त स्त्रीलिङ्ग); सरित् itself is not a separate word in this corpus.",
+    "शतं (100), सहस्रं (1000), अयुतं (10,000), लक्षं (1,00,000), प्रयुतं (10,00,000) — the नपुंसकलिङ्ग round numbers — decline like वनम् (word 4, अकारान्त नपुंसकलिङ्ग).",
+    "PDF p.114 closes with a note that alternate '-तम' ordinal-compound forms (विंशतितम, त्रिंशत्तम, ... प्रायशः) are commonly used for the round tens (20, 30, ... 90) and for 99, in addition to the shorter forms shown in the main columns; both are recorded here where printed."
+  ],
+  "numbers_1_to_10": [
+    {
+      "number": 1,
+      "cardinal": {
+        "pum": "एकः",
+        "stri": "एका",
+        "napum": "एकम्"
+      },
+      "ordinal": {
+        "pum": "प्रथमः",
+        "stri": "प्रथमा",
+        "napum": "प्रथमम्"
+      },
+      "note": "Full 8-case declensions for both cardinal and ordinal (words 171, 180, 181, 182) are in the main corpus file."
+    },
+    {
+      "number": 2,
+      "cardinal": {
+        "pum": "द्वौ",
+        "stri": "द्वे",
+        "napum": "द्वे"
+      },
+      "ordinal": {
+        "pum": "द्वितीयः",
+        "stri": "द्वितीया",
+        "napum": "द्वितीयम्"
+      },
+      "note": "Full 8-case declensions for both cardinal and ordinal (words 172, 183, 184, 185) are in the main corpus file."
+    },
+    {
+      "number": 3,
+      "cardinal": {
+        "pum": "त्रयः",
+        "stri": "तिस्रः",
+        "napum": "त्रीणि"
+      },
+      "ordinal": {
+        "pum": "तृतीयः",
+        "stri": "तृतीया",
+        "napum": "तृतीयम्"
+      },
+      "note": "Cardinal's full declension is word 173 in the main corpus file. Ordinal तृतीय is not separately tabled; the book says it declines like द्वितीय (words 183-185)."
+    },
+    {
+      "number": 4,
+      "cardinal": {
+        "pum": "चत्वारः",
+        "stri": "चतस्रः",
+        "napum": "चत्वारि"
+      },
+      "ordinal": {
+        "pum": "चतुर्थः",
+        "stri": "चतुर्थी",
+        "napum": "चतुर्थम्"
+      },
+      "ordinal_alternates": [
+        {
+          "pum": "तुरीयः",
+          "stri": "तुरीया",
+          "napum": "तुरीयम्"
+        },
+        {
+          "pum": "तुर्यः",
+          "stri": "तुर्या",
+          "napum": "तुर्यम्"
+        }
+      ],
+      "note": "Cardinal's full declension is word 174. Three alternate ordinal words are printed for '4th': चतुर्थ, तुरीय, तुर्य. From here on the book gives no further per-word case tables; per its stated rule, ordinals decline पुंसि like राम, स्त्रियां like नदी, क्लीबे like फल."
+    },
+    {
+      "number": 5,
+      "cardinal": {
+        "pum": "पञ्च",
+        "stri": "पञ्च",
+        "napum": "पञ्च"
+      },
+      "ordinal": {
+        "pum": "पञ्चमः",
+        "stri": "पञ्चमी",
+        "napum": "पञ्चमम्"
+      },
+      "note": "Cardinal (same in all genders, plural only) is word 175 in the main corpus file."
+    },
+    {
+      "number": 6,
+      "cardinal": {
+        "pum": "षट्",
+        "stri": "षट्",
+        "napum": "षट्"
+      },
+      "ordinal": {
+        "pum": "षष्ठः",
+        "stri": "षष्ठी",
+        "napum": "षष्ठम्"
+      },
+      "note": "Cardinal is word 176 in the main corpus file."
+    },
+    {
+      "number": 7,
+      "cardinal": {
+        "pum": "सप्त",
+        "stri": "सप्त",
+        "napum": "सप्त"
+      },
+      "ordinal": {
+        "pum": "सप्तमः",
+        "stri": "सप्तमी",
+        "napum": "सप्तमम्"
+      },
+      "note": "Cardinal is word 177 in the main corpus file."
+    },
+    {
+      "number": 8,
+      "cardinal": {
+        "pum": "अष्ट-अष्टौ",
+        "stri": "अष्ट-अष्टौ",
+        "napum": "अष्ट-अष्टौ"
+      },
+      "ordinal": {
+        "pum": "अष्टमः",
+        "stri": "अष्टमी",
+        "napum": "अष्टमम्"
+      },
+      "note": "Cardinal (two alternate forms, hyphen-joined) is word 178 in the main corpus file."
+    },
+    {
+      "number": 9,
+      "cardinal": {
+        "pum": "नव",
+        "stri": "नव",
+        "napum": "नव"
+      },
+      "ordinal": {
+        "pum": "नवमः",
+        "stri": "नवमी",
+        "napum": "नवमम्"
+      },
+      "note": "Cardinal नव is not separately tabled in the book; it is only named (with दश etc.) as declining like सप्तन् (word 177), in the note following word 177."
+    },
+    {
+      "number": 10,
+      "cardinal": {
+        "pum": "दश",
+        "stri": "दश",
+        "napum": "दश"
+      },
+      "ordinal": {
+        "pum": "दशमः",
+        "stri": "दशमी",
+        "napum": "दशमम्"
+      },
+      "note": "Cardinal दश is not separately tabled; likewise noted as declining like सप्तन्."
+    }
+  ],
+  "numbers_11_to_19": [
+    {
+      "number": 11,
+      "word": "एकादश",
+      "ordinal": {
+        "pum": "एकादशः",
+        "stri": "एकादशी",
+        "napum": "एकादशम्"
+      }
+    },
+    {
+      "number": 12,
+      "word": "द्वादश",
+      "ordinal": {
+        "pum": "द्वादशः",
+        "stri": "द्वादशी",
+        "napum": "द्वादशम्"
+      }
+    },
+    {
+      "number": 13,
+      "word": "त्रयोदश",
+      "ordinal": {
+        "pum": "त्रयोदशः",
+        "stri": "त्रयोदशी",
+        "napum": "त्रयोदशम्"
+      }
+    },
+    {
+      "number": 14,
+      "word": "चतुर्दश",
+      "ordinal": {
+        "pum": "चतुर्दशः",
+        "stri": "चतुर्दशी",
+        "napum": "चतुर्दशम्"
+      }
+    },
+    {
+      "number": 15,
+      "word": "पञ्चदश",
+      "ordinal": {
+        "pum": "पञ्चदशः",
+        "stri": "पञ्चदशी",
+        "napum": "पञ्चदशम्"
+      }
+    },
+    {
+      "number": 16,
+      "word": "षोडश",
+      "ordinal": {
+        "pum": "षोडशः",
+        "stri": "षोडशी",
+        "napum": "षोडशम्"
+      }
+    },
+    {
+      "number": 17,
+      "word": "सप्तदश",
+      "ordinal": {
+        "pum": "सप्तदशः",
+        "stri": "सप्तदशी",
+        "napum": "सप्तदशम्"
+      }
+    },
+    {
+      "number": 18,
+      "word": "अष्टादश",
+      "ordinal": {
+        "pum": "अष्टादशः",
+        "stri": "अष्टादशी",
+        "napum": "अष्टादशम्"
+      }
+    },
+    {
+      "number": 19,
+      "word": "नवदश",
+      "ordinal": {
+        "pum": "नवदशः",
+        "stri": "नवदशी",
+        "napum": "नवदशम्"
+      },
+      "alternates": [
+        {
+          "word": "एकोनविंश",
+          "ordinal": {
+            "pum": "एकोनविंशः",
+            "stri": "एकोनविंशी",
+            "napum": "एकोनविंशम्"
+          }
+        },
+        {
+          "word": "एकान्नविंशतिः",
+          "ordinal": {
+            "pum": "एकान्नविंशः",
+            "stri": "एकान्नविंशी",
+            "napum": "एकान्नविंशम्"
+          }
+        },
+        {
+          "word": "ऊनविंशतिः",
+          "ordinal": {
+            "pum": "ऊनविंशः",
+            "stri": "ऊनविंशी",
+            "napum": "ऊनविंशम्"
+          }
+        }
+      ],
+      "note": "Four alternate names for 'nineteen' are printed (नवदश and three एकोन/ऊन- 'one short of twenty' forms), each with its own ordinal set."
+    }
+  ],
+  "numbers_20_to_99": [
+    {
+      "number": 20,
+      "cardinal": "विंशतिः",
+      "ordinal": {
+        "pum": "विंशः",
+        "stri": "विंशी",
+        "napum": "विंशम्"
+      },
+      "ordinal_alt_tama": {
+        "pum": "विंशतितमः",
+        "stri": "विंशतितमी",
+        "napum": "विंशतितमम्"
+      }
+    },
+    {
+      "number": 21,
+      "cardinal": "एकविंशतिः",
+      "ordinal": {
+        "pum": "एकविंशः",
+        "stri": "एकविंशी",
+        "napum": "एकविंशम्"
+      }
+    },
+    {
+      "number": 22,
+      "cardinal": "द्वाविंशतिः",
+      "ordinal": {
+        "pum": "द्वाविंशः",
+        "stri": "द्वाविंशी",
+        "napum": "द्वाविंशम्"
+      }
+    },
+    {
+      "number": 23,
+      "cardinal": "त्रयोविंशतिः",
+      "ordinal": {
+        "pum": "त्रयोविंशः",
+        "stri": "त्रयोविंशी",
+        "napum": "त्रयोविंशम्"
+      }
+    },
+    {
+      "number": 24,
+      "cardinal": "चतुर्विंशतिः",
+      "ordinal": {
+        "pum": "चतुर्विंशः",
+        "stri": "चतुर्विंशी",
+        "napum": "चतुर्विंशम्"
+      }
+    },
+    {
+      "number": 25,
+      "cardinal": "पञ्चविंशतिः",
+      "ordinal": {
+        "pum": "पञ्चविंशः",
+        "stri": "पञ्चविंशी",
+        "napum": "पञ्चविंशम्"
+      }
+    },
+    {
+      "number": 26,
+      "cardinal": "षड्विंशतिः",
+      "ordinal": {
+        "pum": "षड्विंशः",
+        "stri": "षड्विंशी",
+        "napum": "षड्विंशम्"
+      }
+    },
+    {
+      "number": 27,
+      "cardinal": "सप्तविंशतिः",
+      "ordinal": {
+        "pum": "सप्तविंशः",
+        "stri": "सप्तविंशी",
+        "napum": "सप्तविंशम्"
+      }
+    },
+    {
+      "number": 28,
+      "cardinal": "अष्टाविंशतिः",
+      "ordinal": {
+        "pum": "अष्टाविंशः",
+        "stri": "अष्टाविंशी",
+        "napum": "अष्टाविंशम्"
+      }
+    },
+    {
+      "number": 29,
+      "cardinal": "नवविंशतिः",
+      "ordinal": {
+        "pum": "नवविंशः",
+        "stri": "नवविंशी",
+        "napum": "नवविंशम्"
+      }
+    },
+    {
+      "number": 30,
+      "cardinal": "त्रिंशत्",
+      "ordinal": {
+        "pum": "त्रिंशः",
+        "stri": "त्रिंशी",
+        "napum": "त्रिंशम्"
+      },
+      "ordinal_alt_tama": {
+        "pum": "त्रिंशत्तमः",
+        "stri": "त्रिंशत्तमी",
+        "napum": "त्रिंशत्तमम्"
+      }
+    },
+    {
+      "number": 31,
+      "cardinal": "एकत्रिंशत्",
+      "ordinal": {
+        "pum": "एकत्रिंशः",
+        "stri": "एकत्रिंशी",
+        "napum": "एकत्रिंशम्"
+      }
+    },
+    {
+      "number": 32,
+      "cardinal": "द्वात्रिंशत्",
+      "ordinal": {
+        "pum": "द्वात्रिंशः",
+        "stri": "द्वात्रिंशी",
+        "napum": "द्वात्रिंशम्"
+      }
+    },
+    {
+      "number": 33,
+      "cardinal": "त्रयस्त्रिंशत्",
+      "ordinal": {
+        "pum": "त्रयस्त्रिंशः",
+        "stri": "त्रयस्त्रिंशी",
+        "napum": "त्रयस्त्रिंशम्"
+      }
+    },
+    {
+      "number": 34,
+      "cardinal": "चतुस्त्रिंशत्",
+      "ordinal": {
+        "pum": "चतुस्त्रिंशः",
+        "stri": "चतुस्त्रिंशी",
+        "napum": "चतुस्त्रिंशम्"
+      }
+    },
+    {
+      "number": 35,
+      "cardinal": "पञ्चत्रिंशत्",
+      "ordinal": {
+        "pum": "पञ्चत्रिंशः",
+        "stri": "पञ्चत्रिंशी",
+        "napum": "पञ्चत्रिंशम्"
+      }
+    },
+    {
+      "number": 36,
+      "cardinal": "षट्त्रिंशत्",
+      "ordinal": {
+        "pum": "षट्त्रिंशः",
+        "stri": "षट्त्रिंशी",
+        "napum": "षट्त्रिंशम्"
+      }
+    },
+    {
+      "number": 37,
+      "cardinal": "सप्तत्रिंशत्",
+      "ordinal": {
+        "pum": "सप्तत्रिंशः",
+        "stri": "सप्तत्रिंशी",
+        "napum": "सप्तत्रिंशम्"
+      }
+    },
+    {
+      "number": 38,
+      "cardinal": "अष्टात्रिंशत्",
+      "ordinal": {
+        "pum": "अष्टात्रिंशः",
+        "stri": "अष्टात्रिंशी",
+        "napum": "अष्टात्रिंशम्"
+      }
+    },
+    {
+      "number": 39,
+      "cardinal": "नवत्रिंशत्",
+      "ordinal": {
+        "pum": "नवत्रिंशः",
+        "stri": "नवत्रिंशी",
+        "napum": "नवत्रिंशम्"
+      }
+    },
+    {
+      "number": 40,
+      "cardinal": "चत्वारिंशत्",
+      "ordinal": {
+        "pum": "चत्वारिंशः",
+        "stri": "चत्वारिंशी",
+        "napum": "चत्वारिंशम्"
+      },
+      "ordinal_alt_tama": {
+        "pum": "चत्वारिंशत्तमः",
+        "stri": "चत्वारिंशत्तमी",
+        "napum": "चत्वारिंशत्तमम्"
+      }
+    },
+    {
+      "number": 41,
+      "cardinal": "एकचत्वारिंशत्",
+      "ordinal": {
+        "pum": "एकचत्वारिंशः",
+        "stri": "एकचत्वारिंशी",
+        "napum": "एकचत्वारिंशम्"
+      }
+    },
+    {
+      "number": 42,
+      "cardinal": "द्वाचत्वारिंशत्-द्विचत्वारिंशत्",
+      "ordinal": {
+        "pum": "द्वाचत्वारिंशः",
+        "stri": "द्वाचत्वारिंशी",
+        "napum": "द्वाचत्वारिंशम्"
+      }
+    },
+    {
+      "number": 43,
+      "cardinal": "त्रयश्चत्वारिंशत्-त्रिचत्वारिंशत्",
+      "ordinal": {
+        "pum": "त्रयश्चत्वारिंशः",
+        "stri": "त्रयश्चत्वारिंशी",
+        "napum": "त्रयश्चत्वारिंशम्"
+      }
+    },
+    {
+      "number": 44,
+      "cardinal": "चतुश्चत्वारिंशत्",
+      "ordinal": {
+        "pum": "चतुश्चत्वारिंशः",
+        "stri": "चतुश्चत्वारिंशी",
+        "napum": "चतुश्चत्वारिंशम्"
+      }
+    },
+    {
+      "number": 45,
+      "cardinal": "पञ्चचत्वारिंशत्",
+      "ordinal": {
+        "pum": "पञ्चचत्वारिंशः",
+        "stri": "पञ्चचत्वारिंशी",
+        "napum": "पञ्चचत्वारिंशम्"
+      }
+    },
+    {
+      "number": 46,
+      "cardinal": "षट्चत्वारिंशत्",
+      "ordinal": {
+        "pum": "षट्चत्वारिंशः",
+        "stri": "षट्चत्वारिंशी",
+        "napum": "षट्चत्वारिंशम्"
+      }
+    },
+    {
+      "number": 47,
+      "cardinal": "सप्तचत्वारिंशत्",
+      "ordinal": {
+        "pum": "सप्तचत्वारिंशः",
+        "stri": "सप्तचत्वारिंशी",
+        "napum": "सप्तचत्वारिंशम्"
+      }
+    },
+    {
+      "number": 48,
+      "cardinal": "अष्टचत्वारिंशत्-अष्टाचत्वारिंशत्",
+      "ordinal": {
+        "pum": "अष्टचत्वारिंशः",
+        "stri": "अष्टचत्वारिंशी",
+        "napum": "अष्टचत्वारिंशम्"
+      }
+    },
+    {
+      "number": 49,
+      "cardinal": "नवचत्वारिंशत्",
+      "ordinal": {
+        "pum": "नवचत्वारिंशः",
+        "stri": "नवचत्वारिंशी",
+        "napum": "नवचत्वारिंशम्"
+      }
+    },
+    {
+      "number": 50,
+      "cardinal": "पञ्चाशत्",
+      "ordinal": {
+        "pum": "पञ्चाशः",
+        "stri": "पञ्चाशी",
+        "napum": "पञ्चाशम्"
+      },
+      "ordinal_alt_tama": {
+        "pum": "पञ्चाशत्तमः",
+        "stri": "पञ्चाशत्तमी",
+        "napum": "पञ्चाशत्तमम्"
+      }
+    },
+    {
+      "number": 51,
+      "cardinal": "एकपञ्चाशत्",
+      "ordinal": {
+        "pum": "एकपञ्चाशः",
+        "stri": "एकपञ्चाशी",
+        "napum": "एकपञ्चाशम्"
+      }
+    },
+    {
+      "number": 52,
+      "cardinal": "द्वापञ्चाशत्-द्विपञ्चाशत्",
+      "ordinal": {
+        "pum": "द्वापञ्चाशः",
+        "stri": "द्वापञ्चाशी",
+        "napum": "द्वापञ्चाशम्"
+      }
+    },
+    {
+      "number": 53,
+      "cardinal": "त्रयःपञ्चाशत्-त्रिपञ्चाशत्",
+      "ordinal": {
+        "pum": "त्रयःपञ्चाशः",
+        "stri": "त्रयःपञ्चाशी",
+        "napum": "त्रयःपञ्चाशम्"
+      }
+    },
+    {
+      "number": 54,
+      "cardinal": "चतुःपञ्चाशत्",
+      "ordinal": {
+        "pum": "चतुःपञ्चाशः",
+        "stri": "चतुःपञ्चाशी",
+        "napum": "चतुःपञ्चाशम्"
+      }
+    },
+    {
+      "number": 55,
+      "cardinal": "पञ्चपञ्चाशत्",
+      "ordinal": {
+        "pum": "पञ्चपञ्चाशः",
+        "stri": "पञ्चपञ्चाशी",
+        "napum": "पञ्चपञ्चाशम्"
+      }
+    },
+    {
+      "number": 56,
+      "cardinal": "षट्पञ्चाशत्",
+      "ordinal": {
+        "pum": "षट्पञ्चाशः",
+        "stri": "षट्पञ्चाशी",
+        "napum": "षट्पञ्चाशम्"
+      }
+    },
+    {
+      "number": 57,
+      "cardinal": "सप्तपञ्चाशत्",
+      "ordinal": {
+        "pum": "सप्तपञ्चाशः",
+        "stri": "सप्तपञ्चाशी",
+        "napum": "सप्तपञ्चाशम्"
+      }
+    },
+    {
+      "number": 58,
+      "cardinal": "अष्टपञ्चाशत्-अष्टापञ्चाशत्",
+      "ordinal": {
+        "pum": "अष्टपञ्चाशः",
+        "stri": "अष्टपञ्चाशी",
+        "napum": "अष्टपञ्चाशम्"
+      }
+    },
+    {
+      "number": 59,
+      "cardinal": "नवपञ्चाशत्",
+      "ordinal": {
+        "pum": "नवपञ्चाशः",
+        "stri": "नवपञ्चाशी",
+        "napum": "नवपञ्चाशम्"
+      }
+    },
+    {
+      "number": 60,
+      "cardinal": "षष्टिः",
+      "ordinal": {
+        "pum": "षष्टितमः",
+        "stri": "षष्टितमी",
+        "napum": "षष्टितमम्"
+      },
+      "note": "Book prints only the long -तम ordinal form here (षष्टितमः etc.), no separate short form."
+    },
+    {
+      "number": 61,
+      "cardinal": "एकषष्टिः",
+      "ordinal": {
+        "pum": "एकषष्टः",
+        "stri": "एकषष्टी",
+        "napum": "एकषष्टम्"
+      }
+    },
+    {
+      "number": 62,
+      "cardinal": "द्वाषष्टिः-द्विषष्टिः",
+      "ordinal": {
+        "pum": "द्वाषष्टः",
+        "stri": "द्वाषष्टी",
+        "napum": "द्वाषष्टम्"
+      }
+    },
+    {
+      "number": 63,
+      "cardinal": "त्रयःषष्टिः-त्रिषष्टिः",
+      "ordinal": {
+        "pum": "त्रयःषष्टः",
+        "stri": "त्रयःषष्टी",
+        "napum": "त्रयःषष्टम्"
+      }
+    },
+    {
+      "number": 64,
+      "cardinal": "चतुःषष्टिः",
+      "ordinal": {
+        "pum": "चतुःषष्टः",
+        "stri": "चतुःषष्टी",
+        "napum": "चतुःषष्टम्"
+      }
+    },
+    {
+      "number": 65,
+      "cardinal": "पञ्चषष्टिः",
+      "ordinal": {
+        "pum": "पञ्चषष्टः",
+        "stri": "पञ्चषष्टी",
+        "napum": "पञ्चषष्टम्"
+      }
+    },
+    {
+      "number": 66,
+      "cardinal": "षट्षष्टिः",
+      "ordinal": {
+        "pum": "षट्षष्टः",
+        "stri": "षट्षष्टी",
+        "napum": "षट्षष्टम्"
+      }
+    },
+    {
+      "number": 67,
+      "cardinal": "सप्तषष्टिः",
+      "ordinal": {
+        "pum": "सप्तषष्टः",
+        "stri": "सप्तषष्टी",
+        "napum": "सप्तषष्टम्"
+      }
+    },
+    {
+      "number": 68,
+      "cardinal": "अष्टषष्टिः-अष्टाषष्टिः",
+      "ordinal": {
+        "pum": "अष्टषष्टः",
+        "stri": "अष्टषष्टी",
+        "napum": "अष्टषष्टम्"
+      }
+    },
+    {
+      "number": 69,
+      "cardinal": "नवषष्टि",
+      "ordinal": {
+        "pum": "नवषष्टः",
+        "stri": "नवषष्टी",
+        "napum": "नवषष्टम्"
+      }
+    },
+    {
+      "number": 70,
+      "cardinal": "सप्ततिः",
+      "ordinal": {
+        "pum": "सप्ततितमः",
+        "stri": "सप्ततितमी",
+        "napum": "सप्ततितमम्"
+      },
+      "note": "Book prints only the long -तम ordinal form here, no separate short form."
+    },
+    {
+      "number": 71,
+      "cardinal": "एकसप्ततिः",
+      "ordinal": {
+        "pum": "एकसप्तत",
+        "stri": "एकसप्तती",
+        "napum": "एकसप्ततम्"
+      },
+      "note": "ordinal पुं form printed without visarga (एकसप्तत, not एकसप्ततः) — entered exactly as printed."
+    },
+    {
+      "number": 72,
+      "cardinal": "द्वासप्ततिः-द्विसप्ततिः",
+      "ordinal": {
+        "pum": "द्वासप्ततः",
+        "stri": "द्वासप्तती",
+        "napum": "द्वासप्ततम्"
+      }
+    },
+    {
+      "number": 73,
+      "cardinal": "त्रयःसप्ततिः-त्रिसप्ततिः",
+      "ordinal": {
+        "pum": "त्रयःसप्ततः",
+        "stri": "त्रयःसप्तती",
+        "napum": "त्रयःसप्ततम्"
+      }
+    },
+    {
+      "number": 74,
+      "cardinal": "चतुःसप्ततिः",
+      "ordinal": {
+        "pum": "चतुःसप्ततः",
+        "stri": "चतुःसप्तती",
+        "napum": "चतुःसप्ततम्"
+      }
+    },
+    {
+      "number": 75,
+      "cardinal": "पञ्चसप्ततिः",
+      "ordinal": {
+        "pum": "पञ्चसप्ततः",
+        "stri": "पञ्चसप्तती",
+        "napum": "पञ्चसप्ततम्"
+      }
+    },
+    {
+      "number": 76,
+      "cardinal": "षट्सप्ततिः",
+      "ordinal": {
+        "pum": "षट्सप्ततः",
+        "stri": "षट्सप्तती",
+        "napum": "षट्सप्ततम्"
+      }
+    },
+    {
+      "number": 77,
+      "cardinal": "सप्तसप्ततिः",
+      "ordinal": {
+        "pum": "सप्तसप्ततः",
+        "stri": "सप्तसप्तती",
+        "napum": "सप्तसप्ततम्"
+      },
+      "note": "Last row on its printed page; नपुं form may be marginally cropped in the scan — entered as best read."
+    },
+    {
+      "number": 78,
+      "cardinal": "अष्टसप्ततिः-अष्टासप्ततिः",
+      "ordinal": {
+        "pum": "अष्टसप्ततः",
+        "stri": "अष्टसप्तती",
+        "napum": "अष्टसप्ततम्"
+      }
+    },
+    {
+      "number": 79,
+      "cardinal": "नवसप्ततिः",
+      "ordinal": {
+        "pum": "नवसप्ततः",
+        "stri": "नवसप्तती",
+        "napum": "नवसप्ततम्"
+      }
+    },
+    {
+      "number": 80,
+      "cardinal": "अशीतिः",
+      "ordinal": {
+        "pum": "अशीतितमः",
+        "stri": "अशीतितमी",
+        "napum": "अशीतितमम्"
+      },
+      "note": "Book prints only the long -तम ordinal form here."
+    },
+    {
+      "number": 81,
+      "cardinal": "एकाशीतिः",
+      "ordinal": {
+        "pum": "एकाशीतः",
+        "stri": "एकाशीती",
+        "napum": "एकाशीतम्"
+      }
+    },
+    {
+      "number": 82,
+      "cardinal": "द्वयशीतिः",
+      "ordinal": {
+        "pum": "द्वयशीतः",
+        "stri": "द्वयशीती",
+        "napum": "द्वयशीतम्"
+      }
+    },
+    {
+      "number": 83,
+      "cardinal": "त्र्यशीतिः",
+      "ordinal": {
+        "pum": "त्र्यशीतः",
+        "stri": "त्र्यशीती",
+        "napum": "त्र्यशीतम्"
+      }
+    },
+    {
+      "number": 84,
+      "cardinal": "चतुरशीतिः",
+      "ordinal": {
+        "pum": "चतुरशीतः",
+        "stri": "चतुरशीती",
+        "napum": "चतुरशीतम्"
+      }
+    },
+    {
+      "number": 85,
+      "cardinal": "पञ्चाशीतिः",
+      "ordinal": {
+        "pum": "पञ्चाशीतः",
+        "stri": "पञ्चाशीती",
+        "napum": "पञ्चाशीतम्"
+      }
+    },
+    {
+      "number": 86,
+      "cardinal": "षडशीतिः",
+      "ordinal": {
+        "pum": "षडशीतः",
+        "stri": "षडशीती",
+        "napum": "षडशीतम्"
+      }
+    },
+    {
+      "number": 87,
+      "cardinal": "सप्ताशीतिः",
+      "ordinal": {
+        "pum": "सप्ताशीतः",
+        "stri": "सप्ताशीती",
+        "napum": "सप्ताशीतम्"
+      }
+    },
+    {
+      "number": 88,
+      "cardinal": "अष्टाशीतिः",
+      "ordinal": {
+        "pum": "अष्टाशीतः",
+        "stri": "अष्टाशीती",
+        "napum": "अष्टाशीतम्"
+      }
+    },
+    {
+      "number": 89,
+      "cardinal": "नवाशीतिः",
+      "ordinal": {
+        "pum": "नवाशीतः",
+        "stri": "नवाशीती",
+        "napum": "नवाशीतम्"
+      }
+    },
+    {
+      "number": 90,
+      "cardinal": "नवतिः",
+      "ordinal": {
+        "pum": "नवतितमः",
+        "stri": "नवतितमी",
+        "napum": "नवतितमम्"
+      },
+      "note": "Book prints only the long -तम ordinal form here."
+    },
+    {
+      "number": 91,
+      "cardinal": "एकनवतिः",
+      "ordinal": {
+        "pum": "एकनवतः",
+        "stri": "एकनवती",
+        "napum": "एकनवतम्"
+      }
+    },
+    {
+      "number": 92,
+      "cardinal": "द्वानवतिः-द्विनवतिः",
+      "ordinal": {
+        "pum": "द्वानवतः",
+        "stri": "द्वानवती",
+        "napum": "द्वानवतम्"
+      }
+    },
+    {
+      "number": 93,
+      "cardinal": "त्रयोनवतिः-त्रिनवतिः",
+      "ordinal": {
+        "pum": "त्रयोनवतः",
+        "stri": "त्रयोनवती",
+        "napum": "त्रयोनवतम्"
+      }
+    },
+    {
+      "number": 94,
+      "cardinal": "चतुर्नवतिः",
+      "ordinal": {
+        "pum": "चतुर्नवतः",
+        "stri": "चतुर्नवती",
+        "napum": "चतुर्नवतम्"
+      }
+    },
+    {
+      "number": 95,
+      "cardinal": "पञ्चनवतिः",
+      "ordinal": {
+        "pum": "पञ्चनवतः",
+        "stri": "पञ्चनवती",
+        "napum": "पञ्चनवतम्"
+      }
+    },
+    {
+      "number": 96,
+      "cardinal": "षण्णवतिः",
+      "ordinal": {
+        "pum": "षण्णवतः",
+        "stri": "षण्णवती",
+        "napum": "षण्णवतम्"
+      }
+    },
+    {
+      "number": 97,
+      "cardinal": "सप्तनवतिः",
+      "ordinal": {
+        "pum": "सप्तनवतः",
+        "stri": "सप्तनवती",
+        "napum": "सप्तनवतम्"
+      }
+    },
+    {
+      "number": 98,
+      "cardinal": "अष्टनवतिः-अष्टानवतिः",
+      "ordinal": {
+        "pum": "अष्टनवतः",
+        "stri": "अष्टनवती",
+        "napum": "अष्टनवतम्"
+      }
+    },
+    {
+      "number": 99,
+      "cardinal": "नवनवतिः",
+      "ordinal": {
+        "pum": "नवनवतः",
+        "stri": "नवनवती",
+        "napum": "नवनवतम्"
+      },
+      "ordinal_alt_tama": {
+        "pum": "नवनवतितमः",
+        "stri": "नवनवतितमी",
+        "napum": "नवनवतितमम्"
+      },
+      "note": "Uniquely among the non-round numbers, 99 also gets a second, long -तम ordinal row in the book (like the round tens)."
+    }
+  ],
+  "large_round_numbers": [
+    {
+      "number": 100,
+      "cardinal": "शतम्",
+      "ordinal": {
+        "pum": "शततमः",
+        "stri": "शततमी",
+        "napum": "शततमम्"
+      }
+    },
+    {
+      "number": 1000,
+      "cardinal": "सहस्रम्",
+      "ordinal": {
+        "pum": "सहस्रतमः",
+        "stri": "सहस्रतमी",
+        "napum": "सहस्रतमम्"
+      }
+    },
+    {
+      "number": 10000,
+      "cardinal": "अयुतम्",
+      "ordinal": {
+        "pum": "अयुततमः",
+        "stri": "अयुततमी",
+        "napum": "अयुततमम्"
+      }
+    },
+    {
+      "number": 100000,
+      "cardinal": "लक्षम्-लक्षाः",
+      "ordinal": {
+        "pum": "लक्षतमः",
+        "stri": "लक्षतमी",
+        "napum": "लक्षतमम्"
+      }
+    },
+    {
+      "number": 1000000,
+      "cardinal": "प्रयुतम्",
+      "ordinal": {
+        "pum": "प्रयुततमः",
+        "stri": "प्रयुततमी",
+        "napum": "प्रयुततमम्"
+      }
+    },
+    {
+      "number": 10000000,
+      "cardinal": "कोटिः",
+      "ordinal": {
+        "pum": "कोटितमः",
+        "stri": "कोटितमी",
+        "napum": "कोटितमम्"
+      }
+    }
+  ],
+  "extraction_summary": {
+    "numbers_covered": "1 through 10, 11 through 19, 20 through 99, and the round numbers 100 / 1,000 / 10,000 / 1,00,000 / 10,00,000 / 1,00,00,000 — every number the book's reference chart prints (3 through 1,00,00,000), plus 1 and 2 for completeness/cross-reference.",
+    "entry_counts": {
+      "numbers_1_to_10": 10,
+      "numbers_11_to_19": 9,
+      "numbers_20_to_99": 80,
+      "large_round_numbers": 6,
+      "total_number_entries": 105
+    },
+    "form_type": "Nominative singular only (पुं/स्त्री/नपुं), for both the cardinal and the ordinal of each number — this is all the book itself prints for numbers beyond word 185; no 8-case declension tables exist in the source for these numbers.",
+    "continuity_handling": "This file exists because the source book (Sabdamanjari) gives full 8-case declension tables for pratipadikas only through word 185 (द्वितीय, नपुंसकलिङ्ग) of the main corpus file (sabdamanjari_vibhakti_tables_from_page_5_2.json). After word 185, PDF pp.108-114 print a reference chart titled 'संख्याशब्दाः - संख्येयशब्दाः / Cardinals and Ordinals', giving only the nominative-singular cardinal form (पुं/स्त्री/नपुं) and nominative-singular ordinal form (पुं/स्त्री/नपुं) for every number from 3 up through 100 (शतम्), then 1,000 / 10,000 / 1,00,000 / 10,00,000 / 1,00,00,000 — no per-case declension rows are printed in the book for any of these numbers, so none are fabricated here; only what the book itself prints (nominative forms) is recorded, per the general declension rules above which state which already-declined paradigm each group of numbers follows. Numbers 1-10 and their ordinals overlap with words already fully declined in the main corpus file (words 171-185); for these, this file records only the citation forms for completeness/cross-reference, and each entry's 'note' field points to the corresponding main-file word number(s) for the full table. Numbers 11 onward have no full declension table anywhere in the book; only citation (nominative) forms exist for them, reproduced here exactly as printed, including hyphen-joined alternate spellings (matching the main file's convention for alternate forms) and bracket/alternate ordinal forms (ordinal_alternates / alternates / ordinal_alt_tama fields).",
+    "status": "COMPLETE. This file, together with the main corpus file (185 pratipadika words with full declension tables), covers the entirety of Sabdamanjari's grammatical content. There is no further material in the book beyond PDF p.114 (p.115 is blank/binding, p.116 is the back-cover advertisement)."
+  }
+}

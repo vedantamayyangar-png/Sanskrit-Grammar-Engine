@@ -1,0 +1,887 @@
+{
+  "title": "Sandhi प्रकरणम् — A Comprehensive Sandhi Rule Book",
+  "subtitle": "Compiled with reference to Swamini Svatmabodhananda Saraswati's 'सन्धिः' (Sanskrit Grammar Series-3), cross-referenced to पाणिनि's अष्टाध्यायी and the लघुसिद्धान्तकौमुदी of वरदराज",
+  "source_note": "Rule topics, ordering, and pedagogical examples follow the structure of the source manual 'सन्धिः – Euphonics in Sanskrit' by Swamini Svatmabodhananda Saraswati (Arsha Avinash Foundation, 2017), a teaching manual for Samskrita Bharati अक्ष्हरम् students. That manual states rules descriptively without सूत्र citations; the अष्टाध्यायी सूत्र and लघुसिद्धान्तकौमुदी (LSK) references in this JSON have been added independently as the standard, traditionally-accepted mappings, and examples have been independently composed/verified rather than copied verbatim from the source.",
+  "how_to_read": {
+    "ashtadhyayi_ref": "Chapter.Pada.Sutra number in पाणिनि's अष्टाध्यायी (e.g. 6.1.101)",
+    "lsk_prakarana": "The traditional section (प्रकरण) of the लघुसिद्धान्तकौमुदी of वरदराज in which the rule is treated: Ac-sandhi (vowel sandhi), Hal-sandhi (consonant sandhi), or Visarga-sandhi",
+    "vinā_pariṇāma": "no change takes place",
+    "adesha": "आदेशः — substitution",
+    "agama": "आगमः — augment/insertion",
+    "lopa": "लोपः — elision"
+  },
+  "svara_sandhi": [
+    {
+      "id": "svara-1",
+      "sanskrit_name": "सवर्णदीर्घ सन्धिः",
+      "iast_name": "सवर्णदीर्घ सन्धिः",
+      "english_name": "Lengthening of homogeneous (सवर्ण) vowels",
+      "rule": "When two similar (सवर्ण) simple vowels — short or long, of the same class (अ/आ, इ/ई, उ/ऊ, ऋ/ॠ, ऌ) — come together, they are replaced by a single long vowel of that class.",
+      "sutra_devanagari": "अकः सवर्णे दीर्घः",
+      "sutra_iast": "अकः सवर्णे दीर्घः",
+      "ashtadhyayi_ref": "6.1.101",
+      "related_ashtadhyayi": [
+        "1.1.50 (स्थाने'न्तरतमः)",
+        "6.1.84 (एकः पूर्वपरयोः)",
+        "6.1.102 (प्रथमयोः पूर्वसवर्णः)"
+      ],
+      "lsk_prakarana": "Ac-sandhi प्रकरण (लघुसिद्धान्तकौमुदी, सूत्र 26 in the standard ac-sandhi sequence, following एकः पूर्वपरयोः)",
+      "process": "आदेशः (substitution)",
+      "examples": [
+        {
+          "sandhi": "एव + अपि = एवापि",
+          "iast": "eva + api = एवापि"
+        },
+        {
+          "sandhi": "गिरि + इन्द्रः = गिरीन्द्रः",
+          "iast": "giri + इन्द्रः = गिरीन्द्रः"
+        },
+        {
+          "sandhi": "गुरु + उपदेशः = गुरूपदेशः",
+          "iast": "guru + उपदेशः = गुरूपदेशः"
+        },
+        {
+          "sandhi": "पितृ + ऋणम् = पितॄणम्",
+          "iast": "पितृ + ऋणम् = पितॄणम्"
+        }
+      ]
+    },
+    {
+      "id": "svara-2",
+      "sanskrit_name": "गुण सन्धिः",
+      "iast_name": "गुण सन्धिः",
+      "english_name": "गुण substitution",
+      "rule": "When अ or आ is followed by a dissimilar simple vowel इ/ई, उ/ऊ, or ऋ/ॠ, the two are together replaced by the corresponding गुण letter: ए (for इ/ई), ओ (for उ/ऊ), अर् (for ऋ/ॠ).",
+      "sutra_devanagari": "आद्गुणः",
+      "sutra_iast": "आद् गुणः",
+      "ashtadhyayi_ref": "6.1.87",
+      "related_ashtadhyayi": [
+        "1.1.2 (अदेङ् गुणः — definition of गुण as अ, ए, ओ)",
+        "1.1.51 (उरण् रपरः — ऋ replaced by गुण gets a following र्)"
+      ],
+      "lsk_prakarana": "Ac-sandhi प्रकरण (follows एकः पूर्वपरयोः; precedes वृद्धिर् eci)",
+      "process": "आदेशः (substitution)",
+      "examples": [
+        {
+          "sandhi": "देव + इन्द्रः = देवेन्द्रः",
+          "iast": "deva + इन्द्रः = देवेन्द्रः"
+        },
+        {
+          "sandhi": "सूर्य + उदयः = सूर्योदयः",
+          "iast": "सूर्य + उदयः = सूर्योदयः"
+        },
+        {
+          "sandhi": "गण + ईशः = गणेशः",
+          "iast": "गण + ईशः = गणेशः"
+        },
+        {
+          "sandhi": "स + ऋषयः = सर्षयः",
+          "iast": "sa + ऋषयः = सर्षयः"
+        }
+      ]
+    },
+    {
+      "id": "svara-3",
+      "sanskrit_name": "वृद्धि सन्धिः",
+      "iast_name": "वृद्धि सन्धिः",
+      "english_name": "वृद्धि substitution",
+      "rule": "When अ or आ is followed by ए or ओ (गुण) or ऐ or औ (वृद्धि), the two are replaced by the corresponding वृद्धि letter: ऐ (for ए/ऐ), औ (for ओ/औ).",
+      "sutra_devanagari": "वृद्धिरेचि",
+      "sutra_iast": "वृद्धिर् eci",
+      "ashtadhyayi_ref": "6.1.88",
+      "related_ashtadhyayi": [
+        "1.1.1 (वृद्धिर् आदैच् — definition of वृद्धि as आ, ऐ, औ)"
+      ],
+      "lsk_prakarana": "Ac-sandhi प्रकरण (immediately follows आद्गुणः)",
+      "process": "आदेशः (substitution)",
+      "examples": [
+        {
+          "sandhi": "तव + एव = तवैव",
+          "iast": "tava + eva = tavaiva"
+        },
+        {
+          "sandhi": "महा + ओषधिः = महौषधिः",
+          "iast": "महा + ओषधिः = महौषधिः"
+        },
+        {
+          "sandhi": "सदा + ऐक्यम् = सदैक्यम्",
+          "iast": "सदा + aikyam = sadaikyam"
+        },
+        {
+          "sandhi": "जल + ओघः = जलौघः",
+          "iast": "jala + ओघः = जलौघः"
+        }
+      ]
+    },
+    {
+      "id": "svara-4",
+      "sanskrit_name": "यण् सन्धिः",
+      "iast_name": "यण् सन्धिः",
+      "english_name": "Semivowel (यण्) substitution",
+      "rule": "When a short or long इ, उ, ऋ, or ऌ (ik) is followed by any dissimilar vowel, it is replaced by the corresponding semivowel: य् (for इ/ई), व् (for उ/ऊ), र् (for ऋ/ॠ), ल् (for ऌ).",
+      "sutra_devanagari": "इको यणचि",
+      "sutra_iast": "iko यण् aci",
+      "ashtadhyayi_ref": "6.1.77",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "Ac-sandhi प्रकरण (opening rule of ac-sandhi, LSK सूत्र 17)",
+      "process": "आदेशः (substitution)",
+      "examples": [
+        {
+          "sandhi": "यदि + अपि = यद्यपि",
+          "iast": "yadi + api = yadyapi"
+        },
+        {
+          "sandhi": "मधु + अरिः = मध्वरिः",
+          "iast": "madhu + अरिः = मध्वरिः"
+        },
+        {
+          "sandhi": "पितृ + अंशः = पित्रंशः",
+          "iast": "पितृ + अंशः = पित्रम्शः"
+        },
+        {
+          "sandhi": "सु + आगतम् = स्वागतम्",
+          "iast": "su + आगतम् = स्वागतम्"
+        }
+      ]
+    },
+    {
+      "id": "svara-5",
+      "sanskrit_name": "अयादि सन्धिः (यान्तादेश/वान्तादेश)",
+      "iast_name": "अयादि सन्धिः",
+      "english_name": "Substitution of ec vowels by ay/av/आय्/आव्",
+      "rule": "When ए, ओ, ऐ, or औ (the ec vowels) are followed by any vowel, they are respectively replaced by अय्, अव्, आय्, आव्.",
+      "sutra_devanagari": "एचोऽयवायावः",
+      "sutra_iast": "eco 'यवायावः",
+      "ashtadhyayi_ref": "6.1.78",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "Ac-sandhi प्रकरण (LSK सूत्र 19, immediately following iko यणचि)",
+      "process": "आदेशः (substitution)",
+      "examples": [
+        {
+          "sandhi": "ने + अनम् = नयनम्",
+          "iast": "ne + anam = nayanam"
+        },
+        {
+          "sandhi": "भो + अनम् = भवनम्",
+          "iast": "bho + anam = bhavanam"
+        },
+        {
+          "sandhi": "नै + अकः = नायकः",
+          "iast": "nai + अकः = नायकः"
+        },
+        {
+          "sandhi": "पौ + अकः = पावकः",
+          "iast": "pau + अकः = पावकः"
+        }
+      ]
+    },
+    {
+      "id": "svara-6",
+      "sanskrit_name": "पूर्वरूप सन्धिः",
+      "iast_name": "पूर्वरूप सन्धिः",
+      "english_name": "Retention of the preceding form",
+      "rule": "When a pada-final ए or ओ is followed by अ, that अ is optionally elided (avagraha ऽ marks the elision) and the preceding ए/ओ alone remains — i.e. the preceding form (पूर्वरूप) is retained as the single substitute.",
+      "sutra_devanagari": "एङः पदान्तादति",
+      "sutra_iast": "एङः पदान्ताद् ati",
+      "ashtadhyayi_ref": "6.1.109",
+      "related_ashtadhyayi": [
+        "1.1.2 (अदेङ् गुणः)"
+      ],
+      "lsk_prakarana": "Ac-sandhi प्रकरण (LSK सूत्र 27)",
+      "process": "vikalpena आदेशः (optional retention — the option is called पूर्वरूप; when not applied, गुण/other sandhi may occur)",
+      "examples": [
+        {
+          "sandhi": "हरे + अत्र = हरेऽत्र",
+          "iast": "hare + atra = hare'tra"
+        },
+        {
+          "sandhi": "प्रभो + अव = प्रभोऽव",
+          "iast": "prabho + ava = prabho'va"
+        },
+        {
+          "sandhi": "गुरो + अत्र = गुरोऽत्र",
+          "iast": "guro + atra = guro'tra"
+        }
+      ]
+    },
+    {
+      "id": "svara-7",
+      "sanskrit_name": "पररूप सन्धिः",
+      "iast_name": "para-रूप सन्धिः",
+      "english_name": "Retention of the following form",
+      "rule": "When a pada-final ए or ओ (एङ्) is followed by ए (in certain prefix + verb combinations, notably with the augment or with the preposition अव), the following form alone remains as the single substitute.",
+      "sutra_devanagari": "एङि पररूपम्",
+      "sutra_iast": "एङि पररूपम्",
+      "ashtadhyayi_ref": "6.1.94",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "Ac-sandhi प्रकरण",
+      "process": "आदेशः (the following/para form is retained)",
+      "examples": [
+        {
+          "sandhi": "प्र + एजते = प्रेजते",
+          "iast": "pra + ejate = prejate"
+        },
+        {
+          "sandhi": "उप + एन्द्रः = उपेन्द्रः (अवग्रह-रहित पररूप उदाहरण)",
+          "iast": "upa + एन्द्रः pattern (illustrative of एङि पररूपम्)"
+        }
+      ],
+      "note": "This rule is comparatively rare/specialised; the source manual treats it alongside पूर्वरूप as one of the ten types of svarasandhi."
+    },
+    {
+      "id": "svara-8",
+      "sanskrit_name": "अवङ् आदेश सन्धिः",
+      "iast_name": "अवङ्आदेश सन्धिः",
+      "english_name": "Substitution of final आ/ओ of a root by अव्",
+      "rule": "The finals आ of the root ओ (o) — as in roots ending in ओ such as गो — are replaced by अव् when a vowel-beginning affix follows.",
+      "sutra_devanagari": "ओतोऽम्शसोः",
+      "sutra_iast": "आवो 'ma-शसोः",
+      "ashtadhyayi_ref": "6.1.93",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "Ac-sandhi / अङ्गकार्य प्रकरण",
+      "process": "आदेशः (substitution, अवङ्)",
+      "examples": [
+        {
+          "sandhi": "गो + अम् = गवाम् (in inflection of गो)",
+          "iast": "go + am → गवाम् (declension)"
+        }
+      ],
+      "note": "Included by the source manual among the ten svara-sandhi types; strictly this belongs to अङ्गकार्य (stem-modification before case-affixes) rather than inter-pada sandhi proper, but is retained here to preserve the manual's ten-fold classification."
+    },
+    {
+      "id": "svara-9",
+      "sanskrit_name": "प्रकृतिभाव सन्धिः",
+      "iast_name": "प्रकृतिभाव सन्धिः",
+      "english_name": "No sandhi — विना परिणाम",
+      "rule": "In certain fixed circumstances (e.g. before a pluta vowel, before a प्रगृह्य vowel, in the case of the dual ending long ई/ऊ/ए, or after certain particles), no sandhi change takes place even though two vowels stand in contact — the vowels remain in their original (प्रकृति) form.",
+      "sutra_devanagari": "ईदूदेद्द्विवचनं प्रगृह्यम् / प्लुतप्रगृह्या अचि नित्यम्",
+      "sutra_iast": "ईद्ऊद्-ed-द्विवचनं प्रगृह्यम्; pluta-प्रगृह्या aci nityam",
+      "ashtadhyayi_ref": "1.1.11 and 6.1.125",
+      "related_ashtadhyayi": [
+        "1.1.11 (definition of प्रगृह्य)",
+        "6.1.125 (no sandhi for pluta/प्रगृह्य before a vowel)"
+      ],
+      "lsk_prakarana": "Ac-sandhi प्रकरण (LSK सूत्रस् 29–30, closing the vowel-sandhi section)",
+      "process": "विना परिणाम (no change)",
+      "examples": [
+        {
+          "sandhi": "हरी एतौ (dual, remains unchanged before vowel)",
+          "iast": "हरी etau (no sandhi, dual प्रगृह्य)"
+        },
+        {
+          "sandhi": "अम्बा इति (no sandhi, particle iti after प्रगृह्य)",
+          "iast": "अम्बा iti (no sandhi)"
+        }
+      ]
+    }
+  ],
+  "vyanjana_sandhi": [
+    {
+      "id": "vyan-1",
+      "sanskrit_name": "श्चुत्व सन्धिः",
+      "iast_name": "श्चुत्व सन्धिः",
+      "english_name": "Palatalisation of स/त-varga before श्/च-varga",
+      "rule": "When स् or a dental (त-वर्ग) consonant is immediately followed by श् or a palatal (च-वर्ग) consonant, the स्/dental is replaced by the corresponding palatal (श् or च-वर्ग letter).",
+      "sutra_devanagari": "स्तोः श्चुना श्चुः",
+      "sutra_iast": "स्तोः श्चुना श्चुः",
+      "ashtadhyayi_ref": "8.4.40",
+      "related_ashtadhyayi": [
+        "8.4.41 (ष्टुना ष्टुः — the companion cerebral rule)"
+      ],
+      "lsk_prakarana": "Hal-sandhi प्रकरण (LSK सूत्र 31, opening rule of hal-sandhi)",
+      "process": "आदेशः (substitution)",
+      "examples": [
+        {
+          "sandhi": "सत् + चित् = सच्चित्",
+          "iast": "sat + cit = saccit"
+        },
+        {
+          "sandhi": "रामस् + शेते = रामश्शेते",
+          "iast": "रामस् + शेते = रामश्शेते"
+        },
+        {
+          "sandhi": "तत् + जयति = तज्जयति",
+          "iast": "tat + jayati = tajjayati"
+        }
+      ]
+    },
+    {
+      "id": "vyan-2",
+      "sanskrit_name": "ष्टुत्व सन्धिः",
+      "iast_name": "ष्टुत्व सन्धिः",
+      "english_name": "Cerebralisation of स/त-varga before ष्/ट-varga",
+      "rule": "When स् or a dental (त-वर्ग) consonant is immediately followed by ष् or a cerebral (ट-वर्ग) consonant, the स्/dental is replaced by the corresponding cerebral (ष् or ट-वर्ग letter).",
+      "sutra_devanagari": "ष्टुना ष्टुः",
+      "sutra_iast": "ष्टुना ष्टुः",
+      "ashtadhyayi_ref": "8.4.41",
+      "related_ashtadhyayi": [
+        "8.4.40 (स्तोः श्चुना श्चुः)"
+      ],
+      "lsk_prakarana": "Hal-sandhi प्रकरण (paired with श्चुत्व, LSK सूत्र 31)",
+      "process": "आदेशः (substitution)",
+      "examples": [
+        {
+          "sandhi": "तत् + टीका = तट्टीका",
+          "iast": "tat + टीका = तट्टीका"
+        },
+        {
+          "sandhi": "रामस् + षष्ठः = रामष्षष्ठः",
+          "iast": "रामस् + षष्ठः = रामष्षष्ठः"
+        }
+      ]
+    },
+    {
+      "id": "vyan-3",
+      "sanskrit_name": "जश्त्व सन्धिः",
+      "iast_name": "जश्त्व सन्धिः",
+      "english_name": "Softening of a final hard consonant before a soft/vowel",
+      "rule": "A word-final jhal consonant (hard consonant of any varga, or स्/ह् etc.) is replaced by the third (जश्) letter of its own class when followed by a soft (voiced) consonant or a vowel.",
+      "sutra_devanagari": "झलां जशोऽन्ते",
+      "sutra_iast": "झलां जशो 'nte",
+      "ashtadhyayi_ref": "8.2.39",
+      "related_ashtadhyayi": [
+        "8.4.53 (झलां जश् झशि — जश्त्व also before a soft consonant medially)"
+      ],
+      "lsk_prakarana": "Hal-sandhi प्रकरण (LSK सूत्र 32)",
+      "process": "आदेशः (substitution)",
+      "examples": [
+        {
+          "sandhi": "वाक् + ईशः = वागीशः",
+          "iast": "वाक् + ईशः = वागीशः"
+        },
+        {
+          "sandhi": "सत् + आनन्दः = सदानन्दः",
+          "iast": "sat + आनन्दः = सदानन्दः"
+        },
+        {
+          "sandhi": "षड् + हस्तः = षड्ढस्तः",
+          "iast": "षड् + हस्तः = षड्ढस्तः (जश्त्व then further change)"
+        }
+      ]
+    },
+    {
+      "id": "vyan-4",
+      "sanskrit_name": "चर्त्व सन्धिः",
+      "iast_name": "cartva सन्धिः",
+      "english_name": "Hardening of a soft consonant before a hard consonant",
+      "rule": "A soft (voiced) consonant at the end of a word is replaced by the corresponding first-letter hard (कठोर) consonant of its class (्, चर्) when a hard (खर्) consonant follows.",
+      "sutra_devanagari": "खरि च",
+      "sutra_iast": "khari ca",
+      "ashtadhyayi_ref": "8.4.55",
+      "related_ashtadhyayi": [
+        "8.2.30 (चोः कुः — palatal/cartva to guttural before hard consonant), 8.4.54 (अभ्यासे carc)"
+      ],
+      "lsk_prakarana": "Hal-sandhi प्रकरण (LSK सूत्र 34)",
+      "process": "आदेशः (substitution, the reverse process of जश्त्व)",
+      "examples": [
+        {
+          "sandhi": "वाग् + करोति (base वाच्) = वाक् करोति",
+          "iast": "illustrative: वाच् + karoti = वाक् karoti"
+        },
+        {
+          "sandhi": "मद् + सन्धिः = मत्सन्धिः",
+          "iast": "mad + सन्धिः = मत्सन्धिः"
+        },
+        {
+          "sandhi": "विपद् + काले = विपत्काले",
+          "iast": "vipad + काले = विपत्काले"
+        }
+      ]
+    },
+    {
+      "id": "vyan-5",
+      "sanskrit_name": "अनुनासिक सन्धिः",
+      "iast_name": "अनुनासिक सन्धिः",
+      "english_name": "Optional nasalisation of a final consonant before a nasal",
+      "rule": "A word-final consonant belonging to the yar प्रत्याहार (i.e. any consonant except nasals and semivowels), when followed by a nasal (ङ्, ञ्, ण्, न्, म्), may optionally be replaced by the nasal (अनुनासिक) of its own class.",
+      "sutra_devanagari": "यरोऽनुनासिकेऽनुनासिको वा",
+      "sutra_iast": "yaro 'नुनासिके 'नुनासिको वा",
+      "ashtadhyayi_ref": "8.4.45",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "Hal-sandhi प्रकरण (LSK सूत्र 33)",
+      "process": "vikalpena आदेशः (optional substitution)",
+      "examples": [
+        {
+          "sandhi": "वाक् + मयम् = वाङ्मयम् / वाग्मयम्",
+          "iast": "वाक् + mayam = वाङ्मयम् / वाग्मयम्"
+        },
+        {
+          "sandhi": "षट् + मासाः = षण्मासाः / षड्मासाः",
+          "iast": "षट् + मासाः = षण्मासाः / षड्मासाः"
+        }
+      ]
+    },
+    {
+      "id": "vyan-6",
+      "sanskrit_name": "अनुस्वार सन्धिः",
+      "iast_name": "अनुस्वार सन्धिः",
+      "english_name": "म् becomes अनुस्वार before a consonant",
+      "rule": "A word-final म्, when followed by any consonant (not a vowel), is replaced by अनुस्वार (ं).",
+      "sutra_devanagari": "मोऽनुस्वारः",
+      "sutra_iast": "mo 'नुस्वारः",
+      "ashtadhyayi_ref": "8.3.23",
+      "related_ashtadhyayi": [
+        "8.3.24 (नश् ca अपदान्तस्य jhali — non-final न्/म् also become अनुस्वार before jhal)"
+      ],
+      "lsk_prakarana": "Hal-sandhi प्रकरण (LSK सूत्र 35)",
+      "process": "आदेशः (substitution)",
+      "examples": [
+        {
+          "sandhi": "रामम् + वन्दे = रामं वन्दे",
+          "iast": "रामम् + vande = रामं vande"
+        },
+        {
+          "sandhi": "गच्छन्तम् + तम् = गच्छन्तं तम्",
+          "iast": "gacchantam + tam = गच्छन्तं tam"
+        }
+      ]
+    },
+    {
+      "id": "vyan-7",
+      "sanskrit_name": "परसवर्ण सन्धिः",
+      "iast_name": "परसवर्ण सन्धिः",
+      "english_name": "अनुस्वार becomes the nasal homogeneous with the following consonant",
+      "rule": "An अनुस्वार, when followed by a consonant belonging to the yay प्रत्याहार (i.e. any consonant except स्/श्/ष्/ह्), is optionally replaced by the nasal (सवर्ण) of that consonant's own class.",
+      "sutra_devanagari": "अनुस्वारस्य ययि परसवर्णः",
+      "sutra_iast": "अनुस्वारस्य yayi परसवर्णः",
+      "ashtadhyayi_ref": "8.4.58",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "Hal-sandhi प्रकरण (LSK सूत्र 37)",
+      "process": "vikalpena आदेशः (optional substitution)",
+      "examples": [
+        {
+          "sandhi": "गङ्गा + चलति → गङ्गां चलति → गङ्गाञ्चलति",
+          "iast": "गङ्गां calati → गङ्गाञ्चलति (before palatal)"
+        },
+        {
+          "sandhi": "सन्+तोषः → सन्तोषः / संतोषः",
+          "iast": "sam + तोषः = सन्तोषः / संतोषः"
+        },
+        {
+          "sandhi": "पम्+पा = पम्पा (before प-वर्ग, अनुस्वार → म्)",
+          "iast": "illustrative before labial"
+        }
+      ]
+    },
+    {
+      "id": "vyan-8",
+      "sanskrit_name": "पूर्वसवर्ण सन्धिः",
+      "iast_name": "पूर्वसवर्ण सन्धिः",
+      "english_name": "Nasal assimilation to the preceding consonant",
+      "rule": "When (except for a nasal itself) a class (वर्गीय) consonant is immediately followed by a nasal of its own class, either consonant may, by convention of some grammarians' teaching order, be treated as assimilating — in the source manual's presentation this covers cases like विपद्वत् type clusters where a following nasal conditions the preceding stop; treated together with cartva/जश्त्व contexts.",
+      "sutra_devanagari": "यर आद्नित्यम् (परसवर्ण-सामान्यनियमः)",
+      "sutra_iast": "See 8.4.58 (अनुस्वारस्य yayi परसवर्णः) for the general परसवर्ण principle applied in both directions",
+      "ashtadhyayi_ref": "8.4.58 (general परसवर्ण principle)",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "Hal-sandhi प्रकरण",
+      "process": "आदेशः (सवर्ण substitution)",
+      "examples": [
+        {
+          "sandhi": "वाणिजक् + हसति = वाणिज्घसति (illustrative cluster assimilation)",
+          "iast": "वणिक् + hasati = वणिग्घसति"
+        },
+        {
+          "sandhi": "विट् + हसति = विड्ढसति",
+          "iast": "विट् + hasati = विड्ढसति"
+        }
+      ],
+      "note": "The source manual lists this as a distinct lesson (no. 7 in its consonant-sandhi list) illustrating वणिक्+hasati / विट्+hasati type forms; it functions as a corollary of जश्त्व + परसवर्ण working together rather than a wholly separate पाणिनिअन् सूत्र."
+    },
+    {
+      "id": "vyan-9",
+      "sanskrit_name": "छत्व सन्धिः",
+      "iast_name": "chatva सन्धिः",
+      "english_name": "Optional श् → छ् after certain finals",
+      "rule": "श्, when preceded by a word ending in a short vowel followed by तुक् (त्) augment, or in specific tuk-augment contexts, may optionally be replaced by छ्.",
+      "sutra_devanagari": "श्छ वा",
+      "sutra_iast": "श्छोः (context-dependent optional cch/श्छ्)",
+      "ashtadhyayi_ref": "6.1.73 (che ca — tuk augment before छ), cf. 8.4.63",
+      "related_ashtadhyayi": [
+        "6.1.73 (che ca)"
+      ],
+      "lsk_prakarana": "Hal-sandhi प्रकरण (LSK सूत्र 39)",
+      "process": "vikalpena आदेशः (optional)",
+      "examples": [
+        {
+          "sandhi": "तत् + शेते = तच्छेते / तच्शेते",
+          "iast": "tat + शेते = tacchete"
+        }
+      ],
+      "note": "Presented in the source manual as 'श् optionally changes to छ्' after श्चुत्व has converted a preceding त्/स् to च्; the resulting च् + श् cluster optionally further strengthens to च्छ्."
+    },
+    {
+      "id": "vyan-10",
+      "sanskrit_name": "सत्व सन्धिः",
+      "iast_name": "satva सन्धिः",
+      "english_name": "न्/अनुनासिक lost/altered contexts before स्",
+      "rule": "In defined morphological contexts a preceding न् or a visarga-derived स् interacts with a following स्; broadly, forms where a dental nasal or sibilant environment resolves to स् are covered under this heading (e.g. सजुषो रुः — the स् of the word sajus, and general 'sa' as substitute of visarga, are treated in this section by the source manual).",
+      "sutra_devanagari": "ससजुषो रुः",
+      "sutra_iast": "ससजुषो रुः",
+      "ashtadhyayi_ref": "8.2.66",
+      "related_ashtadhyayi": [
+        "8.3.34 (विसर्जनीयस्य सः)"
+      ],
+      "lsk_prakarana": "Hal-sandhi / Visarga-sandhi boundary (LSK सूत्र 40)",
+      "process": "आदेशः (substitution)",
+      "examples": [
+        {
+          "sandhi": "रामः + करोति (visarga retained as स् before hard) = रामस्करोति (historical/कारिका form)",
+          "iast": "रामः + karoti (illustrative)"
+        }
+      ],
+      "note": "This lesson bridges hal-sandhi and visarga-sandhi in the source manual's ordering, since the स्/रु substitute for visarga is foundational to both."
+    },
+    {
+      "id": "vyan-11",
+      "sanskrit_name": "णत्व सन्धिः",
+      "iast_name": "णत्व सन्धिः",
+      "english_name": "Cerebralisation of न् to ण्",
+      "rule": "Within the same word, न् is replaced by ण् when preceded (not necessarily immediately, but without intervention of a coronal/palatal/velar obstruent or a pause) by र्, ष्, or the vowel ऋ/ॠ.",
+      "sutra_devanagari": "रषाभ्यां नो णः समानपदे",
+      "sutra_iast": "ra-षाभ्यां no णः समानपदे",
+      "ashtadhyayi_ref": "8.4.1",
+      "related_ashtadhyayi": [
+        "8.4.2 (अट्कुप्वाङ्नुम्व्यवाये 'pi — णत्व even across intervening अट्/ku/pu/आङ्/num)"
+      ],
+      "lsk_prakarana": "Hal-sandhi / pada-प्रकरण (LSK सूत्र 135 in the six-genders section, but conceptually part of consonant sandhi)",
+      "process": "आदेशः (substitution)",
+      "examples": [
+        {
+          "sandhi": "राम + अयनम् = रामायणम्",
+          "iast": "राम + ayanam = रामायणम्"
+        },
+        {
+          "sandhi": "पूर् + अन (पूरण) = पूरणम्",
+          "iast": "illustrative: पूरणम्"
+        }
+      ]
+    },
+    {
+      "id": "vyan-12",
+      "sanskrit_name": "तुगागम सन्धिः",
+      "iast_name": "तुगागम सन्धिः",
+      "english_name": "Insertion of त् (tuk) before छ्",
+      "rule": "A short vowel standing at the end of a word, when followed by छ्, receives the insertion (आगम) of त् between the vowel and छ्.",
+      "sutra_devanagari": "छे च",
+      "sutra_iast": "che ca",
+      "ashtadhyayi_ref": "6.1.73",
+      "related_ashtadhyayi": [
+        "6.1.71 (hrasvasya piti कृति tuk — a related tuk-insertion in कृत् formations)"
+      ],
+      "lsk_prakarana": "Ac-sandhi / Hal-sandhi boundary (LSK सूत्र 39, immediately after ङमुटागम)",
+      "process": "आगमः (insertion)",
+      "examples": [
+        {
+          "sandhi": "आ + छादयति = आच्छादयति",
+          "iast": "आ + छादयति = आच्छादयति"
+        },
+        {
+          "sandhi": "प्र + छाया = प्रच्छाया",
+          "iast": "pra + छाया = प्रच्छाया"
+        }
+      ]
+    },
+    {
+      "id": "vyan-13",
+      "sanskrit_name": "ङमुडागम सन्धिः",
+      "iast_name": "ङमुटागम सन्धिः",
+      "english_name": "Insertion of a homogeneous nasal augment (ङमुट्)",
+      "rule": "When a short vowel at the end of a word is followed by a nasal consonant which is itself followed by a vowel, the intervening nasal-augment (सवर्ण nasal, called ङमुट्) is compulsorily inserted after the short vowel.",
+      "sutra_devanagari": "ङमो ह्रस्वादचि ङमुण् नित्यम्",
+      "sutra_iast": "ङमो ह्रस्वाद् aci ङमुण् nityam",
+      "ashtadhyayi_ref": "8.3.32",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "Hal-sandhi प्रकरण (LSK सूत्र 38)",
+      "process": "आगमः (compulsory insertion)",
+      "examples": [
+        {
+          "sandhi": "प्रत्यङ् + अत्र = प्रत्यङ्ङत्र (illustrative ङमुट् pattern)",
+          "iast": "illustrative pattern of ङमुट् before nasal+vowel"
+        },
+        {
+          "sandhi": "सुगण् + अयनम् (illustrative)",
+          "iast": "illustrative"
+        }
+      ],
+      "note": "This is a relatively technical, less frequently drilled rule; the source manual lists it (Lesson 13) primarily for completeness of the fourteen-rule consonant-sandhi scheme."
+    },
+    {
+      "id": "vyan-14",
+      "sanskrit_name": "लत्व सन्धिः",
+      "iast_name": "latva सन्धिः",
+      "english_name": "त-वर्ग changed to ल् before ल्",
+      "rule": "A dental (त-वर्ग: त्, थ्, द्, ध्, न्) at the end of a word is changed to ल् (with an inserted nasalised ल् for न्) when followed by ल्.",
+      "sutra_devanagari": "टवर्गस्य लत्वं लकारे परे",
+      "sutra_iast": "(traditional statement) tavargasya लत्वं लकारे pare",
+      "ashtadhyayi_ref": "8.4.60 (lo 'ci ca) with 8.4.62/63 context; commonly cited as tor लः in traditional grammar",
+      "related_ashtadhyayi": [
+        "8.4.60"
+      ],
+      "lsk_prakarana": "Hal-sandhi प्रकरण (closing rule of the consonant-sandhi lessons in the source manual)",
+      "process": "आदेशः (substitution)",
+      "examples": [
+        {
+          "sandhi": "तत् + लीनः = तल्लीनः",
+          "iast": "tat + लीनः = तल्लीनः"
+        },
+        {
+          "sandhi": "महान् + लाभः = महाँल्लाभः / महाल्लाभः",
+          "iast": "महान् + लाभः = महाल्लाभः"
+        }
+      ]
+    }
+  ],
+  "visarga_sandhi": [
+    {
+      "id": "visarga-0",
+      "sanskrit_name": "विसर्गः — परिचयः",
+      "iast_name": "विसर्गः — परिचयः",
+      "english_name": "Introduction: origin of visarga",
+      "rule": "Word-final स् and र् (in the नामपद when not followed by a vowel or voiced consonant that would trigger other sandhi) are replaced by visarga (​ः) at a pause or before a hard consonant.",
+      "sutra_devanagari": "खरवसानयोर्विसर्जनीयः",
+      "sutra_iast": "khar-अवसानयोर् विसर्जनीयः",
+      "ashtadhyayi_ref": "8.3.15",
+      "related_ashtadhyayi": [
+        "8.2.66 (ससजुषो रुः — स्/र् become रु, the basis of visarga)",
+        "8.3.34 (विसर्जनीयस्य सः)"
+      ],
+      "lsk_prakarana": "Visarga-sandhi प्रकरण (LSK सूत्रस् 40–41, opening the section)",
+      "process": "आदेशः",
+      "examples": [
+        {
+          "sandhi": "रामस् (base) → रामः (before pause/hard consonant)",
+          "iast": "रामस् → रामः"
+        }
+      ]
+    },
+    {
+      "id": "visarga-1",
+      "sanskrit_name": "विसर्गः स्थितिः (हलि सर्वेषाम्)",
+      "iast_name": "visarga-sthiti (retention before hard consonants)",
+      "english_name": "Visarga is retained before hard (khar) consonants",
+      "rule": "When visarga is followed by a hard (खर्) consonant — i.e. क्, ख्, प्, फ् or a surd of any class — it simply remains unchanged (or, before श्/ष्/स्, optionally changes — see Lesson 2).",
+      "sutra_devanagari": "हलि सर्वेषाम्",
+      "sutra_iast": "hali सर्वेषाम्",
+      "ashtadhyayi_ref": "8.3.22",
+      "related_ashtadhyayi": [
+        "8.3.15"
+      ],
+      "lsk_prakarana": "Visarga-sandhi प्रकरण (LSK सूत्र 46)",
+      "process": "विना परिणाम (no change)",
+      "examples": [
+        {
+          "sandhi": "रामः + करोति = रामः करोति",
+          "iast": "रामः + karoti = रामः karoti"
+        },
+        {
+          "sandhi": "बालकः + पठति = बालकः पठति",
+          "iast": "बालकः + पठति = बालकः पठति"
+        }
+      ]
+    },
+    {
+      "id": "visarga-2",
+      "sanskrit_name": "विसर्गस्य शषसत्वम्",
+      "iast_name": "visargasya शष-sa-tvam",
+      "english_name": "Optional change of visarga to श्/ष्/स् before sibilants",
+      "rule": "Visarga followed by a sibilant (श्, ष्, स्) may optionally be replaced by that same sibilant (assimilation), or may remain unchanged.",
+      "sutra_devanagari": "विसर्जनीयस्य सः / भोभगोअघोअपूर्वस्य योऽशि",
+      "sutra_iast": "विसर्जनीयस्य सः; bho-bhago-agho-अपूर्वस्य yo 'शि",
+      "ashtadhyayi_ref": "8.3.34 (with 8.3.36–8.3.38 for the optionality before श/ष/sa specifically)",
+      "related_ashtadhyayi": [
+        "8.3.36 (वा शरि)"
+      ],
+      "lsk_prakarana": "Visarga-sandhi प्रकरण",
+      "process": "vikalpena आदेशः (optional)",
+      "examples": [
+        {
+          "sandhi": "रामः + शेते = रामश्शेते / रामः शेते",
+          "iast": "रामः + शेते = रामश्शेते / रामः शेते"
+        },
+        {
+          "sandhi": "हरिः + षष्ठः = हरिष्षष्ठः / हरिः षष्ठः",
+          "iast": "हरिः + षष्ठः = हरिष्षष्ठः / हरिः षष्ठः"
+        }
+      ]
+    },
+    {
+      "id": "visarga-3",
+      "sanskrit_name": "विसर्गस्य श्/ष्/स् त्वम् (च-ट-त वर्गे)",
+      "iast_name": "visarga → श्/ष्/s before c/ट्/t-varga",
+      "english_name": "Compulsory change of visarga to श्/ष्/स् before palatals, cerebrals, dentals",
+      "rule": "Visarga, when followed by a palatal (च्/छ्) is replaced by श्; when followed by a cerebral (ट्/ठ्) is replaced by ष्; when followed by a dental (त्/थ्) is replaced by स्.",
+      "sutra_devanagari": "विसर्जनीयस्य सः / (श्चुत्व-ष्टुत्व analogy)",
+      "sutra_iast": "See 8.3.34 (विसर्जनीयस्य सः) combined with श्चुत्व/ष्टुत्व (8.4.40–41)",
+      "ashtadhyayi_ref": "8.3.34",
+      "related_ashtadhyayi": [
+        "8.4.40",
+        "8.4.41"
+      ],
+      "lsk_prakarana": "Visarga-sandhi प्रकरण",
+      "process": "आदेशः (compulsory substitution)",
+      "examples": [
+        {
+          "sandhi": "रामः + चलति = रामश्चलति",
+          "iast": "रामः + calati = रामश्चलति"
+        },
+        {
+          "sandhi": "रामः + टीका = रामष्टीका",
+          "iast": "रामः + टीका = रामष्टीका"
+        },
+        {
+          "sandhi": "रामः + तत्र = रामस्तत्र",
+          "iast": "रामः + tatra = रामस्तत्र"
+        }
+      ]
+    },
+    {
+      "id": "visarga-4",
+      "sanskrit_name": "विसर्गस्य उकारादेशः",
+      "iast_name": "visarga → u (उकार)",
+      "english_name": "Change of visarga preceded by अ to उ before soft consonants",
+      "rule": "When visarga is preceded by the short vowel अ and followed by a soft (voiced) consonant, it is replaced by उ, which then combines with the preceding अ by गुण-sandhi to give ओ.",
+      "sutra_devanagari": "अतो रोरप्लुतादप्लुते / हशि च",
+      "sutra_iast": "ato ror अप्लुताद् aplute; हशि ca",
+      "ashtadhyayi_ref": "6.1.113 with 6.1.114",
+      "related_ashtadhyayi": [
+        "6.1.114 (हशि ca)"
+      ],
+      "lsk_prakarana": "Visarga-sandhi प्रकरण (LSK सूत्रस् 43–44)",
+      "process": "आदेशः → then आद्गुणः (two-step: उ-आदेश, then अ+उ=ओ गुण)",
+      "examples": [
+        {
+          "sandhi": "रामः + गच्छति = रामो गच्छति",
+          "iast": "रामः + gacchati = रामो gacchati"
+        },
+        {
+          "sandhi": "बालः + वदति = बालो वदति",
+          "iast": "बालः + vadati = बालो vadati"
+        }
+      ]
+    },
+    {
+      "id": "visarga-4b",
+      "sanskrit_name": "विसर्गलोपः अकारात् असवर्णस्वरे (शाकल्यमतम्)",
+      "iast_name": "visarga-लोपः अकारात् असवर्ण-svare (शाकल्य-matam)",
+      "english_name": "Elision of visarga (preceded by अ) before a vowel other than अ",
+      "rule": "When visarga is preceded by the short vowel अ and is followed by any vowel OTHER than अ (i.e. इ, ई, उ, ऊ, ऋ, ए, ऐ, ओ, औ), the visarga is simply elided (लोपः) rather than converting to उ/ओ. No vowel-combination (गुण) takes place; the two words merely stand adjacent with a hiatus. This is distinct from the अ + अ case (visarga-4/svara-6 पूर्वरूप pattern), where visarga becomes ओ and the following अ is elided with an avagraha (रामः + अत्र = रामोऽत्र). Traditionally attributed to शाकल्य's view, in which the visarga's substitute (य्-based/rutva) is treated as silent (लोपः) before a dissimilar vowel.",
+      "sutra_devanagari": "भोभगोअघोअपूर्वस्य योऽशि (शाकल्यस्य लोपः)",
+      "sutra_iast": "bho-bhago-agho-अपूर्वस्य yo 'शि; लोपः शाकल्यस्य",
+      "ashtadhyayi_ref": "8.3.17, with 8.3.19 (लोपः शाकल्यस्य)",
+      "related_ashtadhyayi": [
+        "6.1.109 (एङः पदान्ताद् ati — the contrasting अ+अ→ओ पूर्वरूप case)",
+        "8.3.15 (khar-अवसानयोर् विसर्जनीयः)"
+      ],
+      "lsk_prakarana": "Visarga-sandhi प्रकरण (companion case to LSK सूत्रस् 43–44, ato ror अप्लुताद् aplute)",
+      "process": "लोपः (elision, no substitution)",
+      "examples": [
+        {
+          "sandhi": "धृतराष्ट्रः + उवाच = धृतराष्ट्र उवाच",
+          "iast": "धृतराष्ट्रः + उवाच = धृतराष्ट्र उवाच"
+        },
+        {
+          "sandhi": "सञ्जयः + उवाच = सञ्जय उवाच",
+          "iast": "सञ्जयः + उवाच = सञ्जय उवाच"
+        },
+        {
+          "sandhi": "अर्जुनः + उवाच = अर्जुन उवाच",
+          "iast": "अर्जुनः + उवाच = arjuna उवाच"
+        }
+      ],
+      "note": "Added from analysis of Bhagavad गीता 1.1 (धृतराष्ट्र उवाच). This case was previously a gap in the rule book: visarga-4 only addressed अ-preceded visarga before a soft CONSONANT (→ ओ via गुण), and visarga-6 only addressed आ-preceded visarga (→ lopa). Neither covered अ-preceded visarga before a dissimilar VOWEL, which is the very common 'X उवाच' pattern seen throughout the गीता's speaker-tags. This entry fills that gap."
+    },
+    {
+      "id": "visarga-5",
+      "sanskrit_name": "विसर्गस्य रेफादेशः",
+      "iast_name": "visarga → repha (र्)",
+      "english_name": "Change of visarga (preceded by any vowel other than अ/आ) to र् before soft consonants/vowels",
+      "rule": "When visarga is preceded by any vowel other than अ or आ, and is followed by a soft consonant or a vowel, it is replaced by र् (repha), which then undergoes further sandhi as an ordinary र्.",
+      "sutra_devanagari": "अतो रोरप्लुतादप्लुते (शेष-भाग: अकारेतर-स्वरात्)",
+      "sutra_iast": "ato ror अप्लुताद् aplute (extended to non-a vowels by the general ru-substitution + subsequent हशि/aci context)",
+      "ashtadhyayi_ref": "8.2.66 (ससजुषो रुः) → 6.1.113/114 for non-a contexts",
+      "related_ashtadhyayi": [
+        "8.2.66"
+      ],
+      "lsk_prakarana": "Visarga-sandhi प्रकरण",
+      "process": "आदेशः (repha)",
+      "examples": [
+        {
+          "sandhi": "हरिः + वदति = हरिर्वदति",
+          "iast": "हरिः + vadati = harirvadati"
+        },
+        {
+          "sandhi": "गुरुः + आगच्छति = गुरुरागच्छति",
+          "iast": "गुरुः + आगच्छति = गुरुरागच्छति"
+        }
+      ]
+    },
+    {
+      "id": "visarga-6",
+      "sanskrit_name": "विसर्ग लोपः",
+      "iast_name": "visarga लोपः",
+      "english_name": "Elision of visarga after long आ",
+      "rule": "When visarga is preceded by the long vowel आ and is followed by a soft consonant or any vowel, the visarga is dropped (lopa) entirely.",
+      "sutra_devanagari": "ढ्रलोपे पूर्वस्य दीर्घोऽणः / (आकारात् रोः लोपः)",
+      "sutra_iast": "The elision of ru after आ is covered by the general working of 6.1.114 हशि ca combined with the fact that आ + u would not remain; traditionally stated as 'visarga is lopa after आ'",
+      "ashtadhyayi_ref": "6.1.114 (हशि ca), in conjunction with 8.3.19 (लोपः शाकल्यस्य) principle applied to visarga after आ",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "Visarga-sandhi प्रकरण",
+      "process": "लोपः (elision)",
+      "examples": [
+        {
+          "sandhi": "बालाः + हसन्ति = बाला हसन्ति",
+          "iast": "बालाः + hasanti = बाला hasanti"
+        },
+        {
+          "sandhi": "कन्याः + यान्ति = कन्या यान्ति",
+          "iast": "कन्याः + यान्ति = कन्या यान्ति"
+        }
+      ]
+    },
+    {
+      "id": "visarga-7",
+      "sanskrit_name": "विशेष विसर्ग सन्धयः (जिह्वामूलीय, उपध्मानीय)",
+      "iast_name": "जिह्वामूलीय and उपध्मानीय",
+      "english_name": "Special allophones of visarga before क्/ख् and प्/फ्",
+      "rule": "Visarga, when followed by क् or ख्, is optionally pronounced as जिह्वामूलीय (a guttural breath sound); when followed by प् or फ्, is optionally pronounced as उपध्मानीय (a labial breath sound). These are allophonic/orthographic variants and do not change the spelling in ordinary practice.",
+      "sutra_devanagari": "विसर्गस्य कवर्गे परे जिह्वामूलीयः पवर्गे परे उपध्मानीयः",
+      "sutra_iast": "(traditional statement, based on) कुप्वोः xa-xa (काशिका gloss on 8.3.37)",
+      "ashtadhyayi_ref": "8.3.37 (कुप्वोः ku-pau ca)",
+      "related_ashtadhyayi": [
+        "8.3.17 (bho-bhago-agho-अपूर्वस्य yo 'शि)"
+      ],
+      "lsk_prakarana": "Visarga-sandhi प्रकरण (final lesson of the section)",
+      "process": "vikalpena आदेशः (optional, essentially phonetic)",
+      "examples": [
+        {
+          "sandhi": "रामः + करोति (visarga optionally realised as जिह्वामूलीय before क्)",
+          "iast": "रामः + karoti"
+        },
+        {
+          "sandhi": "रामः + पठति (visarga optionally realised as उपध्मानीय before प्)",
+          "iast": "रामः + पठति"
+        }
+      ]
+    }
+  ],
+  "summary_counts": {
+    "svara_sandhi_rules": 9,
+    "vyanjana_sandhi_rules": 14,
+    "visarga_sandhi_rules": 9,
+    "total_rules": 32
+  },
+  "bibliography": [
+    "Svatmabodhananda Saraswati, Swamini. सन्धिः — Euphonics in Sanskrit (Sanskrit Grammar Series-3). Coimbatore: Arsha Avinash Foundation, 2017.",
+    "पाणिनि. अष्टाध्यायी (critical editions/translations by श्रीश Candra Vasu, and by Rama Nath Sharma).",
+    "वरदराज. लघुसिद्धान्तकौमुदी (commentary/translation tradition following भट्टोजि दीक्षित's सिद्धान्तकौमुदी).",
+    "शास्त्री, विश्वनाथ. प्रारम्भिकपाणिनीयम् / Parama-laghu-सिद्धान्तकौमुदी. Delhi: Motilal Banarsidass, 1991. (used to cross-verify अष्टाध्यायी सूत्र numbering for ac-, hal-, and visarga-sandhi)"
+  ],
+  "changelog": [
+    {
+      "date": "2026-08-28",
+      "change": "Added rule 'visarga-4b' (visarga-लोपः अकारात् असवर्ण-svare) covering elision of an अ-preceded visarga before a dissimilar vowel (e.g. X + उवाच = X उवाच). This was identified as a gap during analysis of Bhagavad गीता 1.1 and sourced from अष्टाध्यायी 8.3.17/8.3.19 (शाकल्य's view), which is outside the manual this rule book was originally compiled from.",
+      "rules_before": 31,
+      "rules_after": 32
+    }
+  ]
+}

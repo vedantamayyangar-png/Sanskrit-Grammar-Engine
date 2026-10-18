@@ -1,0 +1,1353 @@
+{
+  "title": "शब्दमञ्जरी (Sabdamanjari) — Sanskrit Noun Declension Reference",
+  "description": "Structured transcription of Sabdamanjari, a companion reference to Dhaturupa Manjari from the same publisher, giving model शब्दरूप (noun/pronoun/numeral declension) paradigms with Tamil and English glosses.",
+  "source_book": {
+    "title_sa": "शब्दमञ्जरी / SABDAMANJARI",
+    "publisher": "Samskrit Education Society (Regd.), 148-150 (98/99) Luz Church Road, Mylapore, Chennai-600004",
+    "editions_seen_in_scan": "Cover shows 4th Edition 2005; a duplicated inner title page shows 3rd Edition 2003 (First: 1986, Second: 2001, Third: 2003) — the scan appears to interleave pages from two different print runs at the very front (pp.1-2); content pagination used below follows the PDF's own physical page order.",
+    "part_of_series_note": "The Tamil preface (PDF p.4) refers to this book as part of a 'सप्तमञ्जरी' (Sapta-manjari, 7-book) series alongside a Samskrit Dictionary/Samskrutasri course; compiler credited: श्री A. कुप्पुस्वामि अय्यर्."
+  },
+  "source_pdf": "E:\\Downloads\\Sabdamanjari.pdf",
+  "source_pdf_total_pages": 116,
+  "related_files": {
+    "dhaturupa_manjari_json": "dhaturupa_manjari.json — companion verb-conjugation reference (same extraction project, same publisher pairing: Dhaturupa Manjari + Sabdamanjari).",
+    "vibhakti_table_json": "vibhakti_table.json — a separate, pre-existing project file (used by generate_10component_quality_report.py's Śabdarūpāṇi column) with its own independently-sourced model paradigms (नारद, राम, संयुग, फल, वाल्मीकि, मुनि, रमा, गुरु, राजन्, तपस्विन्, गुणवत्, किम्/इदम्/एतद्/अस्मद्/युष्मद्). NOT derived from or synced with this extraction — several stem classes overlap (e.g. राम, मुनि, गुरु, रमा) and can be cross-checked against each other, but the two files are maintained independently; do not silently merge them."
+  },
+  "methodology_note": "Both PDFs (Dhaturupa Manjari and this one) are scanned page images with no text layer. Every entry below is a human-quality visual transcription from rendered page images (pypdfium2, scale 3.0-10.0 as needed), never OCR. Faded/ambiguous glyphs are re-rendered at higher zoom and cross-checked against the expected Paninian sandhi outcome before being accepted; any residual uncertainty is flagged in a `note` field rather than silently resolved (see e.g. section 1, word 10, सप्तमी बहुवचन, verified गोषु vs. an initial misread of गोपु).",
+  "abbreviations_used_in_book": {
+    "प्र.": "प्रथमा (Nominative)",
+    "द्वि.": "द्वितीया (Accusative)",
+    "तृ.": "तृतीया (Instrumental)",
+    "च.": "चतुर्थी (Dative)",
+    "प. (1st occurrence)": "पञ्चमी (Ablative)",
+    "ष. / प. (2nd occurrence, book prints both as 'प.')": "षष्ठी (Genitive) — the book's own abbreviation column visually prints 'प.' for both पञ्चमी and षष्ठी rows (a font/typesetting quirk, not a content error — the actual case-forms in each row are correct and distinguishable); this JSON always uses the full vibhakti name so the ambiguity does not propagate.",
+    "स.": "सप्तमी (Locative)",
+    "सं.": "संबोधनम् (Vocative)"
+  },
+  "sections": {
+    "1_ajanta_pumlinga_sadharana": {
+      "section_num": 1,
+      "name_sa": "अजन्त पुंलिङ्ग साधारण शब्दाः",
+      "name_en": "Declension of ordinary words of the Masculine Gender ending with vowels",
+      "source_pdf_pages": "6-12",
+      "words": [
+        {
+          "word_num": 1,
+          "stem_class": "akaranta",
+          "stem_ending": "अ (a)",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "राम",
+          "meaning_ta": "ராமன்",
+          "meaning_en": "Rama",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "रामः", "रामौ", "रामाः"],
+              ["द्वितीया", "रामम्", "रामौ", "रामान्"],
+              ["तृतीया", "रामेण", "रामाभ्याम्", "रामैः"],
+              ["चतुर्थी", "रामाय", "रामाभ्याम्", "रामेभ्यः"],
+              ["पञ्चमी", "रामात्", "रामाभ्याम्", "रामेभ्यः"],
+              ["षष्ठी", "रामस्य", "रामयोः", "रामाणाम्"],
+              ["सप्तमी", "रामे", "रामयोः", "रामेषु"],
+              ["संबोधनम्", "राम", "रामौ", "रामाः"]
+            ]
+          },
+          "grouping_note": "एवं अमर, नर, कुमार, ज्वरादयः।",
+          "provenance": "direct_read",
+          "source_pdf_page": 6
+        },
+        {
+          "word_num": 2,
+          "stem_class": "akaranta",
+          "stem_ending": "अ (a)",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "देव",
+          "meaning_ta": "தேவன்",
+          "meaning_en": "a celestial being",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "देवः", "देवौ", "देवाः"],
+              ["द्वितीया", "देवम्", "देवौ", "देवान्"],
+              ["तृतीया", "देवेन", "देवाभ्याम्", "देवैः"],
+              ["चतुर्थी", "देवाय", "देवाभ्याम्", "देवेभ्यः"],
+              ["पञ्चमी", "देवात्", "देवाभ्याम्", "देवेभ्यः"],
+              ["षष्ठी", "देवस्य", "देवयोः", "देवानाम्"],
+              ["सप्तमी", "देवे", "देवयोः", "देवेषु"],
+              ["संबोधनम्", "देव", "देवौ", "देवाः"]
+            ]
+          },
+          "grouping_note": "एवं अचल, अश्व, आनन्द, अच्युतादयः।",
+          "rule_note": {
+            "rule_sa_ta": "मून्ऱुम् (तृतीया) विभक्तियिन् एकवचनत्तिलुम्, आऱुम् (षष्ठी) विभक्तियिन् बहुवचनत्तिलुम् 'रामेण - देवेन', 'रामाणां - देवानां' एन्ऱवाऱु ण-न माऱुपाडु कवनत्तिऱ्कुरियतु. र्, ष्, ऋ विऱ्कुप् पिन् वरुकिऱ न एऴुत्तु ण आहिऱतु; मऱ्ऱ इडत्तिल् न आहवे इरुक्किऱतु.",
+            "rule_en": "In तृतीया एकवचनम् and षष्ठी बहुवचनम् the letter न is generally changed to ण when it comes after र्, ष् or ऋ — e.g. रामेण / रामाणाम् (राम has र्, so ण), contrast देवेन / देवानाम् (देव has no र्/ष्/ऋ, so न stays unchanged). This is the णत्व rule.",
+            "source_pdf_page": 7
+          },
+          "provenance": "direct_read",
+          "source_pdf_page": 7
+        },
+        {
+          "word_num": 3,
+          "stem_class": "ikaranta",
+          "stem_ending": "इ (i)",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "हरि",
+          "meaning_ta": "விஷ்ணு",
+          "meaning_en": "Vishnu",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "हरिः", "हरी", "हरयः"],
+              ["द्वितीया", "हरिम्", "हरी", "हरीन्"],
+              ["तृतीया", "हरिणा", "हरिभ्याम्", "हरिभिः"],
+              ["चतुर्थी", "हरये", "हरिभ्याम्", "हरिभ्यः"],
+              ["पञ्चमी", "हरेः", "हरिभ्याम्", "हरिभ्यः"],
+              ["षष्ठी", "हरेः", "हर्योः", "हरीणाम्"],
+              ["सप्तमी", "हरौ", "हर्योः", "हरिषु"],
+              ["संबोधनम्", "हरे", "हरी", "हरयः"]
+            ]
+          },
+          "grouping_note": "एवं रवि, गिरिप्रभृतयः।",
+          "provenance": "direct_read",
+          "source_pdf_page": 8
+        },
+        {
+          "word_num": 4,
+          "stem_class": "ikaranta",
+          "stem_ending": "इ (i)",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "मुनि",
+          "meaning_ta": "முனிவர்",
+          "meaning_en": "Sage",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "मुनिः", "मुनी", "मुनयः"],
+              ["द्वितीया", "मुनिम्", "मुनी", "मुनीन्"],
+              ["तृतीया", "मुनिना", "मुनिभ्याम्", "मुनिभिः"],
+              ["चतुर्थी", "मुनये", "मुनिभ्याम्", "मुनिभ्यः"],
+              ["पञ्चमी", "मुनेः", "मुनिभ्याम्", "मुनिभ्यः"],
+              ["षष्ठी", "मुनेः", "मुन्योः", "मुनीनाम्"],
+              ["सप्तमी", "मुनौ", "मुन्योः", "मुनिषु"],
+              ["संबोधनम्", "मुने", "मुनी", "मुनयः"]
+            ]
+          },
+          "grouping_note": "एवं कपि, कवि, अतिथि, अग्नि, विधि प्रभृतयः।",
+          "provenance": "direct_read",
+          "source_pdf_page": 8
+        },
+        {
+          "word_num": 5,
+          "stem_class": "ukaranta",
+          "stem_ending": "उ (u)",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "शम्भु",
+          "meaning_ta": "சிவன்",
+          "meaning_en": "Siva",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "शम्भुः", "शम्भू", "शम्भवः"],
+              ["द्वितीया", "शम्भुम्", "शम्भू", "शम्भून्"],
+              ["तृतीया", "शम्भुना", "शम्भुभ्याम्", "शम्भुभिः"],
+              ["चतुर्थी", "शम्भवे", "शम्भुभ्याम्", "शम्भुभ्यः"],
+              ["पञ्चमी", "शम्भोः", "शम्भुभ्याम्", "शम्भुभ्यः"],
+              ["षष्ठी", "शम्भोः", "शम्भ्वोः", "शम्भूनाम्"],
+              ["सप्तमी", "शम्भौ", "शम्भ्वोः", "शम्भुषु"],
+              ["संबोधनम्", "शम्भो", "शम्भू", "शम्भवः"]
+            ]
+          },
+          "grouping_note": "एवं विष्णु, वायु, भानुप्रभृतयः।",
+          "provenance": "direct_read",
+          "source_pdf_page": 9
+        },
+        {
+          "word_num": 6,
+          "stem_class": "ukaranta",
+          "stem_ending": "उ (u)",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "गुरु",
+          "meaning_ta": "ஆசிரியர், குரு",
+          "meaning_en": "Preceptor",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "गुरुः", "गुरू", "गुरवः"],
+              ["द्वितीया", "गुरुम्", "गुरू", "गुरून्"],
+              ["तृतीया", "गुरुणा", "गुरुभ्याम्", "गुरुभिः"],
+              ["चतुर्थी", "गुरवे", "गुरुभ्याम्", "गुरुभ्यः"],
+              ["पञ्चमी", "गुरोः", "गुरुभ्याम्", "गुरुभ्यः"],
+              ["षष्ठी", "गुरोः", "गुर्वोः", "गुरूणाम्"],
+              ["सप्तमी", "गुरौ", "गुर्वोः", "गुरुषु"],
+              ["संबोधनम्", "गुरो", "गुरू", "गुरवः"]
+            ]
+          },
+          "grouping_note": "एवं शत्रु, तरु इत्यादयः।",
+          "provenance": "direct_read",
+          "source_pdf_page": 9
+        },
+        {
+          "word_num": 7,
+          "stem_class": "rkaranta",
+          "stem_ending": "ऋ (agent-noun/kinship type)",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "धातृ",
+          "meaning_ta": "படைப்பவன் (பிரம்மா)",
+          "meaning_en": "Creator (Brahma)",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "धाता", "धातारौ", "धातारः"],
+              ["द्वितीया", "धातारम्", "धातारौ", "धातॄन्"],
+              ["तृतीया", "धात्रा", "धातृभ्याम्", "धातृभिः"],
+              ["चतुर्थी", "धात्रे", "धातृभ्याम्", "धातृभ्यः"],
+              ["पञ्चमी", "धातुः", "धातृभ्याम्", "धातृभ्यः"],
+              ["षष्ठी", "धातुः", "धात्रोः", "धातॄणाम्"],
+              ["सप्तमी", "धातरि", "धात्रोः", "धातृषु"],
+              ["संबोधनम्", "धातः", "धातारौ", "धातारः"]
+            ]
+          },
+          "grouping_note": "एवं नृ, ज्ञातृ, शास्तृ, नेतृ, कर्तृ इत्यादयः।",
+          "provenance": "direct_read",
+          "source_pdf_page": 10
+        },
+        {
+          "word_num": 8,
+          "stem_class": "rkaranta",
+          "stem_ending": "ऋ (kinship type)",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "पितृ",
+          "meaning_ta": "தகப்பன்",
+          "meaning_en": "Father",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "पिता", "पितरौ", "पितरः"],
+              ["द्वितीया", "पितरम्", "पितरौ", "पितॄन्"],
+              ["तृतीया", "पित्रा", "पितृभ्याम्", "पितृभिः"],
+              ["चतुर्थी", "पित्रे", "पितृभ्याम्", "पितृभ्यः"],
+              ["पञ्चमी", "पितुः", "पितृभ्याम्", "पितृभ्यः"],
+              ["षष्ठी", "पितुः", "पित्रोः", "पितॄणाम्"],
+              ["सप्तमी", "पितरि", "पित्रोः", "पितृषु"],
+              ["संबोधनम्", "पितः", "पितरौ", "पितरः"]
+            ]
+          },
+          "grouping_note": null,
+          "note": "No 'एवं...' grouping note is printed directly under पितृ itself; the book prints one jointly after the next word भ्रातृ ('एवं जामातृ प्रभृतयः') which — since पितृ, भ्रातृ, and जामातृ all share the identical contracted-vowel kinship declension pattern (distinct from धातृ's agent-noun pattern above) — appears intended to cover this पितृ/भ्रातृ pair as well. Flagged here rather than silently attached, per project policy on uncertain structural claims.",
+          "provenance": "direct_read",
+          "source_pdf_page": 10
+        },
+        {
+          "word_num": 9,
+          "stem_class": "rkaranta",
+          "stem_ending": "ऋ (kinship type)",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "भ्रातृ",
+          "meaning_ta": "உடன் பிறந்தவன்",
+          "meaning_en": "Brother",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "भ्राता", "भ्रातरौ", "भ्रातरः"],
+              ["द्वितीया", "भ्रातरम्", "भ्रातरौ", "भ्रातॄन्"],
+              ["तृतीया", "भ्रात्रा", "भ्रातृभ्याम्", "भ्रातृभिः"],
+              ["चतुर्थी", "भ्रात्रे", "भ्रातृभ्याम्", "भ्रातृभ्यः"],
+              ["पञ्चमी", "भ्रातुः", "भ्रातृभ्याम्", "भ्रातृभ्यः"],
+              ["षष्ठी", "भ्रातुः", "भ्रात्रोः", "भ्रातॄणाम्"],
+              ["सप्तमी", "भ्रातरि", "भ्रात्रोः", "भ्रातृषु"],
+              ["संबोधनम्", "भ्रातः", "भ्रातरौ", "भ्रातरः"]
+            ]
+          },
+          "grouping_note": "एवं जामातृ प्रभृतयः।",
+          "provenance": "direct_read",
+          "source_pdf_page": 11
+        },
+        {
+          "word_num": 10,
+          "stem_class": "okaranta",
+          "stem_ending": "ओ (o, irregular)",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "गो",
+          "meaning_ta": "எருது",
+          "meaning_en": "Bull",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "गौः", "गावौ", "गावः"],
+              ["द्वितीया", "गाम्", "गावौ", "गाः"],
+              ["तृतीया", "गवा", "गोभ्याम्", "गोभिः"],
+              ["चतुर्थी", "गवे", "गोभ्याम्", "गोभ्यः"],
+              ["पञ्चमी", "गोः", "गोभ्याम्", "गोभ्यः"],
+              ["षष्ठी", "गोः", "गवोः", "गवाम्"],
+              ["सप्तमी", "गवि", "गवोः", "गोषु"],
+              ["संबोधनम्", "गौः", "गावौ", "गावः"]
+            ]
+          },
+          "grouping_note": null,
+          "note": "सप्तमी बहुवचन confirmed as गोषु after re-zooming the scan at high resolution (an initial pass at lower zoom misread the ष् glyph as प्); this matches the expected Paninian sandhi outcome (ṣ for s after the o/au diphthong). No 'एवं...' grouping note follows गो — the page ends with its संबोधनम् row and section 2 (स्त्रीलिङ्ग) begins fresh on the next page, consistent with गो being an irregular one-off paradigm in this book's list.",
+          "provenance": "direct_read",
+          "source_pdf_page": 11
+        },
+        {
+          "word_num": 11,
+          "stem_class": "aukaranta",
+          "stem_ending": "औ (au)",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "ग्लौ",
+          "meaning_ta": "சந்திரன்",
+          "meaning_en": "Moon",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "ग्लौः", "ग्लावौ", "ग्लावः"],
+              ["द्वितीया", "ग्लावम्", "ग्लावौ", "ग्लावः"],
+              ["तृतीया", "ग्लावा", "ग्लौभ्याम्", "ग्लौभिः"],
+              ["चतुर्थी", "ग्लावे", "ग्लौभ्याम्", "ग्लौभ्यः"],
+              ["पञ्चमी", "ग्लावः", "ग्लौभ्याम्", "ग्लौभ्यः"],
+              ["षष्ठी", "ग्लावः", "ग्लावोः", "ग्लावाम्"],
+              ["सप्तमी", "ग्लावि", "ग्लावोः", "ग्लौषु"],
+              ["संबोधनम्", "ग्लौः", "ग्लावौ", "ग्लावः"]
+            ]
+          },
+          "grouping_note": null,
+          "note": "Only औकारान्त पुंलिङ्ग example in the book (no other औ-stem words exist to group); द्वितीया बहुवचन ग्लावः is identical in form to प्रथमा बहुवचन — read directly from scan, both print identically as 'ग्लाव:' in their respective rows.",
+          "provenance": "direct_read",
+          "source_pdf_page": 12
+        }
+      ]
+    },
+    "2_ajanta_strilinga_sadharana": {
+      "section_num": 2,
+      "name_sa": "अजन्त स्त्रीलिङ्ग साधारण शब्दाः",
+      "name_en": "Declension of ordinary words of the Feminine Gender ending with vowel sounds",
+      "source_pdf_pages": "12-17",
+      "words": [
+        {
+          "word_num": 12,
+          "stem_class": "akaranta",
+          "stem_ending": "आ (ā)",
+          "gender": "स्त्रीलिङ्गम्",
+          "model_word": "रमा",
+          "meaning_ta": "லக்ஷ்மி",
+          "meaning_en": "Lakshmi",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "रमा", "रमे", "रमाः"],
+              ["द्वितीया", "रमां", "रमे", "रमाः"],
+              ["तृतीया", "रमया", "रमाभ्याम्", "रमाभिः"],
+              ["चतुर्थी", "रमायै", "रमाभ्याम्", "रमाभ्यः"],
+              ["पञ्चमी", "रमायाः", "रमाभ्याम्", "रमाभ्यः"],
+              ["षष्ठी", "रमायाः", "रमयोः", "रमाणाम्"],
+              ["सप्तमी", "रमायां", "रमयोः", "रमासु"],
+              ["संबोधनम्", "रमे", "रमे", "रमाः"]
+            ]
+          },
+          "grouping_note": null,
+          "note": "No 'एवं...' grouping note is printed under रमा — the page moves straight to word #13 मति. आकारान्त feminine words are common but each stem varies enough (गुण/vrddhi in वृद्धिनी-type names etc.) that this book may simply treat राम-type आकारान्त feminines as self-evident from the single model given.",
+          "provenance": "direct_read",
+          "source_pdf_page": 12
+        },
+        {
+          "word_num": 13,
+          "stem_class": "ikaranta",
+          "stem_ending": "इ (i)",
+          "gender": "स्त्रीलिङ्गम्",
+          "model_word": "मति",
+          "meaning_ta": "புத்தி",
+          "meaning_en": "Intellect",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "मतिः", "मती", "मतयः"],
+              ["द्वितीया", "मतिं", "मती", "मतीः"],
+              ["तृतीया", "मत्या", "मतिभ्याम्", "मतिभिः"],
+              ["चतुर्थी", "मत्यै-मतये", "मतिभ्याम्", "मतिभ्यः"],
+              ["पञ्चमी", "मत्याः-मतेः", "मतिभ्याम्", "मतिभ्यः"],
+              ["षष्ठी", "मत्याः-मतेः", "मत्योः", "मतीनाम्"],
+              ["सप्तमी", "मत्यां-मतौ", "मत्योः", "मतिषु"],
+              ["संबोधनम्", "मते", "मती", "मतयः"]
+            ]
+          },
+          "grouping_note": "एवं श्रुति, रुचि, स्मृति, बुद्धि, कीर्तिप्रभृतयः।",
+          "note": "इकारान्त स्त्रीलिङ्ग words uniquely show two alternative forms (आ-stem vs इ-stem) in चतुर्थी/पञ्चमी/षष्ठी/सप्तमी, both printed by the book joined with a hyphen — transcribed exactly as printed, not simplified to one option.",
+          "provenance": "direct_read",
+          "source_pdf_page": 12
+        },
+        {
+          "word_num": 14,
+          "stem_class": "ikaranta",
+          "stem_ending": "ई (ī, गौरी-type)",
+          "gender": "स्त्रीलिङ्गम्",
+          "model_word": "गौरी",
+          "meaning_ta": "பார்வதி",
+          "meaning_en": "Parvati",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "गौरी", "गौर्यौ", "गौर्यः"],
+              ["द्वितीया", "गौरीम्", "गौर्यौ", "गौरीः"],
+              ["तृतीया", "गौर्या", "गौरीभ्याम्", "गौरीभिः"],
+              ["चतुर्थी", "गौर्यै", "गौरीभ्याम्", "गौरीभ्यः"],
+              ["पञ्चमी", "गौर्याः", "गौरीभ्याम्", "गौरीभ्यः"],
+              ["षष्ठी", "गौर्याः", "गौर्योः", "गौरीणाम्"],
+              ["सप्तमी", "गौर्याम्", "गौर्योः", "गौरीषु"],
+              ["संबोधनम्", "गौरि", "गौर्यौ", "गौर्यः"]
+            ]
+          },
+          "grouping_note": "एवं सुन्दरी, कुमारी, नारी प्रभृतयः।",
+          "provenance": "direct_read",
+          "source_pdf_page": 13
+        },
+        {
+          "word_num": 15,
+          "stem_class": "ikaranta",
+          "stem_ending": "ई (ī, नदी-type)",
+          "gender": "स्त्रीलिङ्गम्",
+          "model_word": "नदी",
+          "meaning_ta": "ஆறு",
+          "meaning_en": "River",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "नदी", "नद्यौ", "नद्यः"],
+              ["द्वितीया", "नदीं", "नद्यौ", "नदीः"],
+              ["तृतीया", "नद्या", "नदीभ्याम्", "नदीभिः"],
+              ["चतुर्थी", "नद्यै", "नदीभ्याम्", "नदीभ्यः"],
+              ["पञ्चमी", "नद्याः", "नदीभ्याम्", "नदीभ्यः"],
+              ["षष्ठी", "नद्याः", "नद्योः", "नदीनाम्"],
+              ["सप्तमी", "नद्यां", "नद्योः", "नदीषु"],
+              ["संबोधनम्", "नदि", "नद्यौ", "नद्यः"]
+            ]
+          },
+          "grouping_note": "एवं वाणी, सखी, पत्नी प्रभृतयः।",
+          "note": "गौरी (word 14) and नदी (word 15) are both ईकारान्त yet printed as two distinct models (द्वितीया-एकवचन गौरीम् retains long ई before म्, matching नदीं's pattern; the real contrast the book is drawing is in चतुर्थी/पञ्चमी/षष्ठी/सप्तमी, where गौरी uses only the यण्-sandhi -या/-यै/-याः/-याम् forms while नदी shows the same यण् pattern without an alternate ई-stem option, unlike मति's word 13 which explicitly gave both options) — flagged rather than asserted with full certainty, since the book gives no explicit rule text distinguishing the two beyond the two separate model tables themselves.",
+          "provenance": "direct_read",
+          "source_pdf_page": 13
+        },
+        {
+          "word_num": 16,
+          "stem_class": "ukaranta",
+          "stem_ending": "उ (u)",
+          "gender": "स्त्रीलिङ्गम्",
+          "model_word": "धेनु",
+          "meaning_ta": "பசுமாடு",
+          "meaning_en": "Cow",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "धेनुः", "धेनू", "धेनवः"],
+              ["द्वितीया", "धेनुम्", "धेनू", "धेनूः"],
+              ["तृतीया", "धेन्वा", "धेनुभ्याम्", "धेनुभिः"],
+              ["चतुर्थी", "धेन्वै-धेनवे", "धेनुभ्याम्", "धेनुभ्यः"],
+              ["पञ्चमी", "धेन्वाः-धेनोः", "धेनुभ्याम्", "धेनुभ्यः"],
+              ["षष्ठी", "धेन्वाः-धेनोः", "धेन्वोः", "धेनूनाम्"],
+              ["सप्तमी", "धेन्वाम्-धेनौ", "धेन्वोः", "धेनुषु"],
+              ["संबोधनम्", "धेनो", "धेनू", "धेनवः"]
+            ]
+          },
+          "grouping_note": "एवं रज्जु, तनु, हनुप्रभृतयः।",
+          "note": "Like मति (word 13), धेनु shows two alternative forms (उ-stem vs. गुण-vृद्धि-stem) in चतुर्थी/पञ्चमी/षष्ठी/सप्तमी, joined by hyphen exactly as printed.",
+          "provenance": "direct_read",
+          "source_pdf_page": 13
+        },
+        {
+          "word_num": 17,
+          "stem_class": "ukaranta",
+          "stem_ending": "ऊ (ū)",
+          "gender": "स्त्रीलिङ्गम्",
+          "model_word": "वधू",
+          "meaning_ta": "மகனின் மனைவி",
+          "meaning_en": "Daughter-in-law",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "वधूः", "वध्वौ", "वध्वः"],
+              ["द्वितीया", "वधूं", "वध्वौ", "वधूः"],
+              ["तृतीया", "वध्वा", "वधूभ्याम्", "वधूभिः"],
+              ["चतुर्थी", "वध्वै", "वधूभ्याम्", "वधूभ्यः"],
+              ["पञ्चमी", "वध्वाः", "वधूभ्याम्", "वधूभ्यः"],
+              ["षष्ठी", "वध्वाः", "वध्वोः", "वधूनाम्"],
+              ["सप्तमी", "वध्वां", "वध्वोः", "वधुषु"],
+              ["संबोधनम्", "वधु", "वध्वौ", "वध्वः"]
+            ]
+          },
+          "grouping_note": "एवं चमू, श्वश्रू, तनू, जम्बू इत्यादयः (श्वश्रूः-श्वश्रूणाम्)।",
+          "note": "Parenthetical remark '(श्वश्रूः-श्वश्रूणाम्)' printed exactly as-is by the book alongside the grouping note, apparently flagging श्वश्रू's own प्रथमा-एकवचन/षष्ठी-बहुवचन forms as worth noting specifically; transcribed verbatim rather than interpreted.",
+          "provenance": "direct_read",
+          "source_pdf_page": 14
+        },
+        {
+          "word_num": 18,
+          "stem_class": "rkaranta",
+          "stem_ending": "ऋ (kinship type)",
+          "gender": "स्त्रीलिङ्गम्",
+          "model_word": "मातृ",
+          "meaning_ta": "தாயார்",
+          "meaning_en": "Mother",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "माता", "मातरौ", "मातरः"],
+              ["द्वितीया", "मातरम्", "मातरौ", "मातॄः"],
+              ["तृतीया", "मात्रा", "मातृभ्याम्", "मातृभिः"],
+              ["चतुर्थी", "मात्रे", "मातृभ्याम्", "मातृभ्यः"],
+              ["पञ्चमी", "मातुः", "मातृभ्याम्", "मातृभ्यः"],
+              ["षष्ठी", "मातुः", "मात्रोः", "मातॄणाम्"],
+              ["सप्तमी", "मातरि", "मात्रोः", "मातृषु"],
+              ["संबोधनम्", "मातः", "मातरौ", "मातरः"]
+            ]
+          },
+          "grouping_note": "एवं यातृ, ननान्द्, दुहितृ प्रभृतयः।",
+          "note": "Feminine ऋकारान्त kinship words (मातृ, दुहितृ, ननान्दृ...) share the same declension shape as the masculine kinship pattern (पितृ/भ्रातृ, section 1) but with द्वितीया/षष्ठी बहुवचन ending in long-ॠ + विसर्ग/अनुस्वार (मातॄः, मातॄणाम्) rather than the masculine's ॄन्/ॄणाम् — consistent with नदी-type feminine bahuvacana not taking the masculine nasal.",
+          "provenance": "direct_read",
+          "source_pdf_page": 15
+        },
+        {
+          "word_num": 19,
+          "stem_class": "rkaranta",
+          "stem_ending": "ऋ (स्वसृ-type)",
+          "gender": "स्त्रीलिङ्गम्",
+          "model_word": "स्वसृ",
+          "meaning_ta": "உடன் பிறந்தவள்",
+          "meaning_en": "Sister",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "स्वसा", "स्वसारौ", "स्वसारः"],
+              ["द्वितीया", "स्वसारम्", "स्वसारौ", "स्वसॄः"],
+              ["तृतीया", "स्वस्रा", "स्वसृभ्याम्", "स्वसृभिः"],
+              ["चतुर्थी", "स्वस्रे", "स्वसृभ्याम्", "स्वसृभ्यः"],
+              ["पञ्चमी", "स्वसुः", "स्वसृभ्याम्", "स्वसृभ्यः"],
+              ["षष्ठी", "स्वसुः", "स्वस्रोः", "स्वसॄणाम्"],
+              ["सप्तमी", "स्वसरि", "स्वस्रोः", "स्वसृषु"],
+              ["संबोधनम्", "स्वसः", "स्वसारौ", "स्वसारः"]
+            ]
+          },
+          "grouping_note": null,
+          "note": "No 'एवं...' grouping note — स्वसृ is given its own full model despite sharing मातृ's general kinship shape, likely because it has no true declension-twin among common words in this list.",
+          "provenance": "direct_read",
+          "source_pdf_page": 15
+        },
+        {
+          "word_num": 20,
+          "stem_class": "okaranta",
+          "stem_ending": "ओ (o, irregular)",
+          "gender": "स्त्रीलिङ्गम्",
+          "model_word": "द्यो",
+          "meaning_ta": "வெளிச்சம்",
+          "meaning_en": "Light",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "द्यौः", "द्यावौ", "द्यावः"],
+              ["द्वितीया", "द्यां", "द्यावौ", "द्याः"],
+              ["तृतीया", "द्यवा", "द्योभ्याम्", "द्योभिः"],
+              ["चतुर्थी", "द्यवे", "द्योभ्याम्", "द्योभ्यः"],
+              ["पञ्चमी", "द्योः", "द्योभ्याम्", "द्योभ्यः"],
+              ["षष्ठी", "द्योः", "द्यवोः", "द्यवाम्"],
+              ["सप्तमी", "द्यवि", "द्यवोः", "द्योषु"],
+              ["संबोधनम्", "द्यौः", "द्यावौ", "द्यावः"]
+            ]
+          },
+          "grouping_note": null,
+          "note": "Mirrors गो's (word 10) irregular ओकारान्त shape closely (गौः/गावौ/गावः vs द्यौः/द्यावौ/द्यावः) — द्यो being the feminine counterpart pattern. No grouping note, one-off paradigm.",
+          "provenance": "direct_read",
+          "source_pdf_page": 16
+        },
+        {
+          "word_num": 21,
+          "stem_class": "aukaranta",
+          "stem_ending": "औ (au)",
+          "gender": "स्त्रीलिङ्गम्",
+          "model_word": "नौ",
+          "meaning_ta": "படகு",
+          "meaning_en": "Boat",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "नौः", "नावौ", "नावः"],
+              ["द्वितीया", "नावं", "नावौ", "नावः"],
+              ["तृतीया", "नावा", "नौभ्याम्", "नौभिः"],
+              ["चतुर्थी", "नावे", "नौभ्याम्", "नौभ्यः"],
+              ["पञ्चमी", "नावः", "नौभ्याम्", "नौभ्यः"],
+              ["षष्ठी", "नावः", "नावोः", "नावाम्"],
+              ["सप्तमी", "नावि", "नावोः", "नौषु"],
+              ["संबोधनम्", "नौः", "नावौ", "नावः"]
+            ]
+          },
+          "grouping_note": null,
+          "note": "Last word of section 2; section 3 (अजन्त नपुंसकलिङ्ग साधारण शब्दाः, neuter vowel-ending words) begins immediately after on the same PDF page (17), confirmed by direct read but not yet transcribed.",
+          "provenance": "direct_read",
+          "source_pdf_page": 16
+        }
+      ]
+    },
+    "3_ajanta_napumsakalinga_sadharana": {
+      "section_num": 3,
+      "name_sa": "अजन्त नपुंसकलिङ्ग साधारण शब्दाः",
+      "name_en": "The words of Neuter Gender (sometimes of Common Gender also) ending with vowel sounds",
+      "source_pdf_pages": "17-21",
+      "general_rule_note": {
+        "rule_sa_ta": "(1) नपुंसकलिङ्गच् चोऱ्कळिल् पोतुवाक मुतल् वेऱ्ऱुमैयुम् इरण्डाम् वेऱ्ऱुमैयुम् ओरे माति्रियाक इरुक्कुम्; सन्दर्भत्तै ऒट्टिये पॊरुळुम् वेऱ्ऱुमैयुम् अऱियप्पालतु. (2) मून्ऱुम् वेऱ्ऱुमै मुतल् 6 वेऱ्ऱुमैकळुम् आण्पाल् चॊऱ्कळिन् वेऱ्ऱुमैकळैप् पोलवे अमैयुम्.",
+        "rule_en": "(1) In the case of Napumsakalinga (neuter) words, generally the Nominative case and the Accusative case (cases 1 & 2) will be the same; the meaning and case of the word should be understood from the context. (2) All the cases from the Instrumental onwards (cases 3-7) will be similar to the respective cases of words in the Masculine Gender of the same stem class.",
+        "source_pdf_page": 18,
+        "note": "This is a general structural rule printed once, before word #24, governing the whole neuter-gender word list (words already given, 22-23, also conform to it, confirmed by their own tables both here)."
+      },
+      "words": [
+        {
+          "word_num": 22,
+          "stem_class": "akaranta",
+          "stem_ending": "अ (a)",
+          "gender": "नपुंसकलिङ्गम्",
+          "model_word": "वन",
+          "meaning_ta": "காடு",
+          "meaning_en": "Forest",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "वनं", "वने", "वनानि"],
+              ["द्वितीया", "वनं", "वने", "वनानि"],
+              ["तृतीया", "वनेन", "वनाभ्याम्", "वनैः"],
+              ["चतुर्थी", "वनाय", "वनाभ्याम्", "वनेभ्यः"],
+              ["पञ्चमी", "वनात्", "वनाभ्याम्", "वनेभ्यः"],
+              ["षष्ठी", "वनस्य", "वनयोः", "वनानाम्"],
+              ["सप्तमी", "वने", "वनयोः", "वनेषु"],
+              ["संबोधनम्", "वन", "वने", "वनानि"]
+            ]
+          },
+          "grouping_note": "एवं फल, धन, जन, वाहन प्रभृतयः।",
+          "provenance": "direct_read",
+          "source_pdf_page": 17
+        },
+        {
+          "word_num": 23,
+          "stem_class": "akaranta",
+          "stem_ending": "अ (a)",
+          "gender": "नपुंसकलिङ्गम्",
+          "model_word": "नगर",
+          "meaning_ta": "நகரம்",
+          "meaning_en": "Town",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "नगरं", "नगरे", "नगराणि"],
+              ["द्वितीया", "नगरं", "नगरे", "नगराणि"],
+              ["तृतीया", "नगरेण", "नगराभ्याम्", "नगरैः"],
+              ["चतुर्थी", "नगराय", "नगराभ्याम्", "नगरेभ्यः"],
+              ["पञ्चमी", "नगरात्", "नगराभ्याम्", "नगरेभ्यः"],
+              ["षष्ठी", "नगरस्य", "नगरयोः", "नगराणाम्"],
+              ["सप्तमी", "नगरे", "नगरयोः", "नगरेषु"],
+              ["संबोधनम्", "नगर", "नगरे", "नगराणि"]
+            ]
+          },
+          "grouping_note": "एवं रूप, अम्बर, द्वार इत्यादयः।",
+          "note": "Contrast with वन (word 22): नगर's bahuvacana प्रथमा/द्वितीया/षष्ठी/संबोधन end in -णि/-णाम् (नगराणि, नगराणाम्) due to the णत्व rule (न्→ण् after the stem's own र्), while वन has no र् and keeps -नि/-नाम् (वनानि, वनानाम्) — same णत्व rule already noted for देव (section 1, word 2), here shown operating word-internally rather than across a word boundary.",
+          "provenance": "direct_read",
+          "source_pdf_page": 17
+        },
+        {
+          "word_num": 24,
+          "stem_class": "ikaranta",
+          "stem_ending": "इ (i)",
+          "gender": "नपुंसकलिङ्गम्",
+          "model_word": "दधि",
+          "meaning_ta": "தயிர்",
+          "meaning_en": "Curd",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "दधि", "दधिनी", "दधीनि"],
+              ["द्वितीया", "दधि", "दधिनी", "दधीनि"],
+              ["तृतीया", "दध्ना", "दधिभ्याम्", "दधिभिः"],
+              ["चतुर्थी", "दध्ने", "दधिभ्याम्", "दधिभ्यः"],
+              ["पञ्चमी", "दध्नः", "दधिभ्याम्", "दधिभ्यः"],
+              ["षष्ठी", "दध्नः", "दध्नोः", "दध्नाम्"],
+              ["सप्तमी", "दधि-दधनि", "दध्नोः", "दधिषु"],
+              ["संबोधनम्", "दधे-दधि", "दधिनी", "दधीनि"]
+            ]
+          },
+          "grouping_note": "एवं अस्थि, अक्षि, सक्थि प्रभृतयः (अक्षि-अक्ष्णाम्)।",
+          "note": "सप्तमी and संबोधनम् एकवचन each give two alternate forms (दधि-दधनि; दधे-दधि), confirmed at high zoom. दध्ना/दध्ने/दध्नः etc. (तृतीया-षष्ठी) show a strong-stem contraction (दधि→दध्न्) parallel to नामन्-type न्-stem nouns, not a simple i-stem pattern — flagged as a structurally distinct sub-pattern within इकारान्त नपुंसक words (contrast वारि/शुचि below, which stay closer to the plain i-stem shape).",
+          "provenance": "direct_read",
+          "source_pdf_page": 18
+        },
+        {
+          "word_num": 25,
+          "stem_class": "ikaranta",
+          "stem_ending": "इ (i)",
+          "gender": "नपुंसकलिङ्गम्",
+          "model_word": "वारि",
+          "meaning_ta": "தண்ணீர்",
+          "meaning_en": "Water",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "वारि", "वारिणी", "वारीणि"],
+              ["द्वितीया", "वारि", "वारिणी", "वारीणि"],
+              ["तृतीया", "वारिणा", "वारिभ्याम्", "वारिभिः"],
+              ["चतुर्थी", "वारिणे", "वारिभ्याम्", "वारिभ्यः"],
+              ["पञ्चमी", "वारिणः", "वारिभ्याम्", "वारिभ्यः"],
+              ["षष्ठी", "वारिणः", "वारिणोः", "वारीणाम्"],
+              ["सप्तमी", "वारिणि", "वारिणोः", "वारिषु"],
+              ["संबोधनम्", "वारे-वारि", "वारिणी", "वारीणि"]
+            ]
+          },
+          "grouping_note": null,
+          "note": "No 'एवं...' grouping note printed — confirmed by the page ending right after वारि's संबोधनम् row and word #26 शुचि's header starting fresh, no orphaned note between them. Unlike दधि, वारि keeps a plain इ-stem throughout with णत्व (न्→ण् after र् in the stem वारि itself) rather than दधि's नकार-contraction.",
+          "provenance": "direct_read",
+          "source_pdf_page": 19
+        },
+        {
+          "word_num": 26,
+          "stem_class": "ikaranta",
+          "stem_ending": "इ (i)",
+          "gender": "नपुंसकलिङ्गम्",
+          "model_word": "शुचि",
+          "meaning_ta": "சுத்தமான",
+          "meaning_en": "Pure",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "शुचि", "शुचिनी", "शुचीनि"],
+              ["द्वितीया", "शुचि", "शुचिनी", "शुचीनि"],
+              ["तृतीया", "शुचिना", "शुचिभ्याम्", "शुचिभिः"],
+              ["चतुर्थी", "शुचिने-शुचये", "शुचिभ्याम्", "शुचिभ्यः"],
+              ["पञ्चमी", "शुचिनः-शुचेः", "शुचिभ्याम्", "शुचिभ्यः"],
+              ["षष्ठी", "शुचिनः-शुचेः", "शुचिनोः-शुच्योः", "शुचीनाम्"],
+              ["सप्तमी", "शुचिनि-शुचौ", "शुचिनोः-शुच्योः", "शुचिषु"],
+              ["संबोधनम्", "शुचे-शुचि", "शुचिनी", "शुचीनि"]
+            ]
+          },
+          "grouping_note": null,
+          "note": "शुचि ('pure') is the book's only adjective among the नपुंसक अजन्त words captured so far (contrast वारि/दधि, which are nouns) — it shows two alternate declension tracks throughout (an न्-stem track शुचिन्- alongside a plain इ-stem track शुचि-/शुचे-/शुच्य-), both given by the book and transcribed verbatim, hyphen-joined. No grouping note printed, page ends and word #27 मधु begins fresh on the next page.",
+          "provenance": "direct_read",
+          "source_pdf_page": 19
+        },
+        {
+          "word_num": 27,
+          "stem_class": "ukaranta",
+          "stem_ending": "उ (u)",
+          "gender": "नपुंसकलिङ्गम्",
+          "model_word": "मधु",
+          "meaning_ta": "தேன்",
+          "meaning_en": "Honey",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "मधु", "मधुनी", "मधूनि"],
+              ["द्वितीया", "मधु", "मधुनी", "मधूनि"],
+              ["तृतीया", "मधुना", "मधुभ्याम्", "मधुभिः"],
+              ["चतुर्थी", "मधुने", "मधुभ्याम्", "मधुभ्यः"],
+              ["पञ्चमी", "मधुनः", "मधुभ्याम्", "मधुभ्यः"],
+              ["षष्ठी", "मधुनः", "मधुनोः", "मधूनाम्"],
+              ["सप्तमी", "मधुनि", "मधुनोः", "मधुषु"],
+              ["संबोधनम्", "मधो-मधु", "मधुनी", "मधूनि"]
+            ]
+          },
+          "grouping_note": "एवं अम्बु, श्मश्रु इत्यादयः।",
+          "rule_note": {
+            "rule_sa": "श्मश्रु - श्मश्रुणी श्मश्रूणि, श्मश्रुणा, श्मश्रुणः, श्मश्रुणोः श्मश्रूणाम्, श्मश्रुणि इति णत्वं विशेषः।",
+            "rule_en": "For श्मश्रु (beard), a special note: श्मश्रुणी, श्मश्रूणि, श्मश्रुणा, श्मश्रुणः, श्मश्रुणोः, श्मश्रूणाम्, श्मश्रुणि — i.e. श्मश्रु takes णत्व (न्→ण्) throughout its उकारान्त forms, because of the र् already present within the stem श्मश्र-, exactly like the general णत्व rule given earlier for देव/राम (section 1, word 2) but here triggered word-internally.",
+            "source_pdf_page": 20
+          },
+          "provenance": "direct_read",
+          "source_pdf_page": 20
+        },
+        {
+          "word_num": 28,
+          "stem_class": "ukaranta",
+          "stem_ending": "उ (u)",
+          "gender": "नपुंसकलिङ्गम्",
+          "model_word": "मृदु",
+          "meaning_ta": "மென்மையான",
+          "meaning_en": "Soft",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "मृदु", "मृदुनी", "मृदूनि"],
+              ["द्वितीया", "मृदु", "मृदुनी", "मृदूनि"],
+              ["तृतीया", "मृदुना", "मृदुभ्याम्", "मृदुभिः"],
+              ["चतुर्थी", "मृदुने-मृदवे", "मृदुभ्याम्", "मृदुभ्यः"],
+              ["पञ्चमी", "मृदुनः-मृदोः", "मृदुभ्याम्", "मृदुभ्यः"],
+              ["षष्ठी", "मृदुनः-मृदोः", "मृदुनोः-मृद्वोः", "मृदूनाम्"],
+              ["सप्तमी", "मृदुनि-मृदौ", "मृदुनोः-मृद्वोः", "मृदुषु"],
+              ["संबोधनम्", "मृदो-मृदु", "मृदुनी", "मृदूनि"]
+            ]
+          },
+          "grouping_note": "एवं पटु, लघु, पृथु इत्यादि।",
+          "note": "Like शुचि (word 26), मृदु ('soft') is an adjective and shows two alternate declension tracks (न्-stem मृदुन्- alongside plain उ-stem/गुण मृदो-/मृद्व-), both transcribed verbatim.",
+          "provenance": "direct_read",
+          "source_pdf_page": 20
+        },
+        {
+          "word_num": 29,
+          "stem_class": "rkaranta",
+          "stem_ending": "ऋ (agent-noun type)",
+          "gender": "नपुंसकलिङ्गम्",
+          "model_word": "कर्तृ",
+          "meaning_ta": "செய்கிற",
+          "meaning_en": "One who does",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "कर्तृ", "कर्तृणी", "कर्तॄणि"],
+              ["द्वितीया", "कर्तृ", "कर्तृणी", "कर्तॄणि"],
+              ["तृतीया", "कर्तृणा-कर्त्रा", "कर्तृभ्याम्", "कर्तृभिः"],
+              ["चतुर्थी", "कर्तृणे-कर्त्रे", "कर्तृभ्याम्", "कर्तृभ्यः"],
+              ["पञ्चमी", "कर्तृणः-कर्तुः", "कर्तृभ्याम्", "कर्तृभ्यः"],
+              ["षष्ठी", "कर्तृणः-कर्तुः", "कर्तृणोः-कर्त्रोः", "कर्तॄणाम्"],
+              ["सप्तमी", "कर्तृणि-कर्तरि", "कर्तृणोः-कर्त्रोः", "कर्तृषु"],
+              ["संबोधनम्", "कर्तः-कर्तृ", "कर्तृणि", "कर्तॄणि"]
+            ]
+          },
+          "grouping_note": "एवं नेतृ, ज्ञातृ, गन्तृ, वक्तृ इत्यादयः।",
+          "note": "The षष्ठी/सप्तमी द्विवचन alternate form (printed after the hyphen) was hard to resolve at scan resolution even after repeated high-zoom re-renders — the visible glyph looked like 'कत्रोः' (missing the repha for र् before त्), which is not a valid form. Reconstructed here as 'कर्त्रोः', following the same short-alternate contraction pattern already confirmed directly for पितृ/भ्रातृ (section 1, words 8-9, both showing -त्रोः as their द्विवचन षष्ठी/सप्तमी contraction) — flagged per project policy rather than asserted as a confident direct read for this specific cell.",
+          "provenance": "direct_read_with_one_reconstructed_cell",
+          "source_pdf_page": 21
+        }
+      ]
+    },
+    "4_ajanta_pumlinga_visesha": {
+      "section_num": 4,
+      "name_sa": "अजन्त पुंलिङ्ग विशेषशब्दाः",
+      "name_en": "Special/irregular masculine words ending in vowels",
+      "part_of_book": "भाग-2 विशेष शब्दाः / Section II Special Sabdas (the book's second major division, after भाग-1 'साधारण शब्दाः' = sections 1-3)",
+      "source_pdf_pages": "22-33",
+      "words": [
+        {
+          "word_num": 30,
+          "stem_class": "akaranta",
+          "stem_ending": "अ (a), वृद्धि-गुण patronymic alternation",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "ऐक्ष्वाक",
+          "meaning_ta": "இக்ஷ்வாகு வம்சத்தினன்",
+          "meaning_en": "A Descendant of Ikshvaku",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "ऐक्ष्वाकः", "ऐक्ष्वाकौ", "इक्ष्वाकवः"],
+              ["द्वितीया", "ऐक्ष्वाकं", "ऐक्ष्वाकौ", "इक्ष्वाकून्"],
+              ["तृतीया", "ऐक्ष्वाकेन", "ऐक्ष्वाकाभ्याम्", "इक्ष्वाकुभिः"],
+              ["चतुर्थी", "ऐक्ष्वाकाय", "ऐक्ष्वाकाभ्याम्", "इक्ष्वाकुभ्यः"],
+              ["पञ्चमी", "ऐक्ष्वाकात्", "ऐक्ष्वाकाभ्याम्", "इक्ष्वाकुभ्यः"],
+              ["षष्ठी", "ऐक्ष्वाकस्य", "ऐक्ष्वाकयोः", "इक्ष्वाकूनाम्"],
+              ["सप्तमी", "ऐक्ष्वाके", "ऐक्ष्वाकयोः", "इक्ष्वाकुषु"],
+              ["संबोधनम्", "ऐक्ष्वाक", "ऐक्ष्वाकौ", "इक्ष्वाकवः"]
+            ]
+          },
+          "grouping_note": null,
+          "note": "First word of भाग-2 (special/irregular words) — a patronymic showing वृद्धि (ऐ) in एकवचन/द्विवचन but गुण/mūla (इ) in बहुवचन, a genuine Paninian patronymic vṛddhi-alternation rule, not an error. The same alternation recurs at word 38 (औडुलोमि).",
+          "provenance": "direct_read",
+          "source_pdf_page": 22
+        },
+        {
+          "word_num": 31,
+          "stem_class": "akaranta_with_s_stem_alternate",
+          "stem_ending": "अ (a), header prints 'आकारान्तः' — see note",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "निर्जर",
+          "meaning_ta": "தேவன்",
+          "meaning_en": "Celestial",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "निर्जरः", "निर्जरौ-निर्जरसौ", "निर्जराः-निर्जरसः"],
+              ["द्वितीया", "निर्जरम्-निर्जरसम्", "निर्जरौ-निर्जरसौ", "निर्जरान्-निर्जरसः"],
+              ["तृतीया", "निर्जरेण-निर्जरसा", "निर्जराभ्याम्", "निर्जरैः"],
+              ["चतुर्थी", "निर्जराय-निर्जरसे", "निर्जराभ्याम्", "निर्जरेभ्यः"],
+              ["पञ्चमी", "निर्जरात्-निर्जरसः", "निर्जराभ्याम्", "निर्जरेभ्यः"],
+              ["षष्ठी", "निर्जरस्य-निर्जरसः", "निर्जरयोः-निर्जरसोः", "निर्जराणाम्-निर्जरसाम्"],
+              ["सप्तमी", "निर्जरे-निर्जरसि", "निर्जरयोः-निर्जरसोः", "निर्जरेषु"],
+              ["संबोधनम्", "निर्जरे", "निर्जरौ-निर्जरसौ", "निर्जराः-निर्जरसः"]
+            ]
+          },
+          "grouping_note": "एवं अजर, विजर प्रभृतयः।",
+          "note": "The book's own section header reads '३१. आकारान्तः पुंलिङ्गः निर्जर शब्दः' (ā-ending) though निर्जर itself is अ-ending like देव — transcribed exactly as printed rather than silently corrected to 'अकारान्तः'; likely refers to the word's own alternate स्-stem track (निर्जरस्-) rather than a plain vowel-ending description, or is a simple print label error. Word shows two parallel declension tracks throughout (निर्जर- and निर्जरस्-, an ancient स्-stem 'sumanas'-type alternation), both transcribed verbatim hyphen-joined; संबोधनम् एकवचन uniquely has only one form (निर्जरे, no निर्जरसे alternate), confirmed by direct zoom.",
+          "provenance": "direct_read",
+          "source_pdf_page": 22
+        },
+        {
+          "word_num": 32,
+          "stem_class": "akaranta_with_t_stem_alternate",
+          "stem_ending": "अ (a), न्त-/त्-stem alternation",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "दन्त",
+          "meaning_ta": "பல்",
+          "meaning_en": "Tooth",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "दन्तः", "दन्तौ", "दन्ताः"],
+              ["द्वितीया", "दन्तं", "दन्तौ", "दन्तान्-दतः"],
+              ["तृतीया", "दन्तेन-दता", "दन्ताभ्याम्-दद्भ्याम्", "दन्तैः-दद्भिः"],
+              ["चतुर्थी", "दन्ताय-दते", "दन्ताभ्याम्-दद्भ्याम्", "दन्तेभ्यः-दद्भ्यः"],
+              ["पञ्चमी", "दन्तात्-दतः", "दन्ताभ्याम्-दतोः", "दन्तानाम्-दताम्"],
+              ["षष्ठी", "दन्तस्य-दतः", "दन्तयोः-दतोः", "दन्तानाम्-दताम्"],
+              ["सप्तमी", "दन्ते-दति", "दन्तयोः-दतोः", "दन्तेषु-दत्सु"],
+              ["संबोधनम्", "दन्त", "दन्तौ", "दन्ताः"]
+            ]
+          },
+          "grouping_note": null,
+          "note": "Confirmed at high zoom: पञ्चमी prints with the SAME द्विवचन/बहुवचन forms as षष्ठी in both tracks (दन्ताभ्याम्/दन्तानाम् and दतोः/दताम् — not the दद्भ्याम्/दन्तेभ्यः pattern तृतीया/चतुर्थी use), i.e. पञ्चमी and षष्ठी are printed as fully syncretized past the एकवचन row. This is unusual for a plain अ-stem (contrast पाद/यूष below, structurally parallel words which do NOT show this merge) — likely reflects दन्त's origin as a re-nominalized root-noun (मूलतः दत्) rather than a print error, but flagged here since it could not be cross-verified against a second source.",
+          "provenance": "direct_read",
+          "source_pdf_page": 22
+        },
+        {
+          "word_num": 33,
+          "stem_class": "akaranta_with_d_stem_alternate",
+          "stem_ending": "अ (a), पाद्-/पद्-stem alternation",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "पाद",
+          "meaning_ta": "பாதம்",
+          "meaning_en": "Foot",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "पादः", "पादौ", "पादाः"],
+              ["द्वितीया", "पादं", "पादौ", "पादान्-पदः"],
+              ["तृतीया", "पादेन-पदा", "पादाभ्याम्-पद्भ्याम्", "पादैः-पद्भिः"],
+              ["चतुर्थी", "पादाय-पदे", "पादाभ्याम्-पद्भ्याम्", "पादेभ्यः-पद्भ्यः"],
+              ["पञ्चमी", "पादात्-पदः", "पादाभ्याम्-पद्भ्याम्", "पादेभ्यः-पद्भ्यः"],
+              ["षष्ठी", "पादस्य-पदः", "पादयोः-पदोः", "पादानाम्-पदाम्"],
+              ["सप्तमी", "पादे-पदि", "पादयोः-पदोः", "पादेषु-पत्सु"],
+              ["संबोधनम्", "पाद", "पादौ", "पादाः"]
+            ]
+          },
+          "grouping_note": null,
+          "note": "Unlike दन्त (word 32), पाद keeps पञ्चमी distinct from षष्ठी throughout (पादाभ्याम्/पादेभ्यः vs पादयोः/पादानाम्) — the standard, expected pattern, confirming दन्त's own merge is a genuine peculiarity of that specific word rather than a shared convention for this whole न्त/द्-alternation word class.",
+          "provenance": "direct_read",
+          "source_pdf_page": 23
+        },
+        {
+          "word_num": 34,
+          "stem_class": "akaranta_with_shn_stem_alternate",
+          "stem_ending": "अ (a), यूष-/यूष्ण्-stem alternation",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "यूष",
+          "meaning_ta": "கஞ்சி",
+          "meaning_en": "Soup",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "यूषः", "यूषौ", "यूषाः"],
+              ["द्वितीया", "यूषं", "यूषौ", "यूषान्-यूष्णः"],
+              ["तृतीया", "यूषेण-यूष्णा", "यूषाभ्याम्-यूषभ्याम्", "यूषैः-यूषभिः"],
+              ["चतुर्थी", "यूषाय-यूष्णे", "यूषाभ्याम्-यूषभ्याम्", "यूषेभ्यः-यूषभ्यः"],
+              ["पञ्चमी", "यूषात्-यूष्णः", "यूषाभ्याम्-यूषभ्याम्", "यूषेभ्यः-यूषभ्यः"],
+              ["षष्ठी", "यूषस्य-यूष्णः", "यूषयोः-यूष्णोः", "यूषाणाम्-यूष्णाम्"],
+              ["सप्तमी", "यूषे-यूष्णि", "यूषयोः-यूष्णोः", "यूषेषु-यूषसु"],
+              ["संबोधनम्", "यूष", "यूषौ", "यूषाः"]
+            ]
+          },
+          "grouping_note": null,
+          "provenance": "direct_read",
+          "source_pdf_page": 24
+        },
+        {
+          "word_num": 35,
+          "stem_class": "akaranta_with_contracted_alternate",
+          "stem_ending": "अ (a), मास-/मा-stem alternation",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "मास",
+          "meaning_ta": "மாதம்",
+          "meaning_en": "Month",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "मासः", "मासौ", "मासाः"],
+              ["द्वितीया", "मासं", "मासौ", "मासान्-मासः"],
+              ["तृतीया", "मासेन-मासा", "मासाभ्याम्-माभ्याम्", "मासैः-माभिः"],
+              ["चतुर्थी", "मासाय-मासे", "मासाभ्याम्-माभ्याम्", "मासेभ्यः-माभ्यः"],
+              ["पञ्चमी", "मासात्-मासः", "मासाभ्याम्-माभ्याम्", "मासेभ्यः-माभ्यः"],
+              ["षष्ठी", "मासस्य-मासः", "मासयोः-मासोः", "मासानाम्-मासाम्"],
+              ["सप्तमी", "मासे-मासि", "मासयोः-मासोः", "मासेषु-मास्सु"],
+              ["संबोधनम्", "मास", "मासौ", "मासाः"]
+            ]
+          },
+          "grouping_note": null,
+          "note": "मास's alternate short track contracts all the way to मा- in the instrumental/dative/ablative द्विवचन (माभ्याम्) and बहुवचन (माभिः/माभ्यः), a stronger contraction than दन्त/पाद/यूष's alternates which keep at least a त्/द्/ष् consonant.",
+          "provenance": "direct_read",
+          "source_pdf_page": 25
+        },
+        {
+          "word_num": 36,
+          "stem_class": "akaranta",
+          "stem_ending": "आ (ā, compound agent-noun in -पा)",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "विश्वपा",
+          "meaning_ta": "உலகைக் காப்பாற்றுபவன்",
+          "meaning_en": "Protector of the Universe",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "विश्वपाः", "विश्वपौ", "विश्वपाः"],
+              ["द्वितीया", "विश्वपां", "विश्वपौ", "विश्वपः"],
+              ["तृतीया", "विश्वपा", "विश्वपाभ्याम्", "विश्वपाभिः"],
+              ["चतुर्थी", "विश्वपे", "विश्वपाभ्याम्", "विश्वपाभ्यः"],
+              ["पञ्चमी", "विश्वपः", "विश्वपाभ्याम्", "विश्वपाभ्यः"],
+              ["षष्ठी", "विश्वपः", "विश्वपोः", "विश्वपाम्"],
+              ["सप्तमी", "विश्वपि", "विश्वपोः", "विश्वपासु"],
+              ["संबोधनम्", "विश्वपाः", "विश्वपौ", "विश्वपाः"]
+            ]
+          },
+          "grouping_note": "एवं गोपा, सोमपा, शंखध्मा इत्यादयः।",
+          "provenance": "direct_read",
+          "source_pdf_page": 26
+        },
+        {
+          "word_num": 37,
+          "stem_class": "akaranta",
+          "stem_ending": "आ (ā, proper name)",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "हाहा",
+          "meaning_ta": "ஹாஹா என்ற கந்தர்வன்",
+          "meaning_en": "a Gandharva named Haahaa",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "हाहाः", "हाहौ", "हाहाः"],
+              ["द्वितीया", "हाहां", "हाहौ", "हाहान्"],
+              ["तृतीया", "हाहा", "हाहाभ्याम्", "हाहाभिः"],
+              ["चतुर्थी", "हाहै", "हाहाभ्याम्", "हाहाभ्यः"],
+              ["पञ्चमी", "हाहाः", "हाहाभ्याम्", "हाहाभ्यः"],
+              ["षष्ठी", "हाहाः", "हाहौः", "हाहाम्"],
+              ["सप्तमी", "हाहे", "हाहौः", "हाहासु"],
+              ["संबोधनम्", "हाहाः", "हाहौ", "हाहाः"]
+            ]
+          },
+          "grouping_note": null,
+          "provenance": "direct_read",
+          "source_pdf_page": 27
+        },
+        {
+          "word_num": 38,
+          "stem_class": "ikaranta",
+          "stem_ending": "इ (i), वृद्धि-गुण patronymic alternation",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "औडुलोमि",
+          "meaning_ta": "உடுலோமனின் வழித்தோன்றல்",
+          "meaning_en": "A Descendant of one named 'Uduloma'",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "औडुलोमिः", "औडुलोमी", "उडुलोमाः"],
+              ["द्वितीया", "औडुलोमिं", "औडुलोमी", "उडुलोमान्"],
+              ["तृतीया", "औडुलोमिना", "औडुलोमिभ्याम्", "उडुलोमैः"],
+              ["चतुर्थी", "औडुलोमये", "औडुलोमिभ्याम्", "उडुलोमेभ्यः"],
+              ["पञ्चमी", "औडुलोमेः", "औडुलोमिभ्याम्", "उडुलोमेभ्यः"],
+              ["षष्ठी", "औडुलोमेः", "औडुलोम्योः", "उडुलोमानाम्"],
+              ["सप्तमी", "औडुलोमौ", "औडुलोम्योः", "उडुलोमेषु"],
+              ["संबोधनम्", "औडुलोमे", "औडुलोमी", "उडुलोमाः"]
+            ]
+          },
+          "grouping_note": null,
+          "note": "Same वृद्धि(strong)/गुण(weak) patronymic alternation as ऐक्ष्वाक (word 30). Two cells (षष्ठी एकवचन, सप्तमी एकवचन) print with a wrong middle consonant even after high-zoom re-render — the scan clearly and unambiguously shows 'औषुलोमेः' (ष् not ड्) and 'औहुलोमौ' (ह् not ड्), which cannot be right phonetically (ड्→ष्/ह् is not a valid sandhi anywhere in this paradigm). Corrected here to औडुलोमेः/औडुलोमौ for internal consistency with the rest of the word's own table, but the anomaly is a probable compositor error in the original book, not a misreading on this end — transcribed as corrected with this note rather than reproducing what is very likely a print defect verbatim.",
+          "provenance": "direct_read_with_two_corrected_cells",
+          "source_pdf_page": 27
+        },
+        {
+          "word_num": 39,
+          "stem_class": "ikaranta",
+          "stem_ending": "इ (i), पति-/पत्य्-stem irregular",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "पति",
+          "meaning_ta": "தலைவன், கணவன்",
+          "meaning_en": "Husband",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "पतिः", "पती", "पतयः"],
+              ["द्वितीया", "पतिं", "पती", "पतीन्"],
+              ["तृतीया", "पत्या", "पतिभ्याम्", "पतिभिः"],
+              ["चतुर्थी", "पत्ये", "पतिभ्याम्", "पतिभ्यः"],
+              ["पञ्चमी", "पत्युः", "पतिभ्याम्", "पतिभ्यः"],
+              ["षष्ठी", "पत्युः", "पत्योः", "पतीनां"],
+              ["सप्तमी", "पत्यौ", "पत्योः", "पतिषु"],
+              ["संबोधनम्", "पते", "पती", "पतयः"]
+            ]
+          },
+          "grouping_note": null,
+          "rule_note": {
+            "rule_sa": "समासान्तगपति शब्दे भूपतिना भूपतये भूपतेः भूपतौ इति हरिशब्दवत्।",
+            "rule_en": "When पति is the LAST member of a compound (e.g. भूपति, 'lord of the earth/king'), it declines instead like हरि (section 1, word 3, a plain इ-stem) — भूपतिना, भूपतये, भूपतेः, भूपतौ — NOT with पति's own irregular पत्य्-contraction shown above, which applies only when पति stands alone.",
+            "source_pdf_page": 28
+          },
+          "provenance": "direct_read",
+          "source_pdf_page": 28
+        },
+        {
+          "word_num": 40,
+          "stem_class": "ikaranta",
+          "stem_ending": "इ (i), सखि-/सखाय्-stem highly irregular",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "सखि",
+          "meaning_ta": "நண்பன்",
+          "meaning_en": "A Friend",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "सखा", "सखायौ", "सखायः"],
+              ["द्वितीया", "सखायं", "सखायौ", "सखीन्"],
+              ["तृतीया", "सख्या", "सखिभ्याम्", "सखिभिः"],
+              ["चतुर्थी", "सख्ये", "सखिभ्याम्", "सखिभ्यः"],
+              ["पञ्चमी", "सख्युः", "सखिभ्याम्", "सखिभ्यः"],
+              ["षष्ठी", "सख्युः", "सख्योः", "सखीनाम्"],
+              ["सप्तमी", "सख्यौ", "सख्योः", "सखिषु"],
+              ["संबोधनम्", "सखे", "सखायौ", "सखायः"]
+            ]
+          },
+          "grouping_note": null,
+          "note": "One of the most irregular words in the book so far — प्रथमा एकवचन सखा bears no surface resemblance to the सखि stem at all (comparable to sakhi/sakhā in other Indo-Aryan reference grammars).",
+          "provenance": "direct_read",
+          "source_pdf_page": 28
+        },
+        {
+          "word_num": 41,
+          "stem_class": "ikaranta",
+          "stem_ending": "ई (ī, प्र+धी compound)",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "प्रधी",
+          "meaning_ta": "மிக அதிக புத்தி சக்தி படைத்தவன்",
+          "meaning_en": "A very intelligent person",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "प्रधीः", "प्रध्यौ", "प्रध्यः"],
+              ["द्वितीया", "प्रध्यं", "प्रध्यौ", "प्रध्यः"],
+              ["तृतीया", "प्रध्या", "प्रधीभ्याम्", "प्रधीभिः"],
+              ["चतुर्थी", "प्रध्यै", "प्रधीभ्याम्", "प्रधीभ्यः"],
+              ["पञ्चमी", "प्रध्याः", "प्रधीभ्याम्", "प्रधीभ्यः"],
+              ["षष्ठी", "प्रध्याः", "प्रध्योः", "प्रधीनाम्"],
+              ["सप्तमी", "प्रध्यां", "प्रध्योः", "प्रधीषु"],
+              ["संबोधनम्", "प्रधि", "प्रध्यौ", "प्रध्यः"]
+            ]
+          },
+          "grouping_note": null,
+          "note": "षष्ठी बहुवचन confirmed by direct zoom as प्रधीनाम् (standard -नाम् ending) — contrast वातप्रमी/सुधी/सेनानी below (words 42-44), which show an alternate -याम् ending for the same case, confirmed as a genuine recurring sub-pattern rather than an error (see word 42's note).",
+          "provenance": "direct_read",
+          "source_pdf_page": 29
+        },
+        {
+          "word_num": 42,
+          "stem_class": "ikaranta",
+          "stem_ending": "ई (ī, वात+प्रमी compound)",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "वातप्रमी",
+          "meaning_ta": "வேகமுள்ள மான்",
+          "meaning_en": "A swift antelope",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "वातप्रमीः", "वातप्रम्यौ", "वातप्रम्यः"],
+              ["द्वितीया", "वातप्रमी", "वातप्रम्यौ", "वातप्रमीन्"],
+              ["तृतीया", "वातप्रम्या", "वातप्रमीभ्याम्", "वातप्रमीभिः"],
+              ["चतुर्थी", "वातप्रम्ये", "वातप्रमीभ्याम्", "वातप्रमीभ्यः"],
+              ["पञ्चमी", "वातप्रम्यः", "वातप्रमीभ्याम्", "वातप्रमीभ्यः"],
+              ["षष्ठी", "वातप्रम्यः", "वातप्रम्योः", "वातप्रम्याम्"],
+              ["सप्तमी", "वातप्रमी", "वातप्रम्योः", "वातप्रमीषु"],
+              ["संबोधनम्", "वातप्रमीः", "वातप्रम्यौ", "वातप्रम्यः"]
+            ]
+          },
+          "grouping_note": null,
+          "rule_note": {
+            "rule_sa": "किंबन्त वातप्रमी शब्दे वातप्रम्यं वातप्रम्यः वातप्रम्यि इति २-५-६-७ विभक्त्ये एकवचनेषु रूपाणि।",
+            "rule_en": "When वातप्रमी is the last member of a compound with किम् (an interrogative), its द्वितीया/पञ्चमी/षष्ठी/सप्तमी एकवचन forms shorten to वातप्रम्यं, वातप्रम्यः, वातप्रम्यि respectively.",
+            "source_pdf_page": 29
+          },
+          "note": "षष्ठी बहुवचन वातप्रम्याम् (an -याम् ending, not -नाम्) confirmed by direct zoom, and independently corroborated by the same ending on सुधी and सेनानी (words 43-44) — this is a genuine recurring alternate sub-pattern for some ईकारान्त-विशेष पुंलिङ्ग words, not a print error (contrast प्रधी, word 41, which uses the plain -नाम् ending instead).",
+          "provenance": "direct_read",
+          "source_pdf_page": 29
+        },
+        {
+          "word_num": 43,
+          "stem_class": "ikaranta",
+          "stem_ending": "ई (ī, सु+धी compound)",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "सुधी",
+          "meaning_ta": "புத்திசாலி",
+          "meaning_en": "a wise (person)",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "सुधीः", "सुधियौ", "सुधियः"],
+              ["द्वितीया", "सुधियं", "सुधियौ", "सुधियः"],
+              ["तृतीया", "सुधिया", "सुधीभ्याम्", "सुधीभिः"],
+              ["चतुर्थी", "सुधिये", "सुधीभ्याम्", "सुधीभ्यः"],
+              ["पञ्चमी", "सुधियः", "सुधीभ्याम्", "सुधीभ्यः"],
+              ["षष्ठी", "सुधियः", "सुधियोः", "सुधियाम्"],
+              ["सप्तमी", "सुधियि", "सुधियोः", "सुधीषु"],
+              ["संबोधनम्", "सुधीः", "सुधियौ", "सुधियः"]
+            ]
+          },
+          "grouping_note": "एवं सुश्री, यवक्री, शुद्धधी, परमधी इत्यादयः।",
+          "provenance": "direct_read",
+          "source_pdf_page": 30
+        },
+        {
+          "word_num": 44,
+          "stem_class": "ikaranta",
+          "stem_ending": "ई (ī, सेना+नी compound)",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "सेनानी",
+          "meaning_ta": "படைத் தலைவன்",
+          "meaning_en": "Commander",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "सेनानीः", "सेनान्यौ", "सेनान्यः"],
+              ["द्वितीया", "सेनान्यं", "सेनान्यौ", "सेनान्यः"],
+              ["तृतीया", "सेनान्या", "सेनानीभ्याम्", "सेनानीभिः"],
+              ["चतुर्थी", "सेनान्ये", "सेनानीभ्याम्", "सेनानीभ्यः"],
+              ["पञ्चमी", "सेनान्यः", "सेनानीभ्याम्", "सेनानीभ्यः"],
+              ["षष्ठी", "सेनान्यः", "सेनान्योः", "सेनान्याम्"],
+              ["सप्तमी", "सेनान्यां", "सेनान्योः", "सेनानीषु"],
+              ["संबोधनम्", "सेनानीः", "सेनान्यौ", "सेनान्यः"]
+            ]
+          },
+          "grouping_note": "एवं वेगी, उन्नी, ग्रामणी इत्यादयः।",
+          "provenance": "direct_read",
+          "source_pdf_page": 31
+        },
+        {
+          "word_num": 45,
+          "stem_class": "ukaranta",
+          "stem_ending": "उ (u), क्रोष्टु-/क्रोष्ट्र्-stem highly irregular",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "क्रोष्टु",
+          "meaning_ta": "குள்ளநரி",
+          "meaning_en": "Jackal",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "क्रोष्टा", "क्रोष्टारौ", "क्रोष्टारः"],
+              ["द्वितीया", "क्रोष्टारं", "क्रोष्टारौ", "क्रोष्टून्"],
+              ["तृतीया", "क्रोष्ट्रा-क्रोष्टुना", "क्रोष्टुभ्याम्", "क्रोष्टुभिः"],
+              ["चतुर्थी", "क्रोष्ट्रे-क्रोष्टवे", "क्रोष्टुभ्याम्", "क्रोष्टुभ्यः"],
+              ["पञ्चमी", "क्रोष्टुः-क्रोष्टोः", "क्रोष्टुभ्याम्", "क्रोष्टुभ्यः"],
+              ["षष्ठी", "क्रोष्टुः-क्रोष्टोः", "क्रोष्ट्रोः-क्रोष्ट्वोः", "क्रोष्टूनाम्"],
+              ["सप्तमी", "क्रोष्टरि-क्रोष्टौ", "क्रोष्ट्रोः-क्रोष्ट्वोः", "क्रोष्टुषु"],
+              ["संबोधनम्", "क्रोष्टो", "क्रोष्टारौ", "क्रोष्टारः"]
+            ]
+          },
+          "grouping_note": null,
+          "note": "Blends an ऋकारान्त agent-noun-style strong stem (क्रोष्टा/क्रोष्टारौ/क्रोष्टारः, like धातृ/कर्तृ) with a plain उकारान्त weak stem (क्रोष्टुना/क्रोष्टुभ्याम्) — the book's own alternates in तृतीया-सप्तमी show both the ऋ-agent-noun contraction (क्रोष्ट्रा, क्रोष्ट्रे, क्रोष्टोः, क्रोष्ट्रोः) and the plain उ-stem form (क्रोष्टुना, क्रोष्टवे, क्रोष्टुभ्याम्) side by side.",
+          "provenance": "direct_read",
+          "source_pdf_page": 32
+        },
+        {
+          "word_num": 46,
+          "stem_class": "ukaranta",
+          "stem_ending": "ऊ (ū, वर्षा+भू compound)",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "वर्षाभू",
+          "meaning_ta": "தவளை",
+          "meaning_en": "Frog",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "वर्षाभूः", "वर्षाभ्वौ", "वर्षाभ्वः"],
+              ["द्वितीया", "वर्षाभ्वं", "वर्षाभ्वौ", "वर्षाभ्वः"],
+              ["तृतीया", "वर्षाभ्वा", "वर्षाभूभ्याम्", "वर्षाभूभिः"],
+              ["चतुर्थी", "वर्षाभ्वे", "वर्षाभूभ्याम्", "वर्षाभूभ्यः"],
+              ["पञ्चमी", "वर्षाभ्वः", "वर्षाभूभ्याम्", "वर्षाभूभ्यः"],
+              ["षष्ठी", "वर्षाभ्वः", "वर्षाभ्वोः", "वर्षाभ्वाम्"],
+              ["सप्तमी", "वर्षाभ्वि", "वर्षाभ्वोः", "वर्षाभूषु"],
+              ["संबोधनम्", "वर्षाभूः", "वर्षाभ्वौ", "वर्षाभ्वः"]
+            ]
+          },
+          "grouping_note": "एवं उलू, करभू, खलपू, [अस्पष्ट], पुनर्भू, सुलू, हूहू इत्यादयः। स्त्रियामप्येवम्।",
+          "rule_note": {
+            "rule_sa": "हूहू हूहू शब्दस्य द्वितीया विभक्तिः इति परिवर्तते। दव्वितीये: हूहूं हूहौ हूहून्।",
+            "rule_en": "Special footnote (marked with a star): the grouped word हूहू (a Gandharva name) uniquely does NOT follow वर्षाभू's contracted-भ्व् pattern in द्वितीया — its own द्वितीया is हूहूं, हूहौ, हूहून् (a plain, uncontracted ऊ-stem shape) instead.",
+            "source_pdf_page": 32
+          },
+          "note": "One name in the grouping note ('[अस्पष्ट]', transcribed provisionally, glyph unclear even at zoom — between खलपू and पुनर्भू) could not be confidently read; flagged rather than guessed. The note 'स्त्रियामप्येवम्' ('likewise in the feminine gender') states this same वर्षाभू declension pattern also applies to feminine words of the same shape.",
+          "provenance": "direct_read_with_one_illegible_grouped_name",
+          "source_pdf_page": 32
+        },
+        {
+          "word_num": 47,
+          "stem_class": "ukaranta",
+          "stem_ending": "ऊ (ū, स्व+भू compound)",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "स्वभू",
+          "meaning_ta": "விஷ்ணு",
+          "meaning_en": "Vishnu",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "स्वभूः", "स्वभुवौ", "स्वभुवः"],
+              ["द्वितीया", "स्वभुवं", "स्वभुवौ", "स्वभुवः"],
+              ["तृतीया", "स्वभुवा", "स्वभूभ्याम्", "स्वभूभिः"],
+              ["चतुर्थी", "स्वभुवे", "स्वभूभ्याम्", "स्वभूभ्यः"],
+              ["पञ्चमी", "स्वभुवः", "स्वभूभ्याम्", "स्वभूभ्यः"],
+              ["षष्ठी", "स्वभुवः", "स्वभुवोः", "स्वभुवाम्"],
+              ["सप्तमी", "स्वभुवि", "स्वभुवोः", "स्वभूषु"],
+              ["संबोधनम्", "स्वभूः", "स्वभुवौ", "स्वभुवः"]
+            ]
+          },
+          "grouping_note": null,
+          "note": "Contrast with वर्षाभू (word 46): स्वभू uses गुण (भुव्) rather than वर्षाभू's contraction (भ्व्) in the weak forms — दो genuinely different ऊ-compound sub-patterns within the same book, both ending in -भू.",
+          "provenance": "direct_read",
+          "source_pdf_page": 32
+        },
+        {
+          "word_num": 48,
+          "stem_class": "rkaranta",
+          "stem_ending": "ऋ (bare root-noun, no agent-noun suffix)",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "नृ",
+          "meaning_ta": "மனிதன்",
+          "meaning_en": "Man",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "ना", "नरौ", "नरः"],
+              ["द्वितीया", "नरं", "नरौ", "नॄन्"],
+              ["तृतीया", "नरा", "नृभ्याम्", "नृभिः"],
+              ["चतुर्थी", "नरे", "नृभ्याम्", "नृभ्यः"],
+              ["पञ्चमी", "नुः", "नृभ्याम्", "नृभ्यः"],
+              ["षष्ठी", "नुः", "नरोः", "नृणाम्-नॄणाम्"],
+              ["सप्तमी", "नरि", "नरोः", "नृषु"],
+              ["संबोधनम्", "नः", "नरौ", "नरः"]
+            ]
+          },
+          "grouping_note": null,
+          "note": "The तृतीया/चतुर्थी एकवचन and षष्ठी/सप्तमी द्विवचन cells (नरा, नरे, नरोः) were printed with a glyph that stayed ambiguous between 'न्र' and 'त्र' even after repeated high-zoom re-renders. Reconstructed here as नरा/नरे/नरोः (गुण of ऋ→अर्, the classically expected short-stem contraction for this bare ऋ root-noun) rather than asserted as a fully confident direct read — flagged per project policy.",
+          "provenance": "direct_read_with_reconstructed_cells",
+          "source_pdf_page": 33
+        },
+        {
+          "word_num": 49,
+          "stem_class": "aikaranta",
+          "stem_ending": "ऐ (ai)",
+          "gender": "पुंलिङ्गम्",
+          "model_word": "रै",
+          "meaning_ta": "செல்வம்",
+          "meaning_en": "Wealth",
+          "declension_table": {
+            "headers": ["विभक्तिः", "एकवचनम्", "द्विवचनम्", "बहुवचनम्"],
+            "rows": [
+              ["प्रथमा", "राः", "रायौ", "रायः"],
+              ["द्वितीया", "रायं", "रायौ", "रायः"],
+              ["तृतीया", "राया", "राभ्याम्", "राभिः"],
+              ["चतुर्थी", "राये", "राभ्याम्", "राभ्यः"],
+              ["पञ्चमी", "रायः", "राभ्याम्", "राभ्यः"],
+              ["षष्ठी", "रायः", "रायोः", "रायाम्"],
+              ["सप्तमी", "रायि", "रायोः", "रासु"],
+              ["संबोधनम्", "राः", "रायौ", "रायः"]
+            ]
+          },
+          "grouping_note": null,
+          "note": "Last word of section 4 — the book's only ऐकारान्त पुंलिङ्ग example (parallel in role to ऐक्ष्वाक's वृद्धि but here the ऐ is the stem's own permanent ending, not an alternating patronymic vṛddhi). Section 5 (अथ अजन्त स्त्रीलिङ्ग विशेष शब्दाः) begins immediately after on the same PDF page (34) with word #50 अम्बा — confirmed by direct read but not yet transcribed.",
+          "provenance": "direct_read",
+          "source_pdf_page": 33
+        }
+      ]
+    }
+  },
+  "notes": [
+    "Section 4 ends at word 49 (रै), closing भाग-2's first subsection (अजन्त पुंलिङ्ग विशेषशब्दाः). PDF page 34 opens section 5, '५. अथ अजन्त स्त्रीलिङ्ग विशेष शब्दाः' (special feminine words), starting word #50 अम्बा — confirmed by direct read but not yet transcribed into this file."
+  ]
+}

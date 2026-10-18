@@ -1,0 +1,3298 @@
+{
+  "title": "समासः — A Compound-Formation Rule Book",
+  "subtitle": "Compiled with reference to G. Mahabaleshwara भट्ट's 'समासः' (Samskrita Bharati, Bengaluru), cross-referenced to पाणिनि's अष्टाध्यायी and the लघुसिद्धान्तकौमुदी of वरदराज",
+  "source_note": "Rule topics, ordering, and pedagogical examples follow the structure of the source manual 'समासः' by Vidwan G. Mahabaleshwara भट्ट (Samskrita Bharati, 'Aksharam', Bengaluru; ISBN 81-88220-02-7), a study book for Samasa prepared for Samskrita Bharati students. The source states many rules with अष्टाध्यायी सूत्र citations but without expounding their meaning in its own Chapter 2 (examples chapter); fuller सूत्र citations appear in its Chapter 4 (detailed chapter). This JSON restates rule explanations and cross-references independently in our own words, verifies सूत्र numbering against the standard अष्टाध्यायी, and reproduces the source's own worked examples (which are themselves few-word traditional grammatical forms, not the author's original prose) rather than copying explanatory sentences verbatim.",
+  "how_to_read": {
+    "ashtadhyayi_ref": "Chapter.Pada.Sutra number in पाणिनि's अष्टाध्यायी (e.g. 2.2.1)",
+    "vigraha": "विग्रहः — the analytical (expanded) sentence/phrase that the compound resolves into",
+    "purvapada / uttarapada": "the first member / second (final) member of a compound",
+    "pradhana": "प्राधान्य — which member's sense is 'dominant' (governs external syntax); this is how the four major समास classes (तत्पुरुष, बहुव्रीहि, dvandva, अव्ययीभाव) are told apart",
+    "process": "how the compound is formed grammatically per this rule (e.g. vibhakti-lopa = case-ending elision on samasing)"
+  },
+  "book_structure_note": "The source book covers: Ch.1 definitions (samasa/vigraha/bhedah/samasartha, discursive prose), Ch.2 one worked example per subtype (pp.6-16), Ch.3 purva/uttara-pada-specific morphological rules incl. gender and samasanta suffixes (pp.17-33), Ch.4 detailed treatment with sutra citations, subtype by subtype (pp.34-58), Ch.5 cautions (pp.59-63), Ch.6 prakriya/derivation-step walkthroughs (pp.64-67), Ch.7 exercises + answer key (pp.68-82). This rulebook covers Ch.3 and Ch.4 in full -- the technical core of the source -- organized below by the four samasa classes (tatpurusha, bahuvrihi, dvandva, avyayibhava) plus a separate purvapada_uttarapada_rules section for the Ch.3 morphology that cuts across all four. Ch.1 (definitions/theory prose) and Ch.5-7 (cautions, derivation walkthroughs, exercises) are not included, as they are discursive or pedagogical rather than rule-book material; see summary_counts.status for exact coverage.",
+  "tatpurusha": [
+    {
+      "id": "tatpurusha-1",
+      "sanskrit_name": "प्रथमातत्पुरुषः",
+      "iast_name": "प्रथमातत्पुरुषः",
+      "english_name": "Nominative(-sense) Tatpurusha — 'part/position' words compounded with the whole",
+      "rule": "Two sub-rules, both compounding words that stand in the same case (समानाधिकरण, loosely 'nominative-sense') with the noun they qualify: (1) The words पूर्व, apara, adhara, uttara (denoting a portion — front/back/lower/upper part) and ardha (half) compound with a padstem denoting the whole of which they are a part, provided the 'whole' word is singular/one entity. (2) Any word denoting 'a portion' (एकदेशवाची) compounds with a time-word (कालवाची), e.g. madhyama, पूर्व, apara, सायम् + ahan/रात्रि.",
+      "sutra_devanagari": "पूर्वापराधरोत्तरम् एकदेशिनैकाधिकरणे",
+      "sutra_iast": "पूर्वापराधरोत्तरम् एकदेशिनैकाधिकरणे",
+      "ashtadhyayi_ref": "2.2.1",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.2 §2.1.1 row 1 (p.6); Ch.4 §4.1.1.1 (pp.34-35)",
+      "process": "अदेश-rahita (no substitution) + vibhakti-lopa on समास — the first word stays in its stem/nominative-sense form and both members' original case endings drop, replaced by the compound's own single ending",
+      "flagged_nuance": "The source's Ch.2 table example for this row is vigraha 'अर्धं ग्रामस्य' → समास 'अर्धग्रामः'. Its own Ch.4 footnote (f, p.35) qualifies this: word order matters — 'ग्रामार्धः' (ग्राम first) would instead be a षष्ठीतत्पुरुष, requiring the masculine noun ardha in the vigraha ('ग्रामस्य अर्धः'); only 'ardha-' placed first, as in अर्धपिप्पली below, is this (प्रथमा) type. This nuance is preserved here rather than silently resolved, since it affects how the rule should be worded.",
+      "examples": [
+        {
+          "sandhi": "पूर्वं कायस्य = पूर्वकायः",
+          "iast": "पूर्वं कायस्य = पूर्वकायः",
+          "gloss": "the front part of the body"
+        },
+        {
+          "sandhi": "अपरं गृहस्य = अपरगृहम्",
+          "iast": "अपरं गृहस्य = अपरगृहम्",
+          "gloss": "the back part of the house"
+        },
+        {
+          "sandhi": "अधरं भवनस्य = अधरभवनम्",
+          "iast": "अधरं bhavanasya = adharabhavanam",
+          "gloss": "the lower part of the building"
+        },
+        {
+          "sandhi": "उत्तरं रात्रे = उत्तररात्रः",
+          "iast": "उत्तरं रात्रे = उत्तररात्रः",
+          "gloss": "the latter part of the night"
+        },
+        {
+          "sandhi": "अर्धं पिप्पल्याः = अर्धपिप्पली",
+          "iast": "अर्धं पिप्पल्याः = अर्धपिप्पली",
+          "gloss": "half a long-pepper"
+        },
+        {
+          "sandhi": "मध्यम् अह्नः = मध्याह्नः",
+          "iast": "madhyam अह्नः = मध्याह्नः",
+          "gloss": "midday (noon)"
+        },
+        {
+          "sandhi": "पूर्वम् अह्नः = पूर्वाह्णः",
+          "iast": "पूर्वम् अह्नः = पूर्वाह्णः",
+          "gloss": "forenoon"
+        },
+        {
+          "sandhi": "सायम् अह्नः = सायाह्नः",
+          "iast": "सायम् अह्नः = सायाह्नः",
+          "gloss": "evening-time"
+        },
+        {
+          "sandhi": "अपरम् अह्नः = अपराह्णः",
+          "iast": "aparam अह्नः = अपराह्णः",
+          "gloss": "afternoon"
+        },
+        {
+          "sandhi": "मध्यं रात्रेः = मध्यरात्रः",
+          "iast": "मध्यं रात्रेः = मध्यरात्रः",
+          "gloss": "midnight"
+        },
+        {
+          "sandhi": "पश्चिमं रात्रेः = पश्चिमरात्रः",
+          "iast": "पश्चिमं रात्रेः = पश्चिमरात्रः",
+          "gloss": "the last part of the night"
+        }
+      ]
+    },
+    {
+      "id": "tatpurusha-2",
+      "sanskrit_name": "द्वितीयातत्पुरुषः",
+      "iast_name": "द्वितीयातत्पुरुषः",
+      "english_name": "Accusative Tatpurusha",
+      "rule": "A word ending in the accusative (द्वितीया) case compounds with one of a closed list of past/present participial or desiderative uttarapadas: श्रित, अतीत, patita, gata, atyasta, प्राप्त, आपन्न (by सूत्र), extended by a वार्तिक to also cover gamya, गामिन्, and बुभुक्षु-type words. The uttarapada must be exactly one of this list — nothing else, however similar in sense, qualifies.",
+      "sutra_devanagari": "द्वितीया श्रितातीतपतितगतात्यस्तप्राप्तापन्नैः",
+      "sutra_iast": "द्वितीया श्रितातीतपतितगतात्यस्तप्राप्तापन्नैः",
+      "ashtadhyayi_ref": "2.1.24",
+      "related_ashtadhyayi": [
+        "वार्तिक: गम्यादीनाम् उपसंख्यानम् (extends the list to gamya/गामिन्/बुभुक्षु-type words)"
+      ],
+      "book_ref": "समासः, Ch.4 §4.1.1.2 (p.35)",
+      "process": "vibhakti-lopa — both members' case endings drop on समास",
+      "flagged_nuance": "The book stresses the list is closed: 'अन्नं भुक्तवान्' (one who has eaten food) does NOT compound to 'अन्नभुक्तवान्', because भुक्तवान् is not on the श्रित-list, even though it looks structurally identical to the examples that do compound.",
+      "examples": [
+        {
+          "sandhi": "कृष्णं श्रितः = कृष्णश्रितः",
+          "iast": "कृष्णं श्रितः = कृष्णश्रितः",
+          "gloss": "one who has taken refuge in Krishna"
+        },
+        {
+          "sandhi": "दुःखम् अतीतः = दुःखातीतः",
+          "iast": "दुःखम् अतीतः = दुःखातीतः",
+          "gloss": "one who has passed beyond sorrow"
+        },
+        {
+          "sandhi": "कूपं पतितः = कूपपतितः",
+          "iast": "कूपं पतितः = कूपपतितः",
+          "gloss": "fallen into a well"
+        },
+        {
+          "sandhi": "ग्रामं गतः = ग्रामगतः",
+          "iast": "ग्रामं गतः = ग्रामगतः",
+          "gloss": "gone to the village"
+        },
+        {
+          "sandhi": "मार्गम् अत्यस्तः = मार्गात्यस्तः",
+          "iast": "मार्गम् अत्यस्तः = मार्गात्यस्तः",
+          "gloss": "thrown beyond the path"
+        },
+        {
+          "sandhi": "शालां प्राप्तः = शालाप्राप्तः",
+          "iast": "शालां प्राप्तः = शालाप्राप्तः",
+          "gloss": "arrived at the hall"
+        },
+        {
+          "sandhi": "संशयम् आपन्नः = संशयापन्नः",
+          "iast": "संशयम् आपन्नः = संशयापन्नः",
+          "gloss": "fallen into doubt"
+        },
+        {
+          "sandhi": "ग्रामं गमी = ग्रामगमी",
+          "iast": "ग्रामं गमी = ग्रामगमी",
+          "gloss": "one who goes to the village"
+        },
+        {
+          "sandhi": "नगरं गामी = नगरगामी",
+          "iast": "नगरं गामी = नगरगामी",
+          "gloss": "one who goes to the city"
+        },
+        {
+          "sandhi": "अन्नं बुभुक्षुः = अन्नबुभुक्षुः",
+          "iast": "अन्नं बुभुक्षुः = अन्नबुभुक्षुः",
+          "gloss": "desirous of eating food"
+        }
+      ]
+    },
+    {
+      "id": "tatpurusha-3a",
+      "sanskrit_name": "तृतीयातत्पुरुषः (सामान्यशब्दैः)",
+      "iast_name": "तृतीयातत्पुरुषः (with पूर्व/सदृश/sama etc.)",
+      "english_name": "Instrumental Tatpurusha — with comparison/deficiency/quarrel words",
+      "rule": "A word ending in the instrumental (तृतीया) case compounds with one of: पूर्व, सदृश, sama, ऊनार्थ (words meaning 'deficient by'), kalaha, निपुण, मिश्र, संमिश्र, श्लक्ष्ण, avara.",
+      "sutra_devanagari": "पूर्वसदृशसमोनार्थकलहनिपुणमिश्रश्लक्ष्णैः",
+      "sutra_iast": "पूर्वसदृशसमोनार्थकलहनिपुणमिश्रश्लक्ष्णैः",
+      "ashtadhyayi_ref": "2.1.31",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.1.1.3(1) (pp.35-36)",
+      "process": "vibhakti-lopa",
+      "examples": [
+        {
+          "sandhi": "मासेन पूर्वः = मासपूर्वः",
+          "iast": "मासेन पूर्वः = मासपूर्वः",
+          "gloss": "earlier by a month"
+        },
+        {
+          "sandhi": "आचारेण निपुणः = आचारनिपुणः",
+          "iast": "आचारेण निपुणः = आचारनिपुणः",
+          "gloss": "skilled in conduct"
+        },
+        {
+          "sandhi": "मात्रा सदृशः = मातृसदृशः",
+          "iast": "मात्रा सदृशः = मातृसदृशः",
+          "gloss": "resembling the mother"
+        },
+        {
+          "sandhi": "गुडेन मिश्रः = गुडमिश्रः",
+          "iast": "गुडेन मिश्रः = गुडमिश्रः",
+          "gloss": "mixed with jaggery"
+        },
+        {
+          "sandhi": "पित्रा समः = पितृसमः",
+          "iast": "पित्रा समः = पितृसमः",
+          "gloss": "equal to the father"
+        },
+        {
+          "sandhi": "गुडेन संमिश्रः = गुडसंमिश्रः",
+          "iast": "गुडेन संमिश्रः = गुडसंमिश्रः",
+          "gloss": "thoroughly mixed with jaggery"
+        },
+        {
+          "sandhi": "माषेण ऊनम् = माषोनम्",
+          "iast": "माषेण ऊनम् = माषोनम्",
+          "gloss": "deficient by a माष (a weight unit)"
+        },
+        {
+          "sandhi": "आचारेण श्लक्ष्णः = आचारश्लक्ष्णः",
+          "iast": "आचारेण श्लक्ष्णः = आचारश्लक्ष्णः",
+          "gloss": "gentle in conduct"
+        },
+        {
+          "sandhi": "माषेण विकलम् = माषविकलम्",
+          "iast": "माषेण vikalam = माषविकलम्",
+          "gloss": "short by a माष"
+        },
+        {
+          "sandhi": "मासेन अवरः = मासावरः",
+          "iast": "मासेन अवरः = मासावरः",
+          "gloss": "less by a month"
+        },
+        {
+          "sandhi": "वाचा कलहः = वाक्कलहः",
+          "iast": "वाचा कलहः = वाक्कलहः",
+          "gloss": "a quarrel by words"
+        }
+      ]
+    },
+    {
+      "id": "tatpurusha-3b",
+      "sanskrit_name": "तृतीयातत्पुरुषः (कृदन्तेन)",
+      "iast_name": "तृतीयातत्पुरुषः (with a कृदन्त uttarapada)",
+      "english_name": "Instrumental Tatpurusha — with a participial (कृत्-formed) second member",
+      "rule": "An instrumental-ending word compounds, generally (प्रायः — not invariably), with a कृदन्त (participle) as either its agent (कर्तृ) or its instrument (करण).",
+      "sutra_devanagari": "कर्तृकरणे कृता बहुलम्",
+      "sutra_iast": "कर्तृकरणे कृता bahulam",
+      "ashtadhyayi_ref": "2.1.32",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.1.1.3(2) (p.36)",
+      "process": "vibhakti-lopa",
+      "flagged_nuance": "The सूत्र's own word 'bahulam' (generally/not invariably) is illustrated by a negative example: 'दण्डेन ताडितवान्' does NOT compound to 'दण्डताडितवान्', despite matching the pattern of the other examples.",
+      "examples": [
+        {
+          "sandhi": "हरिणा त्रातः = हरित्रातः",
+          "iast": "हरिणा त्रातः = हरित्रातः",
+          "gloss": "saved by Hari"
+        },
+        {
+          "sandhi": "नखैः भिन्नः = नखभिन्नः",
+          "iast": "नखैः भिन्नः = नखभिन्नः",
+          "gloss": "torn by claws/nails"
+        },
+        {
+          "sandhi": "तेन कृतम् = तत्कृतम्",
+          "iast": "tena कृतम् = तत्कृतम्",
+          "gloss": "done by him"
+        },
+        {
+          "sandhi": "खड्गेन छिन्नः = खड्गच्छिन्नः",
+          "iast": "खड्गेन छिन्नः = खड्गच्छिन्नः",
+          "gloss": "cut by a sword"
+        },
+        {
+          "sandhi": "कालिदासेन रचितम् = कालिदासरचितम्",
+          "iast": "कालिदासेन racitam = कालिदासरचितम्",
+          "gloss": "composed by Kalidasa"
+        },
+        {
+          "sandhi": "परशुना विच्छिन्नः = परशुविच्छिन्नः",
+          "iast": "परशुना विच्छिन्नः = परशुविच्छिन्नः",
+          "gloss": "cut apart by an axe"
+        }
+      ]
+    },
+    {
+      "id": "tatpurusha-3c",
+      "sanskrit_name": "तृतीयातत्पुरुषः (संस्कारद्रव्य/भक्ष्यमिश्रीकरण)",
+      "iast_name": "तृतीयातत्पुरुषः (seasoning-substance / mixing-with-food)",
+      "english_name": "Instrumental Tatpurusha — a food seasoned by, or a food mixed with, another",
+      "rule": "Two related rules: a food-word (अन्नवाचिन्, e.g. rice) compounds with an instrumental word denoting the substance it is prepared/seasoned with (curd, milk); and an edible-word (भक्ष्यवाचिन्) compounds with an instrumental word denoting what is mixed into it (jaggery etc.).",
+      "sutra_devanagari": "अन्नेन व्यञ्जनम् (साधनार्थं समासः) / भक्ष्येण मिश्रीकरणम्",
+      "sutra_iast": "annena व्यञ्जनम् / भक्ष्येण मिश्रीकरणम्",
+      "ashtadhyayi_ref": "2.1.34 and 2.1.35",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.1.1.3(3) (p.36)",
+      "process": "vibhakti-lopa",
+      "examples": [
+        {
+          "sandhi": "दध्ना ओदनः = दध्योदनः",
+          "iast": "दध्ना ओदनः = दध्योदनः",
+          "gloss": "rice with curd"
+        },
+        {
+          "sandhi": "क्षीरेण ओदनः = क्षीरोदनः",
+          "iast": "क्षीरेण ओदनः = क्षीरोदनः",
+          "gloss": "rice with milk"
+        },
+        {
+          "sandhi": "गुडेन पृथुकाः = गुडपृथुकाः",
+          "iast": "गुडेन पृथुकाः = गुडपृथुकाः",
+          "gloss": "flattened rice mixed with jaggery"
+        },
+        {
+          "sandhi": "गुडेन धानाः = गुडधानाः",
+          "iast": "गुडेन धानाः = गुडधानाः",
+          "gloss": "roasted barley mixed with jaggery"
+        }
+      ]
+    },
+    {
+      "id": "tatpurusha-4",
+      "sanskrit_name": "चतुर्थीतत्पुरुषः",
+      "iast_name": "चतुर्थीतत्पुरुषः",
+      "english_name": "Dative Tatpurusha",
+      "rule": "A dative-ending word compounds with one of six words: tadartha ('that for which' — used only where a raw material becomes a product, प्रकृतिविकृतिभाव), artha (this compound is obligatory/nitya, and the whole compound takes the gender of the qualified noun rather than artha's own), bali, hita, sukha, रक्षित.",
+      "sutra_devanagari": "चतुर्थी तदर्थार्थबलिहितसुखरक्षितैः",
+      "sutra_iast": "चतुर्थी तदर्थार्थबलिहितसुखरक्षितैः",
+      "ashtadhyayi_ref": "2.1.36",
+      "related_ashtadhyayi": [
+        "वार्तिक: arthena नित्यसमासो विशेष्यलिङ्गता ceti vaktavyam"
+      ],
+      "book_ref": "समासः, Ch.4 §4.1.1.4 (pp.36-37)",
+      "process": "vibhakti-lopa",
+      "flagged_nuance": "The book explicitly warns that beyond these six words, a dative-ending word does NOT compound with anything else (rare प्रकृतिविकृति exceptions aside). It gives 'गुरुदक्षिणा' as a trap: this looks like it could be चतुर्थीतत्पुरुष ('gurave दक्षिणा') but its real vigraha is genitive — 'गुरोः दक्षिणा' (i.e. it is a षष्ठीतत्पुरुष, see tatpurusha-6).",
+      "examples": [
+        {
+          "sandhi": "कुण्डलाय हिरण्यम् = कुण्डलहिरण्यम्",
+          "iast": "कुण्डलाय हिरण्यम् = कुण्डलहिरण्यम्",
+          "gloss": "gold meant for an earring (tadartha: gold=raw material, earring=product)"
+        },
+        {
+          "sandhi": "यूपाय दारु = यूपदारु",
+          "iast": "यूपाय दारु = यूपदारु",
+          "gloss": "wood meant for a sacrificial post"
+        },
+        {
+          "sandhi": "भूतेभ्यो बलिः = भूतबलिः",
+          "iast": "भूतेभ्यो बलिः = भूतबलिः",
+          "gloss": "an offering for spirits"
+        },
+        {
+          "sandhi": "गवे हितम् = गोहितम्",
+          "iast": "gave hitam = gohitam",
+          "gloss": "beneficial to the cow"
+        },
+        {
+          "sandhi": "गवे सुखम् = गोसुखम्",
+          "iast": "gave sukham = gosukham",
+          "gloss": "pleasant for the cow"
+        },
+        {
+          "sandhi": "गवे रक्षितम् = गोरक्षितम्",
+          "iast": "gave रक्षितम् = गोरक्षितम्",
+          "gloss": "protected for the cow"
+        },
+        {
+          "sandhi": "द्विजाय अयम् = द्विजार्थः (सूपः)",
+          "iast": "द्विजाय ayam = द्विजार्थः (सूपः)",
+          "gloss": "this (soup), meant for a brahmin — masculine to agree with सूपः"
+        },
+        {
+          "sandhi": "छात्राय इयम् = छात्रार्था (यवागूः)",
+          "iast": "छात्राय iyam = छात्रार्था (यवागूः)",
+          "gloss": "this (gruel), meant for a student — feminine to agree with यवागूः"
+        },
+        {
+          "sandhi": "शिशवे इदम् = शिश्वर्थम् (पयः)",
+          "iast": "शिशवे idam = शिश्वर्थम् (पयः)",
+          "gloss": "this (milk), meant for an infant — neuter to agree with पयः"
+        }
+      ]
+    },
+    {
+      "id": "tatpurusha-5a",
+      "sanskrit_name": "पञ्चमीतत्पुरुषः (भयशब्दैः)",
+      "iast_name": "पञ्चमीतत्पुरुषः (with bhaya-words)",
+      "english_name": "Ablative Tatpurusha — fear/dread from something",
+      "rule": "An ablative-ending word compounds with bhaya, भीत, भीति, or भी (all meaning fear/afraid) as uttarapada.",
+      "sutra_devanagari": "पञ्चमी भयेन",
+      "sutra_iast": "पञ्चमी bhayena",
+      "ashtadhyayi_ref": "2.1.37",
+      "related_ashtadhyayi": [
+        "वार्तिक: भयभीतभीतिभीभिर् iti वाच्यम् (extends bhayena to the भीत/भीति/भी word-forms too)"
+      ],
+      "book_ref": "समासः, Ch.4 §4.1.1.5(i) (p.37)",
+      "process": "vibhakti-lopa",
+      "flagged_nuance": "Only bhaya/भीत/भीति/भी qualify — 'चोराद् रक्षितः' and 'व्याघ्रात् त्रातः' do NOT compound despite the parallel sense. The commentators (भाष्यकार) do however allow two further exceptions outside this word-list: 'ग्रामान् निर्गतः → ग्रामनिर्गतः' and 'अधर्माद् जुगुप्सुः → अधर्मजुगुप्सुः'.",
+      "examples": [
+        {
+          "sandhi": "चोराद् भयम् = चोरभयम्",
+          "iast": "चोराद् bhayam = corabhayam",
+          "gloss": "fear from a thief"
+        },
+        {
+          "sandhi": "वृकात् भीतिः = वृकभीतिः",
+          "iast": "वृकात् भीतिः = वृकभीतिः",
+          "gloss": "fear from a wolf"
+        },
+        {
+          "sandhi": "व्याघ्राद् भीतः = व्याघ्रभीतः",
+          "iast": "व्याघ्राद् भीतः = व्याघ्रभीतः",
+          "gloss": "afraid of a tiger"
+        },
+        {
+          "sandhi": "वृश्चिकात् भीः = वृश्चिकभीः",
+          "iast": "वृश्चिकात् भीः = वृश्चिकभीः",
+          "gloss": "fear of a scorpion"
+        }
+      ]
+    },
+    {
+      "id": "tatpurusha-5b",
+      "sanskrit_name": "पञ्चमीतत्पुरुषः (अपेतादिशब्दैः)",
+      "iast_name": "पञ्चमीतत्पुरुषः (with apeta-words)",
+      "english_name": "Ablative Tatpurusha — separated/fallen/freed from something",
+      "rule": "A small, closed set of ablative-ending words compound with apeta, अपोढ, mukta, patita, or apatrasta as uttarapada.",
+      "sutra_devanagari": "अपेतापोढमुक्तपतितापत्रस्तैरल्पशः",
+      "sutra_iast": "अपेतापोढमुक्तपतितापत्रस्तैर् अल्पशः",
+      "ashtadhyayi_ref": "2.1.38",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.1.1.5(ii) (p.38)",
+      "process": "vibhakti-lopa",
+      "flagged_nuance": "The सूत्र's own word 'अल्पशः' (sparingly) signals this compound is not fully general even within the five listed words: the book notes 'प्रासादात् पतितः' does NOT compound to 'प्रासादपतितः', and that whether the compound applies has to be checked against actual attested (शिष्ट-prayoga) usage rather than assumed.",
+      "examples": [
+        {
+          "sandhi": "सुखाद् अपेतः = सुखापेतः",
+          "iast": "सुखाद् अपेतः = सुखापेतः",
+          "gloss": "gone away from happiness"
+        },
+        {
+          "sandhi": "स्वर्गात् पतितः = स्वर्गपतितः",
+          "iast": "स्वर्गात् पतितः = स्वर्गपतितः",
+          "gloss": "fallen from heaven"
+        },
+        {
+          "sandhi": "कल्पनायाः अपोढः = कल्पनापोढः",
+          "iast": "कल्पनायाः अपोढः = कल्पनापोढः",
+          "gloss": "removed from imagination"
+        },
+        {
+          "sandhi": "तरङ्गात् अपत्रस्तः = तरङ्गापत्रस्तः",
+          "iast": "तरङ्गात् अपत्रस्तः = तरङ्गापत्रस्तः",
+          "gloss": "startled away from the wave"
+        },
+        {
+          "sandhi": "चक्राद् मुक्तः = चक्रमुक्तः",
+          "iast": "चक्राद् मुक्तः = चक्रमुक्तः",
+          "gloss": "released from the wheel/discus"
+        }
+      ]
+    },
+    {
+      "id": "tatpurusha-5c",
+      "sanskrit_name": "पञ्चमीतत्पुरुषः (शतसहस्रशब्दयोः)",
+      "iast_name": "पञ्चमीतत्पुरुषः (with शत/sahasra, uttarapada-first)",
+      "english_name": "Ablative Tatpurusha — 'beyond a hundred/thousand' (irregular word order)",
+      "rule": "An ablative-ending शत (hundred) or sahasra (thousand) compounds with para ('beyond'), by a वार्तिक. Unusually, this pair is listed among the irregularly-formed (निपातन) compounds of the राजदन्तगण, so the normal word order is reversed — para is placed first — with a सुट् augment.",
+      "sutra_devanagari": "शतसहस्रौ परेणेति वक्तव्यम्",
+      "sutra_iast": "शतसहस्रौ परेणेति vaktavyam",
+      "ashtadhyayi_ref": "वार्तिक under 2.1.37-38 (governed as part of the राजदन्तगण निपातन list)",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.1.1.5(iii) (p.38)",
+      "process": "निपातन (irregular fixed listing) — uttarapada para placed before पूर्वपद, with सुट् augment",
+      "examples": [
+        {
+          "sandhi": "शतात् परे = परश्शताः",
+          "iast": "शतात् pare = परश्शताः",
+          "gloss": "beyond a hundred"
+        },
+        {
+          "sandhi": "सहस्रात् परे = परस्सहस्राः",
+          "iast": "सहस्रात् pare = परस्सहस्राः",
+          "gloss": "beyond a thousand"
+        }
+      ]
+    },
+    {
+      "id": "tatpurusha-6",
+      "sanskrit_name": "षष्ठीतत्पुरुषः",
+      "iast_name": "षष्ठीतत्पुरुषः",
+      "english_name": "Genitive Tatpurusha",
+      "rule": "A genitive-ending word compounds with a following subanta — the broadest and least restricted of the seven vibhakti-तत्पुरुषस्, with two general caveats: a genitive expressing mere 'quality' (गुणार्थ) does not usually compound (though the book notes rare exceptions), and a genitive-form indeclinable does not compound unless it is itself krit-formed.",
+      "sutra_devanagari": "षष्ठी",
+      "sutra_iast": "षष्ठी",
+      "ashtadhyayi_ref": "2.2.8",
+      "related_ashtadhyayi": [
+        "5.4.91 राजाहःसखिभ्यष्टच् (समासान्त टच्-pratyaya after राजन्/ahan/sakhi in such compounds, e.g. राजधुरा)",
+        "5.4.74 ऋक्पूरब्ध्वः पथामानक्षे (accha-pratyaya for pathin- compounds, e.g. tripatham)"
+      ],
+      "book_ref": "समासः, Ch.4 §4.1.1.6 (pp.37-39)",
+      "process": "vibhakti-lopa (plus समासान्त suffixes टच्/accha in specific listed words)",
+      "examples": [
+        {
+          "sandhi": "राज्ञः पुरुषः = राजपुरुषः",
+          "iast": "राज्ञः पुरुषः = राजपुरुषः",
+          "gloss": "the king's man"
+        },
+        {
+          "sandhi": "तस्य उपरि = तदुपरि",
+          "iast": "tasya upari = tadupari",
+          "gloss": "above it"
+        },
+        {
+          "sandhi": "देवस्य पूजकः = देवपूजकः",
+          "iast": "devasya पूजकः = देवपूजकः",
+          "gloss": "worshipper of the deity"
+        },
+        {
+          "sandhi": "मद्राणां राजा = मद्राजः",
+          "iast": "मद्राणां राजा = मद्राजः",
+          "gloss": "king of the Madras"
+        },
+        {
+          "sandhi": "भुवः भर्ता = भूभर्ता",
+          "iast": "भुवः भर्ता = भूभर्ता",
+          "gloss": "lord of the earth"
+        },
+        {
+          "sandhi": "कृष्णस्य सखा = कृष्णसखः",
+          "iast": "कृष्णस्य सखा = कृष्णसखः",
+          "gloss": "Krishna's friend"
+        },
+        {
+          "sandhi": "अर्थस्य गौरवम् = अर्थगौरवम्",
+          "iast": "arthasya gauravam = arthagauravam",
+          "gloss": "the weight/importance of the matter"
+        },
+        {
+          "sandhi": "विष्णोः पूः = विष्णुपुरम्",
+          "iast": "विष्णोः पूः = विष्णुपुरम्",
+          "gloss": "Vishnu's city"
+        },
+        {
+          "sandhi": "बुद्धेः मान्द्यम् = बुद्धिमान्द्यम्",
+          "iast": "बुद्धेः मान्द्यम् = बुद्धिमान्द्यम्",
+          "gloss": "dullness of intellect"
+        },
+        {
+          "sandhi": "राज्ञः धूः = राजधुरा",
+          "iast": "राज्ञः धूः = राजधुरा",
+          "gloss": "the king's yoke/burden (of state)"
+        },
+        {
+          "sandhi": "त्रयाणां पन्थाः = त्रिपथम्",
+          "iast": "त्रयाणां पन्थाः = tripatham",
+          "gloss": "a threefold road (a crossing of three roads)"
+        },
+        {
+          "sandhi": "पुरुषस्य आयुः = पुरुषायुषम्",
+          "iast": "पुरुषस्य आयुः = पुरुषायुषम्",
+          "gloss": "a man's lifespan"
+        },
+        {
+          "sandhi": "ब्रह्मणः वर्चः = ब्रह्मवर्चसम्",
+          "iast": "ब्रह्मणः वर्चः = brahmavarcasam",
+          "gloss": "brahminical lustre"
+        },
+        {
+          "sandhi": "राज्ञः वर्चः = राजवर्चसम्",
+          "iast": "राज्ञः वर्चः = राजवर्चसम्",
+          "gloss": "royal lustre"
+        },
+        {
+          "sandhi": "पाणिनेः उपज्ञा = पाणिन्युपज्ञम् (ग्रन्थः)",
+          "iast": "पाणिनेः उपज्ञा = पाणिन्युपज्ञम् (ग्रन्थः)",
+          "gloss": "a text first expounded by Panini"
+        },
+        {
+          "sandhi": "इक्षूणां छाया = इक्षुच्छायम्",
+          "iast": "इक्षूणां छाया = इक्षुच्छायम्",
+          "gloss": "the shade of sugarcane (neuter, since not from over-abundance of the पूर्वपद — see book's own footnote contrast with वृक्षच्छाया)"
+        }
+      ]
+    },
+    {
+      "id": "tatpurusha-7a",
+      "sanskrit_name": "सप्तमीतत्पुरुषः (शौण्डादिशब्दैः)",
+      "iast_name": "सप्तमीतत्पुरुषः (with शौण्ड-words)",
+      "english_name": "Locative Tatpurusha — expert/devoted/fixed 'in' something",
+      "rule": "A locative-ending word compounds with one of: शौण्ड, adhi, धूर्त, kitava, प्रवीण, पण्डित, कुशल, निपुण, capala, siddha, शुष्क, pakva, bandha.",
+      "sutra_devanagari": "सप्तमी शौण्डैः / सिद्धशुष्कपक्वबन्धैश्च",
+      "sutra_iast": "सप्तमी शौण्डैः / सिद्धशुष्कपक्वबन्धैश् ca",
+      "ashtadhyayi_ref": "2.1.40 and 2.1.41",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.1.1.7(i) (p.39)",
+      "process": "vibhakti-lopa",
+      "examples": [
+        {
+          "sandhi": "अक्षेषु शौण्डः = अक्षशौण्डः",
+          "iast": "अक्षेषु शौण्डः = अक्षशौण्डः",
+          "gloss": "addicted to dice"
+        },
+        {
+          "sandhi": "ईश्वरे अधि = ईश्वराधीनः",
+          "iast": "ईश्वरे adhi = ईश्वराधीनः",
+          "gloss": "dependent on the lord"
+        },
+        {
+          "sandhi": "अक्षेषु धूर्तः = अक्षधूर्तः",
+          "iast": "अक्षेषु धूर्तः = अक्षधूर्तः",
+          "gloss": "a cheat at dice"
+        },
+        {
+          "sandhi": "अक्षेषु कितवः = अक्षकितवः",
+          "iast": "अक्षेषु कितवः = अक्षकितवः",
+          "gloss": "a gambler at dice"
+        },
+        {
+          "sandhi": "वीणायां प्रवीणः = वीणाप्रवीणः",
+          "iast": "वीणायां प्रवीणः = वीणाप्रवीणः",
+          "gloss": "skilled at the veena"
+        },
+        {
+          "sandhi": "वेदे पण्डितः = वेदपण्डितः",
+          "iast": "vede पण्डितः = वेदपण्डितः",
+          "gloss": "learned in the Veda"
+        },
+        {
+          "sandhi": "काव्ये कुशलः = काव्यकुशलः",
+          "iast": "काव्ये कुशलः = काव्यकुशलः",
+          "gloss": "skilled in poetry"
+        },
+        {
+          "sandhi": "शास्त्रेषु निपुणः = शास्त्रनिपुणः",
+          "iast": "शास्त्रेषु निपुणः = शास्त्रनिपुणः",
+          "gloss": "expert in the scriptures/treatises"
+        },
+        {
+          "sandhi": "कार्ये चपलः = कार्यचपलः",
+          "iast": "कार्ये चपलः = कार्यचपलः",
+          "gloss": "hasty in action"
+        },
+        {
+          "sandhi": "काश्यां सिद्धः = काशीसिद्धः",
+          "iast": "काश्यां सिद्धः = काशीसिद्धः",
+          "gloss": "accomplished/produced in Kashi (सिद्धः = निष्पन्नः)"
+        },
+        {
+          "sandhi": "आतपे शुष्कः = आतपशुष्कः",
+          "iast": "आतपे शुष्कः = आतपशुष्कः",
+          "gloss": "dried in the sun"
+        },
+        {
+          "sandhi": "स्थाल्यां पक्वः = स्थालीपक्वः",
+          "iast": "स्थाल्यां पक्वः = स्थालीपक्वः",
+          "gloss": "cooked in a pot"
+        },
+        {
+          "sandhi": "चक्रे बन्धः = चक्रबन्धः",
+          "iast": "cakre बन्धः = चक्रबन्धः",
+          "gloss": "bound/fixed to a wheel"
+        }
+      ]
+    },
+    {
+      "id": "tatpurusha-7b",
+      "sanskrit_name": "सप्तमीतत्पुरुषः (ध्वाङ्क्षशब्देन)",
+      "iast_name": "सप्तमीतत्पुरुषः (with ध्वाङ्क्ष, in a pejorative sense)",
+      "english_name": "Locative Tatpurusha — 'a crow at/in' (idiom of contempt)",
+      "rule": "A locative-ending word compounds with ध्वाङ्क्ष ('crow') as uttarapada only when a sense of censure/contempt (निन्दा) is intended — the compound is a figure of speech, not a literal statement about a crow.",
+      "sutra_devanagari": "ध्वाङ्क्षेण क्षेपे",
+      "sutra_iast": "ध्वाङ्क्षेण क्षेपे",
+      "ashtadhyayi_ref": "2.1.42",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.1.1.7(ii) (p.39)",
+      "process": "vibhakti-lopa",
+      "examples": [
+        {
+          "sandhi": "तीर्थे ध्वांक्ष इव = तीर्थध्वांक्षः",
+          "iast": "तीर्थे ध्वांक्ष iva = तीर्थध्वांक्षः",
+          "gloss": "'a crow at the holy-bathing-place' — idiom for one who never stays long in gurukula-like places (guru-कुलेषु यः चिरं na vasati सः)"
+        },
+        {
+          "sandhi": "तीर्थे काक इव = तीर्थकाकः",
+          "iast": "तीर्थे काक iva = तीर्थकाकः",
+          "gloss": "same idiom, with काक in place of ध्वाङ्क्ष"
+        }
+      ]
+    },
+    {
+      "id": "karmadharaya-1",
+      "sanskrit_name": "विशेषणपूर्वपदः (सामान्यः)",
+      "iast_name": "विशेषणपूर्वपदः (सामान्य)",
+      "english_name": "Karmadharaya — adjective as first member (general)",
+      "rule": "General definition of karmadharaya: a tatpurusha where both members stand in the same case (समानाधिकरण). This base case: a word denoting a quality (विशेषण) compounds, generally (bahulam), with the noun it qualifies (विशेष्य), the adjective coming first.",
+      "sutra_devanagari": "समानाधिकरणः कर्मधारयः / विशेषणं विशेष्येण बहुलम्",
+      "sutra_iast": "समानाधिकरणः कर्मधारयः / विशेषणं विशेष्येण bahulam",
+      "ashtadhyayi_ref": "1.2.42 (base definition, तत्पुरुषः समानाधिकरणः कर्मधारयः) and 2.1.57",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.1.2.1 (p.40)",
+      "process": "vibhakti-lopa; पूर्वपद order is fixed — the book notes the adjective must come first even if the vigraha places it second (e.g. 'वैयाकरणः प्रथमः' still gives 'प्रथमवैयाकरणः', not 'वैयाकरणप्रथमः')",
+      "examples": [
+        {
+          "sandhi": "नीलम् उत्पलम् = नीलोत्पलम्",
+          "iast": "नीलम् utpalam = नीलोत्पलम्",
+          "gloss": "a blue lotus"
+        },
+        {
+          "sandhi": "दीर्घा रज्जुः = दीर्घरज्जुः",
+          "iast": "दीर्घा रज्जुः = दीर्घरज्जुः",
+          "gloss": "a long rope"
+        },
+        {
+          "sandhi": "उन्नतः वृक्षः = उन्नतवृक्षः",
+          "iast": "उन्नतः वृक्षः = उन्नतवृक्षः",
+          "gloss": "a tall tree"
+        }
+      ]
+    },
+    {
+      "id": "karmadharaya-2",
+      "sanskrit_name": "विशेषणपूर्वपदः (पूर्वकाल-एक-सर्व-जरत्-पुराण-नव-केवलैः)",
+      "iast_name": "विशेषणपूर्वपदः (with पूर्वकाल/eka/sarva/jarat/पुराण/nava/kevala)",
+      "english_name": "Karmadharaya — with 'former-time', eka, sarva, jarat, पुराण, nava, kevala",
+      "rule": "Same-case compounding of eka, sarva, jarat, पुराण, nava, kevala with the noun they qualify; also पूर्व when used in a 'former-time' (पूर्वकाल) sense, e.g. denoting one action preceding another.",
+      "sutra_devanagari": "पूर्वकालैकसर्वजरत्पुराणनवकेवलाः समानाधिकरणेन",
+      "sutra_iast": "पूर्वकालैकसर्वजरत्पुराणनवकेवलाः समानाधिकरणेन",
+      "ashtadhyayi_ref": "2.1.49",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.1.2.1 (p.41)",
+      "process": "vibhakti-lopa",
+      "examples": [
+        {
+          "sandhi": "एकः पुरुषः = एकपुरुषः",
+          "iast": "एकः पुरुषः = एकपुरुषः",
+          "gloss": "one man"
+        },
+        {
+          "sandhi": "सर्वे देवाः = सर्वदेवाः",
+          "iast": "sarve देवाः = सर्वदेवाः",
+          "gloss": "all the gods"
+        },
+        {
+          "sandhi": "जरन्तः नैयायिकाः = जरन्नैयायिकाः",
+          "iast": "जरन्तः नैयायिकाः = जरन्नैयायिकाः",
+          "gloss": "old logicians"
+        },
+        {
+          "sandhi": "जरन् गौः = जरद्गौः",
+          "iast": "jaran गौः = जरद्गौः",
+          "gloss": "an old cow"
+        },
+        {
+          "sandhi": "पुराणः पुरुषः = पुराणपुरुषः",
+          "iast": "पुराणः पुरुषः = पुराणपुरुषः",
+          "gloss": "an ancient man"
+        },
+        {
+          "sandhi": "नवाः पाठकाः = नवपाठकाः",
+          "iast": "नवाः पाठकाः = नवपाठकाः",
+          "gloss": "new students/readers"
+        },
+        {
+          "sandhi": "केवलाः वैयाकरणाः = केवलवैयाकरणाः",
+          "iast": "केवलाः वैयाकरणाः = केवलवैयाकरणाः",
+          "gloss": "mere grammarians"
+        },
+        {
+          "sandhi": "पूर्वं स्नातः पश्चादनुलिप्तः = स्नातानुलिप्तः",
+          "iast": "पूर्वं स्नातः पश्चाद् अनुलिप्तः = स्नातानुलिप्तः",
+          "gloss": "one who bathed and then was anointed — पूर्व used in its 'former-in-time' sense, not appearing overtly in the compound"
+        }
+      ]
+    },
+    {
+      "id": "karmadharaya-3",
+      "sanskrit_name": "विशेषणपूर्वपदः (पूर्व-अपर-प्रथम-चरम-जघन्य-समान-मध्य-मध्यम-वीरैः)",
+      "iast_name": "विशेषणपूर्वपदः (with पूर्व/apara/prathama/carama/jaghanya/समान/madhya/madhyama/वीर)",
+      "english_name": "Karmadharaya — with पूर्व, apara, prathama, carama, jaghanya, समान, madhya, madhyama, वीर",
+      "rule": "Same-case compounding of पूर्व ('former'), apara ('other/latter'), prathama ('first'), carama ('last'), jaghanya ('lowest'), समान ('same'), madhya/madhyama ('middle'), वीर ('heroic') with the noun they qualify. A वार्तिक notes that when apara means 'later' (in time), it takes the form पश्चात् instead.",
+      "sutra_devanagari": "पूर्वापरप्रथमचरमजघन्यसमानमध्यमध्यमवीराश्च",
+      "sutra_iast": "पूर्वापरप्रथमचरमजघन्यसमानमध्यमध्यमवीराश् ca",
+      "ashtadhyayi_ref": "2.1.48",
+      "related_ashtadhyayi": [
+        "वार्तिक: अपरस्यार्थे पश्चाद्भावो वक्तव्यः"
+      ],
+      "book_ref": "समासः, Ch.4 §4.1.2.1 (p.41)",
+      "process": "vibhakti-lopa",
+      "examples": [
+        {
+          "sandhi": "पूर्वः पुरुषः = पूर्वपुरुषः",
+          "iast": "पूर्वः पुरुषः = पूर्वपुरुषः",
+          "gloss": "a former/earlier man; an ancestor"
+        },
+        {
+          "sandhi": "अपरः मीमांसकः = अपरमीमांसकः",
+          "iast": "अपरः मीमांसकः = अपरमीमांसकः",
+          "gloss": "another Mimamsaka"
+        },
+        {
+          "sandhi": "अपरः अर्धः = पश्चार्धः",
+          "iast": "अपरः अर्धः = पश्चार्धः",
+          "gloss": "the latter half — apara in its 'later' sense surfaces as पश्चात्"
+        },
+        {
+          "sandhi": "प्रथमः पुरुषः = प्रथमपुरुषः",
+          "iast": "प्रथमः पुरुषः = प्रथमपुरुषः",
+          "gloss": "the first person (grammatical)"
+        },
+        {
+          "sandhi": "चरमं भाषणम् = चरमभाषणम्",
+          "iast": "चरमं भाषणम् = चरमभाषणम्",
+          "gloss": "the final speech"
+        },
+        {
+          "sandhi": "जघन्यः श्लोकः = जघन्यश्लोकः",
+          "iast": "जघन्यः श्लोकः = जघन्यश्लोकः",
+          "gloss": "the lowest/worst verse"
+        },
+        {
+          "sandhi": "समानः मन्त्रः = समानमन्त्रः",
+          "iast": "समानः मन्त्रः = समानमन्त्रः",
+          "gloss": "the same mantra"
+        },
+        {
+          "sandhi": "मध्यं गृहम् = मध्यगृहम्",
+          "iast": "मध्यं गृहम् = मध्यगृहम्",
+          "gloss": "the middle house"
+        },
+        {
+          "sandhi": "मध्यमः मार्गः = मध्यममार्गः",
+          "iast": "मध्यमः मार्गः = मध्यममार्गः",
+          "gloss": "the middle path"
+        },
+        {
+          "sandhi": "वीरः पुरुषः = वीरपुरुषः",
+          "iast": "वीरः पुरुषः = वीरपुरुषः",
+          "gloss": "a heroic man"
+        }
+      ]
+    },
+    {
+      "id": "karmadharaya-4",
+      "sanskrit_name": "विशेषणपूर्वपदः (सत्-महत्-परम-उत्तम-उत्कृष्टैः पूज्यमानैः)",
+      "iast_name": "विशेषणपूर्वपदः (with sat/mahat/parama/uttama/उत्कृष्ट, before an honored referent)",
+      "english_name": "Karmadharaya — with sat, mahat, parama, uttama, उत्कृष्ट, qualifying something respected",
+      "rule": "Same-case compounding of sat ('good'), mahat ('great'), parama ('supreme'), uttama ('best'), उत्कृष्ट ('excellent') with a noun that denotes something honored/respected (पूज्यमान).",
+      "sutra_devanagari": "सन्महत्परमोत्तमोत्कृष्टाः पूज्यमानैः",
+      "sutra_iast": "सन्महत्परमोत्तमोत्कृष्टाः पूज्यमानैः",
+      "ashtadhyayi_ref": "2.1.61",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.1.2.1 (p.41)",
+      "process": "vibhakti-lopa",
+      "examples": [
+        {
+          "sandhi": "सन् वैद्यः = सद्वैद्यः",
+          "iast": "san वैद्यः = सद्वैद्यः",
+          "gloss": "a good doctor"
+        },
+        {
+          "sandhi": "महान् वैयाकरणः = महावैयाकरणः",
+          "iast": "महान् वैयाकरणः = महावैयाकरणः",
+          "gloss": "a great grammarian"
+        },
+        {
+          "sandhi": "परमः पुरुषः = परमपुरुषः",
+          "iast": "परमः पुरुषः = परमपुरुषः",
+          "gloss": "the supreme person"
+        },
+        {
+          "sandhi": "उत्तमः पुरुषः = उत्तमपुरुषः",
+          "iast": "उत्तमः पुरुषः = उत्तमपुरुषः",
+          "gloss": "the best person / first grammatical person"
+        },
+        {
+          "sandhi": "उत्कृष्टः वैद्यः = उत्कृष्टवैद्यः",
+          "iast": "उत्कृष्टः वैद्यः = उत्कृष्टवैद्यः",
+          "gloss": "an excellent doctor"
+        }
+      ]
+    },
+    {
+      "id": "karmadharaya-5",
+      "sanskrit_name": "विशेषणपूर्वपदः (दिक्संख्ये संज्ञायाम्)",
+      "iast_name": "विशेषणपूर्वपदः (direction/number-word forming a proper name)",
+      "english_name": "Karmadharaya — a direction- or number-word compounding to form a fixed name",
+      "rule": "A direction-word (dik) or number-word (सङ्ख्या) compounds with a same-case noun specifically when the result denotes a proper name/fixed designation (संज्ञा) — not a mere count. The book cautions this is why 'षड्भिः मन्त्रैः' stays uncompounded (a genuine instrumental count) while 'सप्तर्षयः' compounds (a fixed name, 'the Seven Sages').",
+      "sutra_devanagari": "दिक्संख्ये संज्ञायाम्",
+      "sutra_iast": "दिक्संख्ये संज्ञायाम्",
+      "ashtadhyayi_ref": "2.1.50",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.1.2.1 (p.41)",
+      "process": "vibhakti-lopa",
+      "flagged_nuance": "The book adds that later usage ('navarasaciram', 'त्रिलोकनाथेन', 'षोडशपदार्थानाम्') shows सङ्ख्यावाची words compounding even outside the strict संज्ञा case — but only when the phrase itself is treated as denoting a fixed set (e.g. नवसंख्याका रसाः = 'the nine rasas' as a known set), which is really the madhyamapadalopa mechanism (karmadharaya-12) supplying the missing middle word.",
+      "examples": [
+        {
+          "sandhi": "सप्त ऋषयः = सप्तर्षयः",
+          "iast": "sapta ऋषयः = सप्तर्षयः",
+          "gloss": "the Seven Sages (a fixed name)"
+        },
+        {
+          "sandhi": "पञ्च आम्राः = पञ्चाम्राः",
+          "iast": "पञ्च आम्राः = पञ्चाम्राः",
+          "gloss": "five mango trees (as a named/counted set)"
+        }
+      ]
+    },
+    {
+      "id": "karmadharaya-6",
+      "sanskrit_name": "विशेषणोत्तरपदः",
+      "iast_name": "विशेषणउत्तरपदः",
+      "english_name": "Karmadharaya — adjective as second member",
+      "rule": "Two related rules place the adjective last instead of first: (1) something being disparaged (कुत्स्यमान) compounds with a disparaging word (kutsana); (2) a class/kind-word (जाति) compounds with a word of praise (प्रशंसा).",
+      "sutra_devanagari": "कुत्सितानि कुत्सनैः / प्रशंसावचनैश्च",
+      "sutra_iast": "कुत्सितानि कुत्सनैः / प्रशंसावचनैश् ca",
+      "ashtadhyayi_ref": "2.1.53 and 2.1.66",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.1.2.2 (p.42)",
+      "process": "vibhakti-lopa; uttarapada order reversed from the default विशेषणपूर्वपद pattern",
+      "flagged_nuance": "One example in the source, 'पुरुषः प्रशस्तः = पुरुषमचर्चिका', uses a word (मचर्चिका) whose reading in the scan is uncertain — reproduced here as printed but flagged rather than glossed with invented confidence.",
+      "examples": [
+        {
+          "sandhi": "वैयाकरणः खसूचिः = वैयाकरणखसूचिः",
+          "iast": "वैयाकरणः खसूचिः = वैयाकरणखसूचिः",
+          "gloss": "a grammarian, disparaged as a 'straw-splitter' (खसूचि)"
+        },
+        {
+          "sandhi": "मीमांसकः दुर्दुरूटः = मीमांसकदुर्दुरूटः",
+          "iast": "मीमांसकः दुर्दुरूटः = मीमांसकदुर्दुरूटः",
+          "gloss": "a Mimamsaka, disparaged as a दुर्दुरूट"
+        },
+        {
+          "sandhi": "पण्डितः प्रशस्तः = पण्डितप्रकाण्डम्",
+          "iast": "पण्डितः प्रशस्तः = पण्डितप्रकाण्डम्",
+          "gloss": "an outstanding/praised scholar"
+        },
+        {
+          "sandhi": "गौः प्रशस्ता = गोमतल्लिका",
+          "iast": "गौः प्रशस्ता = गोमतल्लिका",
+          "gloss": "an excellent cow"
+        },
+        {
+          "sandhi": "विद्वान् प्रशस्तः = विद्वत्तल्लजः",
+          "iast": "विद्वान् प्रशस्तः = विद्वत्तल्लजः",
+          "gloss": "an eminent scholar"
+        }
+      ]
+    },
+    {
+      "id": "karmadharaya-7",
+      "sanskrit_name": "विशेषणोभयपदः",
+      "iast_name": "विशेषणोभयपदः",
+      "english_name": "Karmadharaya — both members adjectival (a thing described positively and negatively)",
+      "rule": "A past-participle (kta-anta) not itself negated compounds with the corresponding negated (नञ्विशिष्ट) past-participle of the same root, expressing 'done and not done' style pairs.",
+      "sutra_devanagari": "क्तेन नञ्विशिष्टेनानञ्",
+      "sutra_iast": "ktena नञ्विशिष्टेनानञ्",
+      "ashtadhyayi_ref": "2.1.60",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.1.2.3 (p.42)",
+      "process": "vibhakti-lopa",
+      "examples": [
+        {
+          "sandhi": "कृतम् अकृतम् = कृताकृतम्",
+          "iast": "कृतम् अकृतम् = कृताकृतम्",
+          "gloss": "done and undone"
+        },
+        {
+          "sandhi": "भुक्तम् अभुक्तम् = भुक्ताभुक्तम्",
+          "iast": "bhuktam abhuktam = भुक्ताभुक्तम्",
+          "gloss": "eaten and uneaten"
+        },
+        {
+          "sandhi": "पीतम् अपीतम् = पीतापीतम्",
+          "iast": "पीतम् अपीतम् = पीतापीतम्",
+          "gloss": "drunk and undrunk"
+        },
+        {
+          "sandhi": "उदितम् अनुदितम् = उदितानुदितम्",
+          "iast": "uditam anuditam = उदितानुदितम्",
+          "gloss": "risen and unrisen"
+        },
+        {
+          "sandhi": "गतं प्रत्यागतम् = गतप्रत्यागतम्",
+          "iast": "गतं प्रत्यागतम् = गतप्रत्यागतम्",
+          "gloss": "gone and returned"
+        },
+        {
+          "sandhi": "यातम् अनुयातम् = यातानुयातम्",
+          "iast": "यातम् अनुयातम् = यातानुयातम्",
+          "gloss": "gone and followed"
+        }
+      ]
+    },
+    {
+      "id": "karmadharaya-8",
+      "sanskrit_name": "उपमानपूर्वपदः",
+      "iast_name": "उपमानपूर्वपदः",
+      "english_name": "Karmadharaya — the standard of comparison first",
+      "rule": "A word denoting the standard of comparison (उपमान) compounds with a word denoting the common property (सामान्यवचन), the उपमान coming first.",
+      "sutra_devanagari": "उपमानानि सामान्यवचनैः",
+      "sutra_iast": "उपमानानि सामान्यवचनैः",
+      "ashtadhyayi_ref": "2.1.55",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.1.2.4 (p.42)",
+      "process": "vibhakti-lopa; iva ('like') in the vigraha does not surface in the compound",
+      "examples": [
+        {
+          "sandhi": "कुसुममिव कोमलम् = कुसुमकोमलम्",
+          "iast": "kusumam iva komalam = kusumakomalam",
+          "gloss": "soft like a flower"
+        },
+        {
+          "sandhi": "वज्रम् इव कठोरम् = वज्रकठोरम्",
+          "iast": "vajram iva कठोरम् = वज्रकठोरम्",
+          "gloss": "hard like a thunderbolt"
+        },
+        {
+          "sandhi": "शैलः इव उन्नतः = शैलोन्नतः",
+          "iast": "शैलः iva उन्नतः = शैलोन्नतः",
+          "gloss": "tall like a mountain"
+        }
+      ]
+    },
+    {
+      "id": "karmadharaya-9",
+      "sanskrit_name": "उपमानोत्तरपदः",
+      "iast_name": "उपमानउत्तरपदः",
+      "english_name": "Karmadharaya — the standard of comparison last",
+      "rule": "The thing being compared (upameya) compounds with an उपमान word from the व्याघ्रगण (a listed set: व्याघ्र, सिंह, ऋक्ष, ऋषभ, hastin, पुण्डरीक, बलाहक, etc.), but only when the shared property (साधारण-dharma) is NOT separately stated in the sentence. A related rule extends the same pattern with वृन्दारक, नाग, कुञ्जर for something being honored/eminent.",
+      "sutra_devanagari": "उपमितं व्याघ्रादिभिः सामान्याप्रयोगे / वृन्दारकनागकुञ्जरैः पूज्यमानम्",
+      "sutra_iast": "उपमितं व्याघ्रादिभिः सामान्याप्रयोगे / वृन्दारकनागकुञ्जरैः पूज्यमानम्",
+      "ashtadhyayi_ref": "2.1.56 and 2.1.62",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.1.2.5 (pp.42-43)",
+      "process": "vibhakti-lopa",
+      "flagged_nuance": "The 'no shared-property word' condition is illustrated by contrast: 'पुरुषः व्याघ्रः iva' compounds to 'पुरुषव्याघ्रः', but if one wants to additionally say 'शूरः' (brave) — 'पुरुषो व्याघ्र iva शूरः' — the compound must NOT be made, precisely because साधारण-dharma (शूरः) is now stated.",
+      "examples": [
+        {
+          "sandhi": "पुरुषः व्याघ्र इव = पुरुषव्याघ्रः",
+          "iast": "पुरुषः व्याघ्र iva = पुरुषव्याघ्रः",
+          "gloss": "a tiger of a man"
+        },
+        {
+          "sandhi": "पुरुषः सिंहः इव = पुरुषसिंहः",
+          "iast": "पुरुषः सिंहः iva = पुरुषसिंहः",
+          "gloss": "a lion of a man"
+        },
+        {
+          "sandhi": "पुरुषः ऋषभः इव = पुरुषर्षभः",
+          "iast": "पुरुषः ऋषभः iva = पुरुषर्षभः",
+          "gloss": "a bull of a man / a foremost man"
+        },
+        {
+          "sandhi": "पण्डितः पुण्डरीकः इव = पण्डितपुण्डरीकः",
+          "iast": "पण्डितः पुण्डरीकः iva = पण्डितपुण्डरीकः",
+          "gloss": "a lotus-like (eminent) scholar"
+        },
+        {
+          "sandhi": "मुखं पद्मम् इव = मुखपद्मम्",
+          "iast": "मुखं padmam iva = mukhapadmam",
+          "gloss": "a lotus-face"
+        },
+        {
+          "sandhi": "मुखं कमलम् इव = मुखकमलम्",
+          "iast": "मुखं kamalam iva = mukhakamalam",
+          "gloss": "a lotus-face"
+        },
+        {
+          "sandhi": "करः किसलयम् इव = करकिसलयम्",
+          "iast": "करः kisalayam iva = karakisalayam",
+          "gloss": "a sprout-like (tender) hand"
+        },
+        {
+          "sandhi": "पार्थिवः इन्द्रः इव = पार्थिवेन्द्रः",
+          "iast": "पार्थिवः इन्द्रः iva = पार्थिवेन्द्रः",
+          "gloss": "a king who is like Indra"
+        },
+        {
+          "sandhi": "गौः वृन्दारकः इव = गोवृन्दारकः",
+          "iast": "गौः वृन्दारकः iva = गोवृन्दारकः",
+          "gloss": "an eminent/excellent cow"
+        },
+        {
+          "sandhi": "पुरुषः नागः इव = पुरुषनागः",
+          "iast": "पुरुषः नागः iva = पुरुषनागः",
+          "gloss": "an elephant-like (eminent) man"
+        },
+        {
+          "sandhi": "कपिः कुञ्जरः इव = कपिकुञ्जरः",
+          "iast": "कपिः कुञ्जरः iva = कपिकुञ्जरः",
+          "gloss": "an eminent monkey"
+        }
+      ]
+    },
+    {
+      "id": "karmadharaya-10",
+      "sanskrit_name": "अवधारणापूर्वपदः",
+      "iast_name": "अवधारणापूर्वपदः",
+      "english_name": "Karmadharaya — emphatic 'indeed/only' sense",
+      "rule": "A विशेषणविशेष्य compound (same general rule as karmadharaya-1) where the vigraha carries an emphatic eva ('indeed/only') right after the adjective, to show that the first member IS essentially the second, rather than merely qualifying it. The eva itself does not appear in the compound.",
+      "sutra_devanagari": "विशेषणं विशेष्येण बहुलम्",
+      "sutra_iast": "विशेषणं विशेष्येण bahulam",
+      "ashtadhyayi_ref": "2.1.57",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.1.2.6 (p.43)",
+      "process": "vibhakti-lopa; the eva of the vigraha is silent in the compound",
+      "examples": [
+        {
+          "sandhi": "विद्या एव धनम् = विद्याधनम्",
+          "iast": "विद्या eva dhanam = विद्याधनम्",
+          "gloss": "knowledge, which IS (one's true) wealth"
+        },
+        {
+          "sandhi": "गुरुः एव देवः = गुरुदेवः",
+          "iast": "गुरुः eva देवः = गुरुदेवः",
+          "gloss": "the teacher, who IS (like) a god"
+        },
+        {
+          "sandhi": "तपः एव धनम् = तपोधनम्",
+          "iast": "तपः eva dhanam = tapodhanam",
+          "gloss": "austerity, which IS (one's) wealth"
+        },
+        {
+          "sandhi": "वेदः एव सम्पत् = वेदसम्पत्",
+          "iast": "वेदः eva sampat = vedasampat",
+          "gloss": "the Veda, which IS (true) prosperity"
+        }
+      ]
+    },
+    {
+      "id": "karmadharaya-11",
+      "sanskrit_name": "सम्भावनापूर्वपदः",
+      "iast_name": "सम्भावनापूर्वपदः",
+      "english_name": "Karmadharaya — 'so-called' sense (a proper name plus its category)",
+      "rule": "Same general विशेषणविशेष्य rule, applied when the 'adjective' is itself a proper name (संज्ञाशब्द), with the vigraha placing 'iti' ('called/named') right after it. Like the eva of अवधारणा, the iti does not appear in the compound.",
+      "sutra_devanagari": "विशेषणं विशेष्येण बहुलम्",
+      "sutra_iast": "विशेषणं विशेष्येण bahulam",
+      "ashtadhyayi_ref": "2.1.57",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.1.2.7 (p.43)",
+      "process": "vibhakti-lopa; the iti of the vigraha is silent in the compound",
+      "examples": [
+        {
+          "sandhi": "अयोध्या इति नगरी = अयोध्यानगरी",
+          "iast": "अयोध्या iti नगरी = अयोध्यानगरी",
+          "gloss": "the city called Ayodhya"
+        },
+        {
+          "sandhi": "आम्रः इति वृक्षः = आम्रवृक्षः",
+          "iast": "आम्रः iti वृक्षः = आम्रवृक्षः",
+          "gloss": "the tree called mango"
+        },
+        {
+          "sandhi": "कैलासः इति अद्रिः = कैलासाद्रिः",
+          "iast": "कैलासः iti अद्रिः = कैलासाद्रिः",
+          "gloss": "the mountain called Kailasa"
+        },
+        {
+          "sandhi": "दशरथः इति राजा = दशरथराजः",
+          "iast": "दशरथः iti राजा = दशरथराजः",
+          "gloss": "the king called Dasharatha"
+        },
+        {
+          "sandhi": "हिमालयः इति पर्वतः = हिमालयपर्वतः",
+          "iast": "हिमालयः iti पर्वतः = हिमालयपर्वतः",
+          "gloss": "the mountain called Himalaya"
+        }
+      ]
+    },
+    {
+      "id": "karmadharaya-12",
+      "sanskrit_name": "मध्यमपदलोपः",
+      "iast_name": "madhyamapada-लोपः",
+      "english_name": "Karmadharaya — elision of the middle word",
+      "rule": "Same विशेषणविशेष्य rule, but here the 'adjective' member is itself already a full compound at the vigraha stage; when that compound becomes the qualifier, its own second member (the word standing in the middle of the eventual three-word sense) is dropped. Named for this reason 'madhyamapada-lopa'.",
+      "sutra_devanagari": "शाकप्रियार्थादीनां सिद्धये उत्तरपदलोपस्योपसंख्यानम्",
+      "sutra_iast": "शाकप्रियार्थादीनां siddhaye उत्तरपदलोपस्योपसंख्यानम्",
+      "ashtadhyayi_ref": "वार्तिक under 2.1.57",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.1.2.8 (pp.43-44)",
+      "process": "the vigraha involves three words; the middle one is elided on forming the compound",
+      "flagged_nuance": "The book flags that 'द्विशतम्' is genuinely ambiguous between 102 (द्व्यधिकं शतम्, '2 added to 100') and 200 (द्विगुणितं शतम्, '100 doubled') — both routes independently elide a middle word down to the same surface form, so context alone disambiguates.",
+      "examples": [
+        {
+          "sandhi": "शाकप्रियः पार्थिवः = शाकपार्थिवः",
+          "iast": "शाकप्रियः पार्थिवः = शाकपार्थिवः",
+          "gloss": "a king (fond of vegetables) — 'प्रियः' (fond of), the middle word, is dropped"
+        },
+        {
+          "sandhi": "देवपूजकः ब्राह्मणः = देवब्राह्मणः",
+          "iast": "देवपूजकः ब्राह्मणः = देवब्राह्मणः",
+          "gloss": "a brahmin (who worships the gods) — 'पूजकः' dropped"
+        },
+        {
+          "sandhi": "द्व्यधिका विंशतिः = द्वाविंशतिः",
+          "iast": "द्व्यधिका विंशतिः = द्वाविंशतिः",
+          "gloss": "twenty-two"
+        },
+        {
+          "sandhi": "षोडशसंख्याकाः पदार्थाः = षोडशपदार्थाः",
+          "iast": "षोडशसंख्याकाः पदार्थाः = षोडशपदार्थाः",
+          "gloss": "sixteen categories — 'संख्याकाः' dropped"
+        },
+        {
+          "sandhi": "द्व्यधिकाः दश = द्वादश",
+          "iast": "द्व्यधिकाः दश = द्वादश",
+          "gloss": "twelve"
+        },
+        {
+          "sandhi": "द्व्यधिकं शतम् = द्विशतम् (१०२ इत्यर्थः)",
+          "iast": "द्व्यधिकं शतम् = द्विशतम् (102)",
+          "gloss": "102 — '2 added to 100'"
+        },
+        {
+          "sandhi": "द्विगुणितं शतम् = द्विशतम् (२०० इत्यर्थः)",
+          "iast": "द्विगुणितं शतम् = द्विशतम् (200)",
+          "gloss": "200 — '100 doubled' — same surface form as above, disambiguated by context"
+        }
+      ]
+    },
+    {
+      "id": "karmadharaya-13",
+      "sanskrit_name": "मयूरव्यंसकादिः",
+      "iast_name": "मयूरव्यंसकादिः",
+      "english_name": "Karmadharaya — the मयूरव्यंसक irregulars-list",
+      "rule": "A closed, irregularly-listed (निपातन) set of compounds whose formation is not derivable from any of the general karmadharaya rules above; the काशिका comments that any tatpurusha lacking a stated general rule (avihita-लक्षण) is to be looked for in this गण.",
+      "sutra_devanagari": "मयूरव्यंसकादयश्च",
+      "sutra_iast": "मयूरव्यंसकादयश् ca",
+      "ashtadhyayi_ref": "2.1.72",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.1.2.9 (p.44)",
+      "process": "निपातन — irregular, listed forms, not derived by a general productive rule",
+      "examples": [
+        {
+          "sandhi": "मयूरः व्यंसकः = मयूरव्यंसकः",
+          "iast": "मयूरः व्यंसकः = मयूरव्यंसकः",
+          "gloss": "a peacock (the list's namesake compound)"
+        },
+        {
+          "sandhi": "उदक् अवाक् = उच्चावचम्",
+          "iast": "udak अवाक् = उच्चावचम्",
+          "gloss": "up and down / varied"
+        },
+        {
+          "sandhi": "निश्चितं प्रचितम् = निश्चप्रचम्",
+          "iast": "निश्चितं pracitam = निश्चप्रचम्",
+          "gloss": "settled and accumulated"
+        },
+        {
+          "sandhi": "नास्ति किंचन यस्य सः = अकिंचनः",
+          "iast": "नास्ति किंचन yasya सः = अकिंचनः",
+          "gloss": "one who has nothing — destitute"
+        },
+        {
+          "sandhi": "नास्ति कुतो भयं यस्य सः = अकुतोभयः",
+          "iast": "नास्ति kuto भयं yasya सः = अकुतोभयः",
+          "gloss": "one who has nothing to fear from anywhere"
+        },
+        {
+          "sandhi": "अन्यो राजा = राजान्तरम्",
+          "iast": "anyo राजा = राजान्तरम्",
+          "gloss": "another king"
+        },
+        {
+          "sandhi": "चित् एव = चिन्मात्रम्",
+          "iast": "cit eva = चिन्मात्रम्",
+          "gloss": "consciousness alone"
+        },
+        {
+          "sandhi": "अश्नीत पिबत इत्येवं सततं यत्राभिधीयते सा = अश्नीतपिबता",
+          "iast": "अश्नीत pibata ity एवं सततं यत्राभिधीयते सा = अश्नीतपिबता",
+          "gloss": "(a gathering) where 'eat! drink!' is constantly said"
+        },
+        {
+          "sandhi": "पचत भृज्जत इत्येवं सततं यत्राभिधीयते सा = पचतभृज्जता",
+          "iast": "pacata भृज्जत ity एवं सततं यत्राभिधीयते सा = पचतभृज्जता",
+          "gloss": "(a place) where 'cook! fry!' is constantly said"
+        },
+        {
+          "sandhi": "खादत मोदत इत्येवं सततं यत्राभिधीयते सा = खादतमोदता",
+          "iast": "खादत modata ity एवं सततं यत्राभिधीयते सा = खादतमोदता",
+          "gloss": "(a scene) where 'eat! rejoice!' is constantly said"
+        },
+        {
+          "sandhi": "जहि जोडं जहि जोडम् इति आभीक्ष्ण्येन य आह सः = जहिजोडः",
+          "iast": "jahi जोडं jahi जोडम् iti आभीक्ष्ण्येन ya आह सः = जहिजोडः",
+          "gloss": "one who repeatedly says 'strike the fool! strike the fool!'"
+        }
+      ]
+    },
+    {
+      "id": "dvigu-1",
+      "sanskrit_name": "तद्धितार्थद्विगुः",
+      "iast_name": "तद्धितार्थद्विगुः",
+      "english_name": "Dvigu — in a taddhita-suffix sense (typically 'offspring of N mothers/fathers')",
+      "rule": "A number-word compounds with a following subanta in a sense that would otherwise require a secondary (taddhita) derivative suffix — most often the 'child of N [parents/mothers]' sense, or 'prepared using N [items]'.",
+      "sutra_devanagari": "तद्धितार्थोत्तरपदसमाहारे च",
+      "sutra_iast": "तद्धितार्थोत्तरपदसमाहारे ca",
+      "ashtadhyayi_ref": "2.1.51 (base dvigu-formation sutra, shared by all three dvigu subtypes below)",
+      "related_ashtadhyayi": [
+        "2.1.52 संख्यापूर्वो द्विगुः (defines the name 'dvigu' itself: a number-word-first compound)"
+      ],
+      "book_ref": "समासः, Ch.4 §4.1.3.1 (p.45)",
+      "process": "vibhakti-lopa; the sense is that of an unexpressed taddhita suffix",
+      "examples": [
+        {
+          "sandhi": "षण्णां मातॄणाम् अपत्यम् = षाण्मातुरः",
+          "iast": "षण्णां मातृणाम् apatyam = षाण्मातुरः",
+          "gloss": "offspring of six mothers"
+        },
+        {
+          "sandhi": "द्वयोः मात्रोः अपत्यम् = द्वैमातुरः",
+          "iast": "द्वयोः मात्रोः apatyam = द्वैमातुरः",
+          "gloss": "offspring of two mothers (a well-known epithet of Ganesha)"
+        },
+        {
+          "sandhi": "पञ्चसु कपालेषु संस्कृतः = पञ्चकपालः (पुरोडाशः)",
+          "iast": "पञ्चसु कपालेषु संस्कृतः = पञ्चकपालः (पुरोडाशः)",
+          "gloss": "an oblation-cake prepared in five potsherds"
+        }
+      ]
+    },
+    {
+      "id": "dvigu-2",
+      "sanskrit_name": "उत्तरपदद्विगुः",
+      "iast_name": "uttarapada-द्विगुः",
+      "english_name": "Dvigu — functioning as the first member of a further (bahuvrihi-like) compound",
+      "rule": "A dvigu compound itself becomes the पूर्वपद of a larger compound, the whole then describing someone who possesses that many of the thing named (a बहुव्रीहि sense built on top of a dvigu).",
+      "sutra_devanagari": "तद्धितार्थोत्तरपदसमाहारे च",
+      "sutra_iast": "तद्धितार्थोत्तरपदसमाहारे ca",
+      "ashtadhyayi_ref": "2.1.51",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.1.3.2 (p.45)",
+      "process": "vibhakti-lopa, then the resulting dvigu itself serves as पूर्वपद of an outer possessive (बहुव्रीहि-sense) compound",
+      "examples": [
+        {
+          "sandhi": "पञ्च गावः धनं यस्य सः = पञ्चगवधनः",
+          "iast": "पञ्च गावः धनं yasya सः = पञ्चगवधनः",
+          "gloss": "one whose wealth is five cows"
+        },
+        {
+          "sandhi": "दश गावः धनं यस्य सः = दशगवधनः",
+          "iast": "दश गावः धनं yasya सः = दशगवधनः",
+          "gloss": "one whose wealth is ten cows"
+        },
+        {
+          "sandhi": "द्वे अहनी प्रिये यस्य सः = द्वयह्नप्रियः",
+          "iast": "dve अहनी priye yasya सः = द्व्यह्नप्रियः",
+          "gloss": "one to whom two days are dear"
+        },
+        {
+          "sandhi": "पञ्च सखायः प्रियाः यस्य सः = पञ्चसखप्रियः",
+          "iast": "पञ्च सखायः प्रियाः yasya सः = पञ्चसखप्रियः",
+          "gloss": "one to whom five friends are dear"
+        }
+      ]
+    },
+    {
+      "id": "dvigu-3",
+      "sanskrit_name": "समाहारद्विगुः",
+      "iast_name": "समाहारद्विगुः",
+      "english_name": "Dvigu — collective sense ('a group of N')",
+      "rule": "A number-word compounds with a noun to denote a collection (समाहार) of that many members, treated as one unit. Such a compound is always singular in number, regardless of the count named.",
+      "sutra_devanagari": "तद्धितार्थोत्तरपदसमाहारे च / द्विगुरेकवचनम्",
+      "sutra_iast": "तद्धितार्थोत्तरपदसमाहारे ca / dvigur ekavacanam",
+      "ashtadhyayi_ref": "2.1.51 and 2.4.1",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.1.3.3 (pp.45-46)",
+      "process": "vibhakti-lopa; obligatorily singular regardless of the number named",
+      "flagged_nuance": "The book gives detailed gender rules for समाहार-dvigu, condensed here: (i) it is neuter by default (समाहारे द्विगुः द्वन्द्वः ca नपुंसकलिङ्गं स्यात्, 2.4.17); (ii) EXCEPT that ahan ('day') as uttarapada keeps masculine gender (रात्राहाहाः पुंसि, 2.4.21), as in सप्ताहः, द्व्यहः; (iii) an a-ending uttarapada elsewhere often shifts to ई-ending feminine (a वार्तिक + 4.1.21 द्विगोः), as in त्रिलोकी, पञ्चवटी — EXCEPT words in the पात्र/bhuvana/yuga-गण, which stay neuter (पञ्चपात्रम्, tribhuvanam, caturyugam); (iv) रात्रि ('night') as uttarapada becomes a-ending in the compound but stays neuter rather than becoming feminine, by a separate गणसूत्र (संख्यापूर्वं रात्रं क्लीबम्), as in dvyaham, cf. त्रिरात्रम्/पञ्चरात्रम्/नवरात्रम् which read as neuter -am forms despite रात्रि's own feminine gender outside compounds.",
+      "examples": [
+        {
+          "sandhi": "पञ्चानां गवां समाहारः = पञ्चगवम्",
+          "iast": "पञ्चानां गवां समाहारः = पञ्चगवम्",
+          "gloss": "a group of five cows"
+        },
+        {
+          "sandhi": "पञ्चानां पात्राणां समाहारः = पञ्चपात्रम्",
+          "iast": "पञ्चानां पात्राणां समाहारः = पञ्चपात्रम्",
+          "gloss": "a set of five vessels"
+        },
+        {
+          "sandhi": "त्रयाणां भुवनानां समाहारः = त्रिभुवनम्",
+          "iast": "त्रयाणां भुवनानां समाहारः = tribhuvanam",
+          "gloss": "the three worlds"
+        },
+        {
+          "sandhi": "चतुर्णां युगानां समाहारः = चतुर्युगम्",
+          "iast": "चतुर्णां युगानां समाहारः = caturyugam",
+          "gloss": "the four ages"
+        },
+        {
+          "sandhi": "सप्तानाम् अह्नां समाहारः = सप्ताहः",
+          "iast": "सप्तानाम् अह्नां समाहारः = सप्ताहः",
+          "gloss": "a week (a group of seven days)"
+        },
+        {
+          "sandhi": "द्वयोः अह्नोः समाहारः = द्व्यहः",
+          "iast": "द्वयोः अह्नोः समाहारः = द्व्यहः",
+          "gloss": "a two-day period"
+        },
+        {
+          "sandhi": "तिसृणां रात्रीणां समाहारः = त्रिरात्रम्",
+          "iast": "तिसृणां रात्रीणां समाहारः = त्रिरात्रम्",
+          "gloss": "a three-night period"
+        },
+        {
+          "sandhi": "पञ्चानां रात्रीणां समाहारः = पञ्चरात्रम्",
+          "iast": "पञ्चानां रात्रीणां समाहारः = पञ्चरात्रम्",
+          "gloss": "a five-night period"
+        },
+        {
+          "sandhi": "नवानां रात्रीणां समाहारः = नवरात्रम्",
+          "iast": "नवानां रात्रीणां समाहारः = नवरात्रम्",
+          "gloss": "a nine-night period (Navaratri)"
+        },
+        {
+          "sandhi": "त्रयाणां लोकानां समाहारः = त्रिलोकी",
+          "iast": "त्रयाणां लोकानां समाहारः = त्रिलोकी",
+          "gloss": "the three worlds (feminine form)"
+        },
+        {
+          "sandhi": "पञ्चानां वटानां समाहारः = पञ्चवटी",
+          "iast": "पञ्चानां वटानां समाहारः = पञ्चवटी",
+          "gloss": "a grove of five banyan trees (Panchavati)"
+        }
+      ]
+    },
+    {
+      "id": "nan-1",
+      "sanskrit_name": "नञ्समासः",
+      "iast_name": "नञ्समासः",
+      "english_name": "Negative Tatpurusha — नञ् ('not') plus a noun",
+      "rule": "The negative particle नञ् (surfacing as a-/an-) obligatorily compounds with a following subanta.",
+      "sutra_devanagari": "नञ्",
+      "sutra_iast": "नञ्",
+      "ashtadhyayi_ref": "2.2.61",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.1.4.1 (p.46)",
+      "process": "nitya-समास (obligatory); नञ् surfaces as an- before vowels, a- before consonants",
+      "flagged_nuance": "Two cautions from the book: (1) in a phrase like 'avighnam astu' ('may there be no obstacle'), the vigraha is 'विघ्नानाम् अभावः' (the absence of obstacles) — an abstract sense that reclassifies the compound as अव्ययीभाव rather than नञ्तत्पुरुष. (2) नञ् and na are two distinct indeclinables with the same meaning; a handful of compounds like 'नैकधा' (not in one way) and 'नान्तरीयकम्' are formed with the plain word na, not with नञ् — the difference shows up in whether the n-sound itself undergoes further elision in the compound (it does under नञ्, not under na).",
+      "examples": [
+        {
+          "sandhi": "न सन्देहः = असन्देहः",
+          "iast": "na सन्देहः = असन्देहः",
+          "gloss": "no doubt"
+        },
+        {
+          "sandhi": "न विवादः = अविवादः",
+          "iast": "na विवादः = अविवादः",
+          "gloss": "no dispute"
+        },
+        {
+          "sandhi": "न विघ्नः = अविघ्नः",
+          "iast": "na विघ्नः = अविघ्नः",
+          "gloss": "no obstacle"
+        },
+        {
+          "sandhi": "न पटुः = अपटुः",
+          "iast": "na पटुः = अपटुः",
+          "gloss": "not clever"
+        },
+        {
+          "sandhi": "न अश्वः = अनश्वः",
+          "iast": "na अश्वः = अनश्वः",
+          "gloss": "not a horse"
+        },
+        {
+          "sandhi": "न उपलब्धिः = अनुपलब्धिः",
+          "iast": "na उपलब्धिः = अनुपलब्धिः",
+          "gloss": "non-perception"
+        },
+        {
+          "sandhi": "न आगमनम् = अनागमनम्",
+          "iast": "na आगमनम् = अनागमनम्",
+          "gloss": "non-arrival"
+        },
+        {
+          "sandhi": "न पन्थाः = अपन्थाः / अपथम्",
+          "iast": "na पन्थाः = अपन्थाः / apatham",
+          "gloss": "not a (proper) road — an optional समासान्त suffix gives the second form, which then takes neuter gender"
+        }
+      ]
+    },
+    {
+      "id": "nan-2",
+      "sanskrit_name": "कुसमासः",
+      "iast_name": "ku-समासः",
+      "english_name": "Ku-Tatpurusha — 'bad/deficient' plus a noun",
+      "rule": "Ku ('bad, deficient, little') obligatorily compounds with a following subanta. Ku itself never occurs as an independent word, so its vigraha is always an aswapada-vigraha (paraphrased with unrelated words, not the compound's own members) — the same situation seen with upa-कृष्णम् earlier.",
+      "sutra_devanagari": "कुगतिप्रादयः",
+      "sutra_iast": "कुगतिप्रादयः",
+      "ashtadhyayi_ref": "2.2.18",
+      "related_ashtadhyayi": [
+        "6.3.101 कोः कत्तत्पुरुषे'ci (kad-substitution before a vowel-initial uttarapada)",
+        "6.3.106 विभाषा पुरुषे (ku optionally becomes का before पुरुष)"
+      ],
+      "book_ref": "समासः, Ch.4 §4.1.4.2 (p.47)",
+      "process": "nitya-समास (obligatory), aswapada-vigraha; ku optionally substitutes as का before 'पुरुष', and as kad before a vowel-initial uttarapada",
+      "examples": [
+        {
+          "sandhi": "कुत्सितः पुरुषः = कुपुरुषः / कापुरुषः",
+          "iast": "कुत्सितः पुरुषः = कुपुरुषः / कापुरुषः",
+          "gloss": "a bad/cowardly man — का-form optional before पुरुष specifically"
+        },
+        {
+          "sandhi": "कुत्सितम् अन्नम् = कदन्नम्",
+          "iast": "kutsitam annam = kadannam",
+          "gloss": "bad food — kad-form before the vowel-initial anna"
+        },
+        {
+          "sandhi": "कुत्सितः अश्वः = कदश्वः",
+          "iast": "कुत्सितः अश्वः = कदश्वः",
+          "gloss": "a bad horse"
+        }
+      ]
+    },
+    {
+      "id": "nan-3",
+      "sanskrit_name": "गतिसमासः",
+      "iast_name": "gati-समासः",
+      "english_name": "Gati-Tatpurusha — a word bearing the technical 'gati' designation, plus a कृत्-form",
+      "rule": "A word carrying पाणिनि's technical gati-संज्ञा (a closed, सूत्र-assigned label — not a natural-language category, and one the book says spans 'many सूत्रस्' it does not enumerate) obligatorily compounds with a following derived (typically कृदन्त, especially कृत्वा-absolutive) word. Every such compound has an aswapada-vigraha, since it is always obligatory (nitya).",
+      "sutra_devanagari": "कुगतिप्रादयः",
+      "sutra_iast": "कुगतिप्रादयः",
+      "ashtadhyayi_ref": "2.2.18 (the gati portion)",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.1.4.3 (pp.47-48)",
+      "process": "nitya-समास (obligatory), aswapada-vigraha",
+      "flagged_nuance": "The book's own list here runs to roughly 20 examples across two pages; this is a representative selection, not the full list — the underlying gati word-set itself is large and सूत्र-defined rather than semantically predictable.",
+      "examples": [
+        {
+          "sandhi": "अङ्गीकारं कृत्वा = अङ्गीकृत्य",
+          "iast": "अङ्गीकारं कृत्वा = अङ्गीकृत्य",
+          "gloss": "having accepted/agreed"
+        },
+        {
+          "sandhi": "अशुक्लं शुक्लं कृत्वा = शुक्लीकृत्य",
+          "iast": "अशुक्लं शुक्लं कृत्वा = शुक्लीकृत्य",
+          "gloss": "having made the non-white white"
+        },
+        {
+          "sandhi": "आदरं कृत्वा = सत्कृत्य",
+          "iast": "आदरं कृत्वा = सत्कृत्य",
+          "gloss": "having honored/respected"
+        },
+        {
+          "sandhi": "अनादरं कृत्वा = असत्कृत्य",
+          "iast": "अनादरं कृत्वा = असत्कृत्य",
+          "gloss": "having disrespected"
+        },
+        {
+          "sandhi": "पुरस्कारं कृत्वा = पुरस्कृत्य",
+          "iast": "पुरस्कारं कृत्वा = पुरस्कृत्य",
+          "gloss": "having placed in front / honored"
+        },
+        {
+          "sandhi": "तिरोधानं प्राप्य = अस्तंगत्य",
+          "iast": "तिरोधानं प्राप्य = अस्तंगत्य",
+          "gloss": "having disappeared / set (like the sun)"
+        },
+        {
+          "sandhi": "व्यवहितो भूत्वा = तिरोभूय",
+          "iast": "vyavahito भूत्वा = तिरोभूय",
+          "gloss": "having become hidden/obscured"
+        },
+        {
+          "sandhi": "हस्तं गृहीत्वा = हस्तेकृत्य",
+          "iast": "हस्तं गृहीत्वा = हस्तेकृत्य",
+          "gloss": "having taken by the hand"
+        },
+        {
+          "sandhi": "साक्षात्कृत्वा = साक्षात्कृत्य",
+          "iast": "साक्षात्कृत्वा = साक्षात्कृत्य",
+          "gloss": "having directly perceived/realized"
+        },
+        {
+          "sandhi": "मनसिकृत्वा = मनसिकृत्य",
+          "iast": "मनसिकृत्वा = मनसिकृत्य",
+          "gloss": "having taken to mind / resolved"
+        },
+        {
+          "sandhi": "जीविकामिव कृत्वा = जीविकाकृत्य",
+          "iast": "जीविकाम् iva कृत्वा = जीविकाकृत्य",
+          "gloss": "having made (something) into a livelihood, as it were"
+        },
+        {
+          "sandhi": "उपनिषदमिव कृत्वा = उपनिषत्कृत्य",
+          "iast": "उपनिषदम् iva कृत्वा = उपनिषत्कृत्य",
+          "gloss": "having treated (something) as secret, like an Upanishad"
+        }
+      ]
+    },
+    {
+      "id": "nan-4",
+      "sanskrit_name": "प्रादिसमासः",
+      "iast_name": "प्रादिसमासः",
+      "english_name": "प्रादि-Tatpurusha — pra and 21 other prefixes, plus a noun",
+      "rule": "Any of a fixed set of 22 prefixes (प्रादयः — pra, परा, apa, sam, and others) obligatorily compounds with a following subanta. Always obligatory (nitya), hence aswapada-vigraha throughout.",
+      "sutra_devanagari": "कुगतिप्रादयः",
+      "sutra_iast": "कुगतिप्रादयः",
+      "ashtadhyayi_ref": "2.2.18 (the प्रादि portion)",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.1.4.4 (p.48)",
+      "process": "nitya-समास (obligatory), aswapada-vigraha",
+      "flagged_nuance": "The book lists 22 prefixes and gives one example per prefix, running well beyond this selection; only a representative subset is included here.",
+      "examples": [
+        {
+          "sandhi": "शोभनः पुरुषः = सुपुरुषः",
+          "iast": "शोभनः पुरुषः = सुपुरुषः",
+          "gloss": "a good man (su-)"
+        },
+        {
+          "sandhi": "दुराचारः पुरुषः = दुष्पुरुषः",
+          "iast": "दुराचारः पुरुषः = दुष्पुरुषः",
+          "gloss": "a man of bad conduct (dus-)"
+        },
+        {
+          "sandhi": "प्र - गतः आचार्यः = प्राचार्यः",
+          "iast": "pra-गतः आचार्यः = प्राचार्यः",
+          "gloss": "an eminent teacher (pra-)"
+        },
+        {
+          "sandhi": "अति - क्रान्तं मालाम् = अतिमालः",
+          "iast": "ati-क्रान्तं मालाम् = अतिमालः",
+          "gloss": "beyond/past the garland (ati-)"
+        },
+        {
+          "sandhi": "अभि - गतः मुखम् = अभिमुखः",
+          "iast": "abhi-गतः mukham = अभिमुखः",
+          "gloss": "facing towards (abhi-)"
+        },
+        {
+          "sandhi": "प्रति - गतः अक्षम् (इन्द्रियम्) = प्रत्यक्षः",
+          "iast": "prati-गतः अक्षम् (indriyam) = प्रत्यक्षः",
+          "gloss": "directly perceived, before the eye (prati-)"
+        },
+        {
+          "sandhi": "अव - क्रुष्टः कोकिलया = अवकोकिलः",
+          "iast": "ava-क्रुष्टः कोकिलया = अवकोकिलः",
+          "gloss": "called out to/summoned by a cuckoo (ava-)"
+        },
+        {
+          "sandhi": "परि - ग्लानः अध्ययनाय = पर्यध्ययनः",
+          "iast": "pari-ग्लानः अध्ययनाय = पर्यध्ययनः",
+          "gloss": "exhausted from study (pari-)"
+        },
+        {
+          "sandhi": "निर् - क्रान्तः कौशाम्ब्याः = निष्कौशाम्बिः",
+          "iast": "nir-क्रान्तः कौशाम्ब्याः = निष्कौशाम्बिः",
+          "gloss": "one who has left Kaushambi (nir-)"
+        },
+        {
+          "sandhi": "उत् - क्रान्तः कुलात् = उत्कुलः",
+          "iast": "ut-क्रान्तः कुलात् = उत्कुलः",
+          "gloss": "one who has risen above his family/clan (ut-)"
+        }
+      ]
+    },
+    {
+      "id": "nan-5",
+      "sanskrit_name": "उपपदसमासः",
+      "iast_name": "upapada-समासः",
+      "english_name": "Upapada-Tatpurusha — a word bearing the technical 'upapada' designation, plus a कृत्-form (often an agent noun)",
+      "rule": "A word carrying पाणिनि's technical upapada-संज्ञा obligatorily compounds with a following derived word (very often a कृत्-formed agent noun in -a/-in etc., such as -कार, -bhojin, -याजिन्). Always obligatory, hence aswapada-vigraha.",
+      "sutra_devanagari": "उपपदमतिङ्",
+      "sutra_iast": "upapadam अतिङ्",
+      "ashtadhyayi_ref": "2.2.19 (also cross-referenced by the book at 2.2.17)",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.1.4.5 (p.49)",
+      "process": "nitya-समास (obligatory), aswapada-vigraha; some forms show mum-आगम (e.g. प्रियंवदः) rather than the expected accusative alug",
+      "flagged_nuance": "The book's list runs to roughly 17 examples; a representative selection is included here.",
+      "examples": [
+        {
+          "sandhi": "कुम्भं करोति इति = कुम्भकारः",
+          "iast": "कुम्भं karoti iti = कुम्भकारः",
+          "gloss": "one who makes pots — a potter"
+        },
+        {
+          "sandhi": "निशां करोति इति = निशाकरः",
+          "iast": "निशां karoti iti = निशाकरः",
+          "gloss": "one who makes the night — the moon"
+        },
+        {
+          "sandhi": "उष्णं भुङ्क्ते इति = उष्णभोजी",
+          "iast": "उष्णं भुङ्क्ते iti = उष्णभोजी",
+          "gloss": "one who eats (food) hot"
+        },
+        {
+          "sandhi": "सोमेन इष्टवान् इति = सोमयाजी",
+          "iast": "somena इष्टवान् iti = सोमयाजी",
+          "gloss": "one who has sacrificed with soma"
+        },
+        {
+          "sandhi": "शास्त्रं करोति इति = शास्त्रकृत् / शास्त्रकारः",
+          "iast": "शास्त्रं karoti iti = शास्त्रकृत् / शास्त्रकारः",
+          "gloss": "one who composes a treatise"
+        },
+        {
+          "sandhi": "प्रियं वदति इति = प्रियंवदः",
+          "iast": "प्रियं vadati iti = प्रियंवदः",
+          "gloss": "one who speaks pleasantly — note the mum-आगम (अं), not the expected accusative alug"
+        },
+        {
+          "sandhi": "भयं करोति इति = भयङ्करः",
+          "iast": "भयं karoti iti = भयङ्करः",
+          "gloss": "one who causes fear"
+        },
+        {
+          "sandhi": "वशं वदति इति = वशंवदः",
+          "iast": "वशं vadati iti = वशंवदः",
+          "gloss": "one who is compliant/obedient"
+        },
+        {
+          "sandhi": "पण्डितम् (आत्मानम्) मन्यते इति = पण्डितंमन्यः / पण्डितंमानी",
+          "iast": "पण्डितम् (आत्मानम्) manyate iti = पण्डितंमन्यः / पण्डितंमानी",
+          "gloss": "one who considers himself learned"
+        },
+        {
+          "sandhi": "शय्यायाः उत्थायम् = शय्योत्थायम्",
+          "iast": "शय्यायाः उत्थायम् = शय्योत्थायम्",
+          "gloss": "rising up from bed (an adverbial expression of haste)"
+        },
+        {
+          "sandhi": "उच्चैः कृत्वा = उच्चैःकृत्य",
+          "iast": "उच्चैः कृत्वा = उच्चैःकृत्य",
+          "gloss": "having done loudly"
+        },
+        {
+          "sandhi": "विना कृत्वा = विनाकृत्य",
+          "iast": "विना कृत्वा = विनाकृत्य",
+          "gloss": "having done without"
+        },
+        {
+          "sandhi": "नाना कृत्वा = नानाकृत्य",
+          "iast": "नाना कृत्वा = नानाकृत्य",
+          "gloss": "having done variously"
+        },
+        {
+          "sandhi": "एकधा भूत्वा = एकधाभूय",
+          "iast": "एकधा भूत्वा = एकधाभूय",
+          "gloss": "having become one/united"
+        },
+        {
+          "sandhi": "तूष्णीं भूत्वा = तूष्णीम्भूय",
+          "iast": "तूष्णीं भूत्वा = तूष्णीम्भूय",
+          "gloss": "having become silent"
+        }
+      ]
+    }
+  ],
+  "bahuvrihi": [
+    {
+      "id": "bahuvrihi-1",
+      "sanskrit_name": "सामान्यबहुव्रीहिः (समानाधिकरणबहुव्रीहिः)",
+      "iast_name": "सामान्यबहुव्रीहिः (समानाधिकरणबहुव्रीहिः)",
+      "english_name": "Bahuvrihi — general (same-case members), a compound naming something else entirely",
+      "rule": "Two or more subantas, generally in the same case, compound to name a third thing (anya-पदार्थ) that possesses what the compound describes — the compound's own members are not what is finally denoted. E.g. 'पीताम्बरः' does not mean 'yellow' or 'garment', it means 'one who wears a yellow garment' (Krishna/Vishnu).",
+      "sutra_devanagari": "अनेकमन्यपदार्थे",
+      "sutra_iast": "anekam अन्यपदार्थे",
+      "ashtadhyayi_ref": "2.2.24",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.2.1 (pp.50-51)",
+      "process": "vibhakti-lopa; the compound as a whole functions as an adjective describing a possessor, agreeing in gender/number/case with whatever it modifies (not fixed by its own members' original gender)",
+      "examples": [
+        {
+          "sandhi": "ऊढः रथः येन सः = ऊढरथः",
+          "iast": "ऊढः रथः yena सः = ऊढरथः",
+          "gloss": "one by whom a chariot has been drawn/carried"
+        },
+        {
+          "sandhi": "आरूढं यानं येन सः = आरूढयानः",
+          "iast": "आरूढं यानं yena सः = आरूढयानः",
+          "gloss": "one by whom a vehicle has been mounted"
+        },
+        {
+          "sandhi": "कृतं भोजनं येन सः = कृतभोजनः",
+          "iast": "कृतं भोजनं yena सः = कृतभोजनः",
+          "gloss": "one by whom a meal has been eaten"
+        },
+        {
+          "sandhi": "अधीतं काव्यं यया सा = अधीतकाव्या",
+          "iast": "अधीतं काव्यं यया सा = अधीतकाव्या",
+          "gloss": "she by whom poetry has been studied"
+        },
+        {
+          "sandhi": "धृतानि पुष्पाणि यया सा = धृतपुष्पा",
+          "iast": "धृतानि पुष्पाणि यया सा = धृतपुष्पा",
+          "gloss": "she by whom flowers are worn"
+        },
+        {
+          "sandhi": "पतितानि पर्णानि यस्मात् सः = पतितपर्णः (वृक्षः)",
+          "iast": "पतितानि पर्णानि यस्मात् सः = पतितपर्णः (वृक्षः)",
+          "gloss": "a tree from which the leaves have fallen"
+        },
+        {
+          "sandhi": "चित्राः गावः यस्य सः = चित्रगुः",
+          "iast": "चित्राः गावः yasya सः = चित्रगुः",
+          "gloss": "one who has variegated cows"
+        },
+        {
+          "sandhi": "रूपवती भार्या यस्य सः = रूपवद्भार्यः",
+          "iast": "रूपवती भार्या yasya सः = रूपवद्भार्यः",
+          "gloss": "one whose wife is beautiful"
+        },
+        {
+          "sandhi": "सर्वा प्रिया यस्य सः = सर्वप्रियः",
+          "iast": "सर्वा प्रिया yasya सः = सर्वप्रियः",
+          "gloss": "one to whom everyone/everything is dear"
+        },
+        {
+          "sandhi": "दृढा भक्तिः यस्य सः = दृढाभक्तिः",
+          "iast": "दृढा भक्तिः yasya सः = दृढाभक्तिः",
+          "gloss": "one whose devotion is firm (no पुंवद्भाव here, unlike the general rule — see below)"
+        },
+        {
+          "sandhi": "विशाले अक्षिणी यस्य सः = विशालाक्षः",
+          "iast": "विशाले अक्षिणी yasya सः = विशालाक्षः",
+          "gloss": "one who has large eyes"
+        },
+        {
+          "sandhi": "निर्गतः वृत्तेः निवृत्तिः, निवृत्तिः धर्मः यस्य सः = निवृत्तिधर्मा",
+          "iast": "निर्गतः वृत्तेः निवृत्तिः, निवृत्तिः धर्मः yasya सः = निवृत्तिधर्मा",
+          "gloss": "one whose way of life is renunciation"
+        }
+      ]
+    },
+    {
+      "id": "bahuvrihi-2",
+      "sanskrit_name": "व्यधिकरणबहुव्रीहिः",
+      "iast_name": "व्यधिकरणबहुव्रीहिः",
+      "english_name": "Bahuvrihi — members in different cases",
+      "rule": "Terminological distinction: when the two bahuvrihi members are in the SAME case, it is called समानाधिकरण (as in bahuvrihi-1); when they are in DIFFERENT cases (typically a locative पूर्वपद plus a nominative uttarapada), it is called व्यधिकरण.",
+      "sutra_devanagari": "अनेकमन्यपदार्थे",
+      "sutra_iast": "anekam अन्यपदार्थे",
+      "ashtadhyayi_ref": "2.2.24",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.2.2 (p.51)",
+      "process": "vibhakti-lopa (usually) — but see flagged nuance for an exception",
+      "flagged_nuance": "'कण्ठे कालः yasya सः = कण्ठेकालः' (one whose throat is dark, i.e. Shiva) is explicitly marked by the book as an aluk-समास — the locative ending on कण्ठे is exceptionally retained rather than elided, unlike the otherwise-general vibhakti-lopa pattern.",
+      "examples": [
+        {
+          "sandhi": "गदा पाणौ यस्य सः = गदापाणिः",
+          "iast": "गदा पाणौ yasya सः = गदापाणिः",
+          "gloss": "one who has a mace in hand (an epithet of Vishnu)"
+        },
+        {
+          "sandhi": "गडुः कण्ठे यस्य सः = गडुकण्ठः",
+          "iast": "गडुः कण्ठे yasya सः = गडुकण्ठः",
+          "gloss": "one who has a growth/goiter on the neck (गडुः = a fleshy lump on the neck)"
+        },
+        {
+          "sandhi": "भाले चन्द्रः यस्य सः = भालचन्द्रः",
+          "iast": "भाले चन्द्रः yasya सः = भालचन्द्रः",
+          "gloss": "one who has the moon on his forehead (Shiva)"
+        },
+        {
+          "sandhi": "चन्द्रः मौलौ यस्य सः = चन्द्रमौलिः",
+          "iast": "चन्द्रः maulau yasya सः = चन्द्रमौलिः",
+          "gloss": "one who has the moon on his crown (Shiva)"
+        },
+        {
+          "sandhi": "विषं कण्ठे यस्य सः = विषकण्ठः",
+          "iast": "विषं कण्ठे yasya सः = विषकण्ठः",
+          "gloss": "one who has poison in his throat (Shiva)"
+        },
+        {
+          "sandhi": "कण्ठे कालः यस्य सः = कण्ठेकालः",
+          "iast": "कण्ठे कालः yasya सः = कण्ठेकालः",
+          "gloss": "one whose throat is dark (Shiva) — an aluk (non-elided) compound"
+        }
+      ]
+    },
+    {
+      "id": "bahuvrihi-3",
+      "sanskrit_name": "सङ्ख्योत्तरपदः",
+      "iast_name": "सङ्ख्योत्तरपदः",
+      "english_name": "Bahuvrihi — a number-word as second member ('nearly/beyond N')",
+      "rule": "Avyaya (indeclinable), आसन्न ('near'), अदूर ('not far'), or adhika ('more') compounds with a following number-word, in the sense of 'approximately/close to/beyond' that count. All resulting forms are obligatorily plural.",
+      "sutra_devanagari": "सङ्ख्याव्ययासन्नादूराधिकं संख्येये",
+      "sutra_iast": "सङ्ख्याव्ययासन्नादूराधिकं सङ्ख्येये",
+      "ashtadhyayi_ref": "2.2.25",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.2.3 (pp.51-52)",
+      "process": "vibhakti-lopa; result always plural, regardless of the sense",
+      "examples": [
+        {
+          "sandhi": "दशानां समीपे ये सन्ति ते = उपदशाः",
+          "iast": "दशानां समीपे ye santi te = उपदशाः",
+          "gloss": "those numbering close to ten"
+        },
+        {
+          "sandhi": "विंशतेः समीपे ये सन्ति ते = उपविंशाः",
+          "iast": "विंशतेः समीपे ye santi te = उपविंशाः",
+          "gloss": "those numbering close to twenty"
+        },
+        {
+          "sandhi": "षष्टेः समीपे ये सन्ति ते = उपषष्टाः",
+          "iast": "षष्टेः समीपे ye santi te = उपषष्टाः",
+          "gloss": "those numbering close to sixty"
+        },
+        {
+          "sandhi": "पञ्चविंशतेः आसन्नाः = आसन्नपञ्चविंशाः",
+          "iast": "पञ्चविंशतेः आसन्नाः = आसन्नपञ्चविंशाः",
+          "gloss": "those close to twenty-five"
+        },
+        {
+          "sandhi": "त्रिंशतः अदूराः = अदूरत्रिंशाः",
+          "iast": "त्रिंशतः अदूराः = अदूरत्रिंशाः",
+          "gloss": "those not far from thirty"
+        },
+        {
+          "sandhi": "पञ्चाशतः अधिकाः = अधिकपञ्चाशाः",
+          "iast": "पञ्चाशतः अधिकाः = अधिकपञ्चाशाः",
+          "gloss": "those more than fifty"
+        },
+        {
+          "sandhi": "सहस्रात् अधिकाः = अधिकसहस्राः",
+          "iast": "सहस्रात् अधिकाः = अधिकसहस्राः",
+          "gloss": "those more than a thousand"
+        }
+      ]
+    },
+    {
+      "id": "bahuvrihi-4",
+      "sanskrit_name": "सङ्ख्योभयपदः",
+      "iast_name": "सङ्ख्योभयपदः",
+      "english_name": "Bahuvrihi — a number-word compounding with another number-word ('two or three')",
+      "rule": "A number-word (in the sense of a countable quantity) compounds with another number-word, expressing 'this many or that many'.",
+      "sutra_devanagari": "सङ्ख्याव्ययासन्नादूराधिकं संख्येये (governing the same सङ्ख्येये context as सङ्ख्योत्तरपद)",
+      "sutra_iast": "सङ्ख्याव्ययासन्नादूराधिकं सङ्ख्येये",
+      "ashtadhyayi_ref": "2.2.25 (the book does not cite a separate सूत्र number for this subtype specifically; it is treated as an extension of the same सङ्ख्येये-context rule)",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.2.4 (p.52)",
+      "process": "vibhakti-lopa",
+      "examples": [
+        {
+          "sandhi": "द्वौ वा त्रयः वा = द्वित्राः",
+          "iast": "dvau वा त्रयः वा = द्वित्राः",
+          "gloss": "two or three"
+        },
+        {
+          "sandhi": "त्रयः वा चत्वारः वा = त्रिचतुराः",
+          "iast": "त्रयः वा चत्वारः वा = त्रिचतुराः",
+          "gloss": "three or four"
+        },
+        {
+          "sandhi": "पञ्च वा षड् वा = पञ्चषाः",
+          "iast": "पञ्च वा षड् वा = पञ्चषाः",
+          "gloss": "five or six"
+        }
+      ]
+    },
+    {
+      "id": "bahuvrihi-5",
+      "sanskrit_name": "सहपूर्वपदः",
+      "iast_name": "saha-पूर्वपदः",
+      "english_name": "Bahuvrihi — 'saha' (with/accompanied by) as first member",
+      "rule": "The word saha ('with') compounds with an instrumental-ending word, in the sense of accompaniment/possession. A related rule optionally simplifies saha itself to sa in the compound.",
+      "sutra_devanagari": "तेन सहेति तुल्ययोगे / वोपसर्जनस्य",
+      "sutra_iast": "tena saheti tulyayoge / vopasarjanasya",
+      "ashtadhyayi_ref": "2.2.28 and 6.3.72",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.2.5 (p.52)",
+      "process": "vibhakti-lopa; saha optionally simplifies to sa (a much shorter, very common form: sa-पुत्रः etc.)",
+      "examples": [
+        {
+          "sandhi": "पुत्रेण सह वर्तते इति = सपुत्रः / सहपुत्रः",
+          "iast": "पुत्रेण saha vartate iti = सपुत्रः / सहपुत्रः",
+          "gloss": "one who is together with his son"
+        },
+        {
+          "sandhi": "कुटुम्बेन सह वर्तते इति = सकुटुम्बः / सहकुटुम्बः",
+          "iast": "कुटुम्बेन saha vartate iti = सकुटुम्बः / सहकुटुम्बः",
+          "gloss": "one who is together with his family"
+        },
+        {
+          "sandhi": "कर्मणा सह वर्तते इति = सकर्मकः",
+          "iast": "कर्मणा saha vartate iti = सकर्मकः",
+          "gloss": "accompanied by an object (grammatical: a transitive verb)"
+        },
+        {
+          "sandhi": "लोम्ना सह वर्तते इति = सलोमकः",
+          "iast": "लोम्ना saha vartate iti = सलोमकः",
+          "gloss": "possessing hair/fur"
+        }
+      ]
+    },
+    {
+      "id": "bahuvrihi-6",
+      "sanskrit_name": "व्यतिहारलक्षणः",
+      "iast_name": "व्यतिहारलक्षणः",
+      "english_name": "Bahuvrihi — reciprocal action ('X-to-X' fighting compounds)",
+      "rule": "Denotes a fight/conflict (yuddha) carried out reciprocally, with the same body-part or weapon repeated on both sides: 'seizing X and X, this fight occurred'. All examples of this type are indeclinable (avyaya).",
+      "sutra_devanagari": "तत्र तेनेदमिति सारूपे",
+      "sutra_iast": "tatra tenedam iti सारूप्ये",
+      "ashtadhyayi_ref": "2.2.27",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.2.6 (p.52)",
+      "process": "vibhakti-lopa; result is always an indeclinable (avyaya)",
+      "examples": [
+        {
+          "sandhi": "केशेषु केशेषु गृहीत्वा इदं युद्धं प्रवृत्तम् = केशाकेशि",
+          "iast": "केशेषु केशेषु गृहीत्वा इदं युद्धं प्रवृत्तम् = केशाकेशि",
+          "gloss": "a hair-pulling fight ('hair to hair')"
+        },
+        {
+          "sandhi": "दण्डैः दण्डैः प्रहृत्य इदं युद्धं प्रवृत्तम् = दण्डादण्डि",
+          "iast": "दण्डैः दण्डैः प्रहृत्य इदं युद्धं प्रवृत्तम् = दण्डादण्डि",
+          "gloss": "a stick-fight ('stick to stick')"
+        },
+        {
+          "sandhi": "मुष्टिभिः मुष्टिभिः प्रहत्य इदं युद्धं प्रवृत्तम् = मुष्टामुष्टि",
+          "iast": "मुष्टिभिः मुष्टिभिः prahatya इदं युद्धं प्रवृत्तम् = मुष्टामुष्टि",
+          "gloss": "a fist-fight ('fist to fist')"
+        },
+        {
+          "sandhi": "बाहौ बाहौ गृहीत्वा इदं युद्धं प्रवृत्तम् = बाहूबाहवि",
+          "iast": "बाहौ बाहौ गृहीत्वा इदं युद्धं प्रवृत्तम् = बाहूबाहवि",
+          "gloss": "an arm-wrestling-style grapple ('arm to arm')"
+        }
+      ]
+    },
+    {
+      "id": "bahuvrihi-7",
+      "sanskrit_name": "दिगन्तरालल्षणः",
+      "iast_name": "dig-अन्तराललक्षणः",
+      "english_name": "Bahuvrihi — the interval between two named directions (intercardinal points)",
+      "rule": "Two direction-names (dik-नाम) compound to denote the interval between them — the resulting intercardinal direction.",
+      "sutra_devanagari": "दिङ्नामान्यन्तराले",
+      "sutra_iast": "दिङ्नामान्य् अन्तराले",
+      "ashtadhyayi_ref": "2.2.26",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.2.7 (p.53)",
+      "process": "vibhakti-lopa",
+      "examples": [
+        {
+          "sandhi": "दक्षिणस्याः पूर्वस्याश्च दिशो यदन्तरालम् = दक्षिणपूर्वा (आग्नेयी दिक्)",
+          "iast": "दक्षिणस्याः पूर्वस्याश् ca दिशो yad अन्तरालम् = दक्षिणपूर्वा (आग्नेयी dik)",
+          "gloss": "the interval between south and east — south-east"
+        },
+        {
+          "sandhi": "पूर्वस्याः उत्तरस्याश्च दिशो यदन्तरालम् = पूर्वोत्तरा (ऐशानी दिक्)",
+          "iast": "पूर्वस्याः उत्तरस्याश् ca दिशो yad अन्तरालम् = पूर्वोत्तरा (ऐशानी dik)",
+          "gloss": "north-east"
+        },
+        {
+          "sandhi": "उत्तरस्याः पश्चिमायाश्च दिशो यदन्तरालम् = उत्तरपश्चिमा (वायवी दिक्)",
+          "iast": "उत्तरस्याः पश्चिमायाश् ca दिशो yad अन्तरालम् = उत्तरपश्चिमा (वायवी dik)",
+          "gloss": "north-west"
+        },
+        {
+          "sandhi": "पश्चिमायाः दक्षिणस्याश्च दिशो यदन्तरालम् = पश्चिमदक्षिणा (नैर्ऋती दिक्)",
+          "iast": "पश्चिमायाः दक्षिणस्याश् ca दिशो yad अन्तरालम् = पश्चिमदक्षिणा (नैरृती dik)",
+          "gloss": "south-west"
+        }
+      ]
+    },
+    {
+      "id": "bahuvrihi-8",
+      "sanskrit_name": "नञ्बहुव्रीहिः",
+      "iast_name": "नञ्बहुव्रीहिः",
+      "english_name": "Bahuvrihi — negative ('one lacking X')",
+      "rule": "The word अविद्यमानम् ('non-existent') compounds with a following subanta; when the compound is formed, the word विद्यमान itself is elided, leaving only the negative prefix visible.",
+      "sutra_devanagari": "नञोऽस्त्यर्थानां वाच्यो वा चोत्तरपदलोपः",
+      "sutra_iast": "नञोʼस्त्यर्थानां वाच्यो वा चोत्तरपदलोपः",
+      "ashtadhyayi_ref": "वार्तिक under 2.2.24",
+      "related_ashtadhyayi": [
+        "5.4.122 nityam asic प्रजामेधयोः (प्रजा/मेधा get an obligatory -as- augment after नञ्/dur/su in such compounds)"
+      ],
+      "book_ref": "समासः, Ch.4 §4.2.8 (p.53)",
+      "process": "the vigraha's own uttarapada (विद्यमान) is elided on forming the compound, leaving just the negated remainder",
+      "examples": [
+        {
+          "sandhi": "अविद्यमानः पुत्रः यस्य सः = अपुत्रः",
+          "iast": "अविद्यमानः पुत्रः yasya सः = अपुत्रः",
+          "gloss": "one who has no son"
+        },
+        {
+          "sandhi": "अविद्यमानम् अपत्यं यस्य सः = अनपत्यः",
+          "iast": "अविद्यमानम् अपत्यं yasya सः = अनपत्यः",
+          "gloss": "one who has no offspring"
+        },
+        {
+          "sandhi": "अविद्यमाना पुत्री यस्य सः = अपुत्रीकः",
+          "iast": "अविद्यमाना पुत्री yasya सः = अपुत्रीकः",
+          "gloss": "one who has no daughter"
+        },
+        {
+          "sandhi": "अविद्यमानः प्रजा यस्य सः = अप्रजाः",
+          "iast": "अविद्यमानः प्रजा yasya सः = अप्रजाः",
+          "gloss": "one who has no progeny — an s-ending word by 5.4.122"
+        },
+        {
+          "sandhi": "अविद्यमाना मेधा यस्य सः = अमेधाः",
+          "iast": "अविद्यमाना मेधा yasya सः = अमेधाः",
+          "gloss": "one who has no intelligence — likewise s-ending by 5.4.122"
+        }
+      ]
+    },
+    {
+      "id": "bahuvrihi-9",
+      "sanskrit_name": "प्रादिबहुव्रीहिः",
+      "iast_name": "प्रादिबहुव्रीहिः",
+      "english_name": "Bahuvrihi — a pra-class prefix plus a verb-derived nominative word",
+      "rule": "A pra-class prefix-word (pra, nir, su, dur, etc.) compounds with a following verb-derived (धातुज) nominative word belonging to yet another nominative word; the verb-derived word's own uttarapada is then elided in the compound.",
+      "sutra_devanagari": "प्रादिभ्यो धातुजस्य वाच्यो वा चोत्तरपदलोपः",
+      "sutra_iast": "प्रादिभ्यो धातुजस्य वाच्यो वा चोत्तरपदलोपः",
+      "ashtadhyayi_ref": "वार्तिक under 2.2.24",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.2.9 (pp.53-54)",
+      "process": "the vigraha's own middle verb-derived word (like gata-) is elided on forming the compound",
+      "examples": [
+        {
+          "sandhi": "निर्गता दया यस्मात् सः = निर्दयः",
+          "iast": "निर्गता दया यस्मात् सः = निर्दयः",
+          "gloss": "one from whom compassion has departed — merciless"
+        },
+        {
+          "sandhi": "निर्गतम् अपत्यं यस्मात् सः = निरपत्यः",
+          "iast": "nirgatam अपत्यं यस्मात् सः = निरपत्यः",
+          "gloss": "one from whom offspring has departed — childless"
+        },
+        {
+          "sandhi": "निर्गता करुणा यस्मात् सः = निष्करुणः",
+          "iast": "निर्गता करुणा यस्मात् सः = निष्करुणः",
+          "gloss": "merciless (via करुणा)"
+        },
+        {
+          "sandhi": "दुर्गता मेधा यस्य सः = दुर्मेधाः",
+          "iast": "दुर्गता मेधा yasya सः = दुर्मेधाः",
+          "gloss": "one whose intelligence has gone bad — dull-witted"
+        },
+        {
+          "sandhi": "शोभना मेधा यस्य सः = सुमेधाः",
+          "iast": "शोभना मेधा yasya सः = सुमेधाः",
+          "gloss": "one whose intelligence is excellent"
+        },
+        {
+          "sandhi": "उद्गतः गन्धः यस्य सः = उद्गन्धिः",
+          "iast": "उद्गतः गन्धः yasya सः = उद्गन्धिः",
+          "gloss": "one whose smell has risen/spread"
+        },
+        {
+          "sandhi": "शोभनः गन्धः यस्य सः = सुगन्धिः",
+          "iast": "शोभनः गन्धः yasya सः = सुगन्धिः",
+          "gloss": "one who has a good smell — fragrant"
+        },
+        {
+          "sandhi": "शोभनौ पादौ यस्य सः = सुपाद्",
+          "iast": "शोभनौ पादौ yasya सः = सुपाद्",
+          "gloss": "one who has good feet"
+        },
+        {
+          "sandhi": "उन्नता नासिका यस्य सः = उन्नसः",
+          "iast": "उन्नता नासिका yasya सः = उन्नसः",
+          "gloss": "one who has a raised/prominent nose"
+        }
+      ]
+    },
+    {
+      "id": "bahuvrihi-10",
+      "sanskrit_name": "उपमानपूर्वपदः (बहुव्रीहौ)",
+      "iast_name": "उपमानपूर्वपदः (in बहुव्रीहि)",
+      "english_name": "Bahuvrihi — a comparison-word (उपमान) as first member",
+      "rule": "Two related rules: (i) a compound that already contains a locative word plus an उपमान word further compounds with another word, dropping the middle uttarapada; (ii) a plain उपमान word alone compounds directly with any other subanta to describe a possessor with that comparison.",
+      "sutra_devanagari": "सप्तम्युपमानपूर्वपदस्योत्तरपदलोपः / अनेकमन्यपदार्थे",
+      "sutra_iast": "saptamy-उपमानपूर्वपदस्योत्तरपदलोपः / anekam अन्यपदार्थे",
+      "ashtadhyayi_ref": "वार्तिक (for i) and 2.2.24 (for ii)",
+      "related_ashtadhyayi": [
+        "5.4.113 स्वाङ्गवाचि-sakthi-अक्षिअन्तात् बहुव्रीहौ षच् (a षच्/a-suffix after अक्षि/sakthi as uttarapada in such bahuvrihis, feminine in ई via डीष्)",
+        "5.4.131 ऊधसो'नड् (ऊधस् → -अनड् in bahuvrihi; feminine ई via 4.1.25 डीष्)"
+      ],
+      "book_ref": "समासः, Ch.4 §4.2.10 (p.54)",
+      "process": "(i) elides the vigraha's middle uttarapada; (ii) ordinary vibhakti-lopa",
+      "examples": [
+        {
+          "sandhi": "कण्ठेस्थः कालः यस्य सः = कण्ठेकालः",
+          "iast": "कण्ठेस्थः कालः yasya सः = कण्ठेकालः",
+          "gloss": "one whose throat is dark — here derived by eliding 'स्थः' from an inner locative+उपमान phrase (cf. bahuvrihi-2's alternate derivation of the same word)"
+        },
+        {
+          "sandhi": "गजाननम् इव आननं यस्य सः = गजाननः",
+          "iast": "गजाननम् iva आननं yasya सः = गजाननः",
+          "gloss": "one whose face is like an elephant's face (Ganesha)"
+        },
+        {
+          "sandhi": "उष्ट्रमुखम् इव मुखं यस्य सः = उष्ट्रमुखः",
+          "iast": "उष्ट्रमुखम् iva मुखं yasya सः = उष्ट्रमुखः",
+          "gloss": "one whose face is like a camel's"
+        },
+        {
+          "sandhi": "पुण्डरीके इव अक्षिणी यस्य सः = पुण्डरीकाक्षः",
+          "iast": "पुण्डरीके iva अक्षिणी yasya सः = पुण्डरीकाक्षः",
+          "gloss": "lotus-eyed (an epithet of Vishnu)"
+        },
+        {
+          "sandhi": "जलजे इव अक्षिणी यस्याः सा = जलजाक्षी",
+          "iast": "jalaje iva अक्षिणी यस्याः सा = जलजाक्षी",
+          "gloss": "she whose eyes are like water-born (lotus) flowers"
+        },
+        {
+          "sandhi": "कुण्डम् इव ऊधः यस्याः सा = कुण्डोघ्नी (गौः)",
+          "iast": "कुण्डम् iva ऊधः यस्याः सा = कुण्डोघ्नी (गौः)",
+          "gloss": "a cow whose udder is like a (large) pot"
+        }
+      ]
+    }
+  ],
+  "dvandva": [
+    {
+      "id": "dvandva-1",
+      "sanskrit_name": "इतरेतरद्वन्द्वः",
+      "iast_name": "itaretara-द्वन्द्वः",
+      "english_name": "Dvandva — mutual/copulative (each member individually named)",
+      "rule": "Two or more subantas joined by 'and' (ca) in the vigraha compound together, each retaining its own individual reference — the compound is dual or plural according to how many things are actually named, unlike समाहार-dvandva which collapses to singular.",
+      "sutra_devanagari": "चार्थे द्वन्द्वः",
+      "sutra_iast": "चार्थे द्वन्द्वः",
+      "ashtadhyayi_ref": "2.2.29",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.3.1 (p.55)",
+      "process": "vibhakti-lopa; number (dual/plural) follows the actual count of referents named",
+      "examples": [
+        {
+          "sandhi": "हरिश्च हरश्च = हरिहरौ",
+          "iast": "हरिश् ca हरश् ca = hariharau",
+          "gloss": "Hari and Hara (Vishnu and Shiva)"
+        },
+        {
+          "sandhi": "हरिश्च गुरुश्च हरश्च = हरिहरगुरवः / हरिगुरुहराः",
+          "iast": "हरिश् ca गुरुश् ca हरश् ca = हरिहरगुरवः / हरिगुरुहराः",
+          "gloss": "Hari, the teacher, and Hara"
+        },
+        {
+          "sandhi": "इन्द्रश्च अग्निश्च = इन्द्राग्नी",
+          "iast": "इन्द्रश् ca अग्निश् ca = इन्द्राग्नी",
+          "gloss": "Indra and Agni"
+        },
+        {
+          "sandhi": "ग्रीष्मश्च वसन्तश्च = ग्रीष्मवसन्तौ",
+          "iast": "ग्रीष्मश् ca वसन्तश् ca = ग्रीष्मवसन्तौ",
+          "gloss": "summer and spring"
+        },
+        {
+          "sandhi": "हेमन्तश्च शिशिरश्च वसन्तश्च = हेमन्तशिशिरवसन्ताः",
+          "iast": "हेमन्तश् ca शिशिरश् ca वसन्तश् ca = हेमन्तशिशिरवसन्ताः",
+          "gloss": "winter, the cool season, and spring"
+        },
+        {
+          "sandhi": "कृत्तिका च रोहिणी च = कृत्तिकारोहिण्यौ",
+          "iast": "कृत्तिका ca रोहिणी ca = कृत्तिकारोहिण्यौ",
+          "gloss": "the lunar asterisms Krittika and Rohini"
+        },
+        {
+          "sandhi": "माता च पिता च = मातापितरौ",
+          "iast": "माता ca पिता ca = मातापितरौ",
+          "gloss": "mother and father"
+        },
+        {
+          "sandhi": "युधिष्ठिरश्च अर्जुनश्च = युधिष्ठिरार्जुनौ",
+          "iast": "युधिष्ठिरश् ca अर्जुनश् ca = युधिष्ठिरार्जुनौ",
+          "gloss": "Yudhishthira and Arjuna"
+        }
+      ]
+    },
+    {
+      "id": "dvandva-2",
+      "sanskrit_name": "समाहारद्वन्द्वः",
+      "iast_name": "समाहारद्वन्द्वः",
+      "english_name": "Dvandva — collective (optional, neuter singular)",
+      "rule": "The same word-pairs that could form an itaretara-dvandva may optionally instead form a collective (समाहार) compound, treating the pair/group as one unit; such compounds take neuter singular gender, per the same rule that governs collective dvigu compounds.",
+      "sutra_devanagari": "चार्थे द्वन्द्वः / समाहारे द्विगुः द्वन्द्वः च नपुंसकम्",
+      "sutra_iast": "चार्थे द्वन्द्वः / समाहारे द्विगुः द्वन्द्वः ca नपुंसकम्",
+      "ashtadhyayi_ref": "2.2.29 and 2.4.17",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.3.2 (p.56)",
+      "process": "vibhakti-lopa; neuter singular regardless of how many members are named",
+      "flagged_nuance": "The book stresses this is optional (vikalpena) for ordinary word-pairs: 'संज्ञापरिभाषम्' can equally be said as the itaretara plural 'संज्ञापरिभाषाः', and likewise 'घटपटम्' alongside dual 'घटपटौ'. Contrast dvandva-3, where certain word-classes are instead obligatorily समाहार.",
+      "examples": [
+        {
+          "sandhi": "संज्ञाश्च परिभाषाश्च एतासां समाहारः = संज्ञापरिभाषम्",
+          "iast": "संज्ञाश् ca परिभाषाश् ca एतासां समाहारः = संज्ञापरिभाषम्",
+          "gloss": "definitions and technical conventions, taken together"
+        },
+        {
+          "sandhi": "घटश्च पटश्च अनयोः समाहारः = घटपटम्",
+          "iast": "घटश् ca पटश् ca अनयोः समाहारः = घटपटम्",
+          "gloss": "a pot and a cloth, taken together"
+        }
+      ]
+    },
+    {
+      "id": "dvandva-3",
+      "sanskrit_name": "नित्यसमाहारद्वन्द्वः",
+      "iast_name": "nitya-समाहारद्वन्द्वः",
+      "english_name": "Dvandva — obligatorily collective (fixed word-classes)",
+      "rule": "Five distinct word-classes are, by separate सूत्रस्, obligatorily समाहार (never itaretara): (1) words denoting parts of a living being, parts of a musical instrument, or divisions of an army; (2) words denoting classes of non-living substances; (3) small-creature words up to and including nakula ('mongoose'); (4) words denoting things in perpetual/traditional enmity; (5) a closed, listed set of conventional pairs ('गवाश्व' etc.) that must appear in the given order.",
+      "sutra_devanagari": "द्वन्द्वः प्राणितूर्यसेनाङ्गानाम् / जातिरप्राणिनाम् / क्षुद्रजन्तवः / येषां च विरोधः शाश्वतिकः / गवाश्वप्रभृतीनि च",
+      "sutra_iast": "द्वन्द्वः प्राणितूर्यसेनाङ्गानाम् / जातिर् अप्राणिनाम् / क्षुद्रजन्तवः / येषां ca विरोधः शाश्वतिकः / गवाश्वप्रभृतीनि ca",
+      "ashtadhyayi_ref": "2.4.2, 2.4.6, 2.4.8, 2.4.9, and 2.4.11",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.3.3 (p.56)",
+      "process": "vibhakti-lopa; obligatorily neuter singular, unlike dvandva-2 where this is a mere option",
+      "examples": [
+        {
+          "sandhi": "पाणी च पादौ च एतेषां समाहारः = पाणिपादम्",
+          "iast": "पाणी ca पादौ ca एतेषां समाहारः = पाणिपादम्",
+          "gloss": "hands and feet (body-part class, 2.4.2)"
+        },
+        {
+          "sandhi": "रथिकाश्च अश्वारोहाश्च एतेषां समाहारः = रथिकाश्वारोहम्",
+          "iast": "रथिकाश् ca अश्वारोहाश् ca एतेषां समाहारः = रथिकाश्वारोहम्",
+          "gloss": "charioteers and horsemen (army-division class, 2.4.2)"
+        },
+        {
+          "sandhi": "धानाश्च शष्कुल्यश्च एतासां समाहारः = धानाशष्कुलि",
+          "iast": "धानाश् ca शष्कुल्यश् ca एतासां समाहारः = धानाशष्कुलि",
+          "gloss": "roasted grain and a type of cake (non-living substance class, 2.4.6)"
+        },
+        {
+          "sandhi": "यूकाश्च लिक्षाश्च एतासां समाहारः = यूकालिक्षम्",
+          "iast": "यूकाश् ca लिक्षाश् ca एतासां समाहारः = यूकालिक्षम्",
+          "gloss": "lice and nits (non-living/substance-class reading, 2.4.6)"
+        },
+        {
+          "sandhi": "अहिश्च नकुलश्च अनयोः समाहारः = अहिनकुलम्",
+          "iast": "अहिश् ca नकुलश् ca अनयोः समाहारः = ahinakulam",
+          "gloss": "a snake and a mongoose (small-creature class up to nakula, 2.4.8)"
+        },
+        {
+          "sandhi": "गौश्च व्याघ्रश्च अनयोः समाहारः = गोव्याघ्रम्",
+          "iast": "गौश् ca व्याघ्रश् ca अनयोः समाहारः = गोव्याघ्रम्",
+          "gloss": "a cow and a tiger (traditional-enmity class, 2.4.9)"
+        },
+        {
+          "sandhi": "काकश्च उलूकश्च अनयोः समाहारः = काकोलूकम्",
+          "iast": "काकश् ca उलूकश् ca अनयोः समाहारः = काकोलूकम्",
+          "gloss": "a crow and an owl (traditional-enmity class, 2.4.9)"
+        },
+        {
+          "sandhi": "गावश्च अश्वाश्च एतेषां समाहारः = गवाश्वम्",
+          "iast": "गावश् ca अश्वाश् ca एतेषां समाहारः = गवाश्वम्",
+          "gloss": "cows and horses (fixed conventional-order list, 2.4.11)"
+        },
+        {
+          "sandhi": "पुत्रश्च पौत्रश्च अनयोः समाहारः = पुत्रपौत्रम्",
+          "iast": "पुत्रश् ca पौत्रश् ca अनयोः समाहारः = putrapautram",
+          "gloss": "son and grandson (fixed conventional-order list, 2.4.11)"
+        },
+        {
+          "sandhi": "दासी च दासश्च अनयोः समाहारः = दासीदासम्",
+          "iast": "दासी ca दासश् ca अनयोः समाहारः = दासीदासम्",
+          "gloss": "a maidservant and a manservant (fixed conventional-order list, 2.4.11)"
+        }
+      ]
+    }
+  ],
+  "avyayibhava": [
+    {
+      "id": "avyayibhava-1",
+      "sanskrit_name": "अव्ययपूर्वपदः अव्ययीभावः",
+      "iast_name": "avyaya-पूर्वपदः अव्ययीभावः",
+      "english_name": "Avyayibhava — indeclinable as first member (the main type, 20 senses)",
+      "rule": "An indeclinable (avyaya) compounds with a following subanta, the whole standing in one of some twenty listed senses (case-relation, nearness, prosperity, decline, absence, ending, unsuitability, sudden utterance, following, fitness, repetition, non-exceeding, similarity, sequence, simultaneity, attainment, entirety, inclusion-up-to, boundary-excluding, boundary-including, facing-towards). The whole compound is itself indeclinable, whatever the original members were.",
+      "sutra_devanagari": "अव्ययं विभक्तिसमीपसमृद्ध्यर्थाभावात्ययासम्प्रतिशब्दप्रादुर्भावपश्चाद्यथानुपूर्व्ययौगपद्यसादृश्यसम्पत्तिसाकल्यान्तवचनेषु",
+      "sutra_iast": "अव्ययं विभक्तिसमीपसमृद्ध्यर्थाभावात्ययासम्प्रति­शब्दप्रादुर्भावपश्चाद्यथानुपूर्व्ययौगपद्यसादृश्यसम्पत्तिसाकल्यान्तवचनेषु",
+      "ashtadhyayi_ref": "2.1.6",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.4.1 (p.57)",
+      "process": "vibhakti-lopa; the whole compound becomes an indeclinable (avyaya), regardless of the original case of its uttarapada",
+      "flagged_nuance": "Senses 18 and 19 (मर्यादा 'boundary-excluding' vs abhividhi 'boundary-including') produce the identical surface compound 'आहिमालयम्' from the identical vigraha 'आ हिमालयात्' — the book uses this to illustrate that the same compound can denote 'China' (excluding the Himalayas) or 'India' (including them), purely by which sense is intended; the compound's form alone cannot disambiguate it.",
+      "examples": [
+        {
+          "sandhi": "हरौ इति = अधिहरि",
+          "iast": "harau iti = adhihari",
+          "gloss": "in/regarding Hari — case-relation sense (vibhakty-arthe)"
+        },
+        {
+          "sandhi": "कृष्णस्य समीपम् = उपकृष्णम्",
+          "iast": "कृष्णस्य समीपम् = उपकृष्णम्",
+          "gloss": "near Krishna — nearness"
+        },
+        {
+          "sandhi": "मद्राणां समृद्धिः = सुमद्रम्",
+          "iast": "मद्राणां समृद्धिः = sumadram",
+          "gloss": "the prosperity of the Madras — prosperity"
+        },
+        {
+          "sandhi": "यवनानां व्यृद्धिः = दुर्यवनम्",
+          "iast": "यवनानां व्यृद्धिः = duryavanam",
+          "gloss": "the decline of the Yavanas — decline (departed prosperity)"
+        },
+        {
+          "sandhi": "मक्षिकाणाम् अभावः = निर्मक्षिकम्",
+          "iast": "मक्षिकाणाम् अभावः = निर्मक्षिकम्",
+          "gloss": "the absence of flies — absence"
+        },
+        {
+          "sandhi": "हिमस्य अत्ययः = अतिहिमम्",
+          "iast": "himasya अत्ययः = atihimam",
+          "gloss": "the passing of winter/frost — ending"
+        },
+        {
+          "sandhi": "निद्रा सम्प्रति न युज्यते इति = अतिनिद्रम्",
+          "iast": "निद्रा samprati na yujyate iti = atinidram",
+          "gloss": "sleep is not now fitting — unsuitability-now"
+        },
+        {
+          "sandhi": "हरिशब्दस्य प्रकाशः = इतिहरि",
+          "iast": "हरिशब्दस्य प्रकाशः = itihari",
+          "gloss": "the utterance of the word 'Hari' — sudden appearance of a word"
+        },
+        {
+          "sandhi": "विष्णोः पश्चात् = अनुविष्णु",
+          "iast": "विष्णोः पश्चात् = अनुविष्णु",
+          "gloss": "after Vishnu — following"
+        },
+        {
+          "sandhi": "रूपस्य योग्यम् = अनुरूपम्",
+          "iast": "रूपस्य yogyam = अनुरूपम्",
+          "gloss": "fitting the form — fitness (a यथा-sense)"
+        },
+        {
+          "sandhi": "अर्थम् अर्थं प्रति = प्रत्यर्थम्",
+          "iast": "artham अर्थं prati = pratyartham",
+          "gloss": "with respect to each meaning — distributive repetition (a यथा-sense)"
+        },
+        {
+          "sandhi": "शक्तिम् अनतिक्रम्य = यथाशक्ति",
+          "iast": "शक्तिम् anatikramya = यथाशक्ति",
+          "gloss": "not exceeding one's ability — according to ability (a यथा-sense)"
+        },
+        {
+          "sandhi": "हरेः साद‍ृश्यम् = सहरि",
+          "iast": "हरेः सादृश्यम् = sahari",
+          "gloss": "resembling Hari — similarity (a यथा-sense)"
+        },
+        {
+          "sandhi": "ज्येष्ठस्य आनुपूर्व्येण = अनुज्येष्ठम्",
+          "iast": "ज्येष्ठस्य आनुपूर्व्येण = अनुज्येष्ठम्",
+          "gloss": "in order of seniority — sequence"
+        },
+        {
+          "sandhi": "चक्रेण युगपत् = सचक्रम्",
+          "iast": "चक्रेण yugapat = sacakram",
+          "gloss": "simultaneously with the wheel — simultaneity"
+        },
+        {
+          "sandhi": "सख्या सदृशः = ससखि",
+          "iast": "सख्या सदृशः = sasakhi",
+          "gloss": "resembling a friend — similarity"
+        },
+        {
+          "sandhi": "क्षत्राणां सम्पत्तिः = सक्षत्रम्",
+          "iast": "क्षत्राणां सम्पत्तिः = सक्षत्रम्",
+          "gloss": "becoming/attaining warrior-status — attainment"
+        },
+        {
+          "sandhi": "तृणमपि अपरित्यज्य = सतृणम्",
+          "iast": "तृणम् api aparityajya = सतृणम्",
+          "gloss": "not omitting even a blade of grass — entirety"
+        },
+        {
+          "sandhi": "अग्निग्रन्थपर्यन्तम् (अधीते) = साग्नि",
+          "iast": "agnigranthaparyantam (अधीते) = साग्नि",
+          "gloss": "(studies) up to and including the Agni-chapter — up-to-and-including"
+        },
+        {
+          "sandhi": "यावन्ति नामानि (तावन्तः उच्युतप्रणामाः) = यावन्नामम्",
+          "iast": "यावन्ति नामानि (तावन्तः ucyuta-प्रणामाः) = यावन्नामम्",
+          "gloss": "as many names (as there are, that many bows) — exactness/definiteness"
+        },
+        {
+          "sandhi": "आ हिमालयात् = आहिमालयम् (चीनादेशः)",
+          "iast": "आ हिमालयात् = आहिमालयम् (चीनदेशः)",
+          "gloss": "up to (but excluding) the Himalayas — i.e. 'China' — boundary-excluding"
+        },
+        {
+          "sandhi": "आ हिमालयात् = आहिमालयम् (भारतदेशः)",
+          "iast": "आ हिमालयात् = आहिमालयम् (भारतदेशः)",
+          "gloss": "up to and including the Himalayas — i.e. 'India' — boundary-including, same surface form as above"
+        },
+        {
+          "sandhi": "अग्निं प्रति = प्रत्यग्नि",
+          "iast": "अग्निं prati = pratyagni",
+          "gloss": "facing towards the fire — facing"
+        }
+      ]
+    },
+    {
+      "id": "avyayibhava-2",
+      "sanskrit_name": "अव्ययोत्तरपदः अव्ययीभावः",
+      "iast_name": "avyaya-उत्तरपदः अव्ययीभावः",
+      "english_name": "Avyayibhava — indeclinable as second member (rare)",
+      "rule": "The indeclinable prati compounds with a preceding subanta in the sense of 'a small amount/portion of' — the reverse order from the ordinary avyaya-पूर्वपद pattern.",
+      "sutra_devanagari": "सुप्प्रतिना मात्रार्थे",
+      "sutra_iast": "सुप्प्रतिना मात्रार्थे",
+      "ashtadhyayi_ref": "2.1.9",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.4.2 (p.58)",
+      "process": "vibhakti-lopa; result is indeclinable despite the avyaya coming second",
+      "examples": [
+        {
+          "sandhi": "शाकस्य लेशः = शाकप्रति",
+          "iast": "शाकस्य लेशः = शाकप्रति",
+          "gloss": "a small portion of vegetable"
+        }
+      ]
+    },
+    {
+      "id": "avyayibhava-3",
+      "sanskrit_name": "अव्ययपदरहितः अव्ययीभावः",
+      "iast_name": "avyayapada-रहितः अव्ययीभावः",
+      "english_name": "Avyayibhava — with no indeclinable member at all",
+      "rule": "Two distinct closed groups of compounds are nonetheless classed avyayibhava despite containing no avyaya word: (i) the तिष्ठद्गु-list, a small set of irregularly-listed (निपातन) forms; (ii) compounds formed with पारे ('on the far side of') or madhye ('in the middle of') plus a genitive-ending word.",
+      "sutra_devanagari": "तिष्ठद्गुप्रभृतीनि च / पारे मध्ये षष्ठ्या वा",
+      "sutra_iast": "तिष्ठद्गुप्रभृतीनि ca / पारे madhye षष्ठ्या वा",
+      "ashtadhyayi_ref": "2.1.17 and 2.2.18",
+      "related_ashtadhyayi": [],
+      "book_ref": "समासः, Ch.4 §4.4.3 (p.58)",
+      "process": "(i) निपातन — irregular, listed forms; (ii) vibhakti-lopa, optional (वा) against leaving पारे/madhye uncompounded",
+      "examples": [
+        {
+          "sandhi": "तिष्ठन्ति गावः यस्मिन् काले = तिष्ठद्गु",
+          "iast": "तिष्ठन्ति गावः yasmin काले = तिष्ठद्गु",
+          "gloss": "the time when cows stand still (evening milking-time) — निपातन"
+        },
+        {
+          "sandhi": "आयत्यः गावः यस्मिन् काले = आयतीगवम्",
+          "iast": "आयत्यः गावः yasmin काले = आयतीगवम्",
+          "gloss": "the time when cows are coming (back) — निपातन"
+        },
+        {
+          "sandhi": "गङ्गायाः पारे = पारेगङ्गम्",
+          "iast": "गङ्गायाः पारे = पारेगङ्गम्",
+          "gloss": "on the far side of the Ganga"
+        },
+        {
+          "sandhi": "समुद्रस्य मध्ये = मध्येसमुद्रम्",
+          "iast": "samudrasya madhye = madhyesamudram",
+          "gloss": "in the middle of the ocean"
+        }
+      ]
+    }
+  ],
+  "summary_counts": {
+    "tatpurusha_entries": 33,
+    "bahuvrihi_entries": 10,
+    "dvandva_entries": 3,
+    "avyayibhava_entries": 3,
+    "total_entries": 49,
+    "total_examples": 347,
+    "status": "COMPLETE for Ch.4 (all 4 samasa classes, 49 entries/347 examples) AND Ch.3 (purvapada/uttarapada morphological rules + gender-agreement summary, 27 entries). NOT covered: Ch.1 (definitions/theory prose), Ch.5-7 (cautions, derivation-step walkthroughs, exercises+answers). gati-, pradi-, and upapada-samasa (within tatpurusha) hold representative rather than exhaustive example selections.",
+    "purvapada_uttarapada_entries": 27
+  },
+  "bibliography": [
+    "महाबलेश्वर भट्ट, G. समासः (Pallava सङ्ख्या 40). Bengaluru: Samskrita Bharati, 6th printing, 2006. ISBN 81-88220-02-7.",
+    "पाणिनि. अष्टाध्यायी (critical editions/translations by श्रीश Candra Vasu, and by Rama Nath Sharma).",
+    "वरदराज. लघुसिद्धान्तकौमुदी (समासप्रकरणम्)."
+  ],
+  "purvapada_uttarapada_rules": {
+    "note": "Ch.3 of the source (pp.17-33) gives general and special morphological rules governing how the purvapada and uttarapada change shape on compounding (gender shifts, stem-final changes, samasanta suffixes), cutting across the samasa-type entries in the sections above rather than adding new compound types. Now complete for 3.1 (purvapada rules, general+special), 3.2 (uttarapada rules, general + special-by-samasa-class for tatpurusha/bahuvrihi/dvandva/avyayibhava), and 3.3 (a 5-rule gender-agreement summary). Ch.3 section 3.4 (esa sangrahah, pp.29-33) is a condensed recap table of the same rules already captured above with a handful of extra example words -- deliberately NOT duplicated here since it introduces no new rules.",
+    "purvapada_general": [
+      {
+        "id": "purvapada-general-1",
+        "sanskrit_name": "सन्धिः",
+        "iast_name": "सन्धिः",
+        "english_name": "Sandhi is obligatory wherever it applies",
+        "rule": "Wherever an opportunity for phonological sandhi exists between the compound's members, sandhi must be applied — it is never left undone.",
+        "sutra_devanagari": null,
+        "sutra_iast": null,
+        "ashtadhyayi_ref": null,
+        "related_ashtadhyayi": [],
+        "book_ref": "समासः, Ch.3 §3.1.1 row 1 (p.18)",
+        "process": "standard sandhi rules apply across the compound boundary, same as anywhere else in a sentence",
+        "examples": [
+          {
+            "sandhi": "भगवतः अनुग्रहः = भगवदनुग्रहः",
+            "iast": "भगवतः अनुग्रहः = भगवदनुग्रहः",
+            "gloss": "the Lord's grace — derivation: bhagavat + anugraha → bhagavad + anugraha → भगवदनुग्रहः"
+          }
+        ]
+      },
+      {
+        "id": "purvapada-general-2",
+        "sanskrit_name": "नकारस्य लोपः",
+        "iast_name": "नकारस्य लोपः",
+        "english_name": "Elision of a stem-final n",
+        "rule": "If the पूर्वपद's प्रातिपदिक (nominal stem) ends in n, that n is dropped when the compound is formed.",
+        "sutra_devanagari": null,
+        "sutra_iast": null,
+        "ashtadhyayi_ref": null,
+        "related_ashtadhyayi": [],
+        "book_ref": "समासः, Ch.3 §3.1.1 row 2 (p.18)",
+        "process": "n-final stems (e.g. राजन्-) drop the final n before compounding",
+        "examples": [
+          {
+            "sandhi": "राज्ञः पुरुषः = राजपुरुषः",
+            "iast": "राज्ञः पुरुषः = राजपुरुषः",
+            "gloss": "the king's man — derivation: राजन् + पुरुष → राज + पुरुष → राजपुरुषः"
+          }
+        ]
+      },
+      {
+        "id": "purvapada-general-3",
+        "sanskrit_name": "नञः लोपः",
+        "iast_name": "नञः लोपः",
+        "english_name": "Elision of नञ्'s own n-sound",
+        "rule": "In a नञ्-compound, the n-sound of नञ् itself (as opposed to the vowel a) is dropped.",
+        "sutra_devanagari": null,
+        "sutra_iast": null,
+        "ashtadhyayi_ref": null,
+        "related_ashtadhyayi": [],
+        "book_ref": "समासः, Ch.3 §3.1.1 row 3 (p.18)",
+        "process": "नञ् (n+a) loses its n, leaving just a- to prefix the uttarapada",
+        "examples": [
+          {
+            "sandhi": "न धर्मः = अधर्मः",
+            "iast": "na धर्मः = अधर्मः",
+            "gloss": "not righteousness — derivation: na (n+a) + dharma → a + dharma → अधर्मः"
+          }
+        ]
+      },
+      {
+        "id": "purvapada-general-4",
+        "sanskrit_name": "नुडागमः",
+        "iast_name": "नुडागमः",
+        "english_name": "The नुट् (n) augment before a vowel-initial uttarapada in नञ्-compounds",
+        "rule": "In a नञ्-compound, if the uttarapada begins with a vowel, then after the n of नञ् has already been dropped (per purvapada-general-3), an augment n (called नुट्) is inserted after the resulting a, to keep the two vowels from directly meeting.",
+        "sutra_devanagari": null,
+        "sutra_iast": null,
+        "ashtadhyayi_ref": null,
+        "related_ashtadhyayi": [],
+        "book_ref": "समासः, Ch.3 §3.1.1 row 4 (p.18)",
+        "process": "na (n+a) + vowel-initial word → a + word → a + n(नुट्) + word",
+        "examples": [
+          {
+            "sandhi": "न ईश्वरः = अनीश्वरः",
+            "iast": "na ईश्वरः = अनीश्वरः",
+            "gloss": "not the Lord/not capable — derivation: na (n+a) + ईश्वर → a + ईश्वर → a + n(नुट्) + ईश्वर → अनीश्वरः"
+          }
+        ]
+      }
+    ],
+    "purvapada_special": [
+      {
+        "id": "purvapada-special-1",
+        "sanskrit_name": "पुंवद्भावः",
+        "iast_name": "पुंवद्भावः",
+        "english_name": "Masculine-like reversion of a feminine पूर्वपद",
+        "rule": "In karmadharaya and samanadhikarana-bahuvrihi, if the पूर्वपद is a feminine word that also has a common/masculine (भाषितपुंस्क, 'spoken-as-masculine') form available, it reverts to that masculine-like shape rather than keeping its own feminine ending.",
+        "sutra_devanagari": null,
+        "sutra_iast": null,
+        "ashtadhyayi_ref": null,
+        "related_ashtadhyayi": [],
+        "book_ref": "समासः, Ch.3 §3.1.2 row 1 (p.19)",
+        "process": "the feminine पूर्वपद's ending is replaced by the masculine-like (भाषितपुंस्क) stem before compounding",
+        "examples": [
+          {
+            "sandhi": "दीर्घा रज्जुः = दीर्घरज्जुः",
+            "iast": "दीर्घा रज्जुः = दीर्घरज्जुः",
+            "gloss": "a long rope — दीर्घा (fem.) reverts to दीर्घ- before compounding (cf. karmadharaya-1)"
+          },
+          {
+            "sandhi": "स्थिता प्रज्ञा यस्य सः = स्थितप्रज्ञः",
+            "iast": "स्थिता प्रज्ञा yasya सः = स्थितप्रज्ञः",
+            "gloss": "one whose wisdom is steady — स्थिता (fem.) reverts to sthita-"
+          }
+        ]
+      },
+      {
+        "id": "purvapada-special-2",
+        "sanskrit_name": "महतः आत्वम्",
+        "iast_name": "महतः आत्वम्",
+        "english_name": "mahat's final -t becomes -आ",
+        "rule": "In karmadharaya and samanadhikarana-bahuvrihi, the पूर्वपद mahat ('great') has its final consonant t replaced by आ.",
+        "sutra_devanagari": null,
+        "sutra_iast": null,
+        "ashtadhyayi_ref": null,
+        "related_ashtadhyayi": [],
+        "book_ref": "समासः, Ch.3 §3.1.2 row 2 (p.19)",
+        "process": "mahat → महा- before the uttarapada",
+        "examples": [
+          {
+            "sandhi": "महान् + देव = महादेवः",
+            "iast": "महान् + deva = महादेवः",
+            "gloss": "the great god (Shiva) — karmadharaya"
+          },
+          {
+            "sandhi": "महती सेना यस्य सः = महासेनः",
+            "iast": "महती सेना yasya सः = महासेनः",
+            "gloss": "one who has a great army — bahuvrihi, with पुंवद्भाव also applying to महती first"
+          }
+        ]
+      },
+      {
+        "id": "purvapada-special-3",
+        "sanskrit_name": "आनङ्",
+        "iast_name": "आनङ्",
+        "english_name": "The आनङ् substitute for ऋ-ending kinship words in dvandva",
+        "rule": "For ऋ-ending kinship words (मातृ, पितृ, etc.), the dvandva compound takes the substitute आनङ् (आ). This also applies when putra ('son') follows.",
+        "sutra_devanagari": null,
+        "sutra_iast": null,
+        "ashtadhyayi_ref": null,
+        "related_ashtadhyayi": [],
+        "book_ref": "समासः, Ch.3 §3.1.2 row 3 (p.19)",
+        "process": "मातृ/पितृ → माता/पिता (आ-substitution) before the dvandva's second member",
+        "examples": [
+          {
+            "sandhi": "माता च पिता च = मातापितरौ",
+            "iast": "माता ca पिता ca = मातापितरौ",
+            "gloss": "mother and father"
+          },
+          {
+            "sandhi": "पिता च पुत्रश्च = पितापुत्रौ",
+            "iast": "पिता ca पुत्रश् ca = पितापुत्रौ",
+            "gloss": "father and son"
+          }
+        ]
+      },
+      {
+        "id": "purvapada-special-4",
+        "sanskrit_name": "दीर्घः",
+        "iast_name": "दीर्घः",
+        "english_name": "Lengthening of a vowel-ending पूर्वपद in कर्मव्यतिहार-bahuvrihi",
+        "rule": "In a karma-व्यतिहार-bahuvrihi (the reciprocal-action type, e.g. मुष्टामुष्टि), a vowel-ending पूर्वपद has its final vowel lengthened.",
+        "sutra_devanagari": null,
+        "sutra_iast": null,
+        "ashtadhyayi_ref": null,
+        "related_ashtadhyayi": [],
+        "book_ref": "समासः, Ch.3 §3.1.2 row 4 (p.19)",
+        "process": "final i/u etc. of the पूर्वपद is lengthened before the reduplicated uttarapada",
+        "examples": [
+          {
+            "sandhi": "मुष्ट्या मुष्ट्या प्रहत्य इदं युद्धं प्रवृत्तम् = मुष्टीमुष्टि",
+            "iast": "मुष्ट्या मुष्ट्या prahatya इदं युद्धं प्रवृत्तम् = मुष्टीमुष्टि",
+            "gloss": "a fist-fight — मुष्टि + मुष्टि → मुष्टी + मुष्टि (lengthened) → मुष्टीमुष्टि"
+          }
+        ]
+      }
+    ],
+    "uttarapada_general": [
+      {
+        "id": "uttarapada-general-1",
+        "sanskrit_name": "पथिन्शब्दः",
+        "iast_name": "pathin-शब्दः",
+        "english_name": "pathin ('road') takes the samasanta suffix -a in any compound",
+        "rule": "The word pathin, as uttarapada in any compound whatsoever, obligatorily takes the समासान्त suffix -a, becoming an a-ending stem (path-a-).",
+        "sutra_devanagari": "ऋक्पूरब्ध्वः पथामानक्षे",
+        "sutra_iast": "ऋक्पूरब्ध्वः पथाम् आनक्षे",
+        "ashtadhyayi_ref": "5.4.74",
+        "related_ashtadhyayi": [],
+        "book_ref": "समासः, Ch.3 §3.2.1 (p.20)",
+        "process": "pathin + समासान्त -a → patha-",
+        "examples": [
+          {
+            "sandhi": "दीर्घः पन्थाः = दीर्घपथः",
+            "iast": "दीर्घः पन्थाः = दीर्घपथः",
+            "gloss": "a long road (karmadharaya)"
+          },
+          {
+            "sandhi": "रम्यः पन्थाः यस्य सः = रम्यपथः",
+            "iast": "रम्यः पन्थाः yasya सः = रम्यपथः",
+            "gloss": "one whose road is pleasant (bahuvrihi)"
+          }
+        ]
+      }
+    ],
+    "uttarapada_tatpurusha": [
+      {
+        "id": "uttarapada-tatpurusha-1",
+        "sanskrit_name": "रात्रिशब्दः (समासान्तः)",
+        "iast_name": "रात्रिशब्दः (समासान्त)",
+        "english_name": "रात्रि ('night') takes -a after certain word-classes",
+        "rule": "After sarva-, एकदेश- (i.e. पूर्व/apara/adhara/uttara/madhya/पश्चिम-type words), सङ्ख्यात-, पुण्य-, सङ्ख्या-, or avyaya-पूर्वपदस्, रात्रि obligatorily takes the समासान्त suffix -a (becoming a-ending). When it becomes a-ending this way, it also becomes masculine — except when preceded by a number-word, in which case it stays neuter instead. This rule does NOT apply to fixed compounds like शुभरात्रिः/शिवरात्रिः, which keep रात्रि as ई-ending feminine.",
+        "sutra_devanagari": "अहः सर्वैकदेशसंख्यातपुण्याच्च रात्रेः",
+        "sutra_iast": "अहः सर्वैकदेशसंख्यातपुण्याच् ca रात्रेः",
+        "ashtadhyayi_ref": "5.4.87",
+        "related_ashtadhyayi": [
+          "2.4.21 रात्राहाहाः पुंसि (रात्रि, ahan, अहः become masculine as a-ending समासान्त forms)",
+          "संख्यापूर्वं रात्रं क्लीबम् (a गणसूत्र: number-word + रात्र stays neuter)"
+        ],
+        "book_ref": "समासः, Ch.3 §3.2.2.1(अ) row 1 (p.21)",
+        "process": "रात्रि + समासान्त -a → रात्र- (masculine, unless number-preceded, in which case neuter)",
+        "examples": [
+          {
+            "sandhi": "सर्वा रात्रिः = सर्वरात्रः",
+            "iast": "सर्वा रात्रिः = सर्वरात्रः",
+            "gloss": "the whole night"
+          },
+          {
+            "sandhi": "पूर्वं रात्रेः = पूर्वरात्रः",
+            "iast": "पूर्वं रात्रेः = पूर्वरात्रः",
+            "gloss": "the early part of the night"
+          },
+          {
+            "sandhi": "संख्याता रात्रिः = संख्यातरात्रः",
+            "iast": "संख्याता रात्रिः = संख्यातरात्रः",
+            "gloss": "a counted/reckoned night"
+          },
+          {
+            "sandhi": "पुण्या रात्रिः = पुण्यरात्रः",
+            "iast": "पुण्या रात्रिः = पुण्यरात्रः",
+            "gloss": "an auspicious night"
+          },
+          {
+            "sandhi": "नवानां रात्रीणां समाहारः = नवरात्रम्",
+            "iast": "नवानां रात्रीणां समाहारः = नवरात्रम्",
+            "gloss": "Navaratri — neuter here since number-preceded (cf. dvigu-3)"
+          },
+          {
+            "sandhi": "अतिक्रान्तः रात्रिम् = अतिरात्रः",
+            "iast": "अतिक्रान्तः रात्रिम् = अतिरात्रः",
+            "gloss": "one that has gone past night"
+          }
+        ]
+      },
+      {
+        "id": "uttarapada-tatpurusha-2",
+        "sanskrit_name": "राजन्-अहन्-सखिशब्दाः (समासान्तः)",
+        "iast_name": "राजन्-ahan-sakhi-शब्दाः (समासान्त)",
+        "english_name": "राजन्, ahan, and sakhi take -a at the end of a tatpurusha",
+        "rule": "राजन् ('king'), ahan ('day'), and sakhi ('friend'), heard at the end of a tatpurusha, obligatorily take the समासान्त suffix -a, all three becoming a-ending stems.",
+        "sutra_devanagari": "राजाहःसखिभ्यष्टच्",
+        "sutra_iast": "राजाहःसखिभ्यष्टच्",
+        "ashtadhyayi_ref": "5.4.91",
+        "related_ashtadhyayi": [],
+        "book_ref": "समासः, Ch.3 §3.2.2.1(अ) row 2 (p.22)",
+        "process": "राजन्/ahan/sakhi + समासान्त -a → राज-/aha-/sakha-",
+        "examples": [
+          {
+            "sandhi": "देवानां राजा = देवराजः",
+            "iast": "देवानां राजा = देवराजः",
+            "gloss": "king of the gods"
+          },
+          {
+            "sandhi": "सप्तानाम् अह्नां समाहारः = सप्ताहः",
+            "iast": "सप्तानाम् अह्नां समाहारः = सप्ताहः",
+            "gloss": "a week"
+          },
+          {
+            "sandhi": "कृष्णस्य सखा = कृष्णसखः",
+            "iast": "कृष्णस्य सखा = कृष्णसखः",
+            "gloss": "Krishna's friend"
+          }
+        ]
+      },
+      {
+        "id": "uttarapada-tatpurusha-3",
+        "sanskrit_name": "गोशब्दः (समासान्तः)",
+        "iast_name": "go-शब्दः (समासान्त)",
+        "english_name": "go ('cow') takes -a (masc.) / -ई (fem.) at the end of a tatpurusha",
+        "rule": "go, heard at the end of a tatpurusha, takes the समासान्त suffix -a: this yields an a-ending masculine stem, or an ई-ending feminine stem, according to the intended gender.",
+        "sutra_devanagari": "गोरतद्धितलुकि",
+        "sutra_iast": "gor atadhitaluki",
+        "ashtadhyayi_ref": "5.4.92",
+        "related_ashtadhyayi": [],
+        "book_ref": "समासः, Ch.3 §3.2.2.1(अ) row 3 (p.22)",
+        "process": "go + समासान्त -a → gava- (masc.) / गवी- (fem.)",
+        "examples": [
+          {
+            "sandhi": "उत्तमः गौः = उत्तमगवः",
+            "iast": "उत्तमः गौः = उत्तमगवः",
+            "gloss": "the best bull"
+          },
+          {
+            "sandhi": "श्रेष्ठा गौः = श्रेष्ठगवी",
+            "iast": "श्रेष्ठा गौः = श्रेष्ठगवी",
+            "gloss": "the best cow"
+          }
+        ]
+      },
+      {
+        "id": "uttarapada-tatpurusha-4",
+        "sanskrit_name": "नौशब्दः (समासान्तः)",
+        "iast_name": "nau-शब्दः (समासान्त)",
+        "english_name": "nau ('boat') takes -a at the end of a dvigu or after ardha",
+        "rule": "nau, heard at the end of a dvigu compound, or right after ardha ('half'), obligatorily takes the समासान्त suffix -a, becoming an a-ending stem.",
+        "sutra_devanagari": "नावो द्विगोः / अर्धाच्च",
+        "sutra_iast": "नावो द्विगोः / अर्धाच् ca",
+        "ashtadhyayi_ref": "5.4.99 and 5.4.100",
+        "related_ashtadhyayi": [],
+        "book_ref": "समासः, Ch.3 §3.2.2.1(अ) row 4 (p.22)",
+        "process": "nau + समासान्त -a → नाव-",
+        "examples": [
+          {
+            "sandhi": "तिसृणां नावां समाहारः = त्रिनावम्",
+            "iast": "तिसृणां नावां समाहारः = त्रिनावम्",
+            "gloss": "a group of three boats (dvigu)"
+          },
+          {
+            "sandhi": "अर्धं नावः = अर्धनावम्",
+            "iast": "अर्धं नावः = अर्धनावम्",
+            "gloss": "half a boat"
+          }
+        ]
+      },
+      {
+        "id": "uttarapada-tatpurusha-exceptions",
+        "sanskrit_name": "समासान्तप्रत्ययस्य अपवादाः (तत्पुरुषे)",
+        "iast_name": "समासान्तप्रत्ययस्य अपवादाः (तत्पुरुषे)",
+        "english_name": "Exceptions — when the tatpurusha samasanta suffix is blocked",
+        "rule": "Three contexts block the समासान्त suffix that would otherwise apply: (1) when su or ati is used in an honorific ('praising') sense before a word that would otherwise take a समासान्त suffix, that suffix is blocked; (2) when kim is used in a derogatory sense, the word following it is likewise blocked from taking the suffix; (3) a नञ्पूर्वपद tatpurusha never takes a समासान्त suffix at all — except pathin, which takes it optionally.",
+        "sutra_devanagari": "न पूजनात् / किमः क्षेपे / नञस्तत्पुरुषात् / पथो विभाषा",
+        "sutra_iast": "na पूजनात् / किमः क्षेपे / नञस् तत्पुरुषात् / patho विभाषा",
+        "ashtadhyayi_ref": "5.4.69, 5.4.70, 5.4.71, and 5.4.72",
+        "related_ashtadhyayi": [],
+        "book_ref": "समासः, Ch.3 §3.2.2.1(आ) (p.23)",
+        "process": "the समासान्त suffix that the uttarapada would otherwise take (e.g. राजन् → राज-) is blocked in these three contexts",
+        "flagged_nuance": "'apatham' (neuter, with the suffix) is possible for pathin under नञ्, per the pathin-specific optionality — 2.4.30 अपथं नपुंसकम् confirms it takes neuter gender when the suffixed form is used.",
+        "examples": [
+          {
+            "sandhi": "शोभनः राजा = सुराजा",
+            "iast": "शोभनः राजा = सुराजा",
+            "gloss": "a good king — su in honorific sense blocks राज- suffixing, so राजा stays n-ending"
+          },
+          {
+            "sandhi": "अतिशयितः राजा = अतिराजा",
+            "iast": "अतिशयितः राजा = अतिराजा",
+            "gloss": "an exceedingly great king — likewise blocked"
+          },
+          {
+            "sandhi": "कुत्सितः राजा = किंराजा",
+            "iast": "कुत्सितः राजा = किंराजा",
+            "gloss": "a contemptible king — kim in derogatory sense blocks suffixing"
+          },
+          {
+            "sandhi": "न राजा = अराजा",
+            "iast": "na राजा = अराजा",
+            "gloss": "no king — नञ् blocks suffixing entirely"
+          },
+          {
+            "sandhi": "न पन्थाः = अपन्थाः / अपथम्",
+            "iast": "na पन्थाः = अपन्थाः / apatham",
+            "gloss": "not a (proper) road — pathin alone gets the optional suffixed form, apatham, which is then neuter"
+          }
+        ]
+      }
+    ],
+    "uttarapada_bahuvrihi": [
+      {
+        "id": "uttarapada-bahuvrihi-1",
+        "sanskrit_name": "धर्मशब्दः (समासान्तः)",
+        "iast_name": "dharma-शब्दः (समासान्त)",
+        "english_name": "dharma takes the anic (-an) samasanta suffix in bahuvrihi",
+        "rule": "dharma, at the end of a (non-compound-final-only, i.e. 'kevala') bahuvrihi, obligatorily takes the anic suffix, becoming an n-ending stem.",
+        "sutra_devanagari": "धर्मादनिच्केवलात्",
+        "sutra_iast": "धर्माद् anic केवलात्",
+        "ashtadhyayi_ref": "5.4.124",
+        "related_ashtadhyayi": [],
+        "book_ref": "समासः, Ch.3 §3.2.2.2 row 1 (p.24)",
+        "process": "dharma + anic → dharman-",
+        "examples": [
+          {
+            "sandhi": "दृष्टः धर्मः येन सः = दृष्टधर्मा",
+            "iast": "दृष्टः धर्मः yena सः = दृष्टधर्मा",
+            "gloss": "one by whom dharma has been seen/realized"
+          }
+        ]
+      },
+      {
+        "id": "uttarapada-bahuvrihi-2",
+        "sanskrit_name": "व्यतिहारलक्षणः (समासान्तः)",
+        "iast_name": "व्यतिहारलक्षणः (समासान्त)",
+        "english_name": "The reciprocal-action bahuvrihi takes -ic and becomes indeclinable",
+        "rule": "The reciprocal-action (व्यतिहार) type of bahuvrihi obligatorily takes the ic suffix and, as a result, becomes an indeclinable.",
+        "sutra_devanagari": "इत्कर्मव्यतिहारे",
+        "sutra_iast": "it कर्मव्यतिहारे",
+        "ashtadhyayi_ref": "5.4.127",
+        "related_ashtadhyayi": [],
+        "book_ref": "समासः, Ch.3 §3.2.2.2 row 2 (p.24)",
+        "process": "reduplicated uttarapada + ic → indeclinable form",
+        "examples": [
+          {
+            "sandhi": "दण्डैः दण्डैः प्रहृत्य इदं युद्धं प्रवृत्तम् = दण्डादण्डि",
+            "iast": "दण्डैः दण्डैः प्रहृत्य इदं युद्धं प्रवृत्तम् = दण्डादण्डि",
+            "gloss": "a stick-fight (cf. bahuvrihi-6)"
+          }
+        ]
+      },
+      {
+        "id": "uttarapada-bahuvrihi-3",
+        "sanskrit_name": "धनुःशब्दः, जायाशब्दः (समासान्तः)",
+        "iast_name": "धनुःशब्दः, जायाशब्दः (समासान्त)",
+        "english_name": "dhanus takes अनङ्; जाया takes निङ्, in bahuvrihi",
+        "rule": "dhanus ('bow'), at the end of a bahuvrihi, takes the substitute अनङ्, becoming n-ending. जाया ('wife'), at the end of a bahuvrihi, takes the substitute निङ्.",
+        "sutra_devanagari": "धनुषश्च / जायाया निङ्",
+        "sutra_iast": "धनुषश् ca / जायाया निङ्",
+        "ashtadhyayi_ref": "5.4.132 and 5.4.134",
+        "related_ashtadhyayi": [],
+        "book_ref": "समासः, Ch.3 §3.2.2.2 rows 3-4 (p.24)",
+        "process": "dhanus + अनङ् → dhanvan-; जाया + निङ् → जानि-",
+        "examples": [
+          {
+            "sandhi": "गाण्डीवं धनुः यस्य सः = गाण्डीवधन्वा",
+            "iast": "गाण्डीवं धनुः yasya सः = गाण्डीवधन्वा",
+            "gloss": "one whose bow is the Gandiva (Arjuna)"
+          },
+          {
+            "sandhi": "कौसल्या जाया यस्य सः = कौसल्याजानिः",
+            "iast": "कौसल्या जाया yasya सः = कौसल्याजानिः",
+            "gloss": "one whose wife is Kausalya"
+          }
+        ]
+      },
+      {
+        "id": "uttarapada-bahuvrihi-4",
+        "sanskrit_name": "गन्धशब्दः (समासान्तः)",
+        "iast_name": "gandha-शब्दः (समासान्त)",
+        "english_name": "gandha takes the it substitute in three distinct bahuvrihi contexts",
+        "rule": "gandha ('smell') takes the substitute it in bahuvrihi in three separate contexts: (i) after ut, पूति, su, or surabhi; (ii) when used in an 'a little/faint' (alpa) sense; (iii) after an उपमान (comparison) word.",
+        "sutra_devanagari": "गन्धस्येदुत्पूतिसुसुरभिभ्यः / अल्पाख्यायाम् / उपमानाच्च",
+        "sutra_iast": "gandhasyed उत्पूतिसुसुरभिभ्यः / अल्पाख्यायाम् / उपमानाच् ca",
+        "ashtadhyayi_ref": "5.4.135, 5.4.136, and 5.4.137",
+        "related_ashtadhyayi": [],
+        "book_ref": "समासः, Ch.3 §3.2.2.2 row 5 (p.24)",
+        "process": "gandha + it → gandhi-",
+        "examples": [
+          {
+            "sandhi": "उद्गतः गन्धः यस्य सः = उद्गन्धिः",
+            "iast": "उद्गतः गन्धः yasya सः = उद्गन्धिः",
+            "gloss": "one whose smell has risen (ut-)"
+          },
+          {
+            "sandhi": "शोभन गन्धः यस्य सः = सुगन्धिः",
+            "iast": "शोभन गन्धः yasya सः = सुगन्धिः",
+            "gloss": "fragrant (su-)"
+          },
+          {
+            "sandhi": "घृतस्य गन्धः (लेशः) यस्मिन् तत् = घृतगन्धि (भोजनम्)",
+            "iast": "घृतस्य गन्धः (लेशः) yasmin tat = घृतगन्धि (bhojanam)",
+            "gloss": "food with a faint smell of ghee (alpa-)"
+          },
+          {
+            "sandhi": "मत्स्यगन्ध इव गन्धः यस्याः सा = मत्स्यगन्धिः",
+            "iast": "matsyagandha iva गन्धः यस्याः सा = मत्स्यगन्धिः",
+            "gloss": "she who smells like fish (उपमान-)"
+          }
+        ]
+      },
+      {
+        "id": "uttarapada-bahuvrihi-5",
+        "sanskrit_name": "पादशब्दः, गोशब्दः, स्त्रीलिङ्ग-ईकारान्त/ऊकारान्त/ऋकारान्त/आकारान्त शब्दाः (समासान्तः)",
+        "iast_name": "पादशब्दः, go-शब्दः, feminine ई/ऊ/ऋ/आ-ending words (समासान्त)",
+        "english_name": "पाद loses its final a; feminine ई/ऊ/ऋ-ending and other 'remainder' words take -kap; आ-ending feminines and go shorten in bahuvrihi",
+        "rule": "Several further bahuvrihi-specific stem changes: (1) पाद ('foot'), after a number-word or su-, loses its final a; (2) a feminine word ending in ई or ऊ, or a word ending in ऋ, at the end of a bahuvrihi, takes the kap suffix; (3) any other ('remaining', शिष्ट) word not covered by the rules above may optionally take kap at the end of a samanadhikarana-bahuvrihi; (4) a feminine आ-ending word, or go, shortens its final vowel at the end of a bahuvrihi — and when kap follows, the आ-ending feminine optionally stays short.",
+        "sutra_devanagari": "संख्यासुपूर्वस्य / नद्युतश्च / शेषाद्विभाषा / गोस्त्रियोरुपसर्जनस्य, आपोऽन्यतरस्याम्",
+        "sutra_iast": "संख्यासुपूर्वस्य / नद्युतश् ca / शेषाद् विभाषा / gostriyor upasarjanasya, आपो'न्यतरस्याम्",
+        "ashtadhyayi_ref": "5.4.140, 5.4.153, 5.4.154, 1.2.48, and 7.4.15",
+        "related_ashtadhyayi": [],
+        "book_ref": "समासः, Ch.3 §3.2.2.2 rows 6-9 (p.25)",
+        "process": "various — see rule field for each sub-case",
+        "examples": [
+          {
+            "sandhi": "द्वौ पादौ यस्य सः = द्विपाद्",
+            "iast": "dvau पादौ yasya सः = द्विपाद्",
+            "gloss": "one who has two feet — final a lost after a number-word"
+          },
+          {
+            "sandhi": "तीर्णा नदी येन सः = तीर्णनदीकः",
+            "iast": "तीर्णा नदी yena सः = तीर्णनदीकः",
+            "gloss": "one by whom a river has been crossed — ई-ending word takes kap"
+          },
+          {
+            "sandhi": "कठोरं चेतः यस्य सः = कठोरचेतस्कः / कठोरचेताः",
+            "iast": "कठोरं चेतः yasya सः = कठोरचेतस्कः / कठोरचेताः",
+            "gloss": "one whose heart is hard — a 'remaining' word, kap optional"
+          },
+          {
+            "sandhi": "अधीता विद्या येन सः = अधीतविद्यः / अधीतविद्यकः / अधीतविद्याकः",
+            "iast": "अधीता विद्या yena सः = अधीतविद्यः / अधीतविद्यकः / अधीतविद्याकः",
+            "gloss": "one by whom learning has been studied — आ-ending feminine, shortened, with optional kap and optional retention of आ before kap"
+          },
+          {
+            "sandhi": "चित्राः गावः यस्य सः = चित्रगुः (गोपः)",
+            "iast": "चित्राः गावः yasya सः = चित्रगुः (गोपः)",
+            "gloss": "one who has variegated cows — go shortens to -gu (cf. bahuvrihi-1)"
+          }
+        ]
+      }
+    ],
+    "uttarapada_dvandva": [
+      {
+        "id": "uttarapada-dvandva-1",
+        "sanskrit_name": "चवर्गाद्यन्तः (समासान्तः)",
+        "iast_name": "चवर्गाद्यन्तः (समासान्त)",
+        "english_name": "c-varga-, d-, ष्-, and h-final words take -a in samahara-dvandva",
+        "rule": "In a समाहार (collective) dvandva, an uttarapada ending in a c-class (palatal) consonant, or in d, ष्, or h, obligatorily takes the समासान्त suffix -a.",
+        "sutra_devanagari": "द्वन्द्वाच्चुदषहान्तात्समाहारे",
+        "sutra_iast": "द्वन्द्वाच् चुदषहान्तात् समाहारे",
+        "ashtadhyayi_ref": "5.4.106",
+        "related_ashtadhyayi": [],
+        "book_ref": "समासः, Ch.3 §3.2.2.3 (p.26)",
+        "process": "c/j/d/ष्/h-final word + समासान्त -a → a-ending",
+        "examples": [
+          {
+            "sandhi": "वाक् च त्वक् च अनयोः समाहारः = वाक्त्वचम्",
+            "iast": "वाक् ca tvak ca अनयोः समाहारः = वाक्त्वचम्",
+            "gloss": "speech and skin, collectively"
+          },
+          {
+            "sandhi": "क्षत्रियाश्च वणिजश्च एतेषां समाहारः = क्षत्रियवणिजम्",
+            "iast": "क्षत्रियाश् ca वणिजश् ca एतेषां समाहारः = क्षत्रियवणिजम्",
+            "gloss": "warriors and merchants, collectively"
+          },
+          {
+            "sandhi": "सम्पच्च विपच्च अनयोः समाहारः = सम्पद्विपदम्",
+            "iast": "sampac ca vipac ca अनयोः समाहारः = sampadvipadam",
+            "gloss": "prosperity and adversity, collectively"
+          },
+          {
+            "sandhi": "छत्रं च उपानत् च अनयोः समाहारः = छत्रोपानहम्",
+            "iast": "छत्रं ca उपानत् ca अनयोः समाहारः = छत्रोपानहम्",
+            "gloss": "an umbrella and footwear, collectively"
+          }
+        ]
+      }
+    ],
+    "uttarapada_avyayibhava": [
+      {
+        "id": "uttarapada-avyayibhava-1",
+        "sanskrit_name": "अव्ययीभावान्तशब्दानां वचनं लिङ्गं च",
+        "iast_name": "अव्ययीभावान्तशब्दानां वचनं लिङ्गं ca",
+        "english_name": "How the final member of an avyayibhava behaves, by stem-ending",
+        "rule": "The uttarapada at the end of an avyayibhava behaves, in form, like the neuter singular of a fixed reference-word matching its own final sound: an a- or आ-ending word behaves like an a-ending neuter singular; an i- or ई-ending word behaves like वारि ('water'); a u-, ऊ-, o-, or au-ending word behaves like madhu ('honey'); an ऋ-ending word behaves like an ऋ-ending neuter singular. Whatever its original gender, the whole compound is always indeclinable.",
+        "sutra_devanagari": null,
+        "sutra_iast": null,
+        "ashtadhyayi_ref": null,
+        "related_ashtadhyayi": [],
+        "book_ref": "समासः, Ch.3 §3.2.2.4 row 1 (pp.26-27)",
+        "process": "the final stem-vowel class determines which reference-paradigm the frozen singular form follows",
+        "examples": [
+          {
+            "sandhi": "कृष्णस्य समीपम् = उपकृष्णम्",
+            "iast": "कृष्णस्य समीपम् = उपकृष्णम्",
+            "gloss": "near Krishna — a-ending pattern"
+          },
+          {
+            "sandhi": "शक्तिम् अनतिक्रम्य = यथाशक्ति",
+            "iast": "शक्तिम् anatikramya = यथाशक्ति",
+            "gloss": "according to ability — i-ending, वारि-pattern"
+          },
+          {
+            "sandhi": "आ कन्याकुमार्याः = आकन्याकुमारि",
+            "iast": "आ कन्याकुमार्याः = आकन्याकुमारि",
+            "gloss": "up to Kanyakumari — ई-ending, वारि-pattern"
+          },
+          {
+            "sandhi": "वस्तूनाम् अभावः = निर्वस्तु",
+            "iast": "वस्तूनाम् अभावः = nirvastu",
+            "gloss": "absence of things — u-ending, madhu-pattern"
+          },
+          {
+            "sandhi": "गोः समीपम् = उपगु",
+            "iast": "गोः समीपम् = upagu",
+            "gloss": "near a cow — o-ending, madhu-pattern"
+          },
+          {
+            "sandhi": "कार्यकर्तारं प्रति = प्रतिकार्यकर्तृ",
+            "iast": "कार्यकर्तारं prati = प्रतिकार्यकर्तृ",
+            "gloss": "towards the one who does the work — ऋ-ending pattern"
+          }
+        ]
+      },
+      {
+        "id": "uttarapada-avyayibhava-2",
+        "sanskrit_name": "अन्नन्तस्य टच्",
+        "iast_name": "annantasya टच्",
+        "english_name": "An n-ending uttarapada takes -a in avyayibhava",
+        "rule": "An uttarapada ending in n, at the end of an avyayibhava, obligatorily takes the समासान्त suffix -a; if the sense is neuter, this is optional.",
+        "sutra_devanagari": null,
+        "sutra_iast": null,
+        "ashtadhyayi_ref": null,
+        "related_ashtadhyayi": [],
+        "book_ref": "समासः, Ch.3 §3.2.2.4 row 2 (p.27)",
+        "process": "n-final uttarapada + समासान्त -a → a-ending, following the same a-ending-neuter-singular behavior as uttarapada-avyayibhava-1",
+        "examples": [
+          {
+            "sandhi": "आत्मनि इति = अध्यात्मम्",
+            "iast": "आत्मनि iti = अध्यात्मम्",
+            "gloss": "regarding the self"
+          },
+          {
+            "sandhi": "कर्मणि अनतिक्रम्य = यथाकर्मम् / यथाकर्म",
+            "iast": "कर्मणि anatikramya = यथाकर्मम् / यथाकर्म",
+            "gloss": "according to the action — optional suffixing since the sense is neuter"
+          }
+        ]
+      }
+    ],
+    "gender_agreement_summary": [
+      {
+        "id": "gender-agreement-1",
+        "sanskrit_name": "इतरेतरद्वन्द्व-तत्पुरुषयोः लिङ्गम्",
+        "iast_name": "itaretaradvandva-तत्पुरुषयोः लिङ्गम्",
+        "english_name": "Itaretara-dvandva and tatpurusha take the gender of the uttarapada",
+        "rule": "Both itaretara-dvandva and tatpurusha (of any subtype) take whatever gender their final member (uttarapada) has.",
+        "sutra_devanagari": "परवल्लिङ्गं द्वन्द्वतत्पुरुषयोः",
+        "sutra_iast": "परवल्लिङ्गं द्वन्द्वतत्पुरुषयोः",
+        "ashtadhyayi_ref": "2.4.26",
+        "related_ashtadhyayi": [],
+        "book_ref": "समासः, Ch.3 §3.3 row 1 (p.28)",
+        "process": "compound gender = uttarapada's own gender",
+        "examples": [
+          {
+            "sandhi": "वृषभश्च महिषी च = वृषभमहिष्यौ",
+            "iast": "वृषभश् ca महिषी ca = वृषभमहिष्यौ",
+            "gloss": "a bull and a buffalo-cow — dual, feminine ending (matching महिषी)"
+          },
+          {
+            "sandhi": "अर्धं विरामस्य = अर्धविरामः",
+            "iast": "अर्धं विरामस्य = अर्धविरामः",
+            "gloss": "half a pause — masculine, matching विराम"
+          }
+        ]
+      },
+      {
+        "id": "gender-agreement-2",
+        "sanskrit_name": "समाहारद्वन्द्व-द्विगुयोः लिङ्गम्",
+        "iast_name": "समाहारद्वन्द्वद्विगुयोः लिङ्गम्",
+        "english_name": "Samahara-dvandva and dvigu are neuter",
+        "rule": "Both समाहार-dvandva and dvigu (of any subtype) take neuter gender by default (see dvigu-3 and dvandva-2/3 for the fuller set of exceptions to this default).",
+        "sutra_devanagari": "स नपुंसकम्",
+        "sutra_iast": "sa नपुंसकम्",
+        "ashtadhyayi_ref": "2.4.17",
+        "related_ashtadhyayi": [],
+        "book_ref": "समासः, Ch.3 §3.3 row 2 (p.28)",
+        "process": "compound gender = neuter, by default",
+        "examples": [
+          {
+            "sandhi": "पाणी च पादौ च एतेषां समाहारः = पाणिपादम्",
+            "iast": "पाणी ca पादौ ca एतेषां समाहारः = पाणिपादम्",
+            "gloss": "hands and feet, collectively"
+          },
+          {
+            "sandhi": "पञ्चानां गवां समाहारः = पञ्चगवम्",
+            "iast": "पञ्चानां गवां समाहारः = पञ्चगवम्",
+            "gloss": "a group of five cows"
+          }
+        ]
+      },
+      {
+        "id": "gender-agreement-3",
+        "sanskrit_name": "अकारान्तोत्तरपद-द्विगोः स्त्रीलिङ्गत्वम्",
+        "iast_name": "अकारान्तोत्तरपदद्विगुः स्त्रीलिङ्गत्वम्",
+        "english_name": "An a-ending uttarapada in dvigu becomes ई-ending feminine",
+        "rule": "A dvigu compound whose uttarapada ends in a becomes feminine, shifting to an ई-ending stem — except for a short exempted list (पात्र, bhuvana, yuga-type words), which stay neuter.",
+        "sutra_devanagari": null,
+        "sutra_iast": null,
+        "ashtadhyayi_ref": null,
+        "related_ashtadhyayi": [],
+        "book_ref": "समासः, Ch.3 §3.3 row 3 (p.28)",
+        "process": "a-ending uttarapada → ई-ending, feminine (exempting the पात्र/bhuvana/yuga-गण, cf. dvigu-3)",
+        "examples": [
+          {
+            "sandhi": "त्रयाणां लोकानां समाहारः = त्रिलोकी",
+            "iast": "त्रयाणां लोकानां समाहारः = त्रिलोकी",
+            "gloss": "the three worlds"
+          }
+        ]
+      },
+      {
+        "id": "gender-agreement-4",
+        "sanskrit_name": "बहुव्रीहेः त्रिलिङ्गत्वम्",
+        "iast_name": "बहुव्रीहेः त्रिलिङ्गत्वम्",
+        "english_name": "Bahuvrihi takes all three genders, agreeing with what it modifies",
+        "rule": "A bahuvrihi compound is not fixed to any one gender by its own members — it takes masculine, feminine, or neuter freely, agreeing with whatever noun it describes.",
+        "sutra_devanagari": null,
+        "sutra_iast": null,
+        "ashtadhyayi_ref": null,
+        "related_ashtadhyayi": [],
+        "book_ref": "समासः, Ch.3 §3.3 row 4 (p.28)",
+        "process": "compound gender = agrees with the modified noun, in all three genders",
+        "examples": [
+          {
+            "sandhi": "प्राप्तम् उदकं यं सः = प्राप्तोदकः (ग्रामः)",
+            "iast": "प्राप्तम् उदकं यं सः = प्राप्तोदकः (ग्रामः)",
+            "gloss": "a village that water has reached — masculine"
+          },
+          {
+            "sandhi": "प्राप्तम् उदकं यां सा = प्राप्तोदका (नगरी)",
+            "iast": "प्राप्तम् उदकं यां सा = प्राप्तोदका (नगरी)",
+            "gloss": "a city (fem.) that water has reached — feminine"
+          },
+          {
+            "sandhi": "प्राप्तम् उदकं यत् तत् = प्राप्तोदकम् (नगरम्)",
+            "iast": "प्राप्तम् उदकं yat tat = प्राप्तोदकम् (nagaram)",
+            "gloss": "a town (neut.) that water has reached — neuter"
+          }
+        ]
+      },
+      {
+        "id": "gender-agreement-5",
+        "sanskrit_name": "अव्ययीभावस्य अव्ययत्वम्",
+        "iast_name": "अव्ययीभावस्य avyayatvam",
+        "english_name": "Avyayibhava is always indeclinable",
+        "rule": "Every avyayibhava compound, whatever the gender of its own members, becomes an indeclinable (avyaya) as a whole.",
+        "sutra_devanagari": null,
+        "sutra_iast": null,
+        "ashtadhyayi_ref": null,
+        "related_ashtadhyayi": [],
+        "book_ref": "समासः, Ch.3 §3.3 row 5 (p.28)",
+        "process": "compound becomes indeclinable regardless of original gender",
+        "examples": [
+          {
+            "sandhi": "शक्तिम् अनतिक्रम्य = यथाशक्ति",
+            "iast": "शक्तिम् anatikramya = यथाशक्ति",
+            "gloss": "according to ability"
+          }
+        ]
+      }
+    ]
+  }
+}

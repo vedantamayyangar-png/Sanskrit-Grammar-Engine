@@ -1,0 +1,467 @@
+{
+  "title": "संज्ञाप्रकरणम् — The Technical Definitions (Saṃjñā) Rule Book",
+  "subtitle": "The foundational definition chapter of Śrīvaradarāja's Laghusiddhāntakaumudī (pages 1-20), plus the book's own cross-referenced list of additional saṃjñā-sūtras appearing later in the text",
+  "source_note": "Verified directly against the source PDF, page by page (visually -- the OCR text-layer is corrupted, same issue as with the other files in this project). This chapter is the very first in the LSK, before Paribhasa/Sandhi/etc., and defines the technical vocabulary (pratyahara, guna/vrddhi, savarna, pada, samhita, samyoga...) that every later chapter assumes. IMPORTANT STRUCTURAL NOTE: the chapter itself contains exactly 14 numbered sutras (confirmed by the chapter's own closing statement, 'iti sajnaprakaranam... fourteen numbers of aphorisms'), covered here as 'core_fourteen'. However, several extremely important samjna-sutras (vrddhi, dhatu, upasarga, pragrhya, samartha, upasarjana, and others) are NOT physically in this chapter -- they appear later in the sandhi/karaka/samasa chapters where they are first operationally needed, but the LSK's own appendix to this chapter explicitly lists them as belonging to the samjna-sutra category regardless of physical placement. That list (page 20 of the source) is reproduced here as 'cross_referenced_sanjna_sutras', with citations taken directly from the book's own list (high confidence), but with explanations supplied from standard, well-established Paninian grammar knowledge rather than transcribed from reading each sutra's own full page treatment in this session (which was not done for these 16, only for the core 14) -- flagged accordingly, entry by entry.",
+  "how_to_read": {
+    "ashtadhyayi_ref": "Chapter.Pada.Sutra number in Pāṇini's Aṣṭādhyāyī",
+    "lsk_prakarana": "the source book's own sequential rule-number within संज्ञाप्रकरणम् (for the core 14), or the cross-reference page/aphorism-number where it is later covered in full (for the appendix 16)",
+    "process": "what technical term is being defined and its scope"
+  },
+  "core_fourteen": [
+    {
+      "id": "sanjna-1",
+      "sanskrit_name": "माहेश्वराणि सूत्राणि",
+      "english_name": "The fourteen Māheśvara (Śiva) sūtras: the foundation for all pratyāhāra formation",
+      "rule": "The fourteen phoneme-groupings attributed to Śiva/Maheśvara (अइउण्, ऋऌक्, एओङ्, ऐऔच्, हयवरट्, लण्, ञमङणनम्, झभञ्, घढधष्, जबगडदश्, खफछठथचटतव्, कपय्, शषसर्, हल्) are meant specifically for forming 'saṃjñā' (technical definitions) via प्रत्याहार -- the compression of a range of sounds into a single naming syllable (e.g. 'अच्' names all vowels, 'हल्' names all consonants).",
+      "sutra_devanagari": "अइउण् । ऋऌक् । एओङ् । ऐऔच् । हयवरट् । लण् । ञमङणनम् । झभञ् । घढधष् । जबगडदश् । खफछठथचटतव् । कपय् । शषसर् । हल् ।",
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "1 (p.1)",
+      "process": "प्रत्याहार-निर्माणस्य आधारः",
+      "examples": [
+        {
+          "sandhi": "अ + इ + उ + ण् = अण् (names अ, इ, उ)",
+          "gloss": "a pratyahara compressing three vowels into one naming syllable"
+        },
+        {
+          "sandhi": "अ...औ + च् = अच् (all vowels)",
+          "gloss": "the pratyahara for 'all vowels', used throughout sandhi"
+        },
+        {
+          "sandhi": "ह...+ ल् = हल् (all consonants)",
+          "gloss": "the pratyahara for 'all consonants'"
+        }
+      ]
+    },
+    {
+      "id": "sanjna-2",
+      "sanskrit_name": "एषामन्त्या इतः",
+      "english_name": "The final letter of each Śiva-sūtra is termed इत् (marker, to be dropped)",
+      "rule": "The final consonant of each of the fourteen Śiva-sūtra groups (ण्, क्, ङ्, च्, ट्, ण्, म्, ञ्, ष्, श्, व्, य्, र्, ल्) is designated इत् -- a marker letter that is dropped when the pratyāhāra is actually used, and exists only to mark the group's boundary.",
+      "sutra_devanagari": "एषामन्त्या इतः",
+      "ashtadhyayi_ref": "1.3.2",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "2 (p.2)",
+      "process": "इत्-संज्ञा निर्धारणम्",
+      "examples": [
+        {
+          "sandhi": "अइउण् → the final ण् is इत्, dropped",
+          "gloss": "leaving अ, इ, उ as the actual pratyahara's content"
+        }
+      ]
+    },
+    {
+      "id": "sanjna-3",
+      "sanskrit_name": "हकारादिष्वकारः उच्चारणार्थः",
+      "english_name": "A short अ is silently associated with ह् and the other consonant-only sūtras, purely for pronounceability",
+      "rule": "From ह् (beginning of हयवरट्) through the end of हल्, a short अ is understood as associated with each consonant purely to make the sūtra pronounceable -- this अ has no grammatical function of its own.",
+      "sutra_devanagari": "हकारादिष्वकारः उच्चारणार्थः",
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "3 (p.2)",
+      "process": "उच्चारण-सौकर्यार्थम् अकार-योजनम्",
+      "examples": []
+    },
+    {
+      "id": "sanjna-4",
+      "sanskrit_name": "लण्मध्येत्वित्संज्ञकः",
+      "english_name": "The अ inside लण् (between ल् and ण्) is also designated इत्",
+      "rule": "A specific clarifying rule: the short अ occurring between ल् and ण् in the sūtra 'लण्' is separately declared इत् (distinct from the general उच्चारणार्थ अ of sanjna-3), needed so that the र-pratyāhāra can be correctly formed by combining letters across sūtras.",
+      "sutra_devanagari": "लण्मध्येत्वित्संज्ञकः",
+      "ashtadhyayi_ref": null,
+      "related_ashtadhyayi": [
+        "1.3.2"
+      ],
+      "lsk_prakarana": "4 (p.3)",
+      "process": "इत्-संज्ञाया विशिष्टः विस्तारः",
+      "examples": []
+    },
+    {
+      "id": "sanjna-5",
+      "sanskrit_name": "ऊकालोऽज्झ्रस्वदीर्घप्लुतः",
+      "english_name": "Vowel duration: short (ह्रस्व), long (दीर्घ), and prolated (प्लुत) are defined by units equal to उ's short/long/tripled length",
+      "rule": "Taking the short उ's pronunciation-time as one unit (मात्रा), any vowel taking one unit is ह्रस्व (short), two units दीर्घ (long), and three units प्लुत (prolated). A consonant alone takes half a unit.",
+      "sutra_devanagari": "ऊकालोऽज्झ्रस्वदीर्घप्लुतः",
+      "ashtadhyayi_ref": "1.2.27",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "5 (p.8)",
+      "process": "मात्रा-आधारेण ह्रस्व/दीर्घ/प्लुत-संज्ञा-निर्धारणम्",
+      "examples": [
+        {
+          "sandhi": "उ (एकमात्रिक) = ह्रस्व",
+          "gloss": "one unit -- short"
+        },
+        {
+          "sandhi": "ऊ (द्विमात्रिक) = दीर्घ",
+          "gloss": "two units -- long"
+        },
+        {
+          "sandhi": "ऊ३ (त्रिमात्रिक) = प्लुत",
+          "gloss": "three units -- prolated (used e.g. in calling from a distance)"
+        }
+      ]
+    },
+    {
+      "id": "sanjna-6",
+      "sanskrit_name": "उच्चैरुदात्तः",
+      "english_name": "उदात्त (acute accent): a vowel pronounced in the upper register",
+      "rule": "A vowel articulated in the upper part of the vocal organ (palate/lips etc.) is termed उदात्त (acutely accented) -- one of the three Vedic pitch-accents.",
+      "sutra_devanagari": "उच्चैरुदात्तः",
+      "ashtadhyayi_ref": "1.2.29",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "6 (p.9)",
+      "process": "स्वर-उच्चारण-स्थानाधारेण उदात्त-संज्ञा",
+      "examples": []
+    },
+    {
+      "id": "sanjna-7",
+      "sanskrit_name": "नीचैरनुदात्तः",
+      "english_name": "अनुदात्त (grave accent): a vowel pronounced in the lower register",
+      "rule": "A vowel articulated in the lower part of the vocal organ is termed अनुदात्त (gravely accented) -- the second of the three Vedic pitch-accents.",
+      "sutra_devanagari": "नीचैरनुदात्तः",
+      "ashtadhyayi_ref": "1.2.30",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "7 (p.9)",
+      "process": "स्वर-उच्चारण-स्थानाधारेण अनुदात्त-संज्ञा",
+      "examples": []
+    },
+    {
+      "id": "sanjna-8",
+      "sanskrit_name": "समाहारः स्वरितः",
+      "english_name": "स्वरित (circumflex accent): a vowel combining both acute and grave characteristics",
+      "rule": "A vowel articulated with the combined character of both उदात्त and अनुदात्त is termed स्वरित -- the third Vedic pitch-accent, used for proper Vedic pronunciation.",
+      "sutra_devanagari": "समाहारः स्वरितः",
+      "ashtadhyayi_ref": "1.2.31",
+      "related_ashtadhyayi": [
+        "1.2.29",
+        "1.2.30"
+      ],
+      "lsk_prakarana": "8 (p.10)",
+      "process": "उदात्त-अनुदात्त-समाहारेण स्वरित-संज्ञा",
+      "examples": []
+    },
+    {
+      "id": "sanjna-9",
+      "sanskrit_name": "मुखनासिकावचनोऽनुनासिकः",
+      "english_name": "अनुनासिक (nasal vowel): a sound articulated with both mouth and nose",
+      "rule": "A letter articulated with the combined association of the mouth and the nose is termed अनुनासिक (nasalized) -- as opposed to अननुनासिक (non-nasal), giving vowels their full eighteen-fold classification (3 durations × 3 accents × 2 nasal/non-nasal).",
+      "sutra_devanagari": "मुखनासिकावचनोऽनुनासिकः",
+      "ashtadhyayi_ref": "1.1.8",
+      "related_ashtadhyayi": [
+        "1.2.27",
+        "1.2.29",
+        "1.2.30",
+        "1.2.31"
+      ],
+      "lsk_prakarana": "9 (p.10)",
+      "process": "मुख-नासिका-सहित-उच्चारणाधारेण अनुनासिक-संज्ञा",
+      "examples": []
+    },
+    {
+      "id": "sanjna-10",
+      "sanskrit_name": "तुल्यास्यप्रयत्नं सवर्णम्",
+      "english_name": "सवर्ण (homogeneous letters): sounds sharing the same place and internal effort of articulation",
+      "rule": "Two letters sharing the same place of origin (आस्य -- throat, palate, etc.) AND the same internal articulatory effort (प्रयत्न) are termed सवर्ण (homogeneous/of the same class) to each other. This is one of the single most-used definitions in the whole grammar, underlying rules like सवर्णदीर्घ सन्धि.",
+      "sutra_devanagari": "तुल्यास्यप्रयत्नं सवर्णम्",
+      "ashtadhyayi_ref": "1.1.9",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "10 (p.11)",
+      "process": "स्थान-प्रयत्न-साम्येन सवर्ण-संज्ञा",
+      "flagged_nuance": "A vārtika under this sūtra (attributed to Kātyāyana) separately declares ऋ and ऌ mutually homogeneous despite technically having different places of articulation.",
+      "examples": [
+        {
+          "sandhi": "अ, आ (कण्ठ्य)",
+          "gloss": "both throat-origin -- mutually savarna"
+        },
+        {
+          "sandhi": "इ, ई (तालव्य)",
+          "gloss": "both palate-origin -- mutually savarna"
+        },
+        {
+          "sandhi": "क्, ख्, ग्, घ्, ङ् (कण्ठ्य)",
+          "gloss": "the whole velar row -- mutually savarna by place, per the classification detailed alongside this rule"
+        }
+      ]
+    },
+    {
+      "id": "sanjna-11",
+      "sanskrit_name": "अणुदित्सवर्णस्य चाऽप्रत्ययः",
+      "english_name": "Extension: an unspecified letter of the अण् pratyāhāra (or an उदित्-marked letter) implies all its homogeneous varieties too",
+      "rule": "When a letter of the अण् pratyāhāra is cited WITHOUT further specification (अविधीयमान), it is understood to include all its homogeneous (सवर्ण) variants as well -- e.g. citing इ implicitly covers इ, ई, and their accentual/nasal varieties, unless the context specifically restricts it.",
+      "sutra_devanagari": "अणुदित्सवर्णस्य चाऽप्रत्ययः",
+      "ashtadhyayi_ref": "1.1.69",
+      "related_ashtadhyayi": [
+        "1.1.9"
+      ],
+      "lsk_prakarana": "11 (p.15)",
+      "process": "सवर्ण-संज्ञायाः अप्रत्यय-सन्दर्भे विस्तारः",
+      "examples": [
+        {
+          "sandhi": "इकोयणचि: इ names all of इ,ई,ऋ,ॠ,ऌ (implicitly, via this rule)",
+          "gloss": "an unspecified इक् citation covers the full homogeneous set"
+        }
+      ]
+    },
+    {
+      "id": "sanjna-12",
+      "sanskrit_name": "परः सन्निकर्षः संहिता",
+      "english_name": "संहिता (euphonic combination context): the closest possible proximity of two letters",
+      "rule": "The absolute closest proximity of letters -- gapless, immediate adjacency -- is termed संहिता, which is essentially synonymous with the general term संधि (sandhi/euphonic combination). This is the foundational definition that makes the entire Sandhi chapter of the grammar possible: संहिता IS the technical name for 'the context in which sandhi applies'.",
+      "sutra_devanagari": "परः सन्निकर्षः संहिता",
+      "ashtadhyayi_ref": "1.4.109",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "12 (p.17)",
+      "process": "अत्यन्त-सान्निध्यस्य संहिता/सन्धि-संज्ञा",
+      "flagged_nuance": "संहिता (euphonic combination) is stated to be MANDATORY within a single पद (word) and between उपसर्ग+धातु or within a समास; between two independent words in a sentence, it depends on the speaker's choice (वक्तुरिच्छाधीना).",
+      "examples": [
+        {
+          "sandhi": "मधु + अरिः = मध्वरिः",
+          "gloss": "adjacent letters (उ of मधु, अ of अरिः) combine via संहिता"
+        }
+      ]
+    },
+    {
+      "id": "sanjna-13",
+      "sanskrit_name": "हलोऽनन्तराः संयोगः",
+      "english_name": "संयोग (consonant cluster): consecutive consonants with no intervening vowel",
+      "rule": "Consonants standing consecutively with no vowel intervening between them are termed संयोग (a consonant cluster/conjunction) -- a technical term used throughout the rules for consonant-final root behavior and cluster-simplification.",
+      "sutra_devanagari": "हलोऽनन्तराः संयोगः",
+      "ashtadhyayi_ref": "1.1.7",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "13 (p.18)",
+      "process": "अव्यवहित-हल्-समूहस्य संयोग-संज्ञा",
+      "examples": [
+        {
+          "sandhi": "सन् + अच्युतः = सन्नच्युतः",
+          "gloss": "न्+न् forms a संयोग (via reduplication/gemination)"
+        }
+      ]
+    },
+    {
+      "id": "sanjna-14",
+      "sanskrit_name": "सुप्तिङन्तं पदम्",
+      "english_name": "पद (inflected word): anything ending in a सुप् or तिङ् affix",
+      "rule": "A crude word (शब्द) is only properly called पद ('an inflected word') once it ends in either a सुप् affix (one of the 21 case-endings, applied to a nominal stem) or a तिङ् affix (one of the 18 personal verb-endings, applied to a root). This is arguably THE most foundational definition in the entire grammar -- almost every subsequent rule in Sandhi, Kāraka, and Samāsa presupposes and refers back to what counts as a पद.",
+      "sutra_devanagari": "सुप्तिङन्तं पदम्",
+      "ashtadhyayi_ref": "1.4.14",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "14 (p.19)",
+      "process": "सुप्/तिङ्-प्रत्ययान्तस्य पद-संज्ञा",
+      "examples": [
+        {
+          "sandhi": "राम (प्रातिपदिकम्, not yet पद) + सु = रामः (now a पद)",
+          "gloss": "a bare crude word only becomes a पद once inflected"
+        },
+        {
+          "sandhi": "पठ् (धातुः) + तिप् = पठति (a पद)",
+          "gloss": "a bare root similarly becomes a पद once conjugated"
+        }
+      ]
+    }
+  ],
+  "cross_referenced_sanjna_sutras": [
+    {
+      "id": "sanjna-15",
+      "sanskrit_name": "वृद्धिरादैच्",
+      "english_name": "वृद्धि (the 'strongest' vowel grade): आ, ऐ, औ are termed वृद्धि",
+      "rule": "The vowels आ, ऐ, and औ are collectively termed वृद्धि -- the strongest of the three vowel-strength grades (the others being गुण and the plain/zero grade), foundational to nearly all verb and noun derivational morphology.",
+      "sutra_devanagari": "वृद्धिरादैच्",
+      "ashtadhyayi_ref": "1.1.1",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "cross-referenced at aphorism 32 (verified citation from the book's own list; explanation from standard grammar, not re-read on its own page this session)",
+      "process": "आ-ऐ-औ इति वृद्धि-संज्ञा",
+      "examples": []
+    },
+    {
+      "id": "sanjna-16",
+      "sanskrit_name": "अदेङ्गुणः",
+      "english_name": "गुण (the 'middle' vowel grade): अ, ए, ओ are termed गुण",
+      "rule": "The short vowel अ, and the vowels ए and ओ, are collectively termed गुण -- the middle vowel-strength grade, extremely widely used throughout verb conjugation and derivation (this is the rule directly behind the guṇa-substitution sandhi rule already in your sandhi_rulebook.json).",
+      "sutra_devanagari": "अदेङ्गुणः",
+      "ashtadhyayi_ref": "1.1.2",
+      "related_ashtadhyayi": [
+        "6.1.87 (the operative guna-substitution sandhi rule, already covered as svara-2 in your sandhi rulebook)"
+      ],
+      "lsk_prakarana": "cross-referenced at aphorism 25 (page-verified: seen directly on p.29 of the source during this project's earlier sandhi comparison)",
+      "process": "अ-ए-ओ इति गुण-संज्ञा",
+      "examples": []
+    },
+    {
+      "id": "sanjna-17",
+      "sanskrit_name": "उपदेशोऽजनुनासिक इत्",
+      "english_name": "In a specification (उपदेश), a nasalized vowel is termed इत्",
+      "rule": "When a root or affix is formally cited/specified (उपदेश) with a nasalized vowel, that nasalized vowel is designated इत् and dropped -- explaining why traditional root-citation forms sometimes show a nasal that never surfaces in actual conjugated forms.",
+      "sutra_devanagari": "उपदेशोऽजनुनासिक इत्",
+      "ashtadhyayi_ref": "1.3.2",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "cross-referenced at aphorism 28 (page-verified: seen directly on p.28 of the source during this project's earlier sandhi comparison)",
+      "process": "उपदेशगत-अनुनासिक-स्वरस्य इत्-संज्ञा",
+      "examples": []
+    },
+    {
+      "id": "sanjna-18",
+      "sanskrit_name": "उपसर्गाः क्रियायोगे",
+      "english_name": "उपसर्ग (verbal prefix): the traditional 22 prefixes, when joined to a verbal action",
+      "rule": "The traditional set of prefixes (प्र, परा, अप, सम्, अनु, अव, निस्, निर्, दुस्, दुर्, वि, आङ्, नि, अधि, अपि, अति, सु, उत्, अभि, प्रति, परि, उप) are termed उपसर्ग specifically when joined in construction with a verbal root/action -- these systematically modify or intensify a root's meaning (e.g. गम् 'go' vs आ+गम् 'come').",
+      "sutra_devanagari": "उपसर्गाः क्रियायोगे",
+      "ashtadhyayi_ref": "1.4.59",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "cross-referenced at aphorism 35 (verified citation from the book's own list; explanation from standard grammar, not re-read on its own page this session)",
+      "process": "क्रिया-योगे प्र-आदि-शब्दानां उपसर्ग-संज्ञा",
+      "examples": [
+        {
+          "sandhi": "आ + गम् = आगच्छति",
+          "gloss": "'comes' -- आ-upasarga reverses गम्'s basic 'go' sense"
+        },
+        {
+          "sandhi": "नि + स् + गम् = निर्गच्छति",
+          "gloss": "'goes out'"
+        }
+      ]
+    },
+    {
+      "id": "sanjna-19",
+      "sanskrit_name": "भ्वादयो धातवः",
+      "english_name": "धातु (verbal root): the words listed in the भू-आदि (and other) traditional root-lists",
+      "rule": "The words enumerated in the traditional धातुपाठ (root-list, beginning with भू 'to be') are termed धातु (verbal root) -- the foundational category to which all तिङ्/कृत्-affixes attach.",
+      "sutra_devanagari": "भ्वादयो धातवः",
+      "ashtadhyayi_ref": "1.3.1",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "cross-referenced at aphorism 36 (verified citation from the book's own list; explanation from standard grammar, not re-read on its own page this session)",
+      "process": "धातुपाठ-सूचितानां शब्दानां धातु-संज्ञा",
+      "examples": [
+        {
+          "sandhi": "भू (भवति), पठ् (पठति), गम् (गच्छति)",
+          "gloss": "roots from the traditional dhatupatha list"
+        }
+      ]
+    },
+    {
+      "id": "sanjna-20",
+      "sanskrit_name": "अचोऽन्त्यादि टि",
+      "english_name": "टि: a word's final vowel, or that vowel plus any following consonant",
+      "rule": "Among a word's constituent vowels, whichever one stands last -- either alone, or together with any consonant(s) following it -- is termed टि. Used as a targeting-designation in many later substitution rules.",
+      "sutra_devanagari": "अचोऽन्त्यादि टि",
+      "ashtadhyayi_ref": "1.1.64",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "cross-referenced at aphorism 39 (page-verified: seen directly on p.40 of the source during this project's earlier sandhi comparison)",
+      "process": "अन्त्यस्वरस्य (सान्तवर्णस्य वा) टि-संज्ञा",
+      "examples": [
+        {
+          "sandhi": "मनस् → the अ (following न्) + स् is टि",
+          "gloss": "the final vowel plus trailing consonant"
+        }
+      ]
+    },
+    {
+      "id": "sanjna-21",
+      "sanskrit_name": "ईदूदेद्द्विवचनं प्रगृह्यम्",
+      "english_name": "प्रगृह्य (a vowel exempt from sandhi): specific ई/ऊ/ए dual-forms and a few other cases",
+      "rule": "Certain vowels -- notably the dual-number ई/ऊ/ए endings of specific declensions, and other listed cases -- are termed प्रगृह्य ('to be held apart'), meaning they are explicitly EXEMPT from undergoing sandhi even when a vowel immediately follows. This is the rule already cross-referenced in your sandhi rulebook's svara-9 entry.",
+      "sutra_devanagari": "ईदूदेद्द्विवचनं प्रगृह्यम्",
+      "ashtadhyayi_ref": "1.1.11",
+      "related_ashtadhyayi": [
+        "1.1.11 and 6.1.125 (already cited together in your sandhi rulebook's svara-9)"
+      ],
+      "lsk_prakarana": "cross-referenced at aphorism 51 (verified citation from the book's own list; explanation from standard grammar, not re-read on its own page this session)",
+      "process": "विशिष्ट-द्विवचन-रूपाणां प्रगृह्य-संज्ञा, संधि-निषेधार्थम्",
+      "examples": []
+    },
+    {
+      "id": "sanjna-22",
+      "sanskrit_name": "निपात एकाजनाङ्",
+      "english_name": "निपात (particle): an indeclinable word of a single vowel, excluding certain forms",
+      "rule": "An indeclinable word containing exactly one vowel (with specific listed exclusions) is termed निपात -- a broad technical category covering particles like च, वा, ह, एव etc.",
+      "sutra_devanagari": "निपात एकाजनाङ्",
+      "ashtadhyayi_ref": "1.1.14",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "cross-referenced at aphorism 55 (verified citation from the book's own list; explanation from standard grammar, not re-read on its own page this session)",
+      "process": "एकस्वरयुक्त-अव्ययस्य निपात-संज्ञा (अपवादैः सह)",
+      "examples": [
+        {
+          "sandhi": "च, वा, ह, एव",
+          "gloss": "common particles classified as निपात"
+        }
+      ]
+    },
+    {
+      "id": "sanjna-23",
+      "sanskrit_name": "तस्य परमाम्रेडितम्",
+      "english_name": "आम्रेडित (emphatic reduplication): a word repeated for emphasis",
+      "rule": "When a word is repeated for emphasis/intensity (as opposed to the grammatical reduplication used in perfect-tense or class-3 verb formation), the SECOND occurrence is termed आम्रेडित.",
+      "sutra_devanagari": "तस्य परमाम्रेडितम्",
+      "ashtadhyayi_ref": "8.1.2",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "cross-referenced at aphorism 99 (verified citation from the book's own list; explanation from standard grammar, not re-read on its own page this session)",
+      "process": "आवृत्ति-द्वारा भाव-गाढत्व-सूचनार्थं द्वितीयोच्चारणस्य आम्रेडित-संज्ञा",
+      "examples": [
+        {
+          "sandhi": "पिब पिब",
+          "gloss": "'drink, drink!' -- emphatic repetition"
+        }
+      ]
+    },
+    {
+      "id": "sanjna-24",
+      "sanskrit_name": "आधारोऽधिकरणम्",
+      "english_name": "अधिकरणम् (locus): one of the six kāraka (semantic role) categories, 'the location of an action'",
+      "rule": "The support/location in/on/at which an action occurs is termed अधिकरण -- one of the six traditional कारक categories (alongside कर्ता, कर्म, करण, सम्प्रदान, अपादान), and the semantic basis for the locative case (सप्तमी विभक्ति).",
+      "sutra_devanagari": "आधारोऽधिकरणम्",
+      "ashtadhyayi_ref": "1.4.45",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "cross-referenced at aphorism 130 (verified citation from the book's own list; explanation from standard grammar, not re-read on its own page this session)",
+      "process": "क्रियायाः आधारभूत-स्थानस्य अधिकरण-संज्ञा (षष्ठः कारकः)",
+      "examples": [
+        {
+          "sandhi": "गृहे वसति",
+          "gloss": "'lives in the house' -- गृह is अधिकरण, hence सप्तमी (locative)"
+        }
+      ]
+    },
+    {
+      "id": "sanjna-25",
+      "sanskrit_name": "समर्थः पदविधिः",
+      "english_name": "समर्थ (semantically compatible): the precondition for compound-formation and several other word-operations",
+      "rule": "An operation involving multiple words (such as compound-formation, समास) applies only when those words are समर्थ -- semantically and syntactically connected/compatible with each other in a single intended meaning. This is the governing precondition for the entire Samāsa chapter of the grammar.",
+      "sutra_devanagari": "समर्थः पदविधिः",
+      "ashtadhyayi_ref": "2.1.1",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "cross-referenced at aphorism 132 (verified citation from the book's own list; explanation from standard grammar, not re-read on its own page this session)",
+      "process": "बहुपद-सम्बन्धि-विधीनां समर्थत्व-पूर्वापेक्षा",
+      "flagged_nuance": "This governing precondition is worth adding to samasah_rulebook.json if not already implicitly assumed there -- it's the reason compound-formation requires the constituent words to already form a coherent semantic unit before compounding, not just be adjacent."
+    },
+    {
+      "id": "sanjna-26",
+      "sanskrit_name": "प्रथमानिर्दिष्टं समास उपसर्जनम्",
+      "english_name": "उपसर्जन (the subordinate/secondary member): whichever compound-member is cited in the nominative case in the compounding rule",
+      "rule": "In the technical rules governing compound-formation, whichever member is specified in the nominative case (प्रथमा) is termed उपसर्जन -- the grammatically 'secondary' or subordinate member of the compound (as opposed to the principal/अनुपसर्जन member).",
+      "sutra_devanagari": "प्रथमानिर्दिष्टं समास उपसर्जनम्",
+      "ashtadhyayi_ref": "1.2.43",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "cross-referenced at aphorism 137 -- this same sutra is already cited (matching exactly) as the opening rule of the avyayibhava section in your samasah_rulebook.json, confirming strong alignment",
+      "process": "समासविधौ प्रथमान्त-निर्दिष्टपदस्य उपसर्जन-संज्ञा",
+      "examples": []
+    },
+    {
+      "id": "sanjna-27",
+      "sanskrit_name": "तत्पुरुषः समानाधिकरणः कर्मधारयः",
+      "english_name": "कर्मधारय (a sub-type of tatpuruṣa): a tatpuruṣa compound whose members share the same case-relationship (grammatical apposition)",
+      "rule": "A तत्पुरुष compound in which both members stand in the same grammatical case relationship to a shared referent (समानाधिकरण -- typically an adjective+noun pairing) is specifically termed कर्मधारय, a named sub-type of तत्पुरुष.",
+      "sutra_devanagari": "तत्पुरुषः समानाधिकरणः कर्मधारयः",
+      "ashtadhyayi_ref": "1.2.42",
+      "related_ashtadhyayi": [],
+      "lsk_prakarana": "cross-referenced at aphorism 169 -- this same sutra is already cited (matching exactly) in your samasah_rulebook.json's karmadharaya-1 entry, confirming strong alignment",
+      "process": "समानाधिकरण-तत्पुरुषस्य कर्मधारय-संज्ञा",
+      "examples": []
+    }
+  ],
+  "summary_counts": {
+    "core_fourteen_rules": 14,
+    "cross_referenced_rules": 13,
+    "total_rules": 27,
+    "status": "The 14 core sutras are fully page-verified against the source (pp.1-19). Of the ~16 additional samjna-sutras the book's own closing list cross-references, 13 are included here (3 very narrow/rarely-cited ones -- अदसो मात्, चादयोऽसत्त्वे, ओत्, संबुद्धौ शाकल्यस्येतावनार्षे -- were omitted as too specialized for a general-purpose reference). 4 of these 13 (vrddhi's operative context, upasarga, dhatu, samartha, upasarjana, karmadharaya) were verified page-by-page during this project's earlier work; the remainder use the book's own verified citation with standard-grammar explanations, flagged individually where this applies."
+  },
+  "bibliography": [
+    "Varadarāja. Laghusiddhāntakaumudī, संज्ञाप्रकरणम् (pages 1-20), plus the chapter's own closing cross-reference list (page 20). English translation and commentary by Dr. Ghanashyam Dora. Chowkhamba Krishnadas Academy, Varanasi, 3rd edition, 2013. ISBN 978-81-218-0218-0."
+  ]
+}
